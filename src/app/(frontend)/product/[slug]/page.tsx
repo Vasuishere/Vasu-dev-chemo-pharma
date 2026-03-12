@@ -14,8 +14,13 @@ export const revalidate = 60;
 
 /* ─── Static params for all products ─────────────────────────── */
 export async function generateStaticParams() {
-  const slugs = await getAllProductSlugs();
-  return slugs.map((slug) => ({ slug }));
+  try {
+    const slugs = await getAllProductSlugs();
+    return slugs.map((slug) => ({ slug }));
+  } catch {
+    // DB unavailable at build time — pages will be generated on-demand via ISR
+    return [];
+  }
 }
 
 /* ─── Dynamic SEO metadata per product ──────────────────────────── */

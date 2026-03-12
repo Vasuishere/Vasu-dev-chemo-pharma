@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import SectionLabel from "@/components/SectionLabel";
 import Button from "@/components/Button";
 import { getAllProducts } from "@/lib/products-payload";
+import { products as staticProducts } from "@/lib/products";
 import { CATEGORY_LABELS, Product } from "@/lib/types";
 
 export const revalidate = 60;
@@ -27,7 +28,12 @@ function groupByCategory(products: Product[]) {
 }
 
 export default async function ProductPage() {
-  const products = await getAllProducts();
+  let products: Product[];
+  try {
+    products = await getAllProducts();
+  } catch {
+    products = staticProducts;
+  }
   const grouped = groupByCategory(products);
 
   return (

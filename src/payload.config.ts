@@ -22,6 +22,8 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URI,
       max: 1,
+      connectionTimeoutMillis: 5000,
+      idleTimeoutMillis: 10000,
     },
   }),
   sharp,

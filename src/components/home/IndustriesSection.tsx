@@ -1,0 +1,121 @@
+import Image from "next/image";
+import SectionLabel from "@/components/SectionLabel";
+
+const industries = [
+  {
+    title: "Oil & Gas",
+    description:
+      "Industrial chemicals and H2S scavengers for oil & gas extraction, refining, and processing.",
+    image: "https://framerusercontent.com/images/yHbIIVOj7hK29ucygE5eIDV47I.jpg",
+    icon: "https://framerusercontent.com/images/bWWmYghlGrjGsS6uGMAjDrFi0.svg",
+    features: [
+      "MEA Triazine H2S scavengers",
+      "Caustic soda & soda ash supply",
+      "Corrosion inhibitor chemicals",
+    ],
+  },
+  {
+    title: "Lubricant Manufacturing",
+    description:
+      "Specialty chemicals for lubricant formulation, blending, and additive manufacturing.",
+    image: "https://framerusercontent.com/images/yHbIIVOj7hK29ucygE5eIDV47I.jpg",
+    icon: "https://framerusercontent.com/images/bWWmYghlGrjGsS6uGMAjDrFi0.svg",
+    features: [
+      "Zinc oxide & stearic acid",
+      "Calcium carbonate fillers",
+      "Specialty additive chemicals",
+    ],
+  },
+  {
+    title: "Water Treatment",
+    description:
+      "Treatment chemicals for waste water management, purification, and industrial water systems.",
+    image: "https://framerusercontent.com/images/yHbIIVOj7hK29ucygE5eIDV47I.jpg",
+    icon: "https://framerusercontent.com/images/bWWmYghlGrjGsS6uGMAjDrFi0.svg",
+    features: [
+      "Sodium metabisulphite supply",
+      "Hydrated lime & caustic soda",
+      "pH balancing chemicals",
+    ],
+  },
+  {
+    title: "Paper Mill",
+    description:
+      "Chemical solutions for paper manufacturing, bleaching, and pulp processing industries.",
+    image: "https://framerusercontent.com/images/yHbIIVOj7hK29ucygE5eIDV47I.jpg",
+    icon: "https://framerusercontent.com/images/bWWmYghlGrjGsS6uGMAjDrFi0.svg",
+    features: [
+      "Sodium sulphate & soda ash",
+      "Titanium dioxide for coating",
+      "Calcium carbonate fillers",
+    ],
+  },
+];
+
+export default function IndustriesSection() {
+  return (
+    <section className="py-20 lg:py-32 bg-light">
+      <div className="max-w-container mx-auto px-6 lg:px-10">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <SectionLabel>Serving key industries</SectionLabel>
+          <h2 className="font-heading text-h2 font-semibold text-primary mt-4">
+            Chemical solutions for every industry
+          </h2>
+        </div>
+
+        {/* Industry Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {industries.map((industry) => (
+            <div
+              key={industry.title}
+              className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow"
+            >
+              {/* Image */}
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src={industry.image}
+                  alt={industry.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              {/* Content */}
+              <div className="p-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <Image
+                    src={industry.icon}
+                    alt="Industry Icon"
+                    width={18}
+                    height={21}
+                  />
+                  <h4 className="font-heading text-lg font-semibold text-primary">
+                    {industry.title}
+                  </h4>
+                </div>
+                <p className="text-sm text-secondary mb-4">
+                  {industry.description}
+                </p>
+                <div className="space-y-2">
+                  {industry.features.map((feature) => (
+                    <div key={feature} className="flex items-center gap-2">
+                      <Image
+                        src="https://framerusercontent.com/images/nfR4iB5cTWHHV0q6ZNSUKbFw.svg"
+                        alt="List Icon"
+                        width={15}
+                        height={10}
+                        className="flex-shrink-0"
+                      />
+                      <span className="text-sm text-secondary">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

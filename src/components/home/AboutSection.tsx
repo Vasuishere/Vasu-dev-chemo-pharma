@@ -1,0 +1,139 @@
+import Image from "next/image";
+import Button from "@/components/Button";
+import SectionLabel from "@/components/SectionLabel";
+
+const avatars = [
+  "https://framerusercontent.com/images/4joakeBMa5GHrq9uyQPg0bnmko.png",
+  "https://framerusercontent.com/images/HfRFaPjzU8WCChxWa4MmTB1BWg.png",
+  "https://framerusercontent.com/images/atqhDfm1Q5VKmWwNHnp8Cl7GHo.png",
+  "https://framerusercontent.com/images/crOykN7l4AlMK9acNXCVRzJmcg.png",
+];
+
+export default function AboutSection() {
+  return (
+    <section id="about" className="py-20 lg:py-32">
+      <div className="max-w-container mx-auto px-6 lg:px-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          {/* Left Column */}
+          <div>
+            <SectionLabel>Who we are</SectionLabel>
+
+            {/* Team avatars */}
+            <div className="flex items-center gap-4 mt-8">
+              <div className="flex -space-x-3">
+                {avatars.map((src, i) => (
+                  <Image
+                    key={i}
+                    src={src}
+                    alt="Avatar"
+                    width={40}
+                    height={40}
+                    className="w-10 h-10 rounded-full border-2 border-white"
+                  />
+                ))}
+                <div className="w-10 h-10 rounded-full bg-accent text-white text-xs font-bold flex items-center justify-center border-2 border-white">
+                  10+
+                </div>
+              </div>
+              <p className="text-sm text-secondary">
+                Team of passionate professionals
+              </p>
+            </div>
+          </div>
+
+          {/* Right Column */}
+          <div>
+            <h2 className="font-heading text-h2 font-semibold text-primary mb-6">
+              Driven by quality, backed by 8+ years of experience, focused on
+              chemical manufacturing excellence
+            </h2>
+            <p className="text-secondary text-base leading-relaxed mb-8">
+              VasuDev Chemo Pharma is an ISO 9001:2015 certified industrial &amp;
+              specialty chemical manufacturer based in Gujarat, India. We supply
+              28+ chemical products globally — direct from the manufacturer,
+              eliminating middlemen and ensuring competitive pricing with
+              reliable shipping.
+            </p>
+            <div className="flex flex-wrap items-center gap-4">
+              <Button href="/about">Learn more about us</Button>
+              <a
+                href="https://framerusercontent.com/assets/v9AJ9QDAVxlfeZvrmT5L6X1m3I.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-accent transition-colors"
+              >
+                <Image
+                  src="https://framerusercontent.com/images/ss0bmyns6jeXRaMshGzNYH68.svg"
+                  alt="Icon"
+                  width={20}
+                  height={20}
+                />
+                Download brochure
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Stats */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20">
+          {/* Stat 1 */}
+          <div className="bg-light rounded-3xl p-8">
+            <Image
+              src="https://framerusercontent.com/images/GhFAf9Nzk8NxLNAoAlvgFnivlg.svg"
+              alt="About Logo"
+              width={120}
+              height={16}
+              className="mb-6 opacity-40"
+            />
+            <h3 className="font-heading text-h2 font-semibold text-primary">
+              28+
+            </h3>
+            <p className="text-secondary text-sm mt-2">
+              Chemical products exported to buyers across Gulf countries, USA, Middle East, Africa & Southeast Asia
+            </p>
+            <div className="flex items-center gap-2 mt-4">
+              <span className="font-heading text-h3 font-semibold">4.9</span>
+              <span className="text-sm text-secondary">/5.0</span>
+              <Image
+                src="https://framerusercontent.com/images/vLIB1zDP4bI0m0N2PXLiIxcw5Y.svg"
+                alt="Review Star"
+                width={95}
+                height={14}
+                className="ml-2"
+              />
+            </div>
+          </div>
+
+          {/* Stat 2 - Image */}
+          <div className="rounded-3xl overflow-hidden relative min-h-[300px]">
+            <Image
+              src="https://framerusercontent.com/images/4hIoQd7fUjgL9EiEVuQro0eTrfc.webp"
+              alt="About Step Image"
+              fill
+              className="object-cover"
+            />
+          </div>
+
+          {/* Stat 3 */}
+          <div className="bg-dark text-white rounded-3xl p-8">
+            <p className="text-sm text-white/60 tracking-widest uppercase mb-4">
+              {"// 2017-2026 //"}
+            </p>
+            <h3 className="font-heading text-h2 font-semibold">8+</h3>
+            <p className="text-white/60 text-sm mt-2">
+              Years of delivering consistent chemical manufacturing excellence.
+            </p>
+            <div className="mt-6 rounded-2xl overflow-hidden relative w-24 h-32">
+              <Image
+                src="https://framerusercontent.com/images/7deJkILirgC0DVZq9WujKIpwKY.png"
+                alt="About Image"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

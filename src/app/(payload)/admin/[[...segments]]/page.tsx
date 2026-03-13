@@ -10,6 +10,8 @@ type Args = {
   searchParams: Promise<{ [key: string]: string | string[] }>;
 };
 
+export const preferredRegion = "bom1";
+
 export const generateMetadata = ({
   params,
   searchParams,

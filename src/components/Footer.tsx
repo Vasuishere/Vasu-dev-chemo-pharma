@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { getCompanyInfo } from "@/lib/company";
 
 const footerLinks1 = [
   { label: "Home", href: "/" },
@@ -34,7 +35,9 @@ const socialLinks = [
   },
 ];
 
-export default function Footer() {
+export default async function Footer() {
+  const company = await getCompanyInfo();
+
   return (
     <footer className="bg-dark text-white">
       <div className="max-w-container mx-auto px-6 lg:px-10 pt-16 pb-6">
@@ -92,32 +95,35 @@ export default function Footer() {
             </h3>
             <div className="flex flex-col gap-3">
               <p className="text-sm text-white/60">
-                F-29, Plot No. 328/329, Near Asian Paint Circle, G.I.D.C, Ankleshwar, Gujarat, 393002 - India
+                {company.address}
               </p>
               <h3 className="font-heading text-lg font-semibold mb-4">
               Mobile Numbers
             </h3>
-              <p className="text-sm text-white/60">
-                Mobile No: +91 8128372559 - Sales Enquiries
-              </p>
-              <p className="text-sm text-white/60">
-                Mobile No: +91 98988 37713 - General Enquiries
-              </p>
+              {(company.phoneNumbers || []).map((phone) => (
+                <p key={`${phone.label}-${phone.number}`} className="text-sm text-white/60">
+                  Mobile No: {phone.number} - {phone.label}
+                </p>
+              ))}
               <h3 className="font-heading text-lg font-semibold mb-4">
               Emails 
             </h3>
-              <a
-                href="mailto:export@vasudevchemopharma.com"
-                className="text-sm text-white/60 hover:text-white transition-colors"
-              >
-                export@vasudevchemopharma.com
-              </a>
-              <a
-                href="mailto:info@vasudevchemopharma.com"
-                className="text-sm text-white/60 hover:text-white transition-colors"
-              >
-                info@vasudevchemopharma.com
-              </a>
+              {company.primaryEmail ? (
+                <a
+                  href={`mailto:${company.primaryEmail}`}
+                  className="text-sm text-white/60 hover:text-white transition-colors"
+                >
+                  {company.primaryEmail}
+                </a>
+              ) : null}
+              {company.secondaryEmail ? (
+                <a
+                  href={`mailto:${company.secondaryEmail}`}
+                  className="text-sm text-white/60 hover:text-white transition-colors"
+                >
+                  {company.secondaryEmail}
+                </a>
+              ) : null}
             </div>
           </div>
 
@@ -128,12 +134,12 @@ export default function Footer() {
             </h3>
             <div className="flex flex-col gap-3">
               <p className="text-sm text-white/60">
-                Mon to Fri: 9:00am - 6:00pm
+                Mon to Fri: {company.workingHours?.monToFri ?? "-"}
               </p>
               <p className="text-sm text-white/60">
-                Saturday: 9:00am - 4:00pm
+                Saturday: {company.workingHours?.saturday ?? "-"}
               </p>
-              <p className="text-sm text-white/60">Sunday: Closed</p>
+              <p className="text-sm text-white/60">Sunday: {company.workingHours?.sunday ?? "-"}</p>
             </div>
           </div>
         </div>
@@ -141,7 +147,7 @@ export default function Footer() {
         {/* Bottom section */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8">
           <p className="text-sm text-white/40">
-            &copy; {new Date().getFullYear()} Vasudev Chemo Pharma. All rights reserved. Designed by{" "}
+            &copy; {new Date().getFullYear()} {company.companyName || "-"}. All rights reserved. Designed by{" "}
             <a
               href="https://www.linkedin.com/in/vaibhav-lohiya-354646221/"
               target="_blank"

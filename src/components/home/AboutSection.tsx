@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Button from "@/components/Button";
 import SectionLabel from "@/components/SectionLabel";
+import { getCompanyInfo } from "@/lib/company";
 
 const avatars = [
   "https://framerusercontent.com/images/4joakeBMa5GHrq9uyQPg0bnmko.png",
@@ -9,7 +10,23 @@ const avatars = [
   "https://framerusercontent.com/images/crOykN7l4AlMK9acNXCVRzJmcg.png",
 ];
 
-export default function AboutSection() {
+export default async function AboutSection() {
+  const company = await getCompanyInfo();
+  const companyName = company.companyName || "Our company";
+  const companyAddress = company.address || "";
+  const brochureUrl = company.brochureUrl?.trim();
+  const currentYear = new Date().getFullYear();
+  const hasValidFoundingYear =
+    typeof company.foundingYear === "number" &&
+    company.foundingYear > 1900 &&
+    company.foundingYear <= currentYear;
+  const derivedStartYear =
+    typeof company.yearsOfExperience === "number" && company.yearsOfExperience > 0
+      ? currentYear - company.yearsOfExperience
+      : currentYear;
+  const startYear = hasValidFoundingYear ? company.foundingYear : derivedStartYear;
+  const experiencePeriodLabel = `// ${startYear} - ${currentYear} //`;
+
   return (
     <section id="about" className="py-20 lg:py-32">
       <div className="max-w-container mx-auto px-6 lg:px-10">
@@ -44,32 +61,34 @@ export default function AboutSection() {
           {/* Right Column */}
           <div>
             <h2 className="font-heading text-h2 font-semibold text-primary mb-6">
-              Driven by quality, backed by 8+ years of experience, focused on
+              Driven by quality, backed by {company.yearsOfExperience}+ years of experience, focused on
               chemical manufacturing excellence
             </h2>
             <p className="text-secondary text-base leading-relaxed mb-8">
-              VasuDev Chemo Pharma is an ISO 9001:2015 certified industrial &amp;
-              specialty chemical manufacturer based in Gujarat, India. We supply
+              {companyName} is an ISO 9001:2015 certified industrial &amp;
+              specialty chemical manufacturer{companyAddress ? ` based in ${companyAddress}` : ""}. We supply
               28+ chemical products globally — direct from the manufacturer,
               eliminating middlemen and ensuring competitive pricing with
               reliable shipping.
             </p>
             <div className="flex flex-wrap items-center gap-4">
               <Button href="/about">Learn more about us</Button>
-              <a
-                href="https://framerusercontent.com/assets/v9AJ9QDAVxlfeZvrmT5L6X1m3I.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-accent transition-colors"
-              >
-                <Image
-                  src="https://framerusercontent.com/images/ss0bmyns6jeXRaMshGzNYH68.svg"
-                  alt="Icon"
-                  width={20}
-                  height={20}
-                />
-                Download brochure
-              </a>
+              {brochureUrl ? (
+                <a
+                  href={brochureUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-accent transition-colors"
+                >
+                  <Image
+                    src="https://framerusercontent.com/images/ss0bmyns6jeXRaMshGzNYH68.svg"
+                    alt="Icon"
+                    width={20}
+                    height={20}
+                  />
+                  Download brochure
+                </a>
+              ) : null}
             </div>
           </div>
         </div>
@@ -117,9 +136,9 @@ export default function AboutSection() {
           {/* Stat 3 */}
           <div className="bg-dark text-white rounded-3xl p-8">
             <p className="text-sm text-white/60 tracking-widest uppercase mb-4">
-              {"// 2017-2026 //"}
+              {experiencePeriodLabel}
             </p>
-            <h3 className="font-heading text-h2 font-semibold">8+</h3>
+            <h3 className="font-heading text-h2 font-semibold">{company.yearsOfExperience}+</h3>
             <p className="text-white/60 text-sm mt-2">
               Years of delivering consistent chemical manufacturing excellence.
             </p>

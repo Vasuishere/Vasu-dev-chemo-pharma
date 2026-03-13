@@ -26,11 +26,24 @@ export interface ProductFAQ {
   answer: string;
 }
 
+export interface QuickImageUrl {
+  url: string;
+  alt?: string;
+  isPrimary?: boolean;
+}
+
+export interface QuickDocumentUrl {
+  url: string;
+  docType?: string;
+  fileName?: string;
+}
+
 export interface Product {
   // Identity
   id: number;
   name: string;
   slug: string;
+  productPriority?: number;
   sku: string;
   formula: string;
   casNumber: string;
@@ -76,7 +89,11 @@ export interface Product {
   supplier: string;
 
   // Media
+  imageUrl?: string;
+  documentUrl?: string;
   images: ProductImage[];
+  imageDriveUrls?: QuickImageUrl[];
+  documentDriveUrls?: QuickDocumentUrl[];
 
   // Status
   status: ProductStatus;

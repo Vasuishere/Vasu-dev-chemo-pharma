@@ -5,6 +5,7 @@ import Button from "@/components/Button";
 import { getAllProducts } from "@/lib/products-payload";
 import { products as staticProducts } from "@/lib/products";
 import { CATEGORY_LABELS, Product } from "@/lib/types";
+import { getCategoryPriorityMap } from "@/lib/product-sequencing";
 
 export const revalidate = 60;
 
@@ -29,12 +30,35 @@ function groupByCategory(products: Product[]) {
 
 export default async function ProductPage() {
   let products: Product[];
+  let categoryPriorityMap: Record<string, number> = {};
+  try {
+    categoryPriorityMap = await getCategoryPriorityMap();
+  } catch (error) {
+    console.error("Failed to load category priorities:", error);
+    categoryPriorityMap = {};
+  }
   try {
     products = await getAllProducts();
   } catch {
     products = staticProducts;
   }
-  const grouped = groupByCategory(products);
+
+  const sortedProducts = [...products].sort((a, b) => {
+    const aPriority = typeof a.productPriority === "number" ? a.productPriority : 100;
+    const bPriority = typeof b.productPriority === "number" ? b.productPriority : 100;
+    if (aPriority !== bPriority) return aPriority - bPriority;
+    return a.name.localeCompare(b.name);
+  });
+
+  const grouped = groupByCategory(sortedProducts);
+  const orderedGroups = Object.entries(grouped).sort(([aLabel, aProducts], [bLabel, bProducts]) => {
+    const aCategory = aProducts[0]?.category;
+    const bCategory = bProducts[0]?.category;
+    const aPriority = aCategory ? categoryPriorityMap[aCategory] ?? 100 : 100;
+    const bPriority = bCategory ? categoryPriorityMap[bCategory] ?? 100 : 100;
+    if (aPriority !== bPriority) return aPriority - bPriority;
+    return aLabel.localeCompare(bLabel);
+  });
 
   return (
     <main>
@@ -58,7 +82,7 @@ export default async function ProductPage() {
       </section>
 
       {/* Product Grid by Category */}
-      {Object.entries(grouped).map(([categoryLabel, categoryProducts]) => (
+      {orderedGroups.map(([categoryLabel, categoryProducts]) => (
         <section key={categoryLabel} className="pb-16">
           <div className="max-w-container mx-auto px-6 lg:px-10">
             <h2 className="font-heading text-h3 font-semibold text-primary mb-8">

@@ -22,10 +22,11 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URI,
       max: 1,
-      connectionTimeoutMillis: 30000,
-      idleTimeoutMillis: 60000,
-      ssl: process.env.NODE_ENV === "production" ? { rejectUnauthorized: false } : undefined,
+      connectionTimeoutMillis: 10000,
+      idleTimeoutMillis: 10000,
+      ssl: { rejectUnauthorized: false },
     },
+    disableCreateDatabase: true,
   }),
   sharp,
   admin: {

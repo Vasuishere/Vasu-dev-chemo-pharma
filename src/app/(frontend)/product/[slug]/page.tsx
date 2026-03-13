@@ -29,32 +29,36 @@ export async function generateMetadata({
 }: {
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
-  const product = await getProductBySlug(slug);
-  if (!product) return {};
+  try {
+    const { slug } = await params;
+    const product = await getProductBySlug(slug);
+    if (!product) return {};
 
-  const title =
-    product.metaTitle ||
-    `${product.name}${product.casNumber ? ` (CAS ${product.casNumber})` : ""} — ${CATEGORY_LABELS[product.category]} | VasuDev Chemo Pharma`;
+    const title =
+      product.metaTitle ||
+      `${product.name}${product.casNumber ? ` (CAS ${product.casNumber})` : ""} — ${CATEGORY_LABELS[product.category]} | VasuDev Chemo Pharma`;
 
-  const description =
-    product.metaDescription ||
-    `Buy ${product.name}${product.casNumber ? ` (CAS ${product.casNumber})` : ""} from VasuDev Chemo Pharma — ISO 9001:2015 certified manufacturer in Gujarat, India. Export-ready packaging. Request a quote today.`;
+    const description =
+      product.metaDescription ||
+      `Buy ${product.name}${product.casNumber ? ` (CAS ${product.casNumber})` : ""} from VasuDev Chemo Pharma — ISO 9001:2015 certified manufacturer in Gujarat, India. Export-ready packaging. Request a quote today.`;
 
-  return {
-    title,
-    description,
-    alternates: {
-      canonical: `https://vasudevchemopharma.com/product/${product.slug}`,
-    },
-    openGraph: {
+    return {
       title,
       description,
-      url: `https://vasudevchemopharma.com/product/${product.slug}`,
-      type: "website",
-      siteName: "VasuDev Chemo Pharma",
-    },
-  };
+      alternates: {
+        canonical: `https://vasudevchemopharma.com/product/${product.slug}`,
+      },
+      openGraph: {
+        title,
+        description,
+        url: `https://vasudevchemopharma.com/product/${product.slug}`,
+        type: "website",
+        siteName: "VasuDev Chemo Pharma",
+      },
+    };
+  } catch {
+    return {};
+  }
 }
 
 /* ─── JSON-LD structured data ───────────────────────────────────── */

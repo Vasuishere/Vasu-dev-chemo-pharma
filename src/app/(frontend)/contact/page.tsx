@@ -1,7 +1,6 @@
-"use client";
-
-import { useState } from "react";
 import Image from "next/image";
+import ContactForm from "@/components/contact/ContactForm";
+import { getCompanyInfo } from "@/lib/company";
 
 const clientLogos = [
   "https://framerusercontent.com/images/XWAlPb58nstaS4Qe2V64MPJ3oEg.svg",
@@ -14,13 +13,9 @@ const clientLogos = [
   "https://framerusercontent.com/images/wiofWjcMmYrLE1oQSPB7XuGaoQE.svg",
 ];
 
-export default function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
-
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setSubmitted(true);
-  }
+export default async function ContactPage() {
+  const company = await getCompanyInfo();
+  const brochureUrl = company.brochureUrl?.trim();
 
   return (
     <main>
@@ -38,21 +33,22 @@ export default function ContactPage() {
                 us anytime — our team is ready to assist with product inquiries,
                 bulk orders, and export requirements.
               </p>
-              <a
-                href="https://framerusercontent.com/assets/v9AJ9QDAVxlfeZvrmT5L6X1m3I.pdf"
-                download
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 mt-6 bg-primary text-white px-6 py-3 rounded-full text-sm font-medium hover:opacity-90 transition-opacity"
-              >
-                Download Brochure
-                <Image
-                  src="https://framerusercontent.com/images/GWsMEVHFHDveouGCfOoMhWpXLA.svg"
-                  alt="Button Icon"
-                  width={18}
-                  height={18}
-                />
-              </a>
+              {brochureUrl ? (
+                <a
+                  href={brochureUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 mt-6 bg-primary text-white px-6 py-3 rounded-full text-sm font-medium hover:opacity-90 transition-opacity"
+                >
+                  Download Brochure
+                  <Image
+                    src="https://framerusercontent.com/images/GWsMEVHFHDveouGCfOoMhWpXLA.svg"
+                    alt="Button Icon"
+                    width={18}
+                    height={18}
+                  />
+                </a>
+              ) : null}
 
               {/* Contact info */}
               <div className="mt-12 space-y-8">
@@ -61,22 +57,31 @@ export default function ContactPage() {
                     {"// Contact us on //"}
                   </p>
                   <div className="space-y-2">
-                    <p>
-                      <a
-                        href="mailto:export@vasudevchemopharma.com"
-                        className="text-primary hover:text-accent transition-colors"
-                      >
-                        export@vasudevchemopharma.com
-                      </a>
-                    </p>
-                    <p>
-                      <a
-                        href="mailto:info@vasudevchemopharma.com"
-                        className="text-primary hover:text-accent transition-colors"
-                      >
-                        info@vasudevchemopharma.com
-                      </a>
-                    </p>
+                    {company.primaryEmail ? (
+                      <p>
+                        <a
+                          href={`mailto:${company.primaryEmail}`}
+                          className="text-primary hover:text-accent transition-colors"
+                        >
+                          {company.primaryEmail}
+                        </a>
+                      </p>
+                    ) : null}
+                    {company.secondaryEmail ? (
+                      <p>
+                        <a
+                          href={`mailto:${company.secondaryEmail}`}
+                          className="text-primary hover:text-accent transition-colors"
+                        >
+                          {company.secondaryEmail}
+                        </a>
+                      </p>
+                    ) : null}
+                    {company.phoneNumbers?.map((phone) => (
+                      <p key={`${phone.label}-${phone.number}`} className="text-primary">
+                        {phone.number} - {phone.label}
+                      </p>
+                    ))}
                   </div>
                 </div>
                 <div>
@@ -84,16 +89,20 @@ export default function ContactPage() {
                     {"// Find us //"}
                   </p>
                   <div className="space-y-2">
-                    <p>
-                      <a
-                        href="https://www.google.com/maps/search/?api=1&query=Gujarat+India+Kandla+Mundra+Hazira+Ports"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-primary hover:text-accent transition-colors"
-                      >
-                        Gujarat, India — Near Kandla, Mundra & Hazira Ports
-                      </a>
-                    </p>
+                    {company.mapUrl ? (
+                      <p>
+                        <a
+                          href={company.mapUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary hover:text-accent transition-colors"
+                        >
+                          {company.address || "Open map"}
+                        </a>
+                      </p>
+                    ) : company.address ? (
+                      <p className="text-primary">{company.address}</p>
+                    ) : null}
                   </div>
                 </div>
               </div>
@@ -101,102 +110,7 @@ export default function ContactPage() {
 
             {/* Right - Form */}
             <div className="relative">
-              <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100">
-                {submitted ? (
-                  <div className="text-center py-12">
-                    <h3 className="font-heading text-h3 font-semibold text-primary mb-2">Thank you!</h3>
-                    <p className="text-secondary">Your message has been sent. We&apos;ll get back to you soon.</p>
-                  </div>
-                ) : (
-                <form
-                  onSubmit={handleSubmit}
-                  className="space-y-5"
-                >
-                  <div>
-                    <label htmlFor="firstName" className="text-sm text-primary font-medium block mb-2">
-                      First name*
-                    </label>
-                    <input
-                      id="firstName"
-                      name="firstName"
-                      type="text"
-                      required
-                      placeholder="Enter your first name"
-                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-accent transition-colors"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="lastName" className="text-sm text-primary font-medium block mb-2">
-                      Last name*
-                    </label>
-                    <input
-                      id="lastName"
-                      name="lastName"
-                      type="text"
-                      required
-                      placeholder="Enter your last name"
-                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-accent transition-colors"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="text-sm text-primary font-medium block mb-2">
-                      Email*
-                    </label>
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      required
-                      placeholder="Enter your email"
-                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-accent transition-colors"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="phone" className="text-sm text-primary font-medium block mb-2">
-                      Phone*
-                    </label>
-                    <input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      required
-                      placeholder="Enter your contact number"
-                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-accent transition-colors"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="subject" className="text-sm text-primary font-medium block mb-2">
-                      Subject
-                    </label>
-                    <input
-                      id="subject"
-                      name="subject"
-                      type="text"
-                      placeholder="Enter topic or subject"
-                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-accent transition-colors"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="text-sm text-primary font-medium block mb-2">
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      placeholder="Tell us about your project"
-                      rows={4}
-                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-accent transition-colors resize-none"
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full bg-accent text-white py-3 rounded-xl font-medium hover:bg-accent-dark transition-colors"
-                  >
-                    Submit details
-                  </button>
-                </form>
-                )}
-              </div>
+              <ContactForm />
             </div>
           </div>
         </div>

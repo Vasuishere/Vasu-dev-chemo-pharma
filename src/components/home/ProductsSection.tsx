@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import SectionLabel from "@/components/SectionLabel";
+import { getCompanyInfo } from "@/lib/company";
 
 const products = [
   {
@@ -33,7 +34,22 @@ const products = [
   },
 ];
 
-export default function ProductsSection() {
+export default async function ProductsSection() {
+  const company = await getCompanyInfo();
+  const brochureUrl = company.brochureUrl?.trim();
+  let safeBrochureUrl: string | null = null;
+
+  if (brochureUrl) {
+    try {
+      const parsedUrl = new URL(brochureUrl);
+      if (parsedUrl.protocol === "http:" || parsedUrl.protocol === "https:") {
+        safeBrochureUrl = parsedUrl.toString();
+      }
+    } catch {
+      safeBrochureUrl = null;
+    }
+  }
+
   return (
     <section className="py-20 lg:py-32 relative overflow-hidden">
       {/* Background texture */}
@@ -128,20 +144,22 @@ export default function ProductsSection() {
             Explore our complete product range across industries.
           </h3>
           <div className="flex items-center gap-4">
-            <a
-              href="https://framerusercontent.com/assets/v9AJ9QDAVxlfeZvrmT5L6X1m3I.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-accent transition-colors"
-            >
-              <Image
-                src="https://framerusercontent.com/images/FMYHIQjdikOhoXe2cvZxTA5KY.svg"
-                alt=""
-                width={19}
-                height={17}
-              />
-              Download brochure
-            </a>
+            {safeBrochureUrl ? (
+              <a
+                href={safeBrochureUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-accent transition-colors"
+              >
+                <Image
+                  src="https://framerusercontent.com/images/FMYHIQjdikOhoXe2cvZxTA5KY.svg"
+                  alt=""
+                  width={19}
+                  height={17}
+                />
+                Download brochure
+              </a>
+            ) : null}
             <Link
               href="/product"
               className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white text-sm font-medium px-6 py-3 rounded-full transition-colors"

@@ -8,6 +8,8 @@ import {
 } from "@/lib/products-payload";
 import { CATEGORY_LABELS } from "@/lib/types";
 import SectionLabel from "@/components/SectionLabel";
+import GoogleDriveImage from "@/components/GoogleDriveImage";
+import { toGoogleDrivePreviewUrl } from "@/lib/gdrive";
 
 /* ─── ISR: revalidate product pages every 60 seconds ────────── */
 export const revalidate = 60;
@@ -161,6 +163,8 @@ export default async function ProductDetailPage({
     product.category,
     3
   );
+  const safeImages = Array.isArray(product.images) ? product.images : [];
+  const safeDocuments = Array.isArray(product.documents) ? product.documents : [];
 
   return (
     <>
@@ -202,10 +206,39 @@ export default async function ProductDetailPage({
 
             {/* Left — Product Image */}
             <div className="bg-light rounded-3xl p-8 flex items-center justify-center min-h-[360px]">
-              {product.images.length > 0 ? (
-                // future: image gallery component
-                <div className="text-center text-gray-400 text-sm">
-                  Product images will render here
+              {product.imageUrl ? (
+                <div className="w-full space-y-4">
+                  <GoogleDriveImage
+                    src={product.imageUrl}
+                    alt={product.name}
+                    width={800}
+                    height={600}
+                    className="w-full rounded-2xl object-contain max-h-[400px]"
+                  />
+                  {safeImages.length > 0 &&
+                    safeImages.map((img, i) => (
+                      <GoogleDriveImage
+                        key={i}
+                        src={img.src}
+                        alt={img.alt}
+                        width={img.width || 800}
+                        height={img.height || 600}
+                        className="w-full rounded-2xl object-contain max-h-[400px]"
+                      />
+                    ))}
+                </div>
+              ) : safeImages.length > 0 ? (
+                <div className="w-full space-y-4">
+                  {safeImages.map((img, i) => (
+                    <GoogleDriveImage
+                      key={i}
+                      src={img.src}
+                      alt={img.alt}
+                      width={img.width || 800}
+                      height={img.height || 600}
+                      className="w-full rounded-2xl object-contain max-h-[400px]"
+                    />
+                  ))}
                 </div>
               ) : (
                 <div className="text-center">
@@ -224,7 +257,7 @@ export default async function ProductDetailPage({
               <SectionLabel>{categoryLabel}</SectionLabel>
 
               {/* H1 — Product Name (SEO critical) */}
-              <h1 className="font-heading text-display text-primary mt-4 mb-3">
+              <h1 className="font-heading text-[clamp(2rem,10vw,5.5rem)] leading-[1.05] [overflow-wrap:anywhere] hyphens-auto text-primary mt-4 mb-3">
                 {product.name}
               </h1>
 
@@ -557,12 +590,28 @@ export default async function ProductDetailPage({
             <h2 className="font-heading text-h3 text-primary mb-6">
               Documents & Downloads
             </h2>
-            {product.documents.length > 0 ? (
+            {safeDocuments.length > 0 || product.documentUrl ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {product.documents.map((doc) => (
+                {product.documentUrl && (
+                  <a
+                    href={toGoogleDrivePreviewUrl(product.documentUrl)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="border border-gray-200 rounded-2xl p-5 hover:border-accent/50 hover:bg-accent/5 transition-all flex items-center gap-4"
+                  >
+                    <svg className="w-8 h-8 text-accent flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                    </svg>
+                    <div>
+                      <p className="text-sm font-semibold text-primary">Product Document</p>
+                      <p className="text-xs text-gray-500 uppercase">Preview</p>
+                    </div>
+                  </a>
+                )}
+                {safeDocuments.map((doc) => (
                   <a
                     key={doc.fileName}
-                    href={doc.fileUrl}
+                    href={toGoogleDrivePreviewUrl(doc.fileUrl)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="border border-gray-200 rounded-2xl p-5 hover:border-accent/50 hover:bg-accent/5 transition-all flex items-center gap-4"

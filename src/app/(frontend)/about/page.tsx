@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SectionLabel from "@/components/SectionLabel";
 import Button from "@/components/Button";
+import { getCompanyInfo } from "@/lib/company";
 
 const avatars = [
   "https://framerusercontent.com/images/4joakeBMa5GHrq9uyQPg0bnmko.png",
@@ -17,7 +18,22 @@ const capabilities = [
   { title: "Quality Testing & Packaging", href: "/service/quality-testing-packaging" },
 ];
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const company = await getCompanyInfo();
+  const companyName = company.companyName || "Our company";
+  const companyAddress = company.address || "";
+  const brochureUrl = company.brochureUrl?.trim();
+  const currentYear = new Date().getFullYear();
+  const hasValidFoundingYear =
+    typeof company.foundingYear === "number" &&
+    company.foundingYear > 1900 &&
+    company.foundingYear <= currentYear;
+  const derivedStartYear =
+    typeof company.yearsOfExperience === "number" && company.yearsOfExperience > 0
+      ? currentYear - company.yearsOfExperience + 1
+      : null;
+  const startYear = hasValidFoundingYear ? company.foundingYear : derivedStartYear;
+
   return (
     <main>
       {/* Hero */}
@@ -51,7 +67,7 @@ export default function AboutPage() {
                   Team of dedicated chemical professionals
                 </p>
               </div>
-              <p className="text-sm text-muted">Gujarat, India</p>
+              <p className="text-sm text-muted">{companyAddress || "-"}</p>
             </div>
           </div>
         </div>
@@ -71,33 +87,35 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
               <p className="text-base text-secondary leading-relaxed">
-                VasuDev Chemo Pharma is an ISO 9001:2015 certified industrial &amp;
-                specialty chemical manufacturer based in Gujarat, India. We
+                {companyName} is an ISO 9001:2015 certified industrial &amp;
+                specialty chemical manufacturer{companyAddress ? ` based in ${companyAddress}` : ""}. We
                 supply 28+ chemical products to buyers across the globe —
                 directly from the manufacturer, ensuring competitive pricing
                 and reliable quality.
               </p>
               <div className="flex flex-wrap items-center gap-4 mt-6">
                 <Button href="/contact">Request a quote</Button>
-                <a
-                  href="https://framerusercontent.com/assets/v9AJ9QDAVxlfeZvrmT5L6X1m3I.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-accent transition-colors"
-                >
-                  <Image
-                    src="https://framerusercontent.com/images/ss0bmyns6jeXRaMshGzNYH68.svg"
-                    alt="Icon"
-                    width={20}
-                    height={20}
-                  />
-                  Download brochure
-                </a>
+                {brochureUrl ? (
+                  <a
+                    href={brochureUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-accent transition-colors"
+                  >
+                    <Image
+                      src="https://framerusercontent.com/images/ss0bmyns6jeXRaMshGzNYH68.svg"
+                      alt="Icon"
+                      width={20}
+                      height={20}
+                    />
+                    Download brochure
+                  </a>
+                ) : null}
               </div>
             </div>
             <div className="flex items-center">
               <p className="font-heading text-h2 font-semibold text-primary opacity-20">
-                SINCE 2017
+                {startYear ? `SINCE ${startYear}` : "SINCE -"}
               </p>
             </div>
           </div>
@@ -116,7 +134,7 @@ export default function AboutPage() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            {/* Left - Founder */}
+            {/* Left - Company Info */}
             <div>
               <div className="flex items-center gap-4 mb-8">
                 <Image
@@ -128,9 +146,13 @@ export default function AboutPage() {
                 />
                 <div>
                   <h3 className="font-heading text-lg font-semibold text-primary">
-                    Vasudev Chemo Pharma
+                    {companyName}
                   </h3>
-                  <p className="text-sm text-secondary">Founded in Gujarat, India</p>
+                  <p className="text-sm text-secondary">
+                    {companyAddress
+                      ? `Founded in ${companyAddress}`
+                      : "Founded location not set"}
+                  </p>
                 </div>
               </div>
 
@@ -138,12 +160,11 @@ export default function AboutPage() {
                 Our story
               </h4>
               <p className="text-secondary leading-relaxed mb-4">
-                VasuDev Chemo Pharma started with a vision to become a trusted
+                {companyName} started with a vision to become a trusted
                 name in the industrial and specialty chemicals industry. Based in
-                Gujarat, India — close to major ports like Kandla, Mundra, and
-                Hazira — we have grown into a reliable supplier of 28+ chemical
-                products serving clients across Gulf countries, USA, Middle East,
-                Africa, and Southeast Asia.
+                {companyAddress || "its operating region"}, we have grown into a
+                reliable supplier of 28+ chemical products serving clients
+                across multiple international markets.
               </p>
               <p className="text-secondary leading-relaxed">
                 What drives us is not just manufacturing chemicals, but

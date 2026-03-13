@@ -7,13 +7,17 @@ import { fileURLToPath } from "url";
 
 import { Products } from "./collections/Products";
 import { Users } from "./collections/Users";
+import { Assets } from "./collections/Assets";
+import { CompanyInfo } from "./globals/CompanyInfo";
+import { ProductSequencing } from "./globals/ProductSequencing";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
 export default buildConfig({
   editor: lexicalEditor(),
-  collections: [Users, Products],
+  collections: [Users, Products, Assets],
+  globals: [CompanyInfo, ProductSequencing],
   secret: process.env.PAYLOAD_SECRET!,
   typescript: {
     outputFile: path.resolve(dirname, "payload-types.ts"),

@@ -24,6 +24,7 @@ export default buildConfig({
       max: 1,
       connectionTimeoutMillis: 30000,
       idleTimeoutMillis: 60000,
+      ssl: process.env.NODE_ENV === "production" ? { rejectUnauthorized: false } : undefined,
     },
   }),
   sharp,

@@ -38,7 +38,7 @@ export default function HeroSection() {
               {"// 8+ YEARS OF EXCELLENCE //"}
             </p>
             <p className="text-black text-base leading-relaxed mb-8">
-              VasuDev Chemo Pharma manufactures and exports industrial &amp;
+              Vasudev Chemo Pharma manufactures and exports industrial &amp;
               specialty chemicals for lubricant, oil &amp; gas, and water
               treatment industries — direct from Gujarat, India.
             </p>

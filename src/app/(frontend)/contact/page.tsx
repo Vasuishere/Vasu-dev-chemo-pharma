@@ -1,6 +1,9 @@
 import Image from "next/image";
+import { headers } from "next/headers";
 import ContactForm from "@/components/contact/ContactForm";
 import { getCompanyInfo } from "@/lib/company";
+
+export const revalidate = 900;
 
 const clientLogos = [
   "https://framerusercontent.com/images/XWAlPb58nstaS4Qe2V64MPJ3oEg.svg",
@@ -16,6 +19,7 @@ const clientLogos = [
 export default async function ContactPage() {
   const company = await getCompanyInfo();
   const brochureUrl = company.brochureUrl?.trim();
+  const nonce = (await headers()).get('x-nonce') || undefined;
 
   return (
     <main>
@@ -110,7 +114,7 @@ export default async function ContactPage() {
 
             {/* Right - Form */}
             <div className="relative">
-              <ContactForm />
+              <ContactForm nonce={nonce} />
             </div>
           </div>
         </div>

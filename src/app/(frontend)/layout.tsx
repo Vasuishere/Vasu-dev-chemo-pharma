@@ -13,9 +13,9 @@ const monaSans = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "VasuDev Chemo Pharma — Industrial, Specialty & Pharmaceutical Chemicals",
+  title: "Vasudev Chemo Pharma — Industrial, Specialty & Pharmaceutical Chemicals",
   description:
-    "VasuDev Chemo Pharma is an ISO 9001:2015 certified manufacturer and exporter of industrial chemicals, specialty chemicals, and pharmaceutical API intermediates from Gujarat, India.",
+    "Vasudev Chemo Pharma is an ISO 9001:2015 certified manufacturer and exporter of industrial chemicals, specialty chemicals, and pharmaceutical API intermediates from Gujarat, India.",
   metadataBase: new URL("https://vasudevchemopharma.com"),
 };
 

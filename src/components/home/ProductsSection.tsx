@@ -5,18 +5,18 @@ import { getCompanyInfo } from "@/lib/company";
 
 const products = [
   {
-    title: "Aluminum gear housing",
+    title: "MEA Triazine 78%",
     image: "https://framerusercontent.com/images/jHDtKG45VXEX0nkiBpMkSEuN2VI.webp",
-    material: "Aluminum 6061 / 7075",
-    capability: "CNC Machining",
-    sizeRange: "Custom dimensions up to 500mm",
+    material: "Monoethanolamine Triazine",
+    capability: "Oil Field Chemicals",
+    sizeRange: "Custom Grade & Packaging Available",
   },
   {
-    title: "Custom plastic enclosures",
+    title: "MMA Triazine 40%",
     image: "https://framerusercontent.com/images/f0RFFjVJlOXDEiaSuyLTCybZqQ.png",
-    material: "ABS, Polycarbonate, Nylon",
-    capability: "Injection Molding",
-    sizeRange: "Varies – custom moldable",
+    material: "MONOMETHANOLAMINE TRIAZINE",
+    capability: "OIL FIELD CHEMICALS",
+    sizeRange: "CUSTOM GRADE & PACKAGING AVAILABLE",
   },
   {
     title: "Electrical control panels",
@@ -69,22 +69,13 @@ export default async function ProductsSection() {
             <SectionLabel>What we manufacture</SectionLabel>
             <div className="mt-6">
               <h2 className="font-heading text-h2 font-semibold text-primary">
-                50,000+
+                15+
               </h2>
               <p className="text-secondary text-base mt-2">
                 Precision-built products delivered to clients across industries
                 and continents.
               </p>
             </div>
-          </div>
-          <div className="lg:w-1/2">
-            <Image
-              src="https://framerusercontent.com/images/wDVZkHZZ0vcjteNyXg3aK8aGPRw.svg"
-              alt="Product Info Image"
-              width={553}
-              height={243}
-              className="w-full"
-            />
           </div>
         </div>
 

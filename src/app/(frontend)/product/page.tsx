@@ -10,9 +10,9 @@ import { getCategoryPriorityMap } from "@/lib/product-sequencing";
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: "Chemical Products — Industrial, Specialty & Pharmaceutical | VasuDev Chemo Pharma",
+  title: "Chemical Products — Industrial, Specialty & Pharmaceutical | Vasudev Chemo Pharma",
   description:
-    "Browse chemical products from VasuDev Chemo Pharma — ISO 9001:2015 certified manufacturer in Gujarat, India. Industrial chemicals, specialty chemicals, and pharmaceutical API intermediates. Request a quote today.",
+    "Browse chemical products from Vasudev Chemo Pharma — ISO 9001:2015 certified manufacturer in Gujarat, India. Industrial chemicals, specialty chemicals, and pharmaceutical API intermediates. Request a quote today.",
   alternates: {
     canonical: "https://vasudevchemopharma.com/product",
   },

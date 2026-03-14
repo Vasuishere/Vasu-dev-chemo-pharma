@@ -1,0 +1,29 @@
+{
+  "provider": "betterstack-or-equivalent",
+  "checks": [
+    {
+      "name": "vasudev-liveness",
+      "url": "https://your-production-domain.com/api/health?scope=liveness",
+      "intervalSeconds": 60,
+      "regions": ["ap-southeast", "eu-central", "us-east"]
+    },
+    {
+      "name": "vasudev-readiness",
+      "url": "https://your-production-domain.com/api/health?scope=readiness",
+      "intervalSeconds": 60,
+      "regions": ["ap-southeast", "eu-central", "us-east"]
+    },
+    {
+      "name": "vasudev-homepage",
+      "url": "https://your-production-domain.com/",
+      "intervalSeconds": 60,
+      "regions": ["ap-southeast", "eu-central", "us-east"]
+    },
+    {
+      "name": "vasudev-product",
+      "url": "https://your-production-domain.com/product",
+      "intervalSeconds": 60,
+      "regions": ["ap-southeast", "eu-central", "us-east"]
+    }
+  ]
+}

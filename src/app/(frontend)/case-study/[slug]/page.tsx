@@ -3,6 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Button from "@/components/Button";
 
+export const revalidate = 3600;
+
 const caseStudyData: Record<
   string,
   {

@@ -6,6 +6,8 @@ import IndustriesSection from "@/components/home/IndustriesSection";
 import WhyChooseSection from "@/components/home/WhyChooseSection";
 import BlogSection from "@/components/home/BlogSection";
 
+export const revalidate = 300;
+
 export default function HomePage() {
   return (
     <main>

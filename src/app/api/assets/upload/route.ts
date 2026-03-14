@@ -1,17 +1,74 @@
 import { NextResponse } from 'next/server';
+import sharp from 'sharp';
 import { getPayload } from 'payload';
 import configPromise from '@payload-config';
+import {
+  createCorsPreflightResponse,
+  checkWriteRateLimit,
+  enforceBodySizeLimit,
+  tooManyRequestsResponse,
+  validateCorsOrigin,
+  verifyApiKey,
+  withCorsHeaders,
+} from '@/lib/api-security';
+import { logApiError, logApiEvent } from '@/lib/observability';
+
+const MAX_UPLOAD_REQUEST_BYTES = 12 * 1024 * 1024;
+const MAX_IMAGE_WIDTH = Number(process.env.MAX_UPLOAD_IMAGE_WIDTH || 4096);
+const MAX_IMAGE_HEIGHT = Number(process.env.MAX_UPLOAD_IMAGE_HEIGHT || 4096);
+
+function json(body: unknown, init: ResponseInit, req: Request): NextResponse {
+  return withCorsHeaders(NextResponse.json(body, init), req);
+}
+
+export async function OPTIONS(req: Request) {
+  return createCorsPreflightResponse(req, {
+    methods: ['POST', 'OPTIONS'],
+  });
+}
 
 // Fallback upload (Mocking cloud storage for MVP)
 export async function POST(req: Request) {
+  const corsError = validateCorsOrigin(req);
+  if (corsError) {
+    return corsError;
+  }
+
   try {
-    const formData = await req.formData();
-    const file = formData.get('file') as File;
-    const referenceSizeStr = formData.get('referenceSize') as string;
-    
-    if (!file) {
-      return NextResponse.json({ error: 'No file provided' }, { status: 400 });
+    const authError = verifyApiKey(req, process.env.ASSET_API_KEY);
+    if (authError) {
+      return withCorsHeaders(authError, req);
     }
+
+    const bodySizeError = enforceBodySizeLimit(req, MAX_UPLOAD_REQUEST_BYTES);
+    if (bodySizeError) {
+      return withCorsHeaders(bodySizeError, req);
+    }
+
+    const rateLimit = checkWriteRateLimit({
+      request: req,
+      keyPrefix: 'assets-upload-write',
+      ipLimit: 30,
+      tokenLimit: 120,
+      windowMs: 60 * 1000,
+    });
+
+    if (!rateLimit.allowed) {
+      return withCorsHeaders(tooManyRequestsResponse(rateLimit), req);
+    }
+
+    const formData = await req.formData();
+    const fileEntry = formData.get('file');
+    if (!fileEntry || !(fileEntry instanceof File)) {
+      return json({ error: 'No file provided' }, { status: 400 }, req);
+    }
+    const file = fileEntry;
+
+    const referenceSizeEntry = formData.get('referenceSize');
+    const referenceSizeStr =
+      typeof referenceSizeEntry === 'string'
+        ? referenceSizeEntry
+        : null;
 
     // Server-side security validations
     const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
@@ -22,21 +79,47 @@ export async function POST(req: Request) {
     ];
 
     if (file.size > MAX_FILE_SIZE) {
-      return NextResponse.json({ error: `File exceeds the maximum limit of 10MB` }, { status: 413 });
+      return json({ error: `File exceeds the maximum limit of 10MB` }, { status: 413 }, req);
     }
 
     if (!ALLOWED_MIME_TYPES.includes(file.type)) {
-      return NextResponse.json({ error: `File type ${file.type} is not allowed for security reasons.` }, { status: 415 });
+      return json({ error: `File type ${file.type} is not allowed for security reasons.` }, { status: 415 }, req);
+    }
+
+    if (file.type.startsWith('image/')) {
+      const imageBuffer = Buffer.from(await file.arrayBuffer());
+      const metadata = await sharp(imageBuffer).metadata();
+      const width = metadata.width || 0;
+      const height = metadata.height || 0;
+
+      if (!width || !height) {
+        return json({ error: 'Invalid image dimensions' }, { status: 400 }, req);
+      }
+
+      if (width > MAX_IMAGE_WIDTH || height > MAX_IMAGE_HEIGHT) {
+        return json(
+          {
+            error: `Image dimensions exceed allowed limit (${MAX_IMAGE_WIDTH}x${MAX_IMAGE_HEIGHT})`,
+          },
+          { status: 413 },
+          req
+        );
+      }
     }
 
     let referenceSize: unknown;
+    if (referenceSizeEntry !== null && referenceSizeStr === null) {
+      return json({ error: 'Invalid referenceSize value' }, { status: 400 }, req);
+    }
+
     if (referenceSizeStr) {
       try {
         referenceSize = JSON.parse(referenceSizeStr);
       } catch {
-        return NextResponse.json(
+        return json(
           { error: 'Invalid referenceSize JSON' },
-          { status: 400 }
+          { status: 400 },
+          req
         );
       }
     }
@@ -67,10 +150,18 @@ export async function POST(req: Request) {
       },
     });
 
-    return NextResponse.json({ success: true, asset: newAsset }, { status: 201 });
+    logApiEvent('assets.upload.succeeded', {
+      route: '/api/assets/upload',
+      assetId: String(newAsset.id),
+      fileType: file.type,
+      fileSize: file.size,
+    });
+
+    return json({ success: true, asset: newAsset }, { status: 201 }, req);
   } catch (error: unknown) {
-    console.error('File Upload Error:', error);
-    const message = error instanceof Error ? error.message : 'Internal Server Error';
-    return NextResponse.json({ error: message }, { status: 500 });
+    logApiError('assets.upload.failed', error, {
+      route: '/api/assets/upload',
+    });
+    return json({ error: 'Internal Server Error', errorCode: 'INTERNAL_SERVER_ERROR' }, { status: 500 }, req);
   }
 }

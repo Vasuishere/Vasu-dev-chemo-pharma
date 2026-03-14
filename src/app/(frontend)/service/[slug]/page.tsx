@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import SectionLabel from "@/components/SectionLabel";
 import Button from "@/components/Button";
 
+export const revalidate = 3600;
+
 const serviceData: Record<string, {
   title: string;
   description: string;
@@ -15,7 +17,7 @@ const serviceData: Record<string, {
     description: "ISO 9001:2015 certified manufacturing of 28+ industrial & specialty chemicals.",
     image: "https://framerusercontent.com/images/YZXZfUWqk3mC6dHxTkY5u8hc5SA.webp",
     features: ["28+ specialty chemicals", "ISO 9001:2015 certified process", "Bulk & custom quantity orders", "Strict quality testing at every stage"],
-    details: "VasuDev Chemo Pharma manufactures a wide range of industrial and specialty chemicals including caustic soda, soda ash, sodium metabisulphite, zinc oxide, stearic acid, calcium carbonate, MEA triazine, and more. Our ISO 9001:2015 certified facility ensures consistent quality with every batch.",
+    details: "Vasudev Chemo Pharma manufactures a wide range of industrial and specialty chemicals including caustic soda, soda ash, sodium metabisulphite, zinc oxide, stearic acid, calcium carbonate, MEA triazine, and more. Our ISO 9001:2015 certified facility ensures consistent quality with every batch.",
   },
   "import-export": {
     title: "Import & Export",

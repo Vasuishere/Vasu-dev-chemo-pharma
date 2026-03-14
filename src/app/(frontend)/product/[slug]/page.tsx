@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import {
@@ -39,11 +40,11 @@ export async function generateMetadata({
 
     const title =
       product.metaTitle ||
-      `${product.name}${product.casNumber ? ` (CAS ${product.casNumber})` : ""} — ${CATEGORY_LABELS[product.category]} | VasuDev Chemo Pharma`;
+      `${product.name}${product.casNumber ? ` (CAS ${product.casNumber})` : ""} — ${CATEGORY_LABELS[product.category]} | Vasudev Chemo Pharma`;
 
     const description =
       product.metaDescription ||
-      `Buy ${product.name}${product.casNumber ? ` (CAS ${product.casNumber})` : ""} from VasuDev Chemo Pharma — ISO 9001:2015 certified manufacturer in Gujarat, India. Export-ready packaging. Request a quote today.`;
+      `Buy ${product.name}${product.casNumber ? ` (CAS ${product.casNumber})` : ""} from Vasudev Chemo Pharma — ISO 9001:2015 certified manufacturer in Gujarat, India. Export-ready packaging. Request a quote today.`;
 
     return {
       title,
@@ -56,7 +57,7 @@ export async function generateMetadata({
         description,
         url: `https://vasudevchemopharma.com/product/${product.slug}`,
         type: "website",
-        siteName: "VasuDev Chemo Pharma",
+        siteName: "Vasudev Chemo Pharma",
       },
     };
   } catch {
@@ -65,22 +66,28 @@ export async function generateMetadata({
 }
 
 /* ─── JSON-LD structured data ───────────────────────────────────── */
-function ProductJsonLd({ product }: { product: Awaited<ReturnType<typeof getProductBySlug>> }) {
+function ProductJsonLd({
+  product,
+  nonce,
+}: {
+  product: Awaited<ReturnType<typeof getProductBySlug>>;
+  nonce?: string;
+}) {
   if (!product) return null;
 
   const productSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.name,
-    description: product.description || `${product.name} — manufactured by VasuDev Chemo Pharma, Gujarat, India.`,
+    description: product.description || `${product.name} — manufactured by Vasudev Chemo Pharma, Gujarat, India.`,
     sku: product.sku,
     brand: {
       "@type": "Brand",
-      name: "VasuDev Chemo Pharma",
+      name: "Vasudev Chemo Pharma",
     },
     manufacturer: {
       "@type": "Organization",
-      name: "VasuDev Chemo Pharma",
+      name: "Vasudev Chemo Pharma",
       address: {
         "@type": "PostalAddress",
         addressRegion: "Gujarat",
@@ -116,10 +123,12 @@ function ProductJsonLd({ product }: { product: Awaited<ReturnType<typeof getProd
   return (
     <>
       <script
+        nonce={nonce}
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema).replace(/</g, '\u003c') }}
       />
       <script
+        nonce={nonce}
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(chemicalSchema).replace(/</g, '\u003c') }}
       />
@@ -166,10 +175,11 @@ export default async function ProductDetailPage({
   );
   const safeImages = Array.isArray(product.images) ? product.images : [];
   const safeDocuments = Array.isArray(product.documents) ? product.documents : [];
+  const nonce = (await headers()).get('x-nonce') || undefined;
 
   return (
     <>
-      <ProductJsonLd product={product} />
+      <ProductJsonLd product={product} nonce={nonce} />
 
       <main className="pt-28 pb-20">
         <div className="max-w-container mx-auto px-6 lg:px-10">
@@ -312,7 +322,7 @@ export default async function ProductDetailPage({
                     </tr>
                     <tr>
                       <td className="px-5 py-3 font-medium text-gray-500 bg-gray-50/50">Manufacturer</td>
-                      <td className="px-5 py-3 text-primary">{product.supplier || "VasuDev Chemo Pharma"}</td>
+                      <td className="px-5 py-3 text-primary">{product.supplier || "Vasudev Chemo Pharma"}</td>
                     </tr>
                   </tbody>
                 </table>

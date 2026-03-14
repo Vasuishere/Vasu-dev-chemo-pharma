@@ -4,6 +4,8 @@ import SectionLabel from "@/components/SectionLabel";
 import Button from "@/components/Button";
 import { getCompanyInfo } from "@/lib/company";
 
+export const revalidate = 1800;
+
 const avatars = [
   "https://framerusercontent.com/images/4joakeBMa5GHrq9uyQPg0bnmko.png",
   "https://framerusercontent.com/images/HfRFaPjzU8WCChxWa4MmTB1BWg.png",

@@ -344,7 +344,7 @@ export const Products: CollectionConfig = {
     {
       name: "supplier",
       type: "text",
-      defaultValue: "VasuDev Chemo Pharma",
+      defaultValue: "Vasudev Chemo Pharma",
     },
 
     // ─── Media ─────────────────────────────────────────────────

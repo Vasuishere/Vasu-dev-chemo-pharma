@@ -1,4 +1,4 @@
-// Product data model for VasuDev Chemo Pharma PDP
+// Product data model for Vasudev Chemo Pharma PDP
 
 export type ProductCategory = "industrial" | "specialty" | "pharmaceutical";
 export type ProductStatus = "active" | "inactive" | "discontinued";

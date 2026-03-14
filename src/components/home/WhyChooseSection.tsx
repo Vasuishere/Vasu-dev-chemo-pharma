@@ -57,7 +57,7 @@ export default function WhyChooseSection() {
           {/* Text */}
           <div>
             <h2 className="font-heading text-h2 font-semibold text-primary mb-8">
-              Why choose VasuDev Chemo Pharma?
+              Why choose Vasudev Chemo Pharma?
             </h2>
             <div className="space-y-4 mb-8">
               {features.map((feature) => (

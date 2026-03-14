@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+export const revalidate = 86400;
+
 export default function PrivacyPolicyPage() {
   return (
     <main>
@@ -19,7 +21,7 @@ export default function PrivacyPolicyPage() {
           {/* Content */}
           <div className="max-w-3xl prose prose-lg">
             <p className="text-secondary leading-relaxed">
-              At <strong>VasuDev Chemo Pharma</strong>, we value your trust and are
+              At <strong>Vasudev Chemo Pharma</strong>, we value your trust and are
               committed to protecting your personal information. This Privacy
               Policy explains how we collect, use, and safeguard the data you
               share with us when you interact with our digital platforms,

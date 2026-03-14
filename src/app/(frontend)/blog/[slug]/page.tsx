@@ -3,6 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import SectionLabel from "@/components/SectionLabel";
 
+export const revalidate = 3600;
+
 const blogData: Record<
   string,
   {

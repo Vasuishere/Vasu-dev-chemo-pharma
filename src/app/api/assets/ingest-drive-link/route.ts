@@ -1,6 +1,28 @@
 import { NextResponse } from 'next/server';
 import { getPayload } from 'payload';
 import configPromise from '@payload-config';
+import {
+  createCorsPreflightResponse,
+  checkWriteRateLimit,
+  readJsonWithLimit,
+  tooManyRequestsResponse,
+  validateCorsOrigin,
+  verifyApiKey,
+  withCorsHeaders,
+} from '@/lib/api-security';
+import { logApiError, logApiEvent } from '@/lib/observability';
+
+const INGEST_MAX_BODY_BYTES = 16 * 1024;
+
+function json(body: unknown, init: ResponseInit, req: Request): NextResponse {
+  return withCorsHeaders(NextResponse.json(body, init), req);
+}
+
+export async function OPTIONS(req: Request) {
+  return createCorsPreflightResponse(req, {
+    methods: ['POST', 'OPTIONS'],
+  });
+}
 
 // Utility: Extract Google Drive ID from URL
 function extractDriveId(url: string) {
@@ -9,38 +31,63 @@ function extractDriveId(url: string) {
 }
 
 export async function POST(req: Request) {
+  const corsError = validateCorsOrigin(req);
+  if (corsError) {
+    return corsError;
+  }
+
   try {
-    const expectedApiKey = process.env.ASSET_API_KEY;
-    if (!expectedApiKey) {
-      return NextResponse.json({ error: 'Server misconfiguration' }, { status: 500 });
+    const authError = verifyApiKey(req, process.env.ASSET_API_KEY);
+    if (authError) {
+      return withCorsHeaders(authError, req);
     }
 
-    const headerApiKey = req.headers.get('x-api-key');
-    const authorization = req.headers.get('authorization');
-    const bearerToken = authorization?.startsWith('Bearer ')
-      ? authorization.slice('Bearer '.length)
-      : null;
+    const rateLimit = checkWriteRateLimit({
+      request: req,
+      keyPrefix: 'assets-ingest-write',
+      ipLimit: 30,
+      tokenLimit: 120,
+      windowMs: 60 * 1000,
+    });
 
-    if (headerApiKey !== expectedApiKey && bearerToken !== expectedApiKey) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    if (!rateLimit.allowed) {
+      return withCorsHeaders(tooManyRequestsResponse(rateLimit), req);
     }
 
-    let body: { driveLink?: string; referenceSize?: unknown };
-    try {
-      body = await req.json();
-    } catch {
-      return NextResponse.json({ error: 'Malformed JSON' }, { status: 400 });
+    const { data: body, error: parseError } = await readJsonWithLimit<{
+      driveLink?: string;
+      referenceSize?: unknown;
+    }>(req, INGEST_MAX_BODY_BYTES);
+
+    if (parseError) {
+      return withCorsHeaders(parseError, req);
+    }
+
+    if (!body) {
+      return json({ error: 'Request body is required' }, { status: 400 }, req);
     }
 
     const { driveLink, referenceSize } = body;
 
     if (!driveLink) {
-      return NextResponse.json({ error: 'driveLink is required' }, { status: 400 });
+      return json({ error: 'driveLink is required' }, { status: 400 }, req);
+    }
+
+    if (typeof driveLink !== 'string' || driveLink.length > 500) {
+      return json({ error: 'Invalid driveLink value' }, { status: 400 }, req);
+    }
+
+    if (
+      referenceSize !== undefined &&
+      referenceSize !== null &&
+      typeof referenceSize !== 'object'
+    ) {
+      return json({ error: 'Invalid referenceSize value' }, { status: 400 }, req);
     }
 
     const driveId = extractDriveId(driveLink);
     if (!driveId) {
-      return NextResponse.json({ error: 'Invalid Google Drive link format' }, { status: 400 });
+      return json({ error: 'Invalid Google Drive link format' }, { status: 400 }, req);
     }
 
     // Keep type as 'other' until real mime detection is done via Drive metadata API.
@@ -62,9 +109,17 @@ export async function POST(req: Request) {
       },
     });
 
-    return NextResponse.json({ success: true, asset: newAsset }, { status: 201 });
+    logApiEvent('assets.ingestDriveLink.succeeded', {
+      route: '/api/assets/ingest-drive-link',
+      assetId: String(newAsset.id),
+      driveId,
+    });
+
+    return json({ success: true, asset: newAsset }, { status: 201 }, req);
   } catch (error: unknown) {
-    console.error('Google Drive Ingestion Error:', error);
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+    logApiError('assets.ingestDriveLink.failed', error, {
+      route: '/api/assets/ingest-drive-link',
+    });
+    return json({ error: 'Internal Server Error', errorCode: 'INTERNAL_SERVER_ERROR' }, { status: 500 }, req);
   }
 }

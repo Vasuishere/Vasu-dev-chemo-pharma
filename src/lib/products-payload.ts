@@ -1,6 +1,49 @@
 import { getPayload } from "./payload";
 import type { Product } from "./types";
 
+type ProductCacheEntry<T> = {
+  value: T;
+  expiresAt: number;
+};
+
+const PRODUCT_CACHE_TTL_MS = Number(process.env.PRODUCT_CACHE_TTL_MS || 60 * 1000);
+const PRODUCT_CACHE_KEY = '__vasudev_products_cache__';
+
+function getProductCacheStore(): Map<string, ProductCacheEntry<unknown>> {
+  const globalScope = globalThis as typeof globalThis & {
+    [PRODUCT_CACHE_KEY]?: Map<string, ProductCacheEntry<unknown>>;
+  };
+
+  if (!globalScope[PRODUCT_CACHE_KEY]) {
+    globalScope[PRODUCT_CACHE_KEY] = new Map<string, ProductCacheEntry<unknown>>();
+  }
+
+  return globalScope[PRODUCT_CACHE_KEY];
+}
+
+function getCached<T>(key: string): T | null {
+  const store = getProductCacheStore();
+  const entry = store.get(key);
+  if (!entry) {
+    return null;
+  }
+
+  if (entry.expiresAt <= Date.now()) {
+    store.delete(key);
+    return null;
+  }
+
+  return entry.value as T;
+}
+
+function setCached<T>(key: string, value: T): void {
+  const store = getProductCacheStore();
+  store.set(key, {
+    value,
+    expiresAt: Date.now() + PRODUCT_CACHE_TTL_MS,
+  });
+}
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function mapQuickImageUrls(doc: any): Product["images"] {
   if (!Array.isArray(doc.imageDriveUrls)) return [];
@@ -122,7 +165,7 @@ function toProduct(doc: any): Product {
     minOrderQuantity: doc.minOrderQuantity ?? "",
     originCountry: doc.originCountry ?? "India",
     certifications: doc.certifications ?? [],
-    supplier: doc.supplier ?? "VasuDev Chemo Pharma",
+    supplier: doc.supplier ?? "Vasudev Chemo Pharma",
     imageUrl: doc.imageUrl ?? "",
     documentUrl: doc.documentUrl ?? "",
     imageDriveUrls: quickImageUrls,
@@ -135,6 +178,11 @@ function toProduct(doc: any): Product {
 
 /** Fetch all active products */
 export async function getAllProducts(): Promise<Product[]> {
+  const cached = getCached<Product[]>('all-products');
+  if (cached) {
+    return cached;
+  }
+
   const payload = await getPayload();
   const result = await payload.find({
     collection: "products",
@@ -142,29 +190,46 @@ export async function getAllProducts(): Promise<Product[]> {
     limit: 200,
     sort: "name",
   });
-  return result.docs.map(toProduct).sort(sortByPriorityThenName);
+  const products = result.docs.map(toProduct).sort(sortByPriorityThenName);
+  setCached('all-products', products);
+  return products;
 }
 
 /** Find a product by slug */
 export async function getProductBySlug(slug: string): Promise<Product | undefined> {
+  const cacheKey = `product:${slug}`;
+  const cached = getCached<Product | undefined>(cacheKey);
+  if (cached) {
+    return cached;
+  }
+
   const payload = await getPayload();
   const result = await payload.find({
     collection: "products",
     where: { slug: { equals: slug } },
     limit: 1,
   });
-  return result.docs.length > 0 ? toProduct(result.docs[0]) : undefined;
+  const product = result.docs.length > 0 ? toProduct(result.docs[0]) : undefined;
+  setCached(cacheKey, product);
+  return product;
 }
 
 /** Get all active product slugs for static generation */
 export async function getAllProductSlugs(): Promise<string[]> {
+  const cached = getCached<string[]>('all-product-slugs');
+  if (cached) {
+    return cached;
+  }
+
   const payload = await getPayload();
   const result = await payload.find({
     collection: "products",
     where: { status: { equals: "active" } },
     limit: 200,
   });
-  return result.docs.map((d) => d.slug).filter((s): s is string => typeof s === 'string');
+  const slugs = result.docs.map((d) => d.slug).filter((s): s is string => typeof s === 'string');
+  setCached('all-product-slugs', slugs);
+  return slugs;
 }
 
 /** Get related products (same category, excluding current) */
@@ -173,6 +238,12 @@ export async function getRelatedProducts(
   category: string,
   limit = 3
 ): Promise<Product[]> {
+  const cacheKey = `related:${category}:${currentSlug}:${limit}`;
+  const cached = getCached<Product[]>(cacheKey);
+  if (cached) {
+    return cached;
+  }
+
   const payload = await getPayload();
   const result = await payload.find({
     collection: "products",
@@ -185,5 +256,7 @@ export async function getRelatedProducts(
     },
     limit,
   });
-  return result.docs.map(toProduct).sort(sortByPriorityThenName).slice(0, limit);
+  const related = result.docs.map(toProduct).sort(sortByPriorityThenName).slice(0, limit);
+  setCached(cacheKey, related);
+  return related;
 }

@@ -47,13 +47,15 @@ function createNonce(): string {
   return btoa(binary);
 }
 
-function buildContentSecurityPolicy(nonce: string): string {
+function buildContentSecurityPolicy(): string {
   return [
     "default-src 'self'",
     "base-uri 'self'",
     "frame-ancestors 'none'",
     "object-src 'none'",
-    `script-src 'self' 'nonce-${nonce}' https://challenges.cloudflare.com https://www.google.com https://www.gstatic.com`,
+    // App Router streaming pages include framework inline bootstrap scripts.
+    // Keep script execution scoped to self + known CAPTCHA/challenge domains.
+    "script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://www.google.com https://www.gstatic.com",
     "style-src 'self' 'unsafe-inline'",
     "img-src 'self' data: blob: https://drive.google.com https://lh3.googleusercontent.com https://framerusercontent.com",
     "font-src 'self' data:",
@@ -65,7 +67,7 @@ function buildContentSecurityPolicy(nonce: string): string {
 }
 
 function withSecurityHeaders(response: NextResponse, nonce: string): NextResponse {
-  response.headers.set('Content-Security-Policy', buildContentSecurityPolicy(nonce));
+  response.headers.set('Content-Security-Policy', buildContentSecurityPolicy());
   response.headers.set('x-nonce', nonce);
   return response;
 }

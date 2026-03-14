@@ -8,6 +8,7 @@ import {
 } from "@/lib/products-payload";
 import { CATEGORY_LABELS } from "@/lib/types";
 import SectionLabel from "@/components/SectionLabel";
+import StickyAnchorNav from "@/components/StickyAnchorNav";
 import GoogleDriveImage from "@/components/GoogleDriveImage";
 import { toGoogleDrivePreviewUrl } from "@/lib/gdrive";
 
@@ -328,27 +329,7 @@ export default async function ProductDetailPage({
           </section>
 
           {/* ─── ANCHOR NAV (jump links for long page) ──────────────── */}
-          <nav className="flex flex-wrap gap-3 mb-12 border-b border-gray-200 pb-4">
-            {[
-              { id: "description", label: "Overview" },
-              { id: "specifications", label: "Specifications" },
-              { id: "applications", label: "Applications" },
-              { id: "safety", label: "Safety & Compliance" },
-              { id: "packaging", label: "Packaging & Grades" },
-              { id: "certifications", label: "Certifications" },
-              { id: "documents", label: "Documents" },
-              { id: "faq", label: "FAQ" },
-              { id: "quote", label: "Get Quote" },
-            ].map((link) => (
-              <a
-                key={link.id}
-                href={`#${link.id}`}
-                className="text-sm font-medium text-gray-500 hover:text-accent transition-colors px-3 py-1.5 rounded-full hover:bg-accent/5"
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
+          <StickyAnchorNav />
 
           {/* ─── 3. PRODUCT DESCRIPTION / OVERVIEW ──────────────────── */}
           <section id="description" className="mb-16">

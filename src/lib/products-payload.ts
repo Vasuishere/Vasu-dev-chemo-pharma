@@ -109,6 +109,7 @@ function toProduct(doc: any): Product {
     ghsPictograms: doc.ghsPictograms ?? [],
     signalWord: doc.signalWord ?? "",
     hazardStatements: doc.hazardStatements ?? [],
+    complianceDisclaimer: doc.complianceDisclaimer ?? "",
     documents: mappedDocuments,
     applications: doc.applications ?? [],
     industries: doc.industries ?? [],

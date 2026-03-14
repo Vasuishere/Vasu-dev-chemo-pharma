@@ -47,14 +47,14 @@ export default function ContactForm() {
           </div>
           <div>
             <label htmlFor="email" className="text-sm text-primary font-medium block mb-2">
-              Email*
+              Work Email*
             </label>
             <input
               id="email"
               name="email"
               type="email"
               required
-              placeholder="Enter your email"
+              placeholder="Enter your work email"
               className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-accent transition-colors"
             />
           </div>

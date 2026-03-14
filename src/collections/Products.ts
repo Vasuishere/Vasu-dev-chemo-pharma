@@ -209,6 +209,14 @@ export const Products: CollectionConfig = {
       admin: { description: "JSON array of hazard statements" },
     },
     {
+      name: "complianceDisclaimer",
+      type: "textarea",
+      admin: {
+        description:
+          "Export-control / regulatory disclaimer text (e.g. CWC Schedule, ECCN, REACH). Displayed in the Safety & Compliance section on the product page.",
+      },
+    },
+    {
       name: "documents",
       type: "array",
       fields: [

@@ -490,6 +490,14 @@ export default async function ProductDetailPage({
             ) : (
               <ContentPlaceholder label="Safety & compliance data — GHS classification, Signal Word (Warning / Danger), GHS pictogram codes (GHS07, GHS05, etc.), Hazard statements (H-codes), Precautionary statements (P-codes), UN number for transport, Storage classification." />
             )}
+            {product.complianceDisclaimer && (
+              <div className="mt-6 border border-amber-300 bg-amber-50 rounded-2xl p-6">
+                <h3 className="font-heading text-h5 text-amber-900 mb-3">Regulatory & Export-Control Notice</h3>
+                <p className="text-sm text-amber-800 leading-relaxed">
+                  {product.complianceDisclaimer}
+                </p>
+              </div>
+            )}
           </section>
 
           {/* ─── 7. PACKAGING & GRADES ───────────────────────────────── */}
@@ -698,44 +706,7 @@ export default async function ProductDetailPage({
             </section>
           )}
 
-          {/* ─── 14. CONTENT POINTS SUMMARY (DEV REFERENCE) ──────────── */}
-          {process.env.NODE_ENV === 'development' && (
-          <section className="mb-16 border-2 border-primary/20 rounded-3xl p-8 bg-primary/5">
-            <h2 className="font-heading text-h4 text-primary mb-6">
-              📋 Content Points Per Product — What to Add Later
-            </h2>
-            <p className="text-sm text-gray-500 mb-6">
-              The following content sections are the same structure for every product.
-              Fill in the data per product and the page renders automatically.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-              {[
-                { section: "Product Description", fields: "2-3 paragraphs: what it is, how it's made, why choose VasuDev" },
-                { section: "Technical Specifications", fields: "Purity, pH, Moisture, Density, Melting Pt, Boiling Pt, Solubility, Colour, Odour" },
-                { section: "Appearance", fields: "Physical form & colour description (e.g. 'White crystalline powder')" },
-                { section: "HS Code", fields: "Harmonized System code for customs (e.g. '2833.11')" },
-                { section: "Applications", fields: "List of use-cases where this product is used" },
-                { section: "Industries", fields: "Target industries: Oil & Gas, Water Treatment, Pharma, etc." },
-                { section: "Grades", fields: "All available grades: Industrial, Lab, Technical, Pharma, Food" },
-                { section: "Packaging", fields: "All packaging sizes: 25kg bags, 50kg drums, 1MT jumbo bags, etc." },
-                { section: "Min Order Quantity", fields: "Minimum order: e.g. '1 MT', '100 kg'" },
-                { section: "Safety Classification", fields: "GHS class, signal word, pictograms, H-statements, P-statements" },
-                { section: "Documents", fields: "SDS/MSDS, COA, TDS files — upload URLs" },
-                { section: "FAQs", fields: "5-10 product-specific questions and answers" },
-                { section: "Product Images", fields: "Product photos: powder, packaging, lab shots — with alt text" },
-                { section: "SEO Meta Title", fields: "Custom <title> tag for search results" },
-                { section: "SEO Meta Description", fields: "155-char meta description for Google snippets" },
-                { section: "Shipping Info", fields: "Lead time, ports, Incoterms, export documentation" },
-              ].map((item) => (
-                <div key={item.section} className="bg-white rounded-xl p-4 border border-gray-100">
-                  <p className="font-semibold text-primary mb-1">{item.section}</p>
-                  <p className="text-gray-500 text-xs">{item.fields}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-          )}
-
+          
         </div>
       </main>
     </>

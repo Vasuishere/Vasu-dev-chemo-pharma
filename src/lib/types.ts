@@ -68,6 +68,7 @@ export interface Product {
   ghsPictograms: string[];
   signalWord: string;
   hazardStatements: string[];
+  complianceDisclaimer?: string;
   documents: ProductDocument[];
 
   // Applications

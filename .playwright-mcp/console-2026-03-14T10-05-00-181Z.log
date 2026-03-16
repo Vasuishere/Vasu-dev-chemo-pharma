@@ -1,0 +1,96 @@
+[  815371ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/product/mea-triazine-78-h2s-scavenger?_rsc=1i9yj:0
+[  815371ms] [ERROR] Failed to fetch RSC payload for http://localhost:3000/product/mea-triazine-78-h2s-scavenger. Falling back to browser navigation. TypeError: Failed to fetch
+    at y (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:134441)
+    at _ (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:133352)
+    at http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:37885
+    at Object.l [as task] (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:120934)
+    at c.s (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:121639)
+    at c.enqueue (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:121064)
+    at s (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:37848)
+    at i (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:37364)
+    at o (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:135503)
+    at Object.prefetch (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:10249) @ http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:0
+[  820430ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/product/manganese-sulphate?_rsc=1i9yj:0
+[  820430ms] [ERROR] Failed to fetch RSC payload for http://localhost:3000/product/manganese-sulphate. Falling back to browser navigation. TypeError: Failed to fetch
+    at y (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:134441)
+    at _ (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:133352)
+    at http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:37885
+    at Object.l [as task] (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:120934)
+    at c.s (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:121639)
+    at c.enqueue (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:121064)
+    at s (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:37848)
+    at i (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:37364)
+    at o (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:135503)
+    at Object.prefetch (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:10249) @ http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:0
+[  827009ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/product/2-amino-5-methylthiazole?_rsc=1i9yj:0
+[  827009ms] [ERROR] Failed to fetch RSC payload for http://localhost:3000/product/2-amino-5-methylthiazole. Falling back to browser navigation. TypeError: Failed to fetch
+    at y (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:134441)
+    at _ (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:133352)
+    at http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:37885
+    at Object.l [as task] (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:120934)
+    at c.s (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:121639)
+    at c.enqueue (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:121064)
+    at s (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:37848)
+    at i (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:37364)
+    at o (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:135503)
+    at Object.prefetch (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:10249) @ http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:0
+[  827273ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/product/2-chloroethylamine-hydrochloride?_rsc=1i9yj:0
+[  827274ms] [ERROR] Failed to fetch RSC payload for http://localhost:3000/product/2-chloroethylamine-hydrochloride. Falling back to browser navigation. TypeError: Failed to fetch
+    at y (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:134441)
+    at _ (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:133352)
+    at http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:37885
+    at Object.l [as task] (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:120934)
+    at c.s (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:121639)
+    at c.enqueue (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:121064)
+    at s (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:37848)
+    at i (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:37364)
+    at o (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:135503)
+    at Object.prefetch (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:10249) @ http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:0
+[  829037ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/product/bis-2-chloroethyl-amine-hydrochloride?_rsc=1i9yj:0
+[  829037ms] [ERROR] Failed to fetch RSC payload for http://localhost:3000/product/bis-2-chloroethyl-amine-hydrochloride. Falling back to browser navigation. TypeError: Failed to fetch
+    at y (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:134441)
+    at _ (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:133352)
+    at http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:37885
+    at Object.l [as task] (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:120934)
+    at c.s (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:121639)
+    at c.enqueue (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:121064)
+    at s (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:37848)
+    at i (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:37364)
+    at o (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:135503)
+    at Object.prefetch (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:10249) @ http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:0
+[  829038ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/product/di-ethyl-amino-ethyl-chloride-hydrochloride?_rsc=1i9yj:0
+[  829038ms] [ERROR] Failed to fetch RSC payload for http://localhost:3000/product/di-ethyl-amino-ethyl-chloride-hydrochloride. Falling back to browser navigation. TypeError: Failed to fetch
+    at y (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:134441)
+    at _ (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:133352)
+    at http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:37885
+    at Object.l [as task] (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:120934)
+    at c.s (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:121639)
+    at c.enqueue (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:121064)
+    at s (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:37848)
+    at i (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:37364)
+    at o (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:135503)
+    at Object.prefetch (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:10249) @ http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:0
+[  829038ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/product/p-toluenesulfonic-acid?_rsc=1i9yj:0
+[  829038ms] [ERROR] Failed to fetch RSC payload for http://localhost:3000/product/p-toluenesulfonic-acid. Falling back to browser navigation. TypeError: Failed to fetch
+    at y (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:134441)
+    at _ (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:133352)
+    at http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:37885
+    at Object.l [as task] (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:120934)
+    at c.s (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:121639)
+    at c.enqueue (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:121064)
+    at s (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:37848)
+    at i (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:37364)
+    at o (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:135503)
+    at Object.prefetch (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:10249) @ http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:0
+[  829269ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/product?_rsc=1safj:0
+[  829269ms] [ERROR] Failed to fetch RSC payload for http://localhost:3000/product. Falling back to browser navigation. TypeError: Failed to fetch
+    at y (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:134441)
+    at _ (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:133352)
+    at T (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:128886)
+    at l9 (http://localhost:3000/_next/static/chunks/4bd1b696-cc729d47eba2cee4.js:1:51107)
+    at oT (http://localhost:3000/_next/static/chunks/4bd1b696-cc729d47eba2cee4.js:1:70691)
+    at oW (http://localhost:3000/_next/static/chunks/4bd1b696-cc729d47eba2cee4.js:1:81791)
+    at ib (http://localhost:3000/_next/static/chunks/4bd1b696-cc729d47eba2cee4.js:1:114390)
+    at http://localhost:3000/_next/static/chunks/4bd1b696-cc729d47eba2cee4.js:1:110438
+    at io (http://localhost:3000/_next/static/chunks/4bd1b696-cc729d47eba2cee4.js:1:110539)
+    at iY (http://localhost:3000/_next/static/chunks/4bd1b696-cc729d47eba2cee4.js:1:132642) @ http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:0

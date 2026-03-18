@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { getCompanyInfo } from "@/lib/company";
 
 const footerLinks1 = [
@@ -43,18 +44,20 @@ export default async function Footer() {
         {/* Logo */}
         <div className="mb-6">
           <Link href="/" className="inline-flex items-center gap-3">
-            <img
+            <Image
               src="/images/vcp-logo.png"
               alt="VCP Logo"
               width={50}
               height={50}
+              unoptimized
               className="h-12 w-auto brightness-0 invert"
             />
-            <img
+            <Image
               src="/images/vcp-name.png"
               alt="Vasudev Chemo Pharma"
               width={200}
               height={45}
+              unoptimized
               className="h-9 w-auto brightness-0 invert"
             />
           </Link>

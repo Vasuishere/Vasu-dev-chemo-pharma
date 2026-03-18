@@ -44,8 +44,6 @@ export function isSuspiciousPath(pathname: string): boolean {
     pathname.startsWith('/api/contact') ||
     pathname.startsWith('/api/assets/') ||
     pathname.startsWith('/api/seed') ||
-    pathname.startsWith('/admin') ||
-    pathname.startsWith('/payload') ||
     pathname.startsWith('/product/')
   );
 }

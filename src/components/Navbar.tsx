@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 
 const navLinks = [
@@ -42,14 +41,14 @@ export default function Navbar() {
         <div className="max-w-container mx-auto flex items-center justify-between px-6 py-4 lg:px-10 relative">
         {/* Logo - Left */}
         <Link href="/" className="flex-shrink-0 flex items-center gap-2">
-          <Image
+          <img
             src="/images/vcp-logo.png"
             alt="VCP Logo"
             width={50}
             height={50}
             className="h-11 w-auto"
           />
-          <Image
+          <img
             src="/images/vcp-name.png"
             alt="Vasudev Chemo Pharma"
             width={220}

@@ -1,4 +1,5 @@
 import type { CollectionConfig } from "payload";
+import { slugify } from "@/lib/slug";
 
 function clearPrimaryFlags(items: unknown): unknown {
   if (!Array.isArray(items)) return items;
@@ -51,6 +52,16 @@ export const Products: CollectionConfig = {
         if (!data || typeof data !== "object") return data;
 
         const next = { ...(data as Record<string, unknown>) };
+
+        const sourceSlug =
+          typeof next.slug === "string" && next.slug.trim().length > 0
+            ? next.slug
+            : typeof next.name === "string" && next.name.trim().length > 0
+              ? next.name
+              : "";
+        if (sourceSlug) {
+          next.slug = slugify(sourceSlug);
+        }
 
         const hasImageUrl =
           typeof next.imageUrl === "string" && next.imageUrl.trim().length > 0;

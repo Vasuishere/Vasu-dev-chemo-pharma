@@ -1,55 +1,78 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
-export const revalidate = 3600;
+export const revalidate = 1800;
+
+export const metadata: Metadata = {
+  title: "Blog — Chemical Industry Insights & News",
+  description:
+    "Read the latest insights on sustainable chemical manufacturing, smart factories, specialty chemicals, and pharmaceutical intermediates from Vasudev Chemo Pharma.",
+  alternates: {
+    canonical: "https://vasudevchemopharma.com/blog",
+  },
+  openGraph: {
+    title: "Blog — Chemical Industry Insights | Vasudev Chemo Pharma",
+    description:
+      "Latest insights on sustainable chemical manufacturing, smart factories, and specialty chemicals.",
+    url: "https://vasudevchemopharma.com/blog",
+  },
+};
 
 const blogs = [
   {
-    slug: "sustainable-manufacturing-driving-a-greener-future",
-    title: "Sustainable manufacturing driving a greener future",
+    slug: "sustainable-chemical-manufacturing-greener-future-india",
+    title: "Sustainable Chemical Manufacturing: Driving a Greener Future in India",
     category: "Sustainability",
     date: "Jan 6, 2026",
     image: "https://framerusercontent.com/images/a2Zqj4XmuHOPsbeGYtBENVFMufs.png",
+    imageAlt: "Sustainable chemical manufacturing plant with green energy systems in Gujarat India",
     featured: true,
   },
   {
-    slug: "breakthroughs-powering-manufacturing-efficiency",
-    title: "Breakthroughs powering manufacturing efficiency",
-    category: "Smart manufacturing",
+    slug: "ai-iot-breakthroughs-chemical-manufacturing-efficiency",
+    title: "AI & IoT Breakthroughs Powering Chemical Manufacturing Efficiency",
+    category: "Smart Manufacturing",
     date: "Jan 15, 2026",
     image: "https://framerusercontent.com/images/NKrt6BfazML4t6STW4J7jw1qHoQ.png",
+    imageAlt: "AI-powered smart chemical manufacturing control room with IoT sensors",
     featured: false,
   },
   {
-    slug: "how-automation-is-shaping-the-future-of-manufacturing",
-    title: "How automation is shaping the future of manufacturing",
+    slug: "automation-shaping-future-chemical-manufacturing",
+    title: "How Automation Is Shaping the Future of Chemical Manufacturing",
     category: "Industry 4.0",
     date: "Jan 13, 2026",
     image: "https://framerusercontent.com/images/u48JppC0L67MN952GwxQr0v8uY8.webp",
+    imageAlt: "Automated robotic chemical production line in a pharmaceutical intermediates facility",
     featured: false,
   },
   {
-    slug: "top-5-materials-revolutionizing-industrial-components",
-    title: "Top 5 materials revolutionizing industrial components",
-    category: "Advanced materials",
+    slug: "top-5-specialty-chemicals-revolutionizing-industrial-applications",
+    title: "Top 5 Specialty Chemicals Revolutionizing Industrial Applications",
+    category: "Specialty Chemicals",
     date: "Jan 10, 2026",
     image: "https://framerusercontent.com/images/Hxgnn8KfIJnGioOtBbfYA5iYdQ8.webp",
+    imageAlt: "Specialty chemical compounds including triazine scavengers and pharmaceutical intermediates",
     featured: false,
   },
   {
-    slug: "smart-factories-transforming-modern-manufacturing",
-    title: "Smart factories transforming modern manufacturing",
-    category: "Smart manufacturing",
+    slug: "smart-factory-technology-modern-chemical-plants",
+    title: "Smart Factory Technology Transforming Modern Chemical Plants",
+    category: "Smart Manufacturing",
     date: "Jan 8, 2026",
     image: "https://framerusercontent.com/images/nwElwJzRsjpV0KeBSkL7mR2bQ.png",
+    imageAlt: "Smart factory digital twin monitoring dashboard for chemical manufacturing",
     featured: false,
   },
   {
-    slug: "3d-printing-revolutionizing-product-development",
-    title: "3D printing revolutionizing product development",
-    category: "Additive manufacturing",
+    slug: "3d-printing-additive-manufacturing-chemical-industry",
+    title: "3D Printing & Additive Manufacturing in the Chemical Industry",
+    category: "Additive Manufacturing",
     date: "Jan 4, 2026",
     image: "https://framerusercontent.com/images/NaB1BTPudXw9U4z7E7pwUp79iic.webp",
+    imageAlt: "3D printing additive manufacturing for chemical plant component prototyping",
     featured: false,
   },
 ];
@@ -59,11 +82,18 @@ export default function BlogPage() {
   const rest = blogs.slice(1);
 
   return (
-    <main>
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://vasudevchemopharma.com" },
+          { name: "Blog", url: "https://vasudevchemopharma.com/blog" },
+        ]}
+      />
+      <main>
       <section className="pt-32 pb-20">
         <div className="max-w-container mx-auto px-6 lg:px-10">
           <h1 className="font-heading text-display font-semibold text-primary mb-12">
-            Our blogs
+            Chemical Industry Insights &amp; Blog
           </h1>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -79,7 +109,7 @@ export default function BlogPage() {
                 <div className="relative aspect-square">
                   <Image
                     src={featured.image}
-                    alt={featured.title}
+                    alt={featured.imageAlt}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
@@ -109,7 +139,7 @@ export default function BlogPage() {
                   <div className="relative w-40 flex-shrink-0 aspect-square">
                     <Image
                       src={blog.image}
-                      alt={blog.title}
+                      alt={blog.imageAlt}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
@@ -131,6 +161,7 @@ export default function BlogPage() {
           </div>
         </div>
       </section>
-    </main>
+      </main>
+    </>
   );
 }

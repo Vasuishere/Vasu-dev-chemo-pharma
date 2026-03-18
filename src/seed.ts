@@ -37,57 +37,284 @@ type SeedProduct = {
   minOrderQuantity: string;
 };
 
-function buildCommonProductFaqs(product: SeedProduct) {
-  const topApplications = product.applications.slice(0, 3).join(", ");
+/* ─── Product-specific FAQ overrides for Google "People Also Ask" ─── */
 
-  return [
+const productSpecificFaqs: Record<string, { question: string; answer: string }[]> = {
+  "mea-triazine-78-h2s-scavenger": [
+    {
+      question: "What is MEA Triazine 78% and how does it remove H2S?",
+      answer: "MEA Triazine 78% (1,3,5-tris(2-hydroxyethyl)-s-triazine, CAS 4719-04-4) is a liquid hydrogen sulphide scavenger that reacts irreversibly with H₂S to form water-soluble, non-toxic dithiazine by-products. At 78% active content, it is one of the most concentrated MEA Triazine solutions available, providing superior scavenging efficiency per litre compared to lower-concentration alternatives. It is widely used in natural gas sweetening, crude oil stabilisation, and biogas desulphurisation.",
+    },
+    {
+      question: "What is the difference between MEA Triazine and MMA Triazine?",
+      answer: "MEA Triazine (monoethylamine-based) and MMA Triazine (monomethylamine-based) are both triazine H₂S scavengers, but they differ in chemistry and application profile. MEA Triazine 78% offers higher active content and faster reaction kinetics, making it ideal for high-H₂S-concentration streams. MMA Triazine 40% is a BTEX-free alternative preferred for applications where BTEX emissions must be minimised, such as in gas processing plants subject to strict VOC regulations.",
+    },
+    {
+      question: "How much MEA Triazine 78% is needed to treat 1 ppm of H2S?",
+      answer: "The stoichiometric ratio is approximately 3.1 kg of MEA Triazine 78% per kg of H₂S removed. In field practice, actual consumption is typically 4–6 kg per kg of H₂S due to inefficiencies in contact, competing reactions, and temperature effects. Exact dosing depends on H₂S concentration, gas flow rate, contact time, temperature, and whether a contact tower or direct-injection system is used. Vasudev Chemo Pharma's technical team can assist with dosing calculations for your specific application.",
+    },
+    {
+      question: "Is MEA Triazine 78% safe to handle?",
+      answer: "MEA Triazine 78% is classified as an irritant (GHS07). It may cause skin and eye irritation (H315, H319) and respiratory irritation (H335). Standard handling precautions include chemical-resistant gloves, safety goggles, and adequate ventilation. It is non-flammable (flash point > 93°C) and fully miscible in water, making spill cleanup straightforward. A Safety Data Sheet (SDS) is provided with every shipment from Vasudev Chemo Pharma.",
+    },
+  ],
+  "mma-triazine-40": [
+    {
+      question: "What is MMA Triazine 40% used for in oil and gas?",
+      answer: "MMA Triazine 40% (CAS 108-74-7) is a methyl-substituted triazine-based hydrogen sulphide scavenger used for H₂S removal in natural gas processing, crude oil stabilisation, and pipeline treatment. Its key advantage is that it is BTEX-free, making it the preferred choice for gas processing operations where BTEX (benzene, toluene, ethylbenzene, xylene) emissions are regulated. It provides effective H₂S scavenging at a moderate concentration with excellent cost-performance balance.",
+    },
+    {
+      question: "Why choose MMA Triazine 40% over MEA Triazine 78%?",
+      answer: "MMA Triazine 40% is preferred over MEA Triazine 78% in applications where BTEX-free operation is required by environmental regulations. While MEA Triazine offers higher concentration and faster kinetics, MMA Triazine produces reaction by-products that do not contribute to BTEX emissions — a critical factor for operators subject to EPA NSPS, EU IED, or similar emission standards. It is also non-corrosive to common oilfield metallurgy and does not contribute to foaming in gas processing equipment.",
+    },
+    {
+      question: "What is the CAS number of MMA Triazine?",
+      answer: "The CAS number of MMA Triazine (hexahydro-1,3,5-trimethyl-s-triazine) is 108-74-7. Its molecular formula is C₃H₆N₆ with a molecular weight of 126.12 g/mol. Vasudev Chemo Pharma supplies MMA Triazine at 40% active content in solution form, meeting the specifications required by major international oil and gas operators.",
+    },
+    {
+      question: "Can MMA Triazine 40% be used for biogas treatment?",
+      answer: "Yes. MMA Triazine 40% is effective for H₂S removal in biogas applications, including anaerobic digester gas, landfill gas, and wastewater treatment biogas. Its BTEX-free formulation is particularly advantageous in biogas-to-energy projects where gas quality standards prohibit BTEX compounds. It can be injected directly into the gas stream or used in a contact tower configuration.",
+    },
+  ],
+  "p-toluenesulfonic-acid": [
+    {
+      question: "What is P-Toluenesulfonic Acid (PTSA) used for?",
+      answer: "P-Toluenesulfonic Acid (PTSA, CAS 104-15-4) is a strong organic acid widely used as a catalyst in esterification, polymerisation, and dehydration reactions. Key applications include alkyd resin manufacturing, biodiesel transesterification, pharmaceutical synthesis, coatings crosslinking, and fragrance production. PTSA is preferred over mineral acids like sulphuric acid because of its non-oxidising nature, milder reaction conditions, and cleaner reaction profiles that reduce side-product formation.",
+    },
+    {
+      question: "What is the difference between PTSA monohydrate and anhydrous PTSA?",
+      answer: "PTSA monohydrate (molecular weight 190.22 g/mol) contains one molecule of water of crystallisation, has a melting point of 103–106°C, and is easier to handle and store. Anhydrous PTSA (molecular weight 172.20 g/mol) has a higher active acid content per gram and is preferred for moisture-sensitive reactions. Vasudev Chemo Pharma supplies both forms in industrial, technical, and pharmaceutical grades with purity ≥ 95%.",
+    },
+    {
+      question: "Is P-Toluenesulfonic Acid hazardous?",
+      answer: "PTSA is classified as corrosive (GHS05) and irritant (GHS07). It causes severe skin burns and eye damage (H314) and may cause respiratory irritation (H335). It should be handled with chemical-resistant gloves, face protection, and in a well-ventilated area. Despite being a strong acid, PTSA is non-oxidising, which makes it safer to handle than mineral acids like sulphuric or nitric acid. Full safety information is provided in the SDS included with every Vasudev Chemo Pharma shipment.",
+    },
+    {
+      question: "Can PTSA be used as a catalyst in pharmaceutical manufacturing?",
+      answer: "Yes. PTSA is widely used in pharmaceutical synthesis as an acid catalyst and as a counter-ion for drug salt formation (tosylate salts). Pharmaceutical-grade PTSA from Vasudev Chemo Pharma meets stringent purity specifications (≥ 95%, low heavy metals) suitable for GMP manufacturing environments. It is used in the synthesis of various APIs, drug intermediates, and excipients.",
+    },
+  ],
+  "copper-sulphate": [
+    {
+      question: "What is Copper Sulphate used for?",
+      answer: "Copper Sulphate Pentahydrate (CuSO₄·5H₂O, CAS 7758-99-8) is used across multiple industries: in agriculture as a fungicide (Bordeaux mixture) and soil micronutrient; in animal feed as a copper supplement; in mining as a flotation reagent for mineral separation; in water treatment for algae and bacteria control; in electroplating and electroforming; and in wood preservation (CCA treatment). Vasudev Chemo Pharma exports Copper Sulphate to over 30 countries in multiple grades.",
+    },
+    {
+      question: "What is the copper content in Copper Sulphate Pentahydrate?",
+      answer: "High-quality Copper Sulphate Pentahydrate contains ≥ 25.0% copper (Cu) by weight. Vasudev Chemo Pharma's product also meets specifications of ≥ 98.0% purity (as CuSO₄·5H₂O), ≤ 0.05% iron (Fe), ≤ 10 ppm lead (Pb), and ≤ 5 ppm arsenic (As). These specifications ensure suitability for agriculture, feed, and water treatment applications where contaminant levels must be tightly controlled.",
+    },
+    {
+      question: "Is Copper Sulphate safe for use in agriculture and animal feed?",
+      answer: "Copper Sulphate is approved for agricultural use as a fungicide (Bordeaux mixture) by regulatory agencies worldwide when applied per label directions. Feed-grade Copper Sulphate is used as a trace mineral supplement in livestock and poultry diets at recommended inclusion rates. However, it is classified as harmful if swallowed (H302), causes serious eye damage (H318), and is very toxic to aquatic life (H410). Always follow local regulations and SDS guidelines for safe application.",
+    },
+    {
+      question: "What grades of Copper Sulphate does Vasudev Chemo Pharma supply?",
+      answer: "Vasudev Chemo Pharma manufactures and supplies four grades of Copper Sulphate: Industrial Grade (general chemical use), Feed Grade (animal nutrition, meets feed additive specifications), Electroplating Grade (high purity for plating and electroforming), and Lab/Reagent Grade (analytical and laboratory use). All grades are available in 25 kg bags, 50 kg bags, and 1 MT jumbo bags, with custom packaging on request.",
+    },
+  ],
+  "manganese-sulphate": [
+    {
+      question: "What is Manganese Sulphate used for?",
+      answer: "Manganese Sulphate Monohydrate (MnSO₄·H₂O, CAS 10034-96-5) is used as a micronutrient in animal feed and agricultural fertilisers, as a precursor in the production of electrolytic manganese dioxide (EMD) for batteries, and in ceramic, dye, and water treatment applications. It is a bioavailable source of manganese essential for plant growth, animal health, and increasingly important in the lithium-ion battery supply chain for manganese-based cathode materials.",
+    },
+    {
+      question: "What is the manganese content in Manganese Sulphate Monohydrate?",
+      answer: "Vasudev Chemo Pharma's Manganese Sulphate Monohydrate contains ≥ 31.5% manganese (Mn) by weight, with overall purity ≥ 98.0%. The product meets strict specifications for iron (≤ 0.01%), heavy metals (≤ 10 ppm as Pb), and insoluble matter (≤ 0.05%), making it suitable for feed-grade, agricultural, and battery-precursor applications.",
+    },
+    {
+      question: "Can Manganese Sulphate be used in battery manufacturing?",
+      answer: "Yes. Battery-grade Manganese Sulphate is a critical precursor in the production of electrolytic manganese dioxide (EMD) used in alkaline and zinc-carbon batteries, and for synthesising manganese-rich cathode materials (NMC) used in lithium-ion batteries for electric vehicles and energy storage systems. Vasudev Chemo Pharma supplies battery-grade Manganese Sulphate with ultra-low impurity levels to meet the demanding specifications of battery manufacturers.",
+    },
+    {
+      question: "What is the HS code for Manganese Sulphate?",
+      answer: "The HS (Harmonised System) code for Manganese Sulphate is 2833.29. This code covers other sulphates of metals. Vasudev Chemo Pharma provides all necessary export documentation including commercial invoice, packing list, COA, and customs paperwork using the correct HS code to facilitate smooth international trade and customs clearance.",
+    },
+  ],
+  "bis-2-chloroethyl-amine-hydrochloride": [
+    {
+      question: "What is Bis(2-chloroethyl)amine Hydrochloride used for?",
+      answer: "Bis(2-chloroethyl)amine Hydrochloride (CAS 821-48-7) is a specialty organic intermediate used primarily in pharmaceutical research and industrial synthesis. It is a key building block for the synthesis of nitrogen mustard derivatives used as alkylating agents in oncology drug development, cross-linking reagents for bioconjugation, and nitrogen heterocycle synthesis. Due to its chemical reactivity, it is handled under strict regulatory controls.",
+    },
+    {
+      question: "Is Bis(2-chloroethyl)amine Hydrochloride a controlled substance?",
+      answer: "Yes. This substance is listed under the Chemical Weapons Convention (CWC) Schedule 2 and may be subject to national export-control regulations including ECCN classification and REACH Annex XIV authorisation. All sales and shipments from Vasudev Chemo Pharma require prior end-user vetting, valid import/export licences, and appropriate regulatory documentation. We maintain full compliance with international chemical control frameworks.",
+    },
+    {
+      question: "What safety precautions are needed for handling this compound?",
+      answer: "Bis(2-chloroethyl)amine Hydrochloride is classified as Toxic (GHS06) and Health Hazard (GHS08). It is toxic if swallowed (H301), in contact with skin (H311), or inhaled (H331), and may cause cancer (H350). Handling requires full PPE including chemical-resistant gloves, safety goggles, face shield, and respiratory protection. Work must be conducted in a fume hood or ventilated enclosure. The SDS must be reviewed before handling.",
+    },
+    {
+      question: "What purity does Vasudev Chemo Pharma offer for this compound?",
+      answer: "Vasudev Chemo Pharma supplies Bis(2-chloroethyl)amine Hydrochloride in two grades: Synthesis Grade (≥ 98% purity by HPLC) for industrial-scale pharmaceutical synthesis, and Research Grade for laboratory R&D applications. Both grades are accompanied by a Certificate of Analysis (COA) detailing purity, melting point, moisture, and residue on ignition. Available in 1 kg, 5 kg, and 25 kg packaging.",
+    },
+  ],
+  "di-ethyl-amino-ethyl-chloride-hydrochloride": [
+    {
+      question: "What is DEAE-Cl HCl used for in pharmaceutical synthesis?",
+      answer: "Diethylaminoethyl Chloride Hydrochloride (DEAE-Cl HCl, CAS 869-24-9) is a key pharmaceutical intermediate used as an alkylating agent to introduce the diethylaminoethyl side chain into drug molecules. This structural motif is found in several important pharmaceuticals including Chloroquine and Hydroxychloroquine (antimalarials), Procaine (local anaesthetic), and various antihistamine drugs. It is also used in ion-exchange resin functionalisation and specialty polymer synthesis.",
+    },
+    {
+      question: "What is the CAS number and molecular formula of DEAE-Cl HCl?",
+      answer: "The CAS number of Diethylaminoethyl Chloride Hydrochloride is 869-24-9. Its molecular formula is C₆H₁₄ClN·HCl with a molecular weight of 172.10 g/mol. The compound appears as a white crystalline powder with a melting point of 210–215°C. Vasudev Chemo Pharma supplies it at ≥ 99.0% purity (by GC) in pharmaceutical and technical grades.",
+    },
+    {
+      question: "Is DEAE-Cl HCl used in Chloroquine manufacturing?",
+      answer: "Yes. DEAE-Cl HCl is a critical intermediate in the synthesis of Chloroquine and Hydroxychloroquine — antimalarial drugs included in the WHO Model List of Essential Medicines. The diethylaminoethyl group introduced by DEAE-Cl HCl is an essential pharmacophore responsible for the drug's activity against Plasmodium parasites. Vasudev Chemo Pharma supplies pharmaceutical-grade DEAE-Cl HCl (≥ 99%) suitable for GMP manufacturing of these essential medicines.",
+    },
+    {
+      question: "What safety precautions are required when handling DEAE-Cl HCl?",
+      answer: "DEAE-Cl HCl is classified as Corrosive (GHS05) and Toxic (GHS06). It is toxic if swallowed (H301) or in contact with skin (H311), and causes severe skin burns and eye damage (H314). Handling requires chemical-resistant gloves, safety goggles, face shield, and protective clothing. Work should be conducted in a fume hood. Emergency eyewash and safety shower access must be available. Refer to the Safety Data Sheet provided by Vasudev Chemo Pharma for complete handling, storage, and first-aid information.",
+    },
+  ],
+  "2-amino-5-methylthiazole": [
+    {
+      question: "What is 2-Amino-5-methylthiazole used for?",
+      answer: "2-Amino-5-methylthiazole (CAS 7305-71-7) is a heterocyclic building block used in the synthesis of pharmaceuticals, agrochemicals, and dyes. In the pharmaceutical industry, it is a key starting material for the synthesis of Famotidine (a histamine H₂-receptor antagonist for heartburn/GERD treatment) and Nizatidine. In agrochemistry, thiazole derivatives are used in herbicide and fungicide formulations. It also serves as a corrosion inhibitor in industrial applications.",
+    },
+    {
+      question: "Is 2-Amino-5-methylthiazole used in Famotidine API manufacturing?",
+      answer: "Yes. 2-Amino-5-methylthiazole is one of the key starting materials in the multi-step synthesis of Famotidine API — a widely prescribed H₂-receptor antagonist used to treat stomach ulcers, gastroesophageal reflux disease (GERD), and Zollinger-Ellison syndrome. Vasudev Chemo Pharma supplies pharmaceutical-grade 2-Amino-5-methylthiazole (≥ 98% by HPLC) that meets the quality requirements for GMP pharmaceutical manufacturing.",
+    },
+    {
+      question: "What is the melting point and solubility of 2-Amino-5-methylthiazole?",
+      answer: "2-Amino-5-methylthiazole has a melting point of 93–97°C. It appears as a pale yellow crystalline solid with molecular formula C₄H₆N₂S and molecular weight 114.17 g/mol. It is soluble in ethanol and other organic solvents, and sparingly soluble in water. These physical properties make it suitable for use as a building block in solution-phase organic synthesis.",
+    },
+    {
+      question: "What grades of 2-Amino-5-methylthiazole are available?",
+      answer: "Vasudev Chemo Pharma supplies two grades: Pharmaceutical Grade (≥ 98% purity by HPLC, suitable for API synthesis) and Technical Grade (≥ 97% purity, suitable for agrochemical and industrial applications). Both grades are tested for moisture (≤ 0.5%), residue on ignition (≤ 0.1%), and appearance. Available in 1 kg, 5 kg, and 25 kg packaging with COA provided for every batch.",
+    },
+  ],
+  "2-chloroethylamine-hydrochloride": [
+    {
+      question: "What is 2-Chloroethylamine Hydrochloride used for?",
+      answer: "2-Chloroethylamine Hydrochloride (CAS 870-24-6) is a versatile organic intermediate used in the synthesis of ethyleneimine (aziridine), pharmaceutical intermediates, agrochemicals, cross-linking agents for coatings and resins, surfactants, and specialty polymers. It is a key building block for aziridine-based crosslinkers used in paper coatings, textile treatments, and advanced polymer systems.",
+    },
+    {
+      question: "How is 2-Chloroethylamine Hydrochloride used in aziridine production?",
+      answer: "2-Chloroethylamine Hydrochloride is the primary starting material for the synthesis of ethyleneimine (aziridine) through base-mediated intramolecular cyclisation. The chloroethylamine undergoes dehydrohalogenation in the presence of a strong base (typically NaOH) to form the highly reactive three-membered aziridine ring. Aziridine and its derivatives are used as crosslinking agents in coatings, adhesives, and polymer modifications.",
+    },
+    {
+      question: "What is the purity specification of 2-Chloroethylamine Hydrochloride from Vasudev Chemo Pharma?",
+      answer: "Vasudev Chemo Pharma supplies 2-Chloroethylamine Hydrochloride in Pharmaceutical Grade (≥ 99.0% purity by GC) and Technical Grade (≥ 98.0%). Key specifications include melting point 143–146°C, moisture ≤ 0.5%, residue on ignition ≤ 0.1%, and pH 2.0–4.0 (5% solution). Each batch is accompanied by a Certificate of Analysis (COA) verifying these parameters.",
+    },
+    {
+      question: "What are the safety hazards of 2-Chloroethylamine Hydrochloride?",
+      answer: "2-Chloroethylamine Hydrochloride is classified as Corrosive (GHS05) and Toxic (GHS06). It is toxic if swallowed (H301), in contact with skin (H311), or inhaled (H331), and causes severe skin burns and eye damage (H314). Full PPE including chemical-resistant gloves, goggles, face shield, and respiratory protection is required. The product must be stored in a cool, dry, well-ventilated area away from incompatible materials.",
+    },
+  ],
+  "albendazole": [
+    {
+      question: "What is Albendazole API used for?",
+      answer: "Albendazole (CAS 54965-21-8) is a broad-spectrum anthelmintic Active Pharmaceutical Ingredient used to treat parasitic worm infections including roundworms, hookworms, whipworms, tapeworms, and liver flukes. It is listed on the WHO Model List of Essential Medicines and is used globally in mass drug administration (MDA) programmes for deworming in endemic regions. It is formulated into oral tablets, chewable tablets, and suspensions.",
+    },
+    {
+      question: "Does Vasudev Chemo Pharma supply WHO-GMP compliant Albendazole?",
+      answer: "Yes. Vasudev Chemo Pharma manufactures Albendazole API at our WHO-GMP compliant pharmaceutical-grade facility in Gujarat, India. The product meets USP/BP/IP pharmacopoeial specifications with ≥ 99.0% assay (HPLC), controlled particle size (D90 ≤ 30 µm), and full compliance with ICH Q3C residual solvent guidelines. A Certificate of Analysis (COA) and Drug Master File (DMF) documentation are provided with every shipment.",
+    },
+    {
+      question: "What is the CAS number of Albendazole?",
+      answer: "The CAS number of Albendazole is 54965-21-8. Its molecular formula is C₁₂H₁₅N₃O₂S with a molecular weight of 265.33 g/mol. The IUPAC name is methyl [5-(propylthio)-1H-benzimidazol-2-yl]carbamate. Albendazole appears as a white to off-white powder with a melting point of 208–210°C.",
+    },
+    {
+      question: "Is Albendazole used in veterinary medicine?",
+      answer: "Yes. Albendazole is widely used in veterinary medicine as an anthelmintic for the treatment of gastrointestinal nematodes, tapeworms, and liver flukes in cattle, sheep, goats, and other livestock. Vasudev Chemo Pharma supplies both pharmaceutical-grade Albendazole (USP/BP/IP compliant for human formulations) and veterinary-grade Albendazole for animal health products. Both grades meet stringent purity and impurity profile requirements.",
+    },
+  ],
+  "ketoconazole": [
+    {
+      question: "What is Ketoconazole API used for?",
+      answer: "Ketoconazole (CAS 65277-42-1) is a synthetic imidazole antifungal API used in the formulation of oral tablets (systemic fungal infections), topical creams and ointments (dermatophyte infections, tinea, candidiasis), and anti-dandruff shampoos (seborrheic dermatitis, dandruff). It works by inhibiting the enzyme lanosterol 14α-demethylase (CYP51) in fungal cell membranes, disrupting ergosterol synthesis and killing the fungal cell.",
+    },
+    {
+      question: "What pharmacopoeial standards does Vasudev Chemo Pharma's Ketoconazole meet?",
+      answer: "Vasudev Chemo Pharma's Ketoconazole API meets USP (United States Pharmacopeia), BP (British Pharmacopoeia), and IP (Indian Pharmacopoeia) specifications. Key quality parameters include ≥ 99.0% assay (HPLC), melting point 148–152°C, loss on drying ≤ 0.5%, residue on ignition ≤ 0.1%, total related substances ≤ 0.5%, and residual solvents meeting ICH Q3C guidelines. A comprehensive Drug Master File (DMF) and COA are provided.",
+    },
+    {
+      question: "Can Ketoconazole be used in shampoo formulations?",
+      answer: "Yes. Ketoconazole at 1% and 2% concentrations is one of the most effective active ingredients in medicated anti-dandruff and anti-fungal shampoos. It treats seborrheic dermatitis, dandruff, and scalp fungal infections. Vasudev Chemo Pharma supplies topical-grade Ketoconazole specifically formulated for cosmeceutical and dermatological shampoo manufacturing, with particle size and dissolution characteristics optimised for topical formulations.",
+    },
+    {
+      question: "What is the molecular formula and CAS number of Ketoconazole?",
+      answer: "Ketoconazole has the molecular formula C₂₆H₂₈Cl₂N₄O₄ and molecular weight 531.43 g/mol. Its CAS number is 65277-42-1. The HS code for export is 2933.29. The compound appears as a white to off-white powder and is practically insoluble in water but soluble in acidic aqueous solutions and organic solvents such as dichloromethane and methanol.",
+    },
+  ],
+  "pregabalin": [
+    {
+      question: "What is Pregabalin API used for?",
+      answer: "Pregabalin (CAS 148553-50-8) is a GABA analogue API used for the treatment of neuropathic pain (diabetic neuropathy, post-herpetic neuralgia), as adjunctive therapy for partial-onset seizures in epilepsy, for generalised anxiety disorder (GAD), and fibromyalgia. It works by binding to the α2-δ subunit of voltage-gated calcium channels, reducing the release of excitatory neurotransmitters including glutamate, noradrenaline, and substance P.",
+    },
+    {
+      question: "What enantiomeric purity does Vasudev Chemo Pharma's Pregabalin offer?",
+      answer: "Vasudev Chemo Pharma supplies Pregabalin API with ≥ 99.5% enantiomeric purity (S-enantiomer), meeting the strict chiral specifications required by USP and IP pharmacopoeias. The specific optical rotation is controlled within +10.0° to +13.0°. This high enantiomeric purity is critical because the R-enantiomer has a different pharmacological profile and is considered an impurity in pharmaceutical formulations.",
+    },
+    {
+      question: "What is the CAS number and molecular weight of Pregabalin?",
+      answer: "Pregabalin has CAS number 148553-50-8, molecular formula C₈H₁₇NO₂, and molecular weight 159.23 g/mol. The IUPAC name is (S)-3-(aminomethyl)-5-methylhexanoic acid. It appears as a white crystalline powder with a melting point of 193–197°C. The HS code for export is 2922.49. Vasudev Chemo Pharma manufactures Pregabalin at our GMP-compliant facility in Gujarat, India.",
+    },
+    {
+      question: "Does Vasudev Chemo Pharma provide DMF documentation for Pregabalin?",
+      answer: "Yes. Vasudev Chemo Pharma provides complete regulatory documentation for Pregabalin API including Certificate of Analysis (COA) for every batch, Drug Master File (DMF), stability study data, and comprehensive impurity profile analysis. Our Pregabalin meets USP/IP pharmacopoeial standards including assay ≥ 99.5%, related substances ≤ 0.5% total impurities, and residual solvents meeting ICH Q3C guidelines.",
+    },
+  ],
+};
+
+function buildProductFaqs(product: SeedProduct) {
+  const topApplications = product.applications.slice(0, 3).join(", ");
+  const specificFaqs = productSpecificFaqs[product.slug] || [];
+
+  // Start with product-specific FAQs (highest ranking value)
+  const faqs = [...specificFaqs];
+
+  // Add common FAQs that weren't already covered by specific ones
+  const specificQuestionKeys = new Set(
+    specificFaqs.map((f) => f.question.toLowerCase().slice(0, 30))
+  );
+
+  const commonFaqs = [
     {
       question: `What is ${product.name} used for?`,
       answer: topApplications
-        ? `${product.name} is commonly used for ${topApplications}. It is suitable for industrial and commercial formulations based on your process requirements.`
-        : `${product.name} is used in industrial and commercial formulations depending on the application and process requirements.`,
+        ? `${product.name} (CAS ${product.casNumber}) is used for ${topApplications}. It is manufactured by Vasudev Chemo Pharma at our ISO 9001:2015 certified facility in Gujarat, India, and is suitable for industrial and commercial applications across ${product.industries.slice(0, 3).join(", ")} sectors.`
+        : `${product.name} (CAS ${product.casNumber}) is manufactured by Vasudev Chemo Pharma and is used in industrial and commercial formulations. Contact our team for application-specific guidance.`,
     },
     {
       question: `What is the CAS number of ${product.name}?`,
-      answer: `The CAS number of ${product.name} is ${product.casNumber}.`,
+      answer: `The CAS (Chemical Abstracts Service) Registry Number of ${product.name} is ${product.casNumber}. The molecular formula is ${product.formula} with a molecular weight of ${product.molecularWeight}. The HS code for international trade is ${product.hsCode}.`,
     },
     {
-      question: `What grades are available for ${product.name}?`,
+      question: `What grades of ${product.name} are available from Vasudev Chemo Pharma?`,
       answer: product.grades.length
-        ? `Available grades include ${product.grades.join(", ")}.`
-        : `Grade availability depends on your requirement. Please contact us for current stock and specifications.`,
+        ? `Vasudev Chemo Pharma supplies ${product.name} in the following grades: ${product.grades.join(", ")}. Grade selection depends on your application requirements — contact our technical team for guidance on the best grade for your process.`
+        : `Grade availability depends on your specific requirement. Please contact Vasudev Chemo Pharma for current stock, pricing, and specifications.`,
     },
     {
       question: `What packaging options are available for ${product.name}?`,
       answer: product.packaging.length
-        ? `Standard packaging includes ${product.packaging.join(", ")}.`
-        : `Packaging can be offered in standard drums, bags, or customized bulk options on request.`,
+        ? `Standard packaging for ${product.name} includes ${product.packaging.join(", ")}. All packaging is designed for safe transport and storage in compliance with applicable regulations. Custom packaging solutions are available for bulk or specialised requirements.`
+        : `Packaging can be provided in standard drums, bags, or customised bulk options on request. Contact us for packaging specifications.`,
     },
     {
       question: `What is the minimum order quantity (MOQ) for ${product.name}?`,
-      answer: `The typical MOQ for ${product.name} is ${product.minOrderQuantity}.`,
+      answer: `The minimum order quantity for ${product.name} from Vasudev Chemo Pharma is ${product.minOrderQuantity}. Sample quantities can be arranged for product qualification prior to bulk orders. We also support trial orders for new customers evaluating our product quality.`,
     },
     {
-      question: `Do you provide COA and technical documents with ${product.name}?`,
-      answer:
-        "Yes. We provide COA and relevant technical documents such as TDS/SDS based on shipment and compliance requirements.",
+      question: `Do you provide COA and SDS documents with ${product.name}?`,
+      answer: `Yes. Every shipment of ${product.name} from Vasudev Chemo Pharma includes a batch-specific Certificate of Analysis (COA) and Safety Data Sheet (SDS/MSDS). Additional documentation such as Technical Data Sheets (TDS) and compliance certificates can be provided on request to support your regulatory and quality system requirements.`,
     },
     {
-      question: `Can I get a sample of ${product.name} before bulk order?`,
-      answer:
-        "Yes, sample quantities can be arranged for qualification, subject to product availability and logistics feasibility.",
-    },
-    {
-      question: `What is the shelf life of ${product.name}?`,
-      answer:
-        "Typical shelf life is up to 24 months in original sealed packaging under recommended storage conditions. Final shelf life should be confirmed from the batch COA.",
-    },
-    {
-      question: `Is ${product.name} export-ready and shipped internationally?`,
-      answer:
-        "Yes. We support domestic and export shipments from India with standard documentation for international trade.",
+      question: `Is ${product.name} available for international export from India?`,
+      answer: `Yes. Vasudev Chemo Pharma exports ${product.name} (HS Code: ${product.hsCode}) worldwide from our facility in Gujarat, India. We support FOB, CIF, and CFR Incoterms with shipments from Kandla, Mundra, and Hazira ports. Export documentation includes commercial invoice, packing list, COA, SDS, and customs paperwork for smooth international clearance.`,
     },
   ];
+
+  for (const faq of commonFaqs) {
+    const key = faq.question.toLowerCase().slice(0, 30);
+    if (!specificQuestionKeys.has(key)) {
+      faqs.push(faq);
+    }
+  }
+
+  return faqs;
 }
 
 const seedProducts: SeedProduct[] = [
@@ -824,11 +1051,16 @@ async function seed() {
   console.log("🌱 Seeding products...");
 
   // Clear existing products
-  const existing = await payload.find({ collection: "products", limit: 100 });
-  if (existing.docs.length > 0) {
-    console.log(`  Deleting ${existing.docs.length} existing products...`);
-    for (const doc of existing.docs) {
-      await payload.delete({ collection: "products", id: doc.id });
+  let productsDeleting = true;
+  while (productsDeleting) {
+    const existing = await payload.find({ collection: "products", limit: 100 });
+    if (existing.docs.length > 0) {
+      console.log(`  Deleting ${existing.docs.length} existing products...`);
+      for (const doc of existing.docs) {
+        await payload.delete({ collection: "products", id: doc.id });
+      }
+    } else {
+      productsDeleting = false;
     }
   }
 
@@ -844,7 +1076,7 @@ async function seed() {
         price: 0,
         images: [],
         documents: [],
-        faqs: buildCommonProductFaqs(product),
+        faqs: buildProductFaqs(product),
       },
     });
     console.log(`  ✓ ${product.name}`);

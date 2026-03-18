@@ -5,19 +5,22 @@ import Button from "@/components/Button";
 
 const blogs = [
   {
-    title: "Breakthroughs powering manufacturing efficiency",
-    href: "/blog/breakthroughs-powering-manufacturing-efficiency",
+    title: "AI & IoT Breakthroughs Powering Chemical Manufacturing Efficiency",
+    href: "/blog/ai-iot-breakthroughs-chemical-manufacturing-efficiency",
     image: "https://framerusercontent.com/images/vmDI6OhtvdrUzZdCKxTTjToIeI.webp",
+    imageAlt: "AI and IoT breakthroughs in chemical manufacturing efficiency",
   },
   {
-    title: "How automation is shaping the future of manufacturing",
-    href: "/blog/how-automation-is-shaping-the-future-of-manufacturing",
+    title: "How Automation Is Shaping the Future of Chemical Manufacturing",
+    href: "/blog/automation-shaping-future-chemical-manufacturing",
     image: "https://framerusercontent.com/images/X3MBElAP8OnuJAyHhtV3aubNNY.webp",
+    imageAlt: "Automation systems in chemical manufacturing facility",
   },
   {
-    title: "Top 5 materials revolutionizing industrial components",
-    href: "/blog/top-5-materials-revolutionizing-industrial-components",
+    title: "Top 5 Specialty Chemicals Revolutionizing Industrial Applications",
+    href: "/blog/top-5-specialty-chemicals-revolutionizing-industrial-applications",
     image: "https://framerusercontent.com/images/FWAVl33ic80iuYm3hIN84RA50k.webp",
+    imageAlt: "Specialty chemicals for industrial applications including triazines and pharmaceutical intermediates",
   },
 ];
 
@@ -28,7 +31,7 @@ export default function BlogSection() {
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
           <div>
-            <SectionLabel>Insights &amp; Article</SectionLabel>
+            <SectionLabel>Insights &amp; Articles</SectionLabel>
             <h2 className="font-heading text-h2 font-semibold text-primary mt-4">
               Latest from our blog
             </h2>
@@ -55,7 +58,7 @@ export default function BlogSection() {
               <div className="relative aspect-[4/3]">
                 <Image
                   src={blog.image}
-                  alt={blog.title}
+                  alt={blog.imageAlt}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />

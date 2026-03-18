@@ -6,8 +6,9 @@ import { getAllProducts } from "@/lib/products-payload";
 import { products as staticProducts } from "@/lib/products";
 import { CATEGORY_LABELS, Product } from "@/lib/types";
 import { getCategoryPriorityMap } from "@/lib/product-sequencing";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
-export const revalidate = 60;
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "Chemical Products — Industrial, Specialty & Pharmaceutical | Vasudev Chemo Pharma",
@@ -61,7 +62,14 @@ export default async function ProductPage() {
   });
 
   return (
-    <main>
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://vasudevchemopharma.com" },
+          { name: "Products", url: "https://vasudevchemopharma.com/product" },
+        ]}
+      />
+      <main>
       {/* Hero */}
       <section className="pt-32 pb-16">
         <div className="max-w-container mx-auto px-6 lg:px-10">
@@ -151,6 +159,7 @@ export default async function ProductPage() {
           </div>
         </div>
       </section>
-    </main>
+      </main>
+    </>
   );
 }

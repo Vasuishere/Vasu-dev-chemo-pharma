@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 // Using arbitrary types matching Payload collection for MVP
 export type Asset = {
@@ -42,9 +43,9 @@ export const AssetCard: React.FC<Props> = ({ asset, onClick }) => {
       onClick={() => onClick?.(asset)}
       onKeyDown={handleKeyDown}
     >
-      <div className="h-40 bg-gray-100 rounded-lg flex flex-col items-center justify-center mb-3 overflow-hidden text-gray-400">
+      <div className="relative h-40 bg-gray-100 rounded-lg flex flex-col items-center justify-center mb-3 overflow-hidden text-gray-400">
         {asset.previewUrl && !isPending ? (
-          <img src={asset.previewUrl} alt={asset.name} className="w-full h-full object-cover" />
+          <Image src={asset.previewUrl} alt={asset.name} fill unoptimized className="object-cover" />
         ) : (
           <div className="text-center">
              <div className="text-3xl mb-2">

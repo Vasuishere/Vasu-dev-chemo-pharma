@@ -47,6 +47,15 @@ function createNonce(): string {
   return btoa(binary);
 }
 
+function isAdminPath(pathname: string): boolean {
+  return (
+    pathname === '/admin' ||
+    pathname.startsWith('/admin/') ||
+    pathname === '/payload' ||
+    pathname.startsWith('/payload/')
+  );
+}
+
 function buildContentSecurityPolicy(): string {
   const isDevelopment = process.env.NODE_ENV === 'development';
   const scriptSrc = isDevelopment
@@ -171,6 +180,12 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(canonicalUrl, 308);
   }
 
+  // Admin/Payload routes bypass the security layer entirely.
+  // Payload CMS has its own authentication & session management.
+  if (isAdminPath(pathname)) {
+    return NextResponse.next();
+  }
+
   const nonce = createNonce();
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set('x-nonce', nonce);
@@ -234,8 +249,10 @@ export async function middleware(request: NextRequest) {
   const isChallengePath = isSuspiciousPath(pathname);
   const challengeTriggeredByRate = isChallengePath && rateLimit.remaining <= 5;
   if ((suspiciousAgent || challengeTriggeredByRate) && !allowlisted) {
+    // If challenge secret is not configured, skip challenges gracefully
+    // instead of returning a hard 503.
     if (!EDGE_CHALLENGE_SECRET) {
-      return withSecurityHeaders(NextResponse.json({ error: 'Service unavailable' }, { status: 503 }), nonce);
+      return passThroughResponse;
     }
 
     const clearanceToken = request.cookies.get(CHALLENGE_COOKIE_NAME)?.value;

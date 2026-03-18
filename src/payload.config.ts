@@ -5,11 +5,11 @@ import { buildConfig } from "payload";
 import path from "path";
 import { fileURLToPath } from "url";
 
-import { Products } from "./collections/Products";
-import { Users } from "./collections/Users";
-import { Assets } from "./collections/Assets";
-import { CompanyInfo } from "./globals/CompanyInfo";
-import { ProductSequencing } from "./globals/ProductSequencing";
+import { Products } from "@/collections/Products";
+import { Users } from "@/collections/Users";
+import { Assets } from "@/collections/Assets";
+import { CompanyInfo } from "@/globals/CompanyInfo";
+import { ProductSequencing } from "@/globals/ProductSequencing";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);

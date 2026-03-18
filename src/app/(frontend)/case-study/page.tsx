@@ -1,7 +1,25 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
 export const revalidate = 3600;
+const CASE_STUDY_URL = "https://vasudevchemopharma.com/case-study";
+
+export const metadata: Metadata = {
+  title: "Case Studies — Chemical Process & Formulation Success Stories",
+  description:
+    "Explore real-world case studies showcasing Vasudev Chemo Pharma's chemical manufacturing capabilities, including pharmaceutical synthesis, formulation optimization, and process development outcomes.",
+  alternates: {
+    canonical: CASE_STUDY_URL,
+  },
+  openGraph: {
+    title: "Case Studies | Vasudev Chemo Pharma",
+    description:
+      "Real-world chemical manufacturing case studies covering pharmaceutical synthesis, formulation, and process development.",
+    url: CASE_STUDY_URL,
+  },
+};
 
 const caseStudies = [
   {
@@ -44,12 +62,26 @@ const caseStudies = [
 
 export default function CaseStudyPage() {
   return (
-    <main>
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://vasudevchemopharma.com" },
+          {
+            name: "Case Studies",
+            url: CASE_STUDY_URL,
+          },
+        ]}
+      />
+      <main>
       <section className="pt-32 pb-20">
         <div className="max-w-container mx-auto px-6 lg:px-10">
-          <h1 className="font-heading text-display font-semibold text-primary mb-12">
-            Our case studies
+          <h1 className="font-heading text-display font-semibold text-primary mb-4">
+            Chemical Manufacturing Case Studies
           </h1>
+          <p className="text-secondary text-lg mb-12 max-w-2xl">
+            Real-world outcomes from our <Link href="/service" className="text-accent hover:underline">chemical manufacturing services</Link>,
+            showcasing process optimisation and formulation results across <Link href="/product" className="text-accent hover:underline">our product range</Link>.
+          </p>
 
           <div className="space-y-6">
             {caseStudies.map((cs) => (
@@ -99,6 +131,7 @@ export default function CaseStudyPage() {
           </div>
         </div>
       </section>
-    </main>
+      </main>
+    </>
   );
 }

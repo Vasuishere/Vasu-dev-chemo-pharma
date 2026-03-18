@@ -1,9 +1,31 @@
+import type { Metadata } from "next";
 import Image from "next/image";
-import { headers } from "next/headers";
-import ContactForm from "@/components/contact/ContactForm";
+import Link from "next/link";
+import dynamic from "next/dynamic";
 import { getCompanyInfo } from "@/lib/company";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
-export const revalidate = 900;
+// Lazy-load ContactForm — not part of LCP
+const ContactForm = dynamic(() => import("@/components/contact/ContactForm"), {
+  loading: () => <div className="h-96 bg-light rounded-2xl animate-pulse" />,
+});
+
+export const revalidate = 1800;
+
+export const metadata: Metadata = {
+  title: "Contact Us — Request a Quote",
+  description:
+    "Contact Vasudev Chemo Pharma for product inquiries, bulk orders, and export requirements. ISO 9001:2015 certified chemical manufacturer from Gujarat, India. Get a reply within 24 hours.",
+  alternates: {
+    canonical: "https://vasudevchemopharma.com/contact",
+  },
+  openGraph: {
+    title: "Contact Vasudev Chemo Pharma — Request a Quote",
+    description:
+      "Contact us for product inquiries, bulk orders, and chemical export requirements. Get a reply within 24 hours.",
+    url: "https://vasudevchemopharma.com/contact",
+  },
+};
 
 const clientLogos = [
   "https://framerusercontent.com/images/XWAlPb58nstaS4Qe2V64MPJ3oEg.svg",
@@ -19,10 +41,16 @@ const clientLogos = [
 export default async function ContactPage() {
   const company = await getCompanyInfo();
   const brochureUrl = company.brochureUrl?.trim();
-  const nonce = (await headers()).get('x-nonce') || undefined;
 
   return (
-    <main>
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://vasudevchemopharma.com" },
+          { name: "Contact", url: "https://vasudevchemopharma.com/contact" },
+        ]}
+      />
+      <main>
       {/* Hero + Form */}
       <section className="pt-32 pb-20">
         <div className="max-w-container mx-auto px-6 lg:px-10">
@@ -30,12 +58,12 @@ export default async function ContactPage() {
             {/* Left */}
             <div>
               <h1 className="font-heading text-display font-semibold text-primary">
-                Let&apos;s work together
+                Contact Vasudev Chemo Pharma
               </h1>
               <p className="text-secondary text-lg mt-6 max-w-md">
-                Got questions about our chemicals or need a quote? Reach out to
-                us anytime — our team is ready to assist with product inquiries,
-                bulk orders, and export requirements.
+                Need a quote for industrial chemicals or specialty chemical products?
+                Reach out to our team — we respond within 24 hours with pricing,
+                specifications, and export documentation support.
               </p>
               {brochureUrl ? (
                 <a
@@ -45,12 +73,22 @@ export default async function ContactPage() {
                   className="inline-flex items-center gap-2 mt-6 bg-primary text-white px-6 py-3 rounded-full text-sm font-medium hover:opacity-90 transition-opacity"
                 >
                   Download Brochure
-                  <Image
-                    src="https://framerusercontent.com/images/GWsMEVHFHDveouGCfOoMhWpXLA.svg"
-                    alt="Button Icon"
-                    width={18}
-                    height={18}
-                  />
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M12 4v10m0 0l-4-4m4 4l4-4M5 18h14"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
                 </a>
               ) : null}
 
@@ -114,7 +152,7 @@ export default async function ContactPage() {
 
             {/* Right - Form */}
             <div className="relative">
-              <ContactForm nonce={nonce} />
+              <ContactForm />
             </div>
           </div>
         </div>
@@ -128,7 +166,7 @@ export default async function ContactPage() {
               <Image
                 key={i}
                 src={logo}
-                alt="Client Logo"
+                alt="Trusted chemical industry partner"
                 width={100}
                 height={32}
                 className="h-8 w-auto"
@@ -137,6 +175,32 @@ export default async function ContactPage() {
           </div>
         </div>
       </section>
-    </main>
+
+      {/* Internal Links */}
+      <section className="pb-20">
+        <div className="max-w-container mx-auto px-6 lg:px-10">
+          <h2 className="font-heading text-h3 font-semibold text-primary mb-6">Explore Our Offerings</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Link href="/product" className="bg-light rounded-2xl p-5 hover:shadow-md transition-shadow group">
+              <h3 className="font-heading text-h5 font-semibold text-primary group-hover:text-accent transition-colors">Chemical Products</h3>
+              <p className="text-sm text-secondary mt-1">Browse our full product catalogue</p>
+            </Link>
+            <Link href="/service" className="bg-light rounded-2xl p-5 hover:shadow-md transition-shadow group">
+              <h3 className="font-heading text-h5 font-semibold text-primary group-hover:text-accent transition-colors">Our Services</h3>
+              <p className="text-sm text-secondary mt-1">Manufacturing, formulation, and export</p>
+            </Link>
+            <Link href="/about" className="bg-light rounded-2xl p-5 hover:shadow-md transition-shadow group">
+              <h3 className="font-heading text-h5 font-semibold text-primary group-hover:text-accent transition-colors">About Us</h3>
+              <p className="text-sm text-secondary mt-1">ISO 9001:2015 certified manufacturer</p>
+            </Link>
+            <Link href="/blog" className="bg-light rounded-2xl p-5 hover:shadow-md transition-shadow group">
+              <h3 className="font-heading text-h5 font-semibold text-primary group-hover:text-accent transition-colors">Industry Blog</h3>
+              <p className="text-sm text-secondary mt-1">Chemical manufacturing insights</p>
+            </Link>
+          </div>
+        </div>
+      </section>
+      </main>
+    </>
   );
 }

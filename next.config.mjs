@@ -2,6 +2,7 @@ import { withPayload } from "@payloadcms/next/withPayload";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  trailingSlash: false,
   images: {
     remotePatterns: [
       {
@@ -111,7 +112,7 @@ const nextConfig = {
         ],
       },
       {
-        source: '/legal-pages/privacy-policy',
+        source: '/legal/privacy-policy',
         headers: [
           {
             key: 'Cache-Control',
@@ -137,6 +138,14 @@ const nextConfig = {
           {
             key: 'Referrer-Policy',
             value: 'strict-origin-when-cross-origin',
+          },
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on',
+          },
+          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=()',
           },
         ],
       },

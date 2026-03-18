@@ -13,7 +13,7 @@ const footerLinks1 = [
 const footerLinks2 = [
   { label: "Case Studies", href: "/case-study" },
   { label: "Contact", href: "/contact" },
-  { label: "Privacy Policy", href: "/legal-pages/privacy-policy" },
+  { label: "Privacy Policy", href: "/legal/privacy-policy" },
 ];
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -39,16 +39,17 @@ export default async function Footer() {
   const company = await getCompanyInfo();
 
   return (
-    <footer className="bg-dark text-white">
-      <div className="max-w-container mx-auto px-6 lg:px-10 pt-16 pb-6">
+    <footer className="bg-dark text-white max-h-[40vh] overflow-y-auto">
+      <div className="max-w-container mx-auto px-6 lg:px-10 pt-10 pb-4">
         {/* Logo */}
-        <div className="mb-10">
+        <div className="mb-6">
           <Link href="/" className="inline-flex items-center gap-3">
             <Image
               src="/images/vcp-logo.png"
               alt="VCP Logo"
               width={50}
               height={50}
+              unoptimized
               className="h-12 w-auto brightness-0 invert"
             />
             <Image
@@ -56,13 +57,14 @@ export default async function Footer() {
               alt="Vasudev Chemo Pharma"
               width={200}
               height={45}
+              unoptimized
               className="h-9 w-auto brightness-0 invert"
             />
           </Link>
         </div>
 
         {/* Top section */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 pb-12 border-b border-white/10">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 pb-8 border-b border-white/10">
           {/* Links */}
           <div>
             <h3 className="font-heading text-lg font-semibold mb-4">Links</h3>
@@ -145,7 +147,7 @@ export default async function Footer() {
         </div>
 
         {/* Bottom section */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-5">
           <p className="text-sm text-white/40">
             &copy; {new Date().getFullYear()} {company.companyName || "-"}. All rights reserved. Designed by{" "}
             <a

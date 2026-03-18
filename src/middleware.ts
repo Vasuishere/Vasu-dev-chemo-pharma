@@ -47,7 +47,21 @@ function createNonce(): string {
   return btoa(binary);
 }
 
+function isAdminPath(pathname: string): boolean {
+  return (
+    pathname === '/admin' ||
+    pathname.startsWith('/admin/') ||
+    pathname === '/payload' ||
+    pathname.startsWith('/payload/')
+  );
+}
+
 function buildContentSecurityPolicy(): string {
+  const isDevelopment = process.env.NODE_ENV === 'development';
+  const scriptSrc = isDevelopment
+    ? "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://challenges.cloudflare.com https://www.google.com https://www.gstatic.com https://cdn.jsdelivr.net"
+    : "script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://www.google.com https://www.gstatic.com https://cdn.jsdelivr.net";
+
   return [
     "default-src 'self'",
     "base-uri 'self'",
@@ -55,11 +69,12 @@ function buildContentSecurityPolicy(): string {
     "object-src 'none'",
     // App Router streaming pages include framework inline bootstrap scripts.
     // Keep script execution scoped to self + known CAPTCHA/challenge domains.
-    "script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://www.google.com https://www.gstatic.com",
-    "style-src 'self' 'unsafe-inline'",
-    "img-src 'self' data: blob: https://drive.google.com https://lh3.googleusercontent.com https://framerusercontent.com",
+    scriptSrc,
+    "style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net",
+    "img-src 'self' data: blob: https://drive.google.com https://lh3.googleusercontent.com https://framerusercontent.com https://www.gravatar.com https://secure.gravatar.com",
     "font-src 'self' data:",
     "connect-src 'self' https://challenges.cloudflare.com https://www.google.com",
+    "worker-src 'self' blob:",
     "frame-src 'self' https://challenges.cloudflare.com https://www.google.com",
     "form-action 'self'",
     "upgrade-insecure-requests",
@@ -111,8 +126,66 @@ function getRouteLimit(pathname: string): number {
   return 100;
 }
 
+function shouldRedirectToHttps(request: NextRequest): boolean {
+  const forwardedProto = request.headers.get('x-forwarded-proto');
+  const host = request.headers.get('host') || '';
+  const isLocalhost = host.startsWith('localhost') || host.startsWith('127.0.0.1');
+  return forwardedProto === 'http' && !isLocalhost;
+}
+
+function shouldNormalizeCase(pathname: string): boolean {
+  if (pathname.startsWith('/api/') || pathname.startsWith('/_next/')) {
+    return false;
+  }
+
+  // Skip static assets and file-like paths.
+  if (pathname.includes('.')) {
+    return false;
+  }
+
+  return pathname !== pathname.toLowerCase();
+}
+
+function normalizeLegacyPath(pathname: string): string {
+  if (pathname === '/legal-pages/privacy-policy') {
+    return '/legal/privacy-policy';
+  }
+
+  return pathname;
+}
+
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
+  const canonicalUrl = request.nextUrl.clone();
+  let shouldRedirect = false;
+
+  if (shouldRedirectToHttps(request)) {
+    canonicalUrl.protocol = 'https:';
+    shouldRedirect = true;
+  }
+
+  if (shouldNormalizeCase(canonicalUrl.pathname)) {
+    canonicalUrl.pathname = canonicalUrl.pathname.toLowerCase();
+    shouldRedirect = true;
+  }
+
+  const normalizedLegacyPath = normalizeLegacyPath(canonicalUrl.pathname);
+  if (normalizedLegacyPath !== canonicalUrl.pathname) {
+    canonicalUrl.pathname = normalizedLegacyPath;
+    shouldRedirect = true;
+  }
+
+  if (shouldRedirect) {
+    return NextResponse.redirect(canonicalUrl, 308);
+  }
+
+  // Admin/Payload routes bypass the security layer entirely.
+  // Payload CMS has its own authentication & session management.
+  if (isAdminPath(pathname)) {
+    return NextResponse.next();
+  }
+
   const nonce = createNonce();
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set('x-nonce', nonce);
@@ -176,8 +249,10 @@ export async function middleware(request: NextRequest) {
   const isChallengePath = isSuspiciousPath(pathname);
   const challengeTriggeredByRate = isChallengePath && rateLimit.remaining <= 5;
   if ((suspiciousAgent || challengeTriggeredByRate) && !allowlisted) {
+    // If challenge secret is not configured, skip challenges gracefully
+    // instead of returning a hard 503.
     if (!EDGE_CHALLENGE_SECRET) {
-      return withSecurityHeaders(NextResponse.json({ error: 'Service unavailable' }, { status: 503 }), nonce);
+      return passThroughResponse;
     }
 
     const clearanceToken = request.cookies.get(CHALLENGE_COOKIE_NAME)?.value;

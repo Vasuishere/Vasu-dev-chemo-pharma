@@ -1,10 +1,34 @@
-"use client";
-
-import { useState } from "react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import SectionLabel from "@/components/SectionLabel";
 import Button from "@/components/Button";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
+import FAQSchema from "@/components/seo/FAQSchema";
+import { getAllProducts } from "@/lib/products-payload";
+
+// Lazy-load ContactForm — it's below the fold
+const ContactForm = dynamic(() => import("@/components/contact/ContactForm"), {
+  loading: () => <div className="h-96 bg-light rounded-2xl animate-pulse" />,
+});
+
+export const revalidate = 3600;
+
+export const metadata: Metadata = {
+  title: "Chemical Manufacturing Services — Gujarat, India",
+  description:
+    "Explore chemical manufacturing, import-export, custom formulation, quality testing, and bulk supply services from Vasudev Chemo Pharma. Request a quote today.",
+  alternates: {
+    canonical: "https://vasudevchemopharma.com/service",
+  },
+  openGraph: {
+    title: "Chemical Manufacturing Services | Vasudev Chemo Pharma",
+    description:
+      "ISO 9001:2015 certified chemical manufacturing, custom formulation, and global export services from Gujarat, India.",
+    url: "https://vasudevchemopharma.com/service",
+  },
+};
 
 const services = [
   {
@@ -68,22 +92,53 @@ const faqs = [
   },
 ];
 
-export default function ServicePage() {
-  const [formSubmitted, setFormSubmitted] = useState(false);
+export default async function ServicePage() {
+  let catalogSummaryAnswer =
+    "We manufacture and supply a broad range of industrial and specialty chemicals. Contact us for the latest product catalog and technical specifications.";
 
-  function handleFormSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setFormSubmitted(true);
+  try {
+    const products = await getAllProducts();
+    if (products.length > 0) {
+      const featuredProducts = products
+        .slice(0, 6)
+        .map((product) => product.name)
+        .join(", ");
+      catalogSummaryAnswer = `We currently supply ${products.length} active products, including ${featuredProducts}, and more across industrial and specialty categories.`;
+    }
+  } catch {
+    // Keep the fallback answer when catalog lookup is unavailable.
   }
 
+  const pageFaqs = faqs.map((faq, index) => {
+    if (index === 0) {
+      return {
+        ...faq,
+        a: catalogSummaryAnswer,
+      };
+    }
+
+    return faq;
+  });
+
   return (
-    <main>
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://vasudevchemopharma.com" },
+          { name: "Services", url: "https://vasudevchemopharma.com/service" },
+        ]}
+      />
+      <FAQSchema items={pageFaqs.map((faq) => ({ question: faq.q, answer: faq.a }))} />
+      <main>
       {/* Hero */}
       <section className="pt-32 pb-16">
         <div className="max-w-container mx-auto px-6 lg:px-10 text-center">
           <h1 className="font-heading text-display font-semibold">
-            Our services
+            Chemical Manufacturing Services
           </h1>
+          <p className="text-secondary text-lg mt-4 max-w-2xl mx-auto">
+            ISO 9001:2015 certified chemical manufacturing, custom formulation, global logistics, and bulk supply from Gujarat, India.
+          </p>
         </div>
       </section>
 
@@ -100,7 +155,7 @@ export default function ServicePage() {
                 <div className="p-6 flex items-center justify-between">
                   <Image
                     src="https://framerusercontent.com/images/xYCVyxuBws5xxo0dgYvczUqqSI.svg"
-                    alt="Button Icon"
+                    alt="Navigate to service"
                     width={16}
                     height={12}
                     className="opacity-0 group-hover:opacity-100 transition-opacity"
@@ -130,7 +185,7 @@ export default function ServicePage() {
           <div className="relative mt-16 rounded-3xl overflow-hidden bg-dark p-12 lg:p-16 text-center">
             <Image
               src="https://framerusercontent.com/images/qbL1L4EXzTjrYawN3GV9Zww8wb4.png"
-              alt="CTA BG"
+              alt="Chemical manufacturing facility background"
               fill
               className="object-cover opacity-30"
             />
@@ -154,7 +209,7 @@ export default function ServicePage() {
             </h2>
           </div>
           <div className="max-w-3xl mx-auto space-y-4">
-            {faqs.map((faq, i) => (
+            {pageFaqs.map((faq, i) => (
               <details
                 key={i}
                 className="bg-white rounded-2xl p-6 group"
@@ -183,37 +238,13 @@ export default function ServicePage() {
                 Start your chemical sourcing journey
               </h2>
             </div>
-            {formSubmitted ? (
-              <div className="text-center py-12">
-                <h3 className="font-heading text-h3 font-semibold text-primary mb-2">Thank you!</h3>
-                <p className="text-secondary">Your inquiry has been sent. We&apos;ll get back to you soon.</p>
-              </div>
-            ) : (
-            <form onSubmit={handleFormSubmit} className="space-y-4">
-              <div>
-                <label htmlFor="nameInput" className="text-sm font-medium text-primary">Name*</label>
-                <input id="nameInput" name="name" type="text" required placeholder="Enter your name" className="w-full mt-1 border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-accent transition-colors" />
-              </div>
-              <div>
-                <label htmlFor="emailInput" className="text-sm font-medium text-primary">Email*</label>
-                <input id="emailInput" name="email" type="email" required placeholder="Enter your email" className="w-full mt-1 border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-accent transition-colors" />
-              </div>
-              <div>
-                <label htmlFor="inquiryInput" className="text-sm font-medium text-primary">Inquiry</label>
-                <input id="inquiryInput" name="inquiry" type="text" placeholder="Enter inquiry details" className="w-full mt-1 border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-accent transition-colors" />
-              </div>
-              <div>
-                <label htmlFor="messageInput" className="text-sm font-medium text-primary">Message</label>
-                <textarea id="messageInput" name="message" placeholder="Tell us about your project" rows={4} className="w-full mt-1 border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-accent transition-colors resize-none" />
-              </div>
-              <button type="submit" className="bg-accent hover:bg-accent-dark text-white text-sm font-medium px-8 py-3 rounded-full transition-colors">
-                Send your details
-              </button>
-            </form>
-            )}
+            <div>
+              <ContactForm />
+            </div>
           </div>
         </div>
       </section>
-    </main>
+      </main>
+    </>
   );
 }

@@ -47,6 +47,7 @@ export default function Navbar() {
             alt="VCP Logo"
             width={50}
             height={50}
+            unoptimized
             className="h-11 w-auto"
           />
           <Image
@@ -54,6 +55,7 @@ export default function Navbar() {
             alt="Vasudev Chemo Pharma"
             width={220}
             height={50}
+            unoptimized
             className="h-10 w-auto"
           />
         </Link>

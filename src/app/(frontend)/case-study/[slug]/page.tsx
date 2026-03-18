@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import Button from "@/components/Button";
-
-export const revalidate = 3600;
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
 const caseStudyData: Record<
   string,
@@ -18,6 +18,7 @@ const caseStudyData: Record<
     specs: string[];
     results: string;
     stats: { value: string; label: string }[];
+    serviceLink: { href: string; label: string };
   }
 > = {
   "lightweight-castings-for-industrial-equipment": {
@@ -48,6 +49,10 @@ const caseStudyData: Record<
       { value: "28%", label: "Increase overall efficiency" },
       { value: "95%", label: "First-pass yield accuracy" },
     ],
+    serviceLink: {
+      href: "/service/chemical-manufacturing-services",
+      label: "View Chemical Manufacturing Services",
+    },
   },
   "precision-cnc-milling-for-automotive-components": {
     category: "CNC machining",
@@ -77,6 +82,10 @@ const caseStudyData: Record<
       { value: "42%", label: "Reduction in cycle time" },
       { value: "99.8%", label: "Quality pass rate" },
     ],
+    serviceLink: {
+      href: "/service/custom-chemical-formulation",
+      label: "View Custom Formulation Services",
+    },
   },
   "additive-manufacturing-for-custom-tooling": {
     category: "3D printing",
@@ -106,6 +115,10 @@ const caseStudyData: Record<
       { value: "80%", label: "Faster lead time" },
       { value: "100+", label: "Custom tools produced" },
     ],
+    serviceLink: {
+      href: "/service/process-optimization",
+      label: "View Process Optimization Services",
+    },
   },
   "automated-assembly-line-optimization": {
     category: "Automation",
@@ -135,6 +148,10 @@ const caseStudyData: Record<
       { value: "98%", label: "Reduction in defects" },
       { value: "3x", label: "Throughput increase" },
     ],
+    serviceLink: {
+      href: "/service/advanced-control-systems",
+      label: "View Control System Services",
+    },
   },
 };
 
@@ -181,6 +198,30 @@ export function generateStaticParams() {
   return Object.keys(caseStudyData).map((slug) => ({ slug }));
 }
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const cs = caseStudyData[slug];
+  if (!cs) return {};
+
+  return {
+    title: `${cs.title} — Case Study`,
+    description: cs.overview.slice(0, 160),
+    alternates: {
+      canonical: `https://vasudevchemopharma.com/case-study/${slug}`,
+    },
+    openGraph: {
+      title: cs.title,
+      description: cs.overview.slice(0, 160),
+      url: `https://vasudevchemopharma.com/case-study/${slug}`,
+      images: [{ url: cs.heroImage }],
+    },
+  };
+}
+
 export default async function CaseStudyDetailPage({
   params,
 }: {
@@ -195,7 +236,21 @@ export default async function CaseStudyDetailPage({
     .slice(0, 2);
 
   return (
-    <main>
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://vasudevchemopharma.com" },
+          {
+            name: "Case Studies",
+            url: "https://vasudevchemopharma.com/case-study",
+          },
+          {
+            name: cs.title,
+            url: `https://vasudevchemopharma.com/case-study/${slug}`,
+          },
+        ]}
+      />
+      <main>
       {/* Hero */}
       <section className="pt-32 pb-12">
         <div className="max-w-container mx-auto px-6 lg:px-10">
@@ -302,6 +357,43 @@ export default async function CaseStudyDetailPage({
               ))}
             </div>
           </div>
+
+          {/* Service Link Tie-in */}
+          <div className="mt-16 pt-10 border-t border-gray-200">
+            <div className="bg-light rounded-3xl p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+              <div>
+                <h3 className="font-heading text-h4 font-semibold text-primary">
+                  Relevant Service
+                </h3>
+                <p className="text-secondary mt-1">
+                  Discover how we can implement this solution for your operations.
+                </p>
+              </div>
+              <Button href={cs.serviceLink.href} variant="dark" className="whitespace-nowrap">
+                {cs.serviceLink.label}
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA TO CONTACT ── */}
+      <section className="pb-20">
+        <div className="max-w-container mx-auto px-6 lg:px-10">
+          <div className="bg-primary rounded-3xl p-10 lg:p-14 text-center">
+             <h2 className="font-heading text-h3 text-white mb-4">
+              Ready to achieve similar results?
+            </h2>
+            <p className="text-white/70 max-w-xl mx-auto mb-8">
+              Contact our engineering team to discuss your project requirements and see how our expertise can drive your business forward.
+            </p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark transition-colors text-white text-sm font-medium px-8 py-4 rounded-full"
+            >
+              Contact Us Today
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -361,6 +453,7 @@ export default async function CaseStudyDetailPage({
           </div>
         </div>
       </section>
-    </main>
+      </main>
+    </>
   );
 }

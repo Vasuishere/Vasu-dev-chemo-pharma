@@ -13,6 +13,7 @@ export default function HeroSection() {
         loop
         muted
         playsInline
+        preload="metadata"
         className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
         style={{ opacity: VIDEO_OPACITY }}
       >

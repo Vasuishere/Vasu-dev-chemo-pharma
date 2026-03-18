@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
 export const revalidate = 86400;
+
+const POLICY_LAST_UPDATED = new Date("2026-01-15");
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
     "Privacy policy for Vasudev Chemo Pharma — how we collect, use, and protect your personal information on our website and services.",
   alternates: {
-    canonical: "https://vasudevchemopharma.com/legal-pages/privacy-policy",
+    canonical: "https://vasudevchemopharma.com/legal/privacy-policy",
   },
   robots: {
     index: true,
@@ -18,21 +21,35 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <main>
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://vasudevchemopharma.com" },
+          {
+            name: "Privacy Policy",
+            url: "https://vasudevchemopharma.com/legal/privacy-policy",
+          },
+        ]}
+      />
+      <main>
       <section className="pt-32 pb-20">
         <div className="max-w-container mx-auto px-6 lg:px-10">
-          {/* Header */}
           <div className="mb-12">
             <h1 className="font-heading text-display font-semibold text-primary">
               Privacy policy
             </h1>
             <div className="flex items-center gap-3 mt-4">
               <span className="text-sm text-muted">Last updated:</span>
-              <span className="text-sm text-secondary">January 15, 2026</span>
+              <span className="text-sm text-secondary">
+                {POLICY_LAST_UPDATED.toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
+              </span>
             </div>
           </div>
 
-          {/* Content */}
           <div className="max-w-3xl prose prose-lg">
             <p className="text-secondary leading-relaxed">
               At <strong>Vasudev Chemo Pharma</strong>, we value your trust and are
@@ -204,6 +221,7 @@ export default function PrivacyPolicyPage() {
           </div>
         </div>
       </section>
-    </main>
+      </main>
+    </>
   );
 }

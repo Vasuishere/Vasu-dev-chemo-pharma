@@ -1,10 +1,27 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import SectionLabel from "@/components/SectionLabel";
 import Button from "@/components/Button";
 import { getCompanyInfo } from "@/lib/company";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
-export const revalidate = 1800;
+export const revalidate = 3600;
+
+export const metadata: Metadata = {
+  title: "About Vasudev Chemo Pharma — Chemical Manufacturer India",
+  description:
+    "Learn about Vasudev Chemo Pharma — ISO 9001:2015 certified industrial and specialty chemical manufacturer from Gujarat, India. 28+ chemical products exported worldwide.",
+  alternates: {
+    canonical: "https://vasudevchemopharma.com/about",
+  },
+  openGraph: {
+    title: "About Vasudev Chemo Pharma — ISO Certified Chemical Manufacturer",
+    description:
+      "ISO 9001:2015 certified industrial and specialty chemical manufacturer from Gujarat, India. 28+ chemical products exported worldwide.",
+    url: "https://vasudevchemopharma.com/about",
+  },
+};
 
 const avatars = [
   "https://framerusercontent.com/images/4joakeBMa5GHrq9uyQPg0bnmko.png",
@@ -37,7 +54,14 @@ export default async function AboutPage() {
   const startYear = hasValidFoundingYear ? company.foundingYear : derivedStartYear;
 
   return (
-    <main>
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://vasudevchemopharma.com" },
+          { name: "About", url: "https://vasudevchemopharma.com/about" },
+        ]}
+      />
+      <main>
       {/* Hero */}
       <section className="pt-32 pb-16">
         <div className="max-w-container mx-auto px-6 lg:px-10">
@@ -45,7 +69,7 @@ export default async function AboutPage() {
             <div>
               <SectionLabel>Who we are</SectionLabel>
               <h1 className="font-heading text-display font-semibold mt-4">
-                About us
+                About Vasudev Chemo Pharma
               </h1>
             </div>
             <div className="flex flex-col justify-end">
@@ -55,7 +79,7 @@ export default async function AboutPage() {
                     <Image
                       key={i}
                       src={src}
-                      alt="Avatar"
+                      alt="Vasudev Chemo Pharma team member"
                       width={40}
                       height={40}
                       className="w-10 h-10 rounded-full border-2 border-white"
@@ -81,8 +105,9 @@ export default async function AboutPage() {
           <div className="relative rounded-3xl overflow-hidden aspect-[16/7] mb-12">
             <Image
               src="https://framerusercontent.com/images/yHbIIVOj7hK29ucygE5eIDV47I.jpg"
-              alt="About Image"
+              alt="Vasudev Chemo Pharma chemical manufacturing facility in Gujarat India"
               fill
+              priority
               className="object-cover"
             />
           </div>
@@ -106,7 +131,7 @@ export default async function AboutPage() {
                   >
                     <Image
                       src="https://framerusercontent.com/images/ss0bmyns6jeXRaMshGzNYH68.svg"
-                      alt="Icon"
+                      alt="Download brochure icon"
                       width={20}
                       height={20}
                     />
@@ -151,9 +176,11 @@ export default async function AboutPage() {
                     {companyName}
                   </h3>
                   <p className="text-sm text-secondary">
-                    {companyAddress
-                      ? `Founded in ${companyAddress}`
-                      : "Founded location not set"}
+                    {startYear
+                      ? `Founded in ${startYear}`
+                      : companyAddress
+                        ? `Based in ${companyAddress}`
+                        : "Location not set"}
                   </p>
                 </div>
               </div>
@@ -163,7 +190,7 @@ export default async function AboutPage() {
               </h4>
               <p className="text-secondary leading-relaxed mb-4">
                 {companyName} started with a vision to become a trusted
-                name in the industrial and specialty chemicals industry. Based in
+                name in the industrial and specialty chemicals industry. Based in{" "}
                 {companyAddress || "its operating region"}, we have grown into a
                 reliable supplier of 28+ chemical products serving clients
                 across multiple international markets.
@@ -226,7 +253,33 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      {/* Team Section - Hidden per request */}
-    </main>
+      {/* Internal Links Section */}
+      <section className="py-16">
+        <div className="max-w-container mx-auto px-6 lg:px-10">
+          <h2 className="font-heading text-h3 font-semibold text-primary mb-8">
+            Explore More
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Link href="/product" className="bg-light rounded-2xl p-6 hover:shadow-md transition-shadow group">
+              <h3 className="font-heading text-h5 font-semibold text-primary group-hover:text-accent transition-colors">Our Chemical Products</h3>
+              <p className="text-sm text-secondary mt-2">Browse 28+ industrial and specialty chemicals</p>
+            </Link>
+            <Link href="/service" className="bg-light rounded-2xl p-6 hover:shadow-md transition-shadow group">
+              <h3 className="font-heading text-h5 font-semibold text-primary group-hover:text-accent transition-colors">Manufacturing Services</h3>
+              <p className="text-sm text-secondary mt-2">Custom formulation, quality testing, and export</p>
+            </Link>
+            <Link href="/blog" className="bg-light rounded-2xl p-6 hover:shadow-md transition-shadow group">
+              <h3 className="font-heading text-h5 font-semibold text-primary group-hover:text-accent transition-colors">Industry Insights</h3>
+              <p className="text-sm text-secondary mt-2">Latest articles on chemical manufacturing</p>
+            </Link>
+            <Link href="/contact" className="bg-light rounded-2xl p-6 hover:shadow-md transition-shadow group">
+              <h3 className="font-heading text-h5 font-semibold text-primary group-hover:text-accent transition-colors">Request a Quote</h3>
+              <p className="text-sm text-secondary mt-2">Get pricing for your chemical requirements</p>
+            </Link>
+          </div>
+        </div>
+      </section>
+      </main>
+    </>
   );
 }

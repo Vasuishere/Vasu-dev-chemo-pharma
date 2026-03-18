@@ -1,9 +1,10 @@
+import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import SectionLabel from "@/components/SectionLabel";
 import Button from "@/components/Button";
-
-export const revalidate = 3600;
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
 const serviceData: Record<string, {
   title: string;
@@ -60,6 +61,30 @@ export function generateStaticParams() {
   return Object.keys(serviceData).map((slug) => ({ slug }));
 }
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const service = serviceData[slug];
+  if (!service) return {};
+
+  return {
+    title: `${service.title} — Chemical Manufacturing Services`,
+    description: service.details.slice(0, 160),
+    alternates: {
+      canonical: `https://vasudevchemopharma.com/service/${slug}`,
+    },
+    openGraph: {
+      title: `${service.title} | Vasudev Chemo Pharma`,
+      description: service.description,
+      url: `https://vasudevchemopharma.com/service/${slug}`,
+      images: [{ url: service.image }],
+    },
+  };
+}
+
 export default async function ServiceDetailPage({
   params,
 }: {
@@ -70,7 +95,18 @@ export default async function ServiceDetailPage({
   if (!service) notFound();
 
   return (
-    <main>
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://vasudevchemopharma.com" },
+          { name: "Services", url: "https://vasudevchemopharma.com/service" },
+          {
+            name: service.title,
+            url: `https://vasudevchemopharma.com/service/${slug}`,
+          },
+        ]}
+      />
+      <main>
       {/* Hero */}
       <section className="pt-32 pb-16">
         <div className="max-w-container mx-auto px-6 lg:px-10">
@@ -88,6 +124,7 @@ export default async function ServiceDetailPage({
                 src={service.image}
                 alt={service.title}
                 fill
+                priority
                 className="object-cover"
               />
             </div>
@@ -124,6 +161,26 @@ export default async function ServiceDetailPage({
         </div>
       </section>
 
+      {/* Internal Links */}
+      <section className="py-12">
+        <div className="max-w-container mx-auto px-6 lg:px-10">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <Link href="/product" className="bg-light rounded-2xl p-5 hover:shadow-md transition-shadow group">
+              <h3 className="font-heading text-h5 font-semibold text-primary group-hover:text-accent transition-colors">Browse Products</h3>
+              <p className="text-sm text-secondary mt-1">View our full chemical product catalogue</p>
+            </Link>
+            <Link href="/contact" className="bg-light rounded-2xl p-5 hover:shadow-md transition-shadow group">
+              <h3 className="font-heading text-h5 font-semibold text-primary group-hover:text-accent transition-colors">Request a Quote</h3>
+              <p className="text-sm text-secondary mt-1">Get pricing for your chemical requirements</p>
+            </Link>
+            <Link href="/about" className="bg-light rounded-2xl p-5 hover:shadow-md transition-shadow group">
+              <h3 className="font-heading text-h5 font-semibold text-primary group-hover:text-accent transition-colors">About Us</h3>
+              <p className="text-sm text-secondary mt-1">ISO 9001:2015 certified manufacturer</p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20">
         <div className="max-w-container mx-auto px-6 lg:px-10">
@@ -131,6 +188,7 @@ export default async function ServiceDetailPage({
             <Image
               src="https://framerusercontent.com/images/qbL1L4EXzTjrYawN3GV9Zww8wb4.png"
               alt=""
+              aria-hidden="true"
               fill
               className="object-cover opacity-30"
             />
@@ -143,6 +201,7 @@ export default async function ServiceDetailPage({
           </div>
         </div>
       </section>
-    </main>
+      </main>
+    </>
   );
 }

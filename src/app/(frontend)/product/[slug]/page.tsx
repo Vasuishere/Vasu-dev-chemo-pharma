@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import {
@@ -12,9 +11,13 @@ import SectionLabel from "@/components/SectionLabel";
 import StickyAnchorNav from "@/components/StickyAnchorNav";
 import GoogleDriveImage from "@/components/GoogleDriveImage";
 import { toGoogleDrivePreviewUrl } from "@/lib/gdrive";
+import ProductSchema from "@/components/seo/ProductSchema";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
+import FAQSchema from "@/components/seo/FAQSchema";
+import { getProductSeoKeywords } from "@/lib/product-seo-keywords";
 
-/* ─── ISR: revalidate product pages every 60 seconds ────────── */
-export const revalidate = 60;
+/* ─── ISR: revalidate product pages every hour ──────────────── */
+export const revalidate = 3600;
 
 /* ─── Static params for all products ─────────────────────────── */
 export async function generateStaticParams() {
@@ -45,10 +48,21 @@ export async function generateMetadata({
     const description =
       product.metaDescription ||
       `Buy ${product.name}${product.casNumber ? ` (CAS ${product.casNumber})` : ""} from Vasudev Chemo Pharma — ISO 9001:2015 certified manufacturer in Gujarat, India. Export-ready packaging. Request a quote today.`;
+    const keywordConfig = getProductSeoKeywords(
+      product.slug,
+      product.name,
+      product.casNumber || ""
+    );
 
     return {
       title,
       description,
+      keywords: [
+        keywordConfig.primaryKeyword,
+        ...keywordConfig.longTailKeywords,
+        `${product.name} CAS number`.toLowerCase(),
+        `buy ${product.name} industrial grade`.toLowerCase(),
+      ],
       alternates: {
         canonical: `https://vasudevchemopharma.com/product/${product.slug}`,
       },
@@ -63,77 +77,6 @@ export async function generateMetadata({
   } catch {
     return {};
   }
-}
-
-/* ─── JSON-LD structured data ───────────────────────────────────── */
-function ProductJsonLd({
-  product,
-  nonce,
-}: {
-  product: Awaited<ReturnType<typeof getProductBySlug>>;
-  nonce?: string;
-}) {
-  if (!product) return null;
-
-  const productSchema = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: product.name,
-    description: product.description || `${product.name} — manufactured by Vasudev Chemo Pharma, Gujarat, India.`,
-    sku: product.sku,
-    brand: {
-      "@type": "Brand",
-      name: "Vasudev Chemo Pharma",
-    },
-    manufacturer: {
-      "@type": "Organization",
-      name: "Vasudev Chemo Pharma",
-      address: {
-        "@type": "PostalAddress",
-        addressRegion: "Gujarat",
-        addressCountry: "IN",
-      },
-    },
-    category: CATEGORY_LABELS[product.category],
-    offers: {
-      "@type": "Offer",
-      availability: "https://schema.org/InStock",
-      priceCurrency: product.currency || "USD",
-      priceSpecification: {
-        "@type": "PriceSpecification",
-        priceCurrency: product.currency || "USD",
-      },
-    },
-  };
-
-  const chemicalSchema = {
-    "@context": "https://schema.org",
-    "@type": "ChemicalSubstance",
-    name: product.name,
-    molecularFormula: product.formula,
-    identifier: product.casNumber
-      ? {
-          "@type": "PropertyValue",
-          name: "CAS Number",
-          value: product.casNumber,
-        }
-      : undefined,
-  };
-
-  return (
-    <>
-      <script
-        nonce={nonce}
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema).replace(/</g, '\u003c') }}
-      />
-      <script
-        nonce={nonce}
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(chemicalSchema).replace(/</g, '\u003c') }}
-      />
-    </>
-  );
 }
 
 /* ─── Placeholder badge component ───────────────────────────────── */
@@ -175,11 +118,34 @@ export default async function ProductDetailPage({
   );
   const safeImages = Array.isArray(product.images) ? product.images : [];
   const safeDocuments = Array.isArray(product.documents) ? product.documents : [];
-  const nonce = (await headers()).get('x-nonce') || undefined;
+  const sdsDocument = safeDocuments.find((doc) => {
+    const docType = (doc.docType || "").toUpperCase();
+    const fileName = (doc.fileName || "").toUpperCase();
+    return docType.includes("SDS") || docType.includes("MSDS") || fileName.includes("SDS") || fileName.includes("MSDS");
+  });
+  const sdsSourceUrl = sdsDocument?.fileUrl || product.documentUrl || "";
+  const sdsPreviewUrl = sdsSourceUrl ? toGoogleDrivePreviewUrl(sdsSourceUrl) : "";
 
   return (
     <>
-      <ProductJsonLd product={product} nonce={nonce} />
+      <ProductSchema product={product} />
+      <FAQSchema items={product.faqs} />
+      <BreadcrumbSchema
+        items={[
+          {
+            name: "Home",
+            url: "https://vasudevchemopharma.com",
+          },
+          {
+            name: "Products",
+            url: "https://vasudevchemopharma.com/product",
+          },
+          {
+            name: product.name,
+            url: `https://vasudevchemopharma.com/product/${product.slug}`,
+          },
+        ]}
+      />
 
       <main className="pt-28 pb-20">
         <div className="max-w-container mx-auto px-6 lg:px-10">
@@ -270,6 +236,11 @@ export default async function ProductDetailPage({
               {/* H1 — Product Name (SEO critical) */}
               <h1 className="font-heading text-[clamp(2rem,10vw,5.5rem)] leading-[1.05] [overflow-wrap:anywhere] hyphens-auto text-primary mt-4 mb-3">
                 {product.name}
+                {product.formula ? (
+                  <span className="block text-base md:text-lg text-secondary font-normal mt-3">
+                    {product.formula}
+                  </span>
+                ) : null}
               </h1>
 
               {/* Chemical identity row */}
@@ -458,6 +429,18 @@ export default async function ProductDetailPage({
             <h2 className="font-heading text-h3 text-primary mb-6">
               Safety & Compliance
             </h2>
+            {sdsPreviewUrl ? (
+              <div className="mb-6">
+                <a
+                  href={sdsPreviewUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-accent/10 text-accent border border-accent/30 hover:bg-accent/20 transition-colors text-sm font-semibold px-4 py-2 rounded-full"
+                >
+                  Download SDS / MSDS
+                </a>
+              </div>
+            ) : null}
             {product.safetyClass || product.ghsPictograms.length > 0 || product.hazardStatements.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="border border-gray-200 rounded-2xl p-6">

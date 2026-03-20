@@ -2,9 +2,14 @@ import Link from "next/link";
 import SectionLabel from "@/components/SectionLabel";
 import Button from "@/components/Button";
 
+import { getSiteImages } from "@/lib/siteImages";
+
 const VIDEO_OPACITY = 0.75; // Adjust this value (0 to 1) to control video opacity
 
-export default function HeroSection() {
+export default async function HeroSection() {
+  const siteImagesData = await getSiteImages();
+  const backgroundVideoUrl = siteImagesData.homePage?.heroSection?.backgroundVideoUrl || "/videos/herosection.mp4";
+
   return (
     <section className="relative min-h-screen pt-24 pb-8 overflow-hidden">
       {/* Background Video */}
@@ -17,7 +22,7 @@ export default function HeroSection() {
         className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
         style={{ opacity: VIDEO_OPACITY }}
       >
-        <source src="/videos/herosection.mp4" type="video/mp4" />
+        <source src={backgroundVideoUrl} type="video/mp4" />
       </video>
 
       <div className="max-w-container mx-auto px-6 lg:px-10 relative z-10">

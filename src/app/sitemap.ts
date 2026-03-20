@@ -3,6 +3,11 @@ import { getAllProductSlugs } from "@/lib/products-payload";
 
 const SITE_URL = "https://vasudevchemopharma.com";
 
+/** High-priority product slugs that get a priority boost in the sitemap */
+const HIGH_PRIORITY_PRODUCTS = new Set([
+  "mea-triazine-78-h2s-scavenger",
+]);
+
 const blogSlugs = [
   "sustainable-chemical-manufacturing-greener-future-india",
   "ai-iot-breakthroughs-chemical-manufacturing-efficiency",
@@ -42,24 +47,43 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const now = new Date();
 
+  /* ── Static pages ─────────────────────────────────────────────── */
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: SITE_URL,
       lastModified: now,
       changeFrequency: "weekly",
       priority: 1.0,
+      alternates: {
+        languages: {
+          "x-default": SITE_URL,
+          en: SITE_URL,
+        },
+      },
     },
     {
       url: `${SITE_URL}/about`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
+      alternates: {
+        languages: {
+          "x-default": `${SITE_URL}/about`,
+          en: `${SITE_URL}/about`,
+        },
+      },
     },
     {
       url: `${SITE_URL}/product`,
       lastModified: now,
       changeFrequency: "weekly",
       priority: 0.9,
+      alternates: {
+        languages: {
+          "x-default": `${SITE_URL}/product`,
+          en: `${SITE_URL}/product`,
+        },
+      },
     },
     {
       url: `${SITE_URL}/service`,
@@ -93,13 +117,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  const productPages: MetadataRoute.Sitemap = productSlugs.map((slug) => ({
-    url: `${SITE_URL}/product/${slug}`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: 0.9,
-  }));
+  /* ── Product pages ────────────────────────────────────────────── */
+  const productPages: MetadataRoute.Sitemap = productSlugs.map((slug) => {
+    const isHighPriority = HIGH_PRIORITY_PRODUCTS.has(slug);
+    const productUrl = `${SITE_URL}/product/${slug}`;
+    return {
+      url: productUrl,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: isHighPriority ? 0.95 : 0.9,
+      alternates: {
+        languages: {
+          "x-default": productUrl,
+          en: productUrl,
+        },
+      },
+    };
+  });
 
+  /* ── Service pages ────────────────────────────────────────────── */
   const servicePages: MetadataRoute.Sitemap = serviceSlugs.map((slug) => ({
     url: `${SITE_URL}/service/${slug}`,
     lastModified: now,
@@ -107,6 +143,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
+  /* ── Blog pages ───────────────────────────────────────────────── */
   const blogPages: MetadataRoute.Sitemap = blogSlugs.map((slug) => ({
     url: `${SITE_URL}/blog/${slug}`,
     lastModified: now,
@@ -114,6 +151,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
+  /* ── Case study pages ─────────────────────────────────────────── */
   const caseStudyPages: MetadataRoute.Sitemap = caseStudySlugs.map((slug) => ({
     url: `${SITE_URL}/case-study/${slug}`,
     lastModified: now,
@@ -129,3 +167,4 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...caseStudyPages,
   ];
 }
+

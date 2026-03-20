@@ -1,5 +1,9 @@
 import type { Product } from "@/lib/types";
 import { CATEGORY_LABELS } from "@/lib/types";
+import {
+  MEA_TRIAZINE_SLUG,
+  MEA_TRIAZINE_SCHEMA_ENRICHMENT,
+} from "@/lib/seo/mea-triazine-schema-data";
 
 type ProductSchemaProps = {
   product: Product;
@@ -29,8 +33,10 @@ function getSchemaAvailability(product: Product): string | undefined {
 export default function ProductSchema({ product }: ProductSchemaProps) {
   const availability = getSchemaAvailability(product);
   const hasPrice = typeof product.price === "number" && Number.isFinite(product.price) && product.price > 0;
+  const isEnrichedSlug = product.slug === MEA_TRIAZINE_SLUG;
 
-  const productSchema = {
+  /* --- Base Product schema (all products) --- */
+  const productSchema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.name,
@@ -39,13 +45,15 @@ export default function ProductSchema({ product }: ProductSchemaProps) {
       `${product.name} manufactured by Vasudev Chemo Pharma, Gujarat, India.`,
     sku: product.sku,
     image: product.imageUrl || undefined,
+    url: `https://vasudevchemopharma.com/product/${product.slug}`,
     brand: {
       "@type": "Brand",
       name: "Vasudev Chemo Pharma",
     },
     manufacturer: {
       "@type": "Organization",
-      name: "Vasudev Chemo Pharma",
+      name: "Vasudev Chemo Pharma Chemicals",
+      url: "https://vasudevchemopharma.com",
       address: {
         "@type": "PostalAddress",
         addressRegion: "Gujarat",
@@ -67,8 +75,24 @@ export default function ProductSchema({ product }: ProductSchemaProps) {
           }
         : {}),
       url: `https://vasudevchemopharma.com/product/${product.slug}`,
+      seller: {
+        "@type": "Organization",
+        name: "Vasudev Chemo Pharma Chemicals",
+      },
     },
   };
+
+  /* --- Slug-specific enrichment (MEA Triazine 78%) --- */
+  if (isEnrichedSlug) {
+    const enrichment = MEA_TRIAZINE_SCHEMA_ENRICHMENT;
+    productSchema.alternateName = enrichment.alternateName;
+    productSchema.additionalProperty = enrichment.additionalProperty;
+    productSchema.material = enrichment.material;
+    productSchema.mpn = enrichment.mpn;
+    productSchema.category = enrichment.category;
+    productSchema.aggregateRating = enrichment.aggregateRating;
+    productSchema.review = enrichment.review;
+  }
 
   const chemicalSchema = {
     "@context": "https://schema.org",
@@ -97,3 +121,4 @@ export default function ProductSchema({ product }: ProductSchemaProps) {
     </>
   );
 }
+

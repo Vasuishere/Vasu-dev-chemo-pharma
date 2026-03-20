@@ -20,9 +20,18 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "media.istockphoto.com",
+        pathname: "/images/**",
+      },
+      {
+        protocol: "https",
         hostname: "framerusercontent.com",
         pathname: "/assets/**",
       },
+    ],
+    domains: [
+      'media.istockphoto.com',
+      // add other allowed domains here if needed
     ],
   },
   experimental: {

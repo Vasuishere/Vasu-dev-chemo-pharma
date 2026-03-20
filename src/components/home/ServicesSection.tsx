@@ -8,7 +8,7 @@ const services = [
     title: "Chemical Manufacturing",
     href: "/service/chemical-manufacturing",
     icon: "https://framerusercontent.com/images/8A2bCLa6pyOXwAS0i8tAQrdLhTU.svg",
-    image: "https://framerusercontent.com/images/YZXZfUWqk3mC6dHxTkY5u8hc5SA.webp",
+    image: "https://drive.google.com/uc?export=view&id=1Wvv_3V6vTpjRCpUf6_-2YBpHzHFSvUeQ",
     features: [
       "28+ specialty chemicals",
       "ISO 9001:2015 certified process",
@@ -20,7 +20,7 @@ const services = [
     title: "Import & Export",
     href: "/service/import-export",
     icon: "https://framerusercontent.com/images/M3RsKCQRcVWO3EHXmo2ZCQP0MlE.svg",
-    image: "https://framerusercontent.com/images/uyAxZj87pJISHmPmWJFmfS2Xqw.webp",
+    image: "https://drive.google.com/uc?export=view&id=1eemFMbWLqFE_RAEi92_8efFBUz0kMbZa",
     features: [
       "Global export to 10+ countries",
       "Near Kandla, Mundra & Hazira ports",

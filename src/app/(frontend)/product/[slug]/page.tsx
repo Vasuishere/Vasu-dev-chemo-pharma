@@ -15,6 +15,11 @@ import ProductSchema from "@/components/seo/ProductSchema";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 import FAQSchema from "@/components/seo/FAQSchema";
 import { getProductSeoKeywords } from "@/lib/product-seo-keywords";
+import {
+  MEA_TRIAZINE_SLUG,
+  MEA_TRIAZINE_TRADE_NAMES,
+  MEA_TRIAZINE_COMPARISON,
+} from "@/lib/seo/mea-triazine-schema-data";
 
 /* ─── ISR: revalidate product pages every hour ──────────────── */
 export const revalidate = 3600;
@@ -41,18 +46,26 @@ export async function generateMetadata({
     const product = await getProductBySlug(slug);
     if (!product) return {};
 
-    const title =
-      product.metaTitle ||
-      `${product.name}${product.casNumber ? ` (CAS ${product.casNumber})` : ""} — ${CATEGORY_LABELS[product.category]} | Vasudev Chemo Pharma`;
+    const isMeaTriazine = slug === MEA_TRIAZINE_SLUG;
 
-    const description =
-      product.metaDescription ||
-      `Buy ${product.name}${product.casNumber ? ` (CAS ${product.casNumber})` : ""} from Vasudev Chemo Pharma — ISO 9001:2015 certified manufacturer in Gujarat, India. Export-ready packaging. Request a quote today.`;
+    const title = isMeaTriazine
+      ? "MEA Triazine 78% H2S Scavenger | Industrial Grade | Vasudev Chemo Pharma"
+      : product.metaTitle ||
+        `${product.name}${product.casNumber ? ` (CAS ${product.casNumber})` : ""} — ${CATEGORY_LABELS[product.category]} | Vasudev Chemo Pharma`;
+
+    const description = isMeaTriazine
+      ? "MEA Triazine 78% H2S Scavenger (CAS 4719-04-4) — effective monoethanolamine triazine for removing hydrogen sulfide from natural gas, crude oil, and wastewater. Industrial drum & IBC supply. Request a quote today."
+      : product.metaDescription ||
+        `Buy ${product.name}${product.casNumber ? ` (CAS ${product.casNumber})` : ""} from Vasudev Chemo Pharma — ISO 9001:2015 certified manufacturer in Gujarat, India. Export-ready packaging. Request a quote today.`;
+
     const keywordConfig = getProductSeoKeywords(
       product.slug,
       product.name,
       product.casNumber || ""
     );
+
+    const canonicalUrl = `https://vasudevchemopharma.com/product/${product.slug}`;
+    const ogImageUrl = product.imageUrl || "https://vasudevchemopharma.com/images/og-default.webp";
 
     return {
       title,
@@ -63,15 +76,52 @@ export async function generateMetadata({
         `${product.name} CAS number`.toLowerCase(),
         `buy ${product.name} industrial grade`.toLowerCase(),
       ],
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          "max-snippet": -1,
+          "max-image-preview": "large" as const,
+          "max-video-preview": -1,
+        },
+      },
       alternates: {
-        canonical: `https://vasudevchemopharma.com/product/${product.slug}`,
+        canonical: canonicalUrl,
+        languages: {
+          "en": canonicalUrl,
+          "x-default": canonicalUrl,
+        },
       },
       openGraph: {
-        title,
-        description,
-        url: `https://vasudevchemopharma.com/product/${product.slug}`,
+        title: isMeaTriazine
+          ? "MEA Triazine 78% H2S Scavenger | Vasudev Chemo Pharma"
+          : title,
+        description: isMeaTriazine
+          ? "High-purity MEA Triazine 78% for industrial H2S removal in oil & gas, wastewater, and biogas. CAS 4719-04-4. Bulk & drum supply."
+          : description,
+        url: canonicalUrl,
         type: "website",
-        siteName: "Vasudev Chemo Pharma",
+        siteName: "Vasudev Chemo Pharma Chemicals",
+        images: [
+          {
+            url: ogImageUrl,
+            width: 1200,
+            height: 630,
+            alt: product.name,
+          },
+        ],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: isMeaTriazine
+          ? "MEA Triazine 78% H2S Scavenger | Vasudev Chemo Pharma"
+          : title,
+        description: isMeaTriazine
+          ? "Industrial-grade monoethanolamine triazine for H2S removal. CAS 4719-04-4. Bulk pricing available."
+          : description,
+        images: [ogImageUrl],
       },
     };
   } catch {
@@ -110,6 +160,7 @@ export default async function ProductDetailPage({
   const product = await getProductBySlug(slug);
   if (!product) notFound();
 
+  const isMeaTriazine = slug === MEA_TRIAZINE_SLUG;
   const categoryLabel = CATEGORY_LABELS[product.category];
   const relatedProducts = await getRelatedProducts(
     product.slug,
@@ -131,20 +182,20 @@ export default async function ProductDetailPage({
       <ProductSchema product={product} />
       <FAQSchema items={product.faqs} />
       <BreadcrumbSchema
-        items={[
-          {
-            name: "Home",
-            url: "https://vasudevchemopharma.com",
-          },
-          {
-            name: "Products",
-            url: "https://vasudevchemopharma.com/product",
-          },
-          {
-            name: product.name,
-            url: `https://vasudevchemopharma.com/product/${product.slug}`,
-          },
-        ]}
+        items={
+          isMeaTriazine
+            ? [
+                { name: "Home", url: "https://vasudevchemopharma.com" },
+                { name: "Chemicals", url: "https://vasudevchemopharma.com/product" },
+                { name: "H2S Scavengers", url: "https://vasudevchemopharma.com/product?category=industrial" },
+                { name: "MEA Triazine 78% H2S Scavenger", url: `https://vasudevchemopharma.com/product/${product.slug}` },
+              ]
+            : [
+                { name: "Home", url: "https://vasudevchemopharma.com" },
+                { name: "Products", url: "https://vasudevchemopharma.com/product" },
+                { name: product.name, url: `https://vasudevchemopharma.com/product/${product.slug}` },
+              ]
+        }
       />
 
       <main className="pt-28 pb-20">
@@ -648,7 +699,99 @@ export default async function ProductDetailPage({
             )}
           </section>
 
-          {/* ─── 12. REQUEST QUOTE CTA ───────────────────────────────── */}
+          {/* ─── 12. TRADE NAME EQUIVALENCE (MEA Triazine only) ─────── */}
+          {isMeaTriazine && (
+            <section id="trade-names" className="mb-16">
+              <h2 className="font-heading text-h3 text-primary mb-3">
+                Also Known As — Trade Name Equivalence
+              </h2>
+              <p className="text-sm text-gray-500 mb-6">
+                MEA Triazine 78% H2S Scavenger by Vasudev Chemo Pharma is a direct equivalent to the following globally recognised trade names. Use this reference to match your current supplier&apos;s brand to our product.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {(Object.entries(MEA_TRIAZINE_TRADE_NAMES) as [string, readonly string[]][]).map(([category, names]) => (
+                  <div key={category} className="border border-gray-200 rounded-2xl p-6">
+                    <h3 className="font-heading text-h5 text-primary mb-4">{category}</h3>
+                    <ul className="space-y-2">
+                      {names.map((name) => (
+                        <li key={name} className="flex items-center gap-2 text-sm text-gray-700">
+                          <span className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0" />
+                          {name}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* ─── 13. COMPETITOR COMPARISON TABLE (MEA Triazine only) ── */}
+          {isMeaTriazine && (
+            <section id="comparison" className="mb-16">
+              <h2 className="font-heading text-h3 text-primary mb-6">
+                MEA Triazine 78% vs. Other H2S Scavenger Options
+              </h2>
+              <div className="border border-gray-200 rounded-2xl overflow-hidden overflow-x-auto">
+                <table className="w-full text-sm min-w-[500px]">
+                  <thead>
+                    <tr className="bg-primary text-white">
+                      <th className="text-left px-5 py-3 font-semibold">Feature</th>
+                      <th className="text-left px-5 py-3 font-semibold">MEA Triazine 78%</th>
+                      <th className="text-left px-5 py-3 font-semibold">MMA Triazine</th>
+                      <th className="text-left px-5 py-3 font-semibold">Glyoxal-Based</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {MEA_TRIAZINE_COMPARISON.map((row, i) => (
+                      <tr key={row.feature} className={i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}>
+                        <td className="px-5 py-3 font-medium text-gray-700">{row.feature}</td>
+                        <td className="px-5 py-3 text-accent font-semibold">{row.meaTriazine78}</td>
+                        <td className="px-5 py-3 text-primary">{row.mmaTriazine}</td>
+                        <td className="px-5 py-3 text-primary">{row.glyoxalBased}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          )}
+
+          {/* ─── 14. DOSING GUIDELINES (MEA Triazine only) ─────────── */}
+          {isMeaTriazine && (
+            <section id="dosing" className="mb-16">
+              <h2 className="font-heading text-h3 text-primary mb-6">
+                Dosing Guidelines &amp; Injection Rates
+              </h2>
+              <div className="prose prose-gray max-w-none text-gray-600 leading-relaxed">
+                <p>
+                  Typical treating rate for MEA Triazine 78% is <strong>1.5–3 L per kg of H₂S</strong> depending on field conditions, contact time, and injection method. Two primary approaches are used:
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 not-prose">
+                  <div className="border border-gray-200 rounded-2xl p-6">
+                    <h3 className="font-heading text-h5 text-primary mb-3">Continuous Injection Method</h3>
+                    <p className="text-sm text-gray-600">Direct injection into the gas stream via chemical injection pump. Preferred for offshore platforms and space-constrained installations. Simpler equipment footprint.</p>
+                  </div>
+                  <div className="border border-gray-200 rounded-2xl p-6">
+                    <h3 className="font-heading text-h5 text-primary mb-3">Contactor Tower Method</h3>
+                    <p className="text-sm text-gray-600">Gas is passed through a packed tower or bubble column containing MEA Triazine solution. Higher removal efficiency (up to 80%) but requires more infrastructure.</p>
+                  </div>
+                </div>
+                <div className="bg-light rounded-2xl p-6 mt-6 not-prose">
+                  <h3 className="font-heading text-h5 text-primary mb-3">Sample Dosing Calculation</h3>
+                  <div className="text-sm text-gray-600 space-y-1 font-mono">
+                    <p>Gas flow: 10 MMscfd</p>
+                    <p>H₂S concentration: 200 ppm</p>
+                    <p>H₂S load: ~2.4 kg/day</p>
+                    <p className="text-accent font-semibold">Typical MEA Triazine 78% dosage: 2.4 × 2 = 4.8 L/day</p>
+                  </div>
+                  <p className="text-xs text-gray-400 mt-3">Note: always confirm with field data. Over-dosing may cause solids formation. Contact our technical team for application-specific guidance.</p>
+                </div>
+              </div>
+            </section>
+          )}
+
+          {/* ─── 15. REQUEST QUOTE CTA ───────────────────────────────── */}
           <section id="quote" className="mb-16">
             <div className="bg-primary rounded-3xl p-10 lg:p-14 text-center">
               <h2 className="font-heading text-h3 text-white mb-4">
@@ -660,6 +803,7 @@ export default async function ProductDetailPage({
               </p>
               <Link
                 href="/contact"
+                id="request-quote-btn"
                 className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark transition-colors text-white text-sm font-medium px-8 py-4 rounded-full"
               >
                 Request a Quote
@@ -670,7 +814,7 @@ export default async function ProductDetailPage({
             </div>
           </section>
 
-          {/* ─── 13. RELATED PRODUCTS ────────────────────────────────── */}
+          {/* ─── 16. RELATED PRODUCTS ────────────────────────────────── */}
           {relatedProducts.length > 0 && (
             <section className="mb-16">
               <h2 className="font-heading text-h3 text-primary mb-8">

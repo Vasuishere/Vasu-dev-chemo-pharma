@@ -130,6 +130,27 @@ const nextConfig = {
         ],
       },
       {
+        source: '/product/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, s-maxage=3600, stale-while-revalidate=86400',
+          },
+          {
+            key: 'X-Robots-Tag',
+            value: 'index, follow',
+          },
+          {
+            key: 'Content-Language',
+            value: 'en',
+          },
+          {
+            key: 'Vary',
+            value: 'Accept-Encoding',
+          },
+        ],
+      },
+      {
         source: '/:path*',
         headers: [
           {
@@ -157,6 +178,25 @@ const nextConfig = {
             value: 'camera=(), microphone=(), geolocation=()',
           },
         ],
+      },
+    ];
+  },
+  async redirects() {
+    return [
+      {
+        source: '/products/mea-triazine-78',
+        destination: '/product/mea-triazine-78-h2s-scavenger',
+        permanent: true,
+      },
+      {
+        source: '/product/mea-triazine-78',
+        destination: '/product/mea-triazine-78-h2s-scavenger',
+        permanent: true,
+      },
+      {
+        source: '/legal-pages/privacy-policy',
+        destination: '/legal/privacy-policy',
+        permanent: true,
       },
     ];
   },

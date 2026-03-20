@@ -7,7 +7,7 @@ export const PRODUCT_SEO_KEYWORDS: Record<string, ProductKeywordConfig> = {
   "mea-triazine-78-h2s-scavenger": {
     primaryKeyword: "MEA triazine 78% H2S scavenger",
     longTailKeywords: [
-      // Primary & secondary keywords (§2.1–2.2)
+      // Primary, commercial, and application keywords
       "MEA triazine H2S scavenger",
       "MEA triazine 78%",
       "triazine scavenger",
@@ -32,29 +32,29 @@ export const PRODUCT_SEO_KEYWORDS: Record<string, ProductKeywordConfig> = {
       "triazine scavenger wastewater treatment",
       "triazine biogas H2S removal",
       "water-soluble H2S scavenger",
-      // CAS / IUPAC (§2.3)
+      "MEA triazine supplier",
+      "MEA triazine manufacturer",
+      "MEA triazine exporter",
+      "H2S scavenger manufacturer India",
+      "MEA triazine supplier India",
+      "MEA triazine exporter India",
+      "MEA triazine supplier UAE",
+      "MEA triazine supplier USA",
+      "MEA triazine supplier UK",
+      "oilfield chemical supplier India",
+      // CAS / IUPAC
       "CAS 4719-04-4",
       "CAS 4719-04-4 H2S scavenger",
       "hexahydro-1,3,5-tris(2-hydroxyethyl)-s-triazine",
       "1,3,5-Triazine-1,3,5(2H,4H,6H)-triethanol",
-      // Trade name keywords (§2.4) — comparison context
-      "Grotan BK alternative",
-      "Nipacide BK equivalent",
-      "Acticide GR equivalent",
-      "Protectol HT alternative",
-      "Triadine 3 equivalent",
-      "Nuosept 78 equivalent",
-      "Onyxide 200 alternative",
-      "Busan 1060 equivalent",
-      "G-SCAV EA77 alternative",
-      // Functional keywords (§2.4 Cat D)
+      // Functional keywords
       "H2S scavenger",
       "hydrogen sulfide scavenger",
       "desulfurizer",
       "gas sweetener",
       "mercaptan scavenger triazine",
-      "industrial microbiocide triazine",
-      "formaldehyde-releasing biocide",
+      "sour gas treatment chemical",
+      "natural gas sweetening chemical",
     ],
   },
   "mma-triazine-40": {

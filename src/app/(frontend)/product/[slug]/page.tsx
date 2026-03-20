@@ -17,8 +17,10 @@ import FAQSchema from "@/components/seo/FAQSchema";
 import { getProductSeoKeywords } from "@/lib/product-seo-keywords";
 import {
   MEA_TRIAZINE_SLUG,
-  MEA_TRIAZINE_TRADE_NAMES,
   MEA_TRIAZINE_COMPARISON,
+  MEA_TRIAZINE_MARKET_LANGUAGE_CODES,
+  MEA_TRIAZINE_METADATA,
+  MEA_TRIAZINE_OG_LOCALES,
 } from "@/lib/seo/mea-triazine-schema-data";
 
 /* ─── ISR: revalidate product pages every hour ──────────────── */
@@ -49,7 +51,7 @@ export async function generateMetadata({
     const isMeaTriazine = slug === MEA_TRIAZINE_SLUG;
 
     const title = isMeaTriazine
-      ? "MEA Triazine 78% H2S Scavenger | Industrial Grade | Vasudev Chemo Pharma"
+      ? MEA_TRIAZINE_METADATA.title
       : product.metaTitle ||
         `${product.name}${product.casNumber ? ` (CAS ${product.casNumber})` : ""} — ${CATEGORY_LABELS[product.category]} | Vasudev Chemo Pharma`;
 
@@ -66,10 +68,27 @@ export async function generateMetadata({
 
     const canonicalUrl = `https://vasudevchemopharma.com/product/${product.slug}`;
     const ogImageUrl = product.imageUrl || "https://vasudevchemopharma.com/images/og-default.webp";
+    const resolvedDescription = isMeaTriazine
+      ? MEA_TRIAZINE_METADATA.description
+      : description;
+    const openGraphDescription = isMeaTriazine
+      ? MEA_TRIAZINE_METADATA.openGraphDescription
+      : resolvedDescription;
+    const twitterDescription = isMeaTriazine
+      ? MEA_TRIAZINE_METADATA.twitterDescription
+      : resolvedDescription;
+    const languageAlternates = isMeaTriazine
+      ? Object.fromEntries(
+          MEA_TRIAZINE_MARKET_LANGUAGE_CODES.map((languageCode) => [languageCode, canonicalUrl])
+        )
+      : {
+          en: canonicalUrl,
+          "x-default": canonicalUrl,
+        };
 
     return {
       title,
-      description,
+      description: resolvedDescription,
       keywords: [
         keywordConfig.primaryKeyword,
         ...keywordConfig.longTailKeywords,
@@ -89,21 +108,18 @@ export async function generateMetadata({
       },
       alternates: {
         canonical: canonicalUrl,
-        languages: {
-          "en": canonicalUrl,
-          "x-default": canonicalUrl,
-        },
+        languages: languageAlternates,
       },
       openGraph: {
         title: isMeaTriazine
-          ? "MEA Triazine 78% H2S Scavenger | Vasudev Chemo Pharma"
+          ? MEA_TRIAZINE_METADATA.title
           : title,
-        description: isMeaTriazine
-          ? "High-purity MEA Triazine 78% for industrial H2S removal in oil & gas, wastewater, and biogas. CAS 4719-04-4. Bulk & drum supply."
-          : description,
+        description: openGraphDescription,
         url: canonicalUrl,
         type: "website",
         siteName: "Vasudev Chemo Pharma Chemicals",
+        locale: isMeaTriazine ? "en_IN" : "en_US",
+        alternateLocale: isMeaTriazine ? [...MEA_TRIAZINE_OG_LOCALES] : undefined,
         images: [
           {
             url: ogImageUrl,
@@ -116,11 +132,9 @@ export async function generateMetadata({
       twitter: {
         card: "summary_large_image",
         title: isMeaTriazine
-          ? "MEA Triazine 78% H2S Scavenger | Vasudev Chemo Pharma"
+          ? MEA_TRIAZINE_METADATA.title
           : title,
-        description: isMeaTriazine
-          ? "Industrial-grade monoethanolamine triazine for H2S removal. CAS 4719-04-4. Bulk pricing available."
-          : description,
+        description: twitterDescription,
         images: [ogImageUrl],
       },
     };
@@ -700,7 +714,7 @@ export default async function ProductDetailPage({
           </section>
 
           {/* ─── 12. TRADE NAME EQUIVALENCE (MEA Triazine only) ─────── */}
-          {isMeaTriazine && (
+          {false && isMeaTriazine && (
             <section id="trade-names" className="mb-16">
               <h2 className="font-heading text-h3 text-primary mb-3">
                 Also Known As — Trade Name Equivalence
@@ -709,7 +723,7 @@ export default async function ProductDetailPage({
                 MEA Triazine 78% H2S Scavenger by Vasudev Chemo Pharma is a direct equivalent to the following globally recognised trade names. Use this reference to match your current supplier&apos;s brand to our product.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {(Object.entries(MEA_TRIAZINE_TRADE_NAMES) as [string, readonly string[]][]).map(([category, names]) => (
+                {(Object.entries({}) as [string, readonly string[]][]).map(([category, names]) => (
                   <div key={category} className="border border-gray-200 rounded-2xl p-6">
                     <h3 className="font-heading text-h5 text-primary mb-4">{category}</h3>
                     <ul className="space-y-2">

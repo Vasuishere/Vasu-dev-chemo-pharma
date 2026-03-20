@@ -85,11 +85,15 @@ export default function ProductSchema({ product }: ProductSchemaProps) {
   /* --- Slug-specific enrichment (MEA Triazine 78%) --- */
   if (isEnrichedSlug) {
     const enrichment = MEA_TRIAZINE_SCHEMA_ENRICHMENT;
+    productSchema.description = enrichment.description;
     productSchema.alternateName = enrichment.alternateName;
     productSchema.additionalProperty = enrichment.additionalProperty;
     productSchema.material = enrichment.material;
     productSchema.mpn = enrichment.mpn;
     productSchema.category = enrichment.category;
+    productSchema.countryOfOrigin = enrichment.countryOfOrigin;
+    productSchema.audience = enrichment.audience;
+    productSchema.areaServed = enrichment.areaServed;
     productSchema.aggregateRating = enrichment.aggregateRating;
     productSchema.review = enrichment.review;
   }

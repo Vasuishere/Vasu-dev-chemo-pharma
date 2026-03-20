@@ -6,19 +6,17 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
-        // Google — full access, no crawl-delay needed
+        // Allow major crawlers to fetch framework assets and render SSR pages fully.
         userAgent: "Googlebot",
         allow: "/",
-        disallow: ["/admin", "/payload", "/api/", "/_next/", "/admin/*", "/legal-pages/"],
+        disallow: ["/admin", "/payload", "/api/", "/admin/*", "/legal-pages/"],
       },
       {
-        // Bing — full access
         userAgent: "Bingbot",
         allow: "/",
-        disallow: ["/admin", "/payload", "/api/", "/_next/", "/admin/*", "/legal-pages/"],
+        disallow: ["/admin", "/payload", "/api/", "/admin/*", "/legal-pages/"],
       },
       {
-        // All other crawlers
         userAgent: "*",
         allow: "/",
         disallow: [
@@ -28,8 +26,6 @@ export default function robots(): MetadataRoute.Robots {
           "/payload/*",
           "/api/",
           "/api/*",
-          "/_next/",
-          "/_next/*",
           "/legal-pages/",
           "/tmp/",
           "/*.json$",

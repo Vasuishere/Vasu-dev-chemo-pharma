@@ -2,8 +2,9 @@ import Image from "next/image";
 import Button from "@/components/Button";
 import SectionLabel from "@/components/SectionLabel";
 import { getCompanyInfo } from "@/lib/company";
+import { getSiteImages } from "@/lib/siteImages";
 
-const avatars = [
+const defaultAvatars = [
   "https://framerusercontent.com/images/4joakeBMa5GHrq9uyQPg0bnmko.png",
   "https://framerusercontent.com/images/HfRFaPjzU8WCChxWa4MmTB1BWg.png",
   "https://framerusercontent.com/images/atqhDfm1Q5VKmWwNHnp8Cl7GHo.png",
@@ -12,6 +13,11 @@ const avatars = [
 
 export default async function AboutSection() {
   const company = await getCompanyInfo();
+  const siteImagesData = await getSiteImages();
+  const siteImages = siteImagesData.homePage?.aboutSection || {};
+
+  const activeAvatars = siteImages.avatars?.length ? siteImages.avatars : defaultAvatars;
+  
   const companyName = company.companyName || "Our company";
   const companyAddress = company.address || "";
   const brochureUrl = company.brochureUrl?.trim();
@@ -38,14 +44,14 @@ export default async function AboutSection() {
             {/* Team avatars */}
             <div className="flex items-center gap-4 mt-8">
               <div className="flex -space-x-3">
-                {avatars.map((src, i) => (
+                {activeAvatars.slice(0, 4).map((src, i) => (
                   <Image
                     key={i}
                     src={src}
                     alt="Avatar"
                     width={40}
                     height={40}
-                    className="w-10 h-10 rounded-full border-2 border-white"
+                    className="w-10 h-10 rounded-full border-2 border-white object-cover"
                   />
                 ))}
                 <div className="w-10 h-10 rounded-full bg-accent text-white text-xs font-bold flex items-center justify-center border-2 border-white">
@@ -98,7 +104,7 @@ export default async function AboutSection() {
           {/* Stat 1 */}
           <div className="bg-light rounded-3xl p-8">
             <Image
-              src="https://framerusercontent.com/images/GhFAf9Nzk8NxLNAoAlvgFnivlg.svg"
+              src={siteImages.statLogoUrl || "https://framerusercontent.com/images/GhFAf9Nzk8NxLNAoAlvgFnivlg.svg"}
               alt="About Logo"
               width={120}
               height={16}
@@ -114,7 +120,7 @@ export default async function AboutSection() {
               <span className="font-heading text-h3 font-semibold">4.9</span>
               <span className="text-sm text-secondary">/5.0</span>
               <Image
-                src="https://framerusercontent.com/images/vLIB1zDP4bI0m0N2PXLiIxcw5Y.svg"
+                src={siteImages.reviewStarImageUrl || "https://framerusercontent.com/images/vLIB1zDP4bI0m0N2PXLiIxcw5Y.svg"}
                 alt="Review Star"
                 width={95}
                 height={14}
@@ -126,7 +132,7 @@ export default async function AboutSection() {
           {/* Stat 2 - Image */}
           <div className="rounded-3xl overflow-hidden relative min-h-[300px]">
             <Image
-              src="https://framerusercontent.com/images/4hIoQd7fUjgL9EiEVuQro0eTrfc.webp"
+              src={siteImages.statStepImageUrl || "https://drive.google.com/uc?export=view&id=1Z5199bCRGk6XIgdA6p_RdadeP-38aBFl"}
               alt="About Step Image"
               fill
               className="object-cover"
@@ -144,7 +150,7 @@ export default async function AboutSection() {
             </p>
             <div className="mt-6 rounded-2xl overflow-hidden relative w-24 h-32">
               <Image
-                src="https://framerusercontent.com/images/7deJkILirgC0DVZq9WujKIpwKY.png"
+                src={siteImages.experienceImageUrl || "https://drive.google.com/uc?export=view&id=1Z5199bCRGk6XIgdA6p_RdadeP-38aBFl"}
                 alt="About Image"
                 fill
                 className="object-cover"

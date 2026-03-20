@@ -10,6 +10,7 @@ import { Users } from "@/collections/Users";
 import { Assets } from "@/collections/Assets";
 import { CompanyInfo } from "@/globals/CompanyInfo";
 import { ProductSequencing } from "@/globals/ProductSequencing";
+import { SiteImages } from "@/globals/SiteImages";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -17,7 +18,7 @@ const dirname = path.dirname(filename);
 export default buildConfig({
   editor: lexicalEditor(),
   collections: [Users, Products, Assets],
-  globals: [CompanyInfo, ProductSequencing],
+  globals: [CompanyInfo, ProductSequencing, SiteImages],
   secret: process.env.PAYLOAD_SECRET!,
   typescript: {
     outputFile: path.resolve(dirname, "payload-types.ts"),
@@ -30,6 +31,7 @@ export default buildConfig({
       idleTimeoutMillis: 30000,
       ssl: { rejectUnauthorized: false },
     },
+    push: true,
     disableCreateDatabase: true,
   }),
   sharp,

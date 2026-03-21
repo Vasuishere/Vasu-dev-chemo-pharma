@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
 import { getAllProductSlugs } from "@/lib/products-payload";
+import { getAllProductSlugs as getStaticProductSlugs } from "@/lib/products";
 
 const SITE_URL = "https://www.vasudevchemopharma.com";
+export const dynamic = "force-dynamic";
 
 /** High-priority product slugs that get a priority boost in the sitemap */
 const HIGH_PRIORITY_PRODUCTS = new Set([
@@ -61,12 +63,17 @@ function buildUrlEntry(entry: SitemapEntry): string {
 }
 
 export async function GET() {
-  let productSlugs: string[] = [];
+  const fallbackProductSlugs = getStaticProductSlugs();
+  let productSlugs: string[] = fallbackProductSlugs;
+
   try {
     productSlugs = await getAllProductSlugs();
+    if (productSlugs.length === 0) {
+      productSlugs = fallbackProductSlugs;
+    }
   } catch (err) {
     console.error("Failed to fetch product slugs for sitemap", { error: err });
-    productSlugs = [];
+    productSlugs = fallbackProductSlugs;
   }
 
   const now = new Date().toISOString();

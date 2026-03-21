@@ -56,7 +56,7 @@ export async function generateMetadata({
         `${product.name}${product.casNumber ? ` (CAS ${product.casNumber})` : ""} — ${CATEGORY_LABELS[product.category]} | Vasudev Chemo Pharma`;
 
     const description = isMeaTriazine
-      ? "MEA Triazine 78% H2S Scavenger (CAS 4719-04-4) — effective monoethanolamine triazine for removing hydrogen sulfide from natural gas, crude oil, and wastewater. Industrial drum & IBC supply. Request a quote today."
+      ? "MEA Triazine 78% (CAS 4719-04-4) — H2S scavenger for oil & gas, wastewater & biogas. Drum, IBC & bulk supply from India."
       : product.metaDescription ||
         `Buy ${product.name}${product.casNumber ? ` (CAS ${product.casNumber})` : ""} from Vasudev Chemo Pharma — ISO 9001:2015 certified manufacturer in Gujarat, India. Export-ready packaging. Request a quote today.`;
 
@@ -66,8 +66,8 @@ export async function generateMetadata({
       product.casNumber || ""
     );
 
-    const canonicalUrl = `https://vasudevchemopharma.com/product/${product.slug}`;
-    const ogImageUrl = product.imageUrl || "https://vasudevchemopharma.com/images/og-default.webp";
+    const canonicalUrl = `https://www.vasudevchemopharma.com/product/${product.slug}`;
+    const ogImageUrl = product.imageUrl || "https://www.vasudevchemopharma.com/images/og-default.webp";
     const resolvedDescription = isMeaTriazine
       ? MEA_TRIAZINE_METADATA.description
       : description;
@@ -199,15 +199,15 @@ export default async function ProductDetailPage({
         items={
           isMeaTriazine
             ? [
-                { name: "Home", url: "https://vasudevchemopharma.com" },
-                { name: "Chemicals", url: "https://vasudevchemopharma.com/product" },
-                { name: "H2S Scavengers", url: "https://vasudevchemopharma.com/product?category=industrial" },
-                { name: "MEA Triazine 78% H2S Scavenger", url: `https://vasudevchemopharma.com/product/${product.slug}` },
+                { name: "Home", url: "https://www.vasudevchemopharma.com" },
+                { name: "Chemicals", url: "https://www.vasudevchemopharma.com/product" },
+                { name: "H2S Scavengers", url: "https://www.vasudevchemopharma.com/product?category=industrial" },
+                { name: "MEA Triazine 78% H2S Scavenger", url: `https://www.vasudevchemopharma.com/product/${product.slug}` },
               ]
             : [
-                { name: "Home", url: "https://vasudevchemopharma.com" },
-                { name: "Products", url: "https://vasudevchemopharma.com/product" },
-                { name: product.name, url: `https://vasudevchemopharma.com/product/${product.slug}` },
+                { name: "Home", url: "https://www.vasudevchemopharma.com" },
+                { name: "Products", url: "https://www.vasudevchemopharma.com/product" },
+                { name: product.name, url: `https://www.vasudevchemopharma.com/product/${product.slug}` },
               ]
         }
       />
@@ -844,13 +844,18 @@ export default async function ProductDetailPage({
                     <span className="text-xs font-semibold uppercase tracking-wider text-accent">
                       {CATEGORY_LABELS[rp.category]}
                     </span>
-                    <h3 className="font-heading text-h5 text-primary mt-2 mb-2 group-hover:text-accent transition-colors">
-                      {rp.name}
-                    </h3>
+                    <p className="font-heading text-h5 text-primary mt-2 mb-2 group-hover:text-accent transition-colors">
+                      {rp.name}{rp.casNumber ? ` (CAS ${rp.casNumber})` : ""}
+                    </p>
                     <div className="flex flex-wrap gap-2 text-xs text-gray-500">
                       {rp.formula && <span>Formula: {rp.formula}</span>}
-                      {rp.casNumber && <span>· CAS: {rp.casNumber}</span>}
                     </div>
+                    <span className="inline-flex items-center gap-1 text-accent text-sm font-medium mt-3">
+                      View {rp.name} details
+                      <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </span>
                   </Link>
                 ))}
               </div>

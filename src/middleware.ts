@@ -30,6 +30,7 @@ const SUSPICIOUS_AGENTS = [
   'go-http-client',
 ];
 
+const CANONICAL_HOST = 'www.vasudevchemopharma.com';
 const CHALLENGE_COOKIE_NAME = 'edge_challenge_clearance';
 const CHALLENGE_ROUTE = '/api/security/challenge';
 const EDGE_CHALLENGE_SECRET = process.env.EDGE_CHALLENGE_SECRET;
@@ -136,11 +137,22 @@ function getRouteLimit(pathname: string): number {
   return 100;
 }
 
+function isLocalHost(host: string): boolean {
+  return host.startsWith('localhost') || host.startsWith('127.0.0.1');
+}
+
 function shouldRedirectToHttps(request: NextRequest): boolean {
   const forwardedProto = request.headers.get('x-forwarded-proto');
   const host = request.headers.get('host') || '';
-  const isLocalhost = host.startsWith('localhost') || host.startsWith('127.0.0.1');
-  return forwardedProto === 'http' && !isLocalhost;
+  return forwardedProto === 'http' && !isLocalHost(host);
+}
+
+function shouldRedirectToWww(request: NextRequest): boolean {
+  const host = request.headers.get('host') || '';
+  // Strip port for comparison (e.g. "example.com:3000")
+  const hostname = host.split(':')[0];
+  if (isLocalHost(host)) return false;
+  return hostname !== '' && !hostname.startsWith('www.') && hostname.includes('vasudevchemopharma.com');
 }
 
 function shouldNormalizeCase(pathname: string): boolean {
@@ -166,6 +178,15 @@ function normalizeLegacyPath(pathname: string): string {
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
+  // ── Non-www → www redirect (301 Permanent) ──────────────────────
+  // This must run before any other normalization so that search
+  // engines receive a proper 301 instead of Vercel's 307 domain alias.
+  if (shouldRedirectToWww(request)) {
+    const wwwUrl = request.nextUrl.clone();
+    wwwUrl.host = CANONICAL_HOST;
+    return NextResponse.redirect(wwwUrl, 301);
+  }
 
   const canonicalUrl = request.nextUrl.clone();
   let shouldRedirect = false;

@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { getAllProductSlugs } from "@/lib/products-payload";
 
-const SITE_URL = "https://vasudevchemopharma.com";
+const SITE_URL = "https://www.vasudevchemopharma.com";
 
 /** High-priority product slugs that get a priority boost in the sitemap */
 const HIGH_PRIORITY_PRODUCTS = new Set([

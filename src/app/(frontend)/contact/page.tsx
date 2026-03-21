@@ -17,13 +17,13 @@ export const metadata: Metadata = {
   description:
     "Contact Vasudev Chemo Pharma for product inquiries, bulk orders, and export requirements. ISO 9001:2015 certified chemical manufacturer from Gujarat, India. Get a reply within 24 hours.",
   alternates: {
-    canonical: "https://vasudevchemopharma.com/contact",
+    canonical: "https://www.vasudevchemopharma.com/contact",
   },
   openGraph: {
     title: "Contact Vasudev Chemo Pharma — Request a Quote",
     description:
       "Contact us for product inquiries, bulk orders, and chemical export requirements. Get a reply within 24 hours.",
-    url: "https://vasudevchemopharma.com/contact",
+    url: "https://www.vasudevchemopharma.com/contact",
   },
 };
 
@@ -46,8 +46,8 @@ export default async function ContactPage() {
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: "https://vasudevchemopharma.com" },
-          { name: "Contact", url: "https://vasudevchemopharma.com/contact" },
+          { name: "Home", url: "https://www.vasudevchemopharma.com" },
+          { name: "Contact", url: "https://www.vasudevchemopharma.com/contact" },
         ]}
       />
       <main>

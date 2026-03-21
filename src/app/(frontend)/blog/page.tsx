@@ -10,13 +10,13 @@ export const metadata: Metadata = {
   description:
     "Read the latest insights on sustainable chemical manufacturing, smart factories, specialty chemicals, and pharmaceutical intermediates from Vasudev Chemo Pharma.",
   alternates: {
-    canonical: "https://vasudevchemopharma.com/blog",
+    canonical: "https://www.vasudevchemopharma.com/blog",
   },
   openGraph: {
     title: "Blog — Chemical Industry Insights | Vasudev Chemo Pharma",
     description:
       "Latest insights on sustainable chemical manufacturing, smart factories, and specialty chemicals.",
-    url: "https://vasudevchemopharma.com/blog",
+    url: "https://www.vasudevchemopharma.com/blog",
   },
 };
 
@@ -85,8 +85,8 @@ export default function BlogPage() {
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: "https://vasudevchemopharma.com" },
-          { name: "Blog", url: "https://vasudevchemopharma.com/blog" },
+          { name: "Home", url: "https://www.vasudevchemopharma.com" },
+          { name: "Blog", url: "https://www.vasudevchemopharma.com/blog" },
         ]}
       />
       <main>

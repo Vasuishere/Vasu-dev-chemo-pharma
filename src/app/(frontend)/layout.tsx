@@ -16,7 +16,7 @@ const monaSans = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://vasudevchemopharma.com"),
+  metadataBase: new URL("https://www.vasudevchemopharma.com"),
   title: {
     template: "%s | Vasudev Chemo Pharma",
     default:
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
       "Vasudev Chemo Pharma — Industrial, Specialty & Pharmaceutical Chemicals",
     description:
       "ISO 9001:2015 certified manufacturer and global exporter of 28+ industrial chemicals, specialty chemicals, and pharmaceutical API intermediates from Gujarat, India.",
-    url: "https://vasudevchemopharma.com",
+    url: "https://www.vasudevchemopharma.com",
   },
   twitter: {
     card: "summary_large_image",
@@ -62,7 +62,11 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://vasudevchemopharma.com",
+    canonical: "https://www.vasudevchemopharma.com",
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/favicon.ico",
   },
 };
 

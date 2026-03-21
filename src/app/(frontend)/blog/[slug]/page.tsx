@@ -537,12 +537,12 @@ export async function generateMetadata({
     title: blog.title,
     description: blog.excerpt,
     alternates: {
-      canonical: `https://vasudevchemopharma.com/blog/${slug}`,
+      canonical: `https://www.vasudevchemopharma.com/blog/${slug}`,
     },
     openGraph: {
       title: blog.title,
       description: blog.excerpt,
-      url: `https://vasudevchemopharma.com/blog/${slug}`,
+      url: `https://www.vasudevchemopharma.com/blog/${slug}`,
       type: "article",
       publishedTime,
       modifiedTime,
@@ -586,18 +586,18 @@ export default async function BlogDetailPage({
         datePublished={publishedDateIso}
         dateModified={modifiedDateIso}
         image={blog.image}
-        url={`https://vasudevchemopharma.com/blog/${slug}`}
+        url={`https://www.vasudevchemopharma.com/blog/${slug}`}
         authorName={blog.author}
         authorCredentials={blog.authorCredentials}
         wordCount={wordCount}
       />
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: "https://vasudevchemopharma.com" },
-          { name: "Blog", url: "https://vasudevchemopharma.com/blog" },
+          { name: "Home", url: "https://www.vasudevchemopharma.com" },
+          { name: "Blog", url: "https://www.vasudevchemopharma.com/blog" },
           {
             name: blog.title,
-            url: `https://vasudevchemopharma.com/blog/${slug}`,
+            url: `https://www.vasudevchemopharma.com/blog/${slug}`,
           },
         ]}
       />

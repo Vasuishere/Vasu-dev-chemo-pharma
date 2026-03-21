@@ -8,6 +8,7 @@ type ProductCacheEntry<T> = {
 
 const PRODUCT_CACHE_TTL_MS = Number(process.env.PRODUCT_CACHE_TTL_MS || 60 * 1000);
 const PRODUCT_CACHE_KEY = '__vasudev_products_cache__';
+const PRODUCT_IN_FLIGHT_KEY = "__vasudev_products_in_flight__";
 
 function getProductCacheStore(): Map<string, ProductCacheEntry<unknown>> {
   const globalScope = globalThis as typeof globalThis & {
@@ -21,7 +22,19 @@ function getProductCacheStore(): Map<string, ProductCacheEntry<unknown>> {
   return globalScope[PRODUCT_CACHE_KEY];
 }
 
-function getCached<T>(key: string): T | null {
+function getProductInFlightStore(): Map<string, Promise<unknown>> {
+  const globalScope = globalThis as typeof globalThis & {
+    [PRODUCT_IN_FLIGHT_KEY]?: Map<string, Promise<unknown>>;
+  };
+
+  if (!globalScope[PRODUCT_IN_FLIGHT_KEY]) {
+    globalScope[PRODUCT_IN_FLIGHT_KEY] = new Map<string, Promise<unknown>>();
+  }
+
+  return globalScope[PRODUCT_IN_FLIGHT_KEY];
+}
+
+function getCachedEntry<T>(key: string): ProductCacheEntry<T> | null {
   const store = getProductCacheStore();
   const entry = store.get(key);
   if (!entry) {
@@ -33,7 +46,7 @@ function getCached<T>(key: string): T | null {
     return null;
   }
 
-  return entry.value as T;
+  return entry as ProductCacheEntry<T>;
 }
 
 function setCached<T>(key: string, value: T): void {
@@ -42,6 +55,31 @@ function setCached<T>(key: string, value: T): void {
     value,
     expiresAt: Date.now() + PRODUCT_CACHE_TTL_MS,
   });
+}
+
+async function loadWithCache<T>(key: string, loader: () => Promise<T>): Promise<T> {
+  const cachedEntry = getCachedEntry<T>(key);
+  if (cachedEntry) {
+    return cachedEntry.value;
+  }
+
+  const inFlightStore = getProductInFlightStore();
+  const inFlight = inFlightStore.get(key);
+  if (inFlight) {
+    return inFlight as Promise<T>;
+  }
+
+  const pending = loader()
+    .then((value) => {
+      setCached(key, value);
+      return value;
+    })
+    .finally(() => {
+      inFlightStore.delete(key);
+    });
+
+  inFlightStore.set(key, pending);
+  return pending;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -178,58 +216,49 @@ function toProduct(doc: any): Product {
 
 /** Fetch all active products */
 export async function getAllProducts(): Promise<Product[]> {
-  const cached = getCached<Product[]>('all-products');
-  if (cached) {
-    return cached;
-  }
+  return loadWithCache("all-products", async () => {
+    const payload = await getPayload();
+    const result = await payload.find({
+      collection: "products",
+      where: { status: { equals: "active" } },
+      limit: 200,
+      sort: "name",
+    });
 
-  const payload = await getPayload();
-  const result = await payload.find({
-    collection: "products",
-    where: { status: { equals: "active" } },
-    limit: 200,
-    sort: "name",
+    return result.docs.map(toProduct).sort(sortByPriorityThenName);
   });
-  const products = result.docs.map(toProduct).sort(sortByPriorityThenName);
-  setCached('all-products', products);
-  return products;
 }
 
 /** Find a product by slug */
 export async function getProductBySlug(slug: string): Promise<Product | undefined> {
   const cacheKey = `product:${slug}`;
-  const cached = getCached<Product | undefined>(cacheKey);
-  if (cached) {
-    return cached;
-  }
 
-  const payload = await getPayload();
-  const result = await payload.find({
-    collection: "products",
-    where: { slug: { equals: slug } },
-    limit: 1,
+  return loadWithCache(cacheKey, async () => {
+    const payload = await getPayload();
+    const result = await payload.find({
+      collection: "products",
+      where: { slug: { equals: slug } },
+      limit: 1,
+    });
+
+    return result.docs.length > 0 ? toProduct(result.docs[0]) : undefined;
   });
-  const product = result.docs.length > 0 ? toProduct(result.docs[0]) : undefined;
-  setCached(cacheKey, product);
-  return product;
 }
 
 /** Get all active product slugs for static generation */
 export async function getAllProductSlugs(): Promise<string[]> {
-  const cached = getCached<string[]>('all-product-slugs');
-  if (cached) {
-    return cached;
-  }
+  return loadWithCache("all-product-slugs", async () => {
+    const payload = await getPayload();
+    const result = await payload.find({
+      collection: "products",
+      where: { status: { equals: "active" } },
+      limit: 200,
+    });
 
-  const payload = await getPayload();
-  const result = await payload.find({
-    collection: "products",
-    where: { status: { equals: "active" } },
-    limit: 200,
+    return result.docs
+      .map((doc) => doc.slug)
+      .filter((slug): slug is string => typeof slug === "string");
   });
-  const slugs = result.docs.map((d) => d.slug).filter((s): s is string => typeof s === 'string');
-  setCached('all-product-slugs', slugs);
-  return slugs;
 }
 
 /** Get related products (same category, excluding current) */
@@ -239,24 +268,21 @@ export async function getRelatedProducts(
   limit = 3
 ): Promise<Product[]> {
   const cacheKey = `related:${category}:${currentSlug}:${limit}`;
-  const cached = getCached<Product[]>(cacheKey);
-  if (cached) {
-    return cached;
-  }
 
-  const payload = await getPayload();
-  const result = await payload.find({
-    collection: "products",
-    where: {
-      and: [
-        { category: { equals: category } },
-        { slug: { not_equals: currentSlug } },
-        { status: { equals: "active" } },
-      ],
-    },
-    limit,
+  return loadWithCache(cacheKey, async () => {
+    const payload = await getPayload();
+    const result = await payload.find({
+      collection: "products",
+      where: {
+        and: [
+          { category: { equals: category } },
+          { slug: { not_equals: currentSlug } },
+          { status: { equals: "active" } },
+        ],
+      },
+      limit,
+    });
+
+    return result.docs.map(toProduct).sort(sortByPriorityThenName).slice(0, limit);
   });
-  const related = result.docs.map(toProduct).sort(sortByPriorityThenName).slice(0, limit);
-  setCached(cacheKey, related);
-  return related;
 }

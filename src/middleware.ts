@@ -87,6 +87,16 @@ function withSecurityHeaders(response: NextResponse, nonce: string): NextRespons
   return response;
 }
 
+function buildSecurityUnavailableResponse(nonce: string): NextResponse {
+  return withSecurityHeaders(
+    NextResponse.json(
+      { error: 'Security challenge unavailable' },
+      { status: 503 }
+    ),
+    nonce
+  );
+}
+
 function isKnownGoodBot(userAgent: string): boolean {
   return KNOWN_GOOD_BOTS.some((bot) => userAgent.includes(bot));
 }
@@ -180,12 +190,6 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(canonicalUrl, 308);
   }
 
-  // Admin/Payload routes bypass the security layer entirely.
-  // Payload CMS has its own authentication & session management.
-  if (isAdminPath(pathname)) {
-    return NextResponse.next();
-  }
-
   const nonce = createNonce();
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set('x-nonce', nonce);
@@ -198,6 +202,12 @@ export async function middleware(request: NextRequest) {
     }),
     nonce
   );
+
+  // Admin/Payload routes bypass rate limiting and challenges,
+  // but should still receive the baseline security headers.
+  if (isAdminPath(pathname)) {
+    return passThroughResponse;
+  }
 
   if (!isProtectedPath(pathname)) {
     return passThroughResponse;
@@ -249,9 +259,15 @@ export async function middleware(request: NextRequest) {
   const isChallengePath = isSuspiciousPath(pathname);
   const challengeTriggeredByRate = isChallengePath && rateLimit.remaining <= 5;
   if ((suspiciousAgent || challengeTriggeredByRate) && !allowlisted) {
-    // If challenge secret is not configured, skip challenges gracefully
-    // instead of returning a hard 503.
     if (!EDGE_CHALLENGE_SECRET) {
+      if (process.env.NODE_ENV === 'production') {
+        return buildSecurityUnavailableResponse(nonce);
+      }
+
+      console.warn('[edge-security] EDGE_CHALLENGE_SECRET missing; challenge bypassed in non-production', {
+        pathname,
+        reason: suspiciousAgent ? 'suspicious-user-agent' : 'rate-triggered-challenge',
+      });
       return passThroughResponse;
     }
 

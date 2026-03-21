@@ -502,7 +502,7 @@ export default async function ProductDetailPage({
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-accent/10 text-accent border border-accent/30 hover:bg-accent/20 transition-colors text-sm font-semibold px-4 py-2 rounded-full"
                 >
-                  Download SDS / MSDS
+                  View SDS / MSDS
                 </a>
               </div>
             ) : null}

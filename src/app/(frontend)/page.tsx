@@ -11,7 +11,7 @@ import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
 export const metadata: Metadata = {
   title:
-    "Chemical Manufacturer India — Industrial & Specialty",
+    "Vasudev Chemo Pharma — Industrial & Specialty Chemical Manufacturer",
   description:
     "ISO 9001:2015 certified manufacturer of industrial chemicals, specialty chemicals & pharmaceutical intermediates from Gujarat, India. Request a quote.",
   alternates: {

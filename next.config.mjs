@@ -194,6 +194,41 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/product/mea-triazine-78-scavenger',
+        destination: '/product/mea-triazine-78-h2s-scavenger',
+        permanent: true,
+      },
+      {
+        source: '/product/active-pharmaceutical-ingredients',
+        destination: '/product',
+        permanent: true,
+      },
+      {
+        source: '/service/chemical-manufacturing-services',
+        destination: '/service/chemical-manufacturing',
+        permanent: true,
+      },
+      {
+        source: '/service/custom-chemical-formulation',
+        destination: '/service/custom-formulation',
+        permanent: true,
+      },
+      {
+        source: '/service/chemical-supply-chain-management',
+        destination: '/service/global-logistics-shipping',
+        permanent: true,
+      },
+      {
+        source: '/service/advanced-control-systems',
+        destination: '/service',
+        permanent: true,
+      },
+      {
+        source: '/service/process-optimization',
+        destination: '/service',
+        permanent: true,
+      },
+      {
         source: '/legal-pages/privacy-policy',
         destination: '/legal/privacy-policy',
         permanent: true,

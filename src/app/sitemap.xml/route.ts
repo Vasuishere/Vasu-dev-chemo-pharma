@@ -40,13 +40,22 @@ type SitemapEntry = {
   priority: number;
 };
 
+function escapeXml(value: string): string {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+}
+
 function buildUrlEntry(entry: SitemapEntry): string {
   return [
     "  <url>",
-    `    <loc>${entry.url}</loc>`,
-    `    <lastmod>${entry.lastModified}</lastmod>`,
-    `    <changefreq>${entry.changeFrequency}</changefreq>`,
-    `    <priority>${entry.priority}</priority>`,
+    `    <loc>${escapeXml(entry.url)}</loc>`,
+    `    <lastmod>${escapeXml(entry.lastModified)}</lastmod>`,
+    `    <changefreq>${escapeXml(entry.changeFrequency)}</changefreq>`,
+    `    <priority>${escapeXml(String(entry.priority))}</priority>`,
     "  </url>",
   ].join("\n");
 }

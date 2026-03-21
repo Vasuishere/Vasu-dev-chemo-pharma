@@ -19,15 +19,18 @@ const SCHEMA_AVAILABILITY_MAP: Record<string, string> = {
 };
 
 function getSchemaAvailability(product: Product): string | undefined {
-  const availabilityCandidate =
-    ((product as Product & { availability?: string; stockStatus?: string }).availability ||
-      (product as Product & { availability?: string; stockStatus?: string }).stockStatus ||
-      product.status ||
-      "")
-      .toLowerCase()
-      .trim();
+  const productAvailability = product as Product & {
+    availability?: unknown;
+    stockStatus?: unknown;
+  };
+  const availabilityCandidate = [
+    productAvailability.availability,
+    productAvailability.stockStatus,
+    product.status,
+  ].find((candidate): candidate is string => typeof candidate === "string");
+  const normalizedAvailability = availabilityCandidate?.toLowerCase().trim() || "";
 
-  return SCHEMA_AVAILABILITY_MAP[availabilityCandidate];
+  return SCHEMA_AVAILABILITY_MAP[normalizedAvailability];
 }
 
 export default function ProductSchema({ product }: ProductSchemaProps) {
@@ -94,8 +97,6 @@ export default function ProductSchema({ product }: ProductSchemaProps) {
     productSchema.countryOfOrigin = enrichment.countryOfOrigin;
     productSchema.audience = enrichment.audience;
     productSchema.areaServed = enrichment.areaServed;
-    productSchema.aggregateRating = enrichment.aggregateRating;
-    productSchema.review = enrichment.review;
   }
 
   const chemicalSchema = {

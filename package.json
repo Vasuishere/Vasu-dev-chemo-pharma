@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "seo:check-robots": "node scripts/check-robots.mjs",
     "health:check": "node scripts/pre-promote-health-check.mjs",
     "seed": "npx tsx src/seed.ts",
     "payload": "npx payload",

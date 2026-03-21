@@ -7,16 +7,16 @@ export const revalidate = 3600;
 const CASE_STUDY_URL = "https://vasudevchemopharma.com/case-study";
 
 export const metadata: Metadata = {
-  title: "Case Studies — Chemical Process & Formulation Success Stories",
+  title: "Case Studies - Manufacturing Innovation & Engineering Projects",
   description:
-    "Explore real-world case studies showcasing Vasudev Chemo Pharma's chemical manufacturing capabilities, including pharmaceutical synthesis, formulation optimization, and process development outcomes.",
+    "Explore manufacturing and engineering case studies spanning CNC machining, additive manufacturing, automation, and materials engineering project outcomes.",
   alternates: {
     canonical: CASE_STUDY_URL,
   },
   openGraph: {
     title: "Case Studies | Vasudev Chemo Pharma",
     description:
-      "Real-world chemical manufacturing case studies covering pharmaceutical synthesis, formulation, and process development.",
+      "Manufacturing and engineering case studies covering automation, CNC machining, 3D printing, and materials engineering.",
     url: CASE_STUDY_URL,
   },
 };
@@ -76,11 +76,10 @@ export default function CaseStudyPage() {
       <section className="pt-32 pb-20">
         <div className="max-w-container mx-auto px-6 lg:px-10">
           <h1 className="font-heading text-display font-semibold text-primary mb-4">
-            Chemical Manufacturing Case Studies
+            Manufacturing Innovation Case Studies
           </h1>
           <p className="text-secondary text-lg mb-12 max-w-2xl">
-            Real-world outcomes from our <Link href="/service" className="text-accent hover:underline">chemical manufacturing services</Link>,
-            showcasing process optimisation and formulation results across <Link href="/product" className="text-accent hover:underline">our product range</Link>.
+            Explore concept-driven project stories across automation, CNC machining, additive manufacturing, and materials engineering, and learn more about <Link href="/service" className="text-accent hover:underline">our services</Link> and <Link href="/about" className="text-accent hover:underline">our company</Link>.
           </p>
 
           <div className="space-y-6">

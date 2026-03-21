@@ -70,31 +70,9 @@ export const MEA_TRIAZINE_SCHEMA_ENRICHMENT = {
     { "@type": "PropertyValue" as const, name: "Appearance", value: "Clear to light yellow liquid" },
     { "@type": "PropertyValue" as const, name: "pH", value: "9.5-11.0" },
     { "@type": "PropertyValue" as const, name: "Shelf Life", value: "12 months" },
-    { "@type": "PropertyValue" as const, name: "Flash Point", value: ">93 C (>200 F)" },
-    { "@type": "PropertyValue" as const, name: "Density", value: "~1.10 g/mL at 20 C" },
+    { "@type": "PropertyValue" as const, name: "Flash Point", value: ">93 °C (>200 °F)" },
+    { "@type": "PropertyValue" as const, name: "Density", value: "~1.10 g/mL at 20 °C" },
     { "@type": "PropertyValue" as const, name: "Solubility", value: "Fully miscible with water" },
-  ],
-  aggregateRating: {
-    "@type": "AggregateRating" as const,
-    ratingValue: "4.7",
-    reviewCount: "23",
-    bestRating: "5",
-    worstRating: "1",
-  },
-  review: [
-    {
-      "@type": "Review" as const,
-      reviewRating: {
-        "@type": "Rating" as const,
-        ratingValue: "5",
-      },
-      author: {
-        "@type": "Person" as const,
-        name: "John T., Production Engineer",
-      },
-      reviewBody:
-        "Excellent performance on our sour gas wells. No solids formation at our typical treating rates. Will reorder.",
-    },
   ],
 } as const;
 

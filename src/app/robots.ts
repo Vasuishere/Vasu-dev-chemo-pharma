@@ -3,33 +3,36 @@ import type { MetadataRoute } from "next";
 const SITE_URL = "https://vasudevchemopharma.com";
 
 export default function robots(): MetadataRoute.Robots {
+  const allowPublicCrawlPaths = ["/", "/_next/static/", "/_next/image"];
+  const disallowPrivatePaths = [
+    "/admin",
+    "/admin/*",
+    "/payload",
+    "/payload/*",
+    "/api/",
+    "/api/*",
+    "/legal-pages/",
+    "/tmp/",
+    "/*.json$",
+  ];
+
   return {
     rules: [
       {
-        // Allow major crawlers to fetch framework assets and render SSR pages fully.
+        // Explicitly allow Next.js assets so Google can render App Router pages.
         userAgent: "Googlebot",
-        allow: "/",
-        disallow: ["/admin", "/payload", "/api/", "/admin/*", "/legal-pages/"],
+        allow: allowPublicCrawlPaths,
+        disallow: disallowPrivatePaths,
       },
       {
         userAgent: "Bingbot",
-        allow: "/",
-        disallow: ["/admin", "/payload", "/api/", "/admin/*", "/legal-pages/"],
+        allow: allowPublicCrawlPaths,
+        disallow: disallowPrivatePaths,
       },
       {
         userAgent: "*",
-        allow: "/",
-        disallow: [
-          "/admin",
-          "/admin/*",
-          "/payload",
-          "/payload/*",
-          "/api/",
-          "/api/*",
-          "/legal-pages/",
-          "/tmp/",
-          "/*.json$",
-        ],
+        allow: allowPublicCrawlPaths,
+        disallow: disallowPrivatePaths,
       },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,

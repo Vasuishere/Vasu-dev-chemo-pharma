@@ -4,7 +4,7 @@ import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
 export const revalidate = 86400;
 
-const POLICY_LAST_UPDATED = new Date("2026-01-15");
+const POLICY_LAST_UPDATED = new Date(2026, 0, 15);
 
 export const metadata: Metadata = {
   title: "Privacy Policy",

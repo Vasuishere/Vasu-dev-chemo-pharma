@@ -50,8 +50,8 @@ const caseStudyData: Record<
       { value: "95%", label: "First-pass yield accuracy" },
     ],
     serviceLink: {
-      href: "/service/chemical-manufacturing-services",
-      label: "View Chemical Manufacturing Services",
+      href: "/service/chemical-manufacturing",
+      label: "View Chemical Manufacturing",
     },
   },
   "precision-cnc-milling-for-automotive-components": {
@@ -83,8 +83,8 @@ const caseStudyData: Record<
       { value: "99.8%", label: "Quality pass rate" },
     ],
     serviceLink: {
-      href: "/service/custom-chemical-formulation",
-      label: "View Custom Formulation Services",
+      href: "/service/custom-formulation",
+      label: "View Custom Formulation",
     },
   },
   "additive-manufacturing-for-custom-tooling": {
@@ -116,8 +116,8 @@ const caseStudyData: Record<
       { value: "100+", label: "Custom tools produced" },
     ],
     serviceLink: {
-      href: "/service/process-optimization",
-      label: "View Process Optimization Services",
+      href: "/service",
+      label: "Explore Our Services",
     },
   },
   "automated-assembly-line-optimization": {
@@ -149,8 +149,8 @@ const caseStudyData: Record<
       { value: "3x", label: "Throughput increase" },
     ],
     serviceLink: {
-      href: "/service/advanced-control-systems",
-      label: "View Control System Services",
+      href: "/service",
+      label: "Explore Our Services",
     },
   },
 };

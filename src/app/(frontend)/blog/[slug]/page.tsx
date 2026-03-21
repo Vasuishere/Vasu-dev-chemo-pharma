@@ -176,7 +176,7 @@ const blogData: Record<string, BlogEntry> = {
       },
       {
         text: "chemical manufacturing services",
-        href: "/service/chemical-manufacturing-services",
+        href: "/service/chemical-manufacturing",
       },
     ],
     externalLinks: [
@@ -250,7 +250,7 @@ const blogData: Record<string, BlogEntry> = {
       },
       {
         text: "custom formulation solutions",
-        href: "/service/custom-chemical-formulation",
+        href: "/service/custom-formulation",
       },
     ],
     externalLinks: [
@@ -321,7 +321,7 @@ const blogData: Record<string, BlogEntry> = {
     internalLinks: [
       {
         text: "MEA Triazine 78% H2S Scavenger",
-        href: "/product/mea-triazine-78-scavenger",
+        href: "/product/mea-triazine-78-h2s-scavenger",
       },
       {
         text: "P-Toluenesulfonic Acid",
@@ -329,7 +329,7 @@ const blogData: Record<string, BlogEntry> = {
       },
       {
         text: "supply chain management services",
-        href: "/service/chemical-supply-chain-management",
+        href: "/service/global-logistics-shipping",
       },
     ],
     externalLinks: [
@@ -399,11 +399,11 @@ const blogData: Record<string, BlogEntry> = {
       },
       {
         text: "advanced control and monitoring",
-        href: "/service/advanced-control-systems",
+        href: "/service",
       },
       {
         text: "process optimization engineering",
-        href: "/service/process-optimization",
+        href: "/service",
       },
     ],
     externalLinks: [
@@ -469,15 +469,15 @@ const blogData: Record<string, BlogEntry> = {
     internalLinks: [
       {
         text: "synthetic API development",
-        href: "/product/active-pharmaceutical-ingredients",
+        href: "/product",
       },
       {
         text: "custom chemical manufacturing",
-        href: "/service/chemical-manufacturing-services",
+        href: "/service/chemical-manufacturing",
       },
       {
         text: "rapid prototyping process design",
-        href: "/service/process-optimization",
+        href: "/service",
       },
     ],
     externalLinks: [

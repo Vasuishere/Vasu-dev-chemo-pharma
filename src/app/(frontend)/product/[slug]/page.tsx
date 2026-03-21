@@ -17,8 +17,10 @@ import FAQSchema from "@/components/seo/FAQSchema";
 import { getProductSeoKeywords } from "@/lib/product-seo-keywords";
 import {
   MEA_TRIAZINE_SLUG,
-  MEA_TRIAZINE_TRADE_NAMES,
   MEA_TRIAZINE_COMPARISON,
+  MEA_TRIAZINE_MARKET_LANGUAGE_CODES,
+  MEA_TRIAZINE_METADATA,
+  MEA_TRIAZINE_OG_LOCALES,
 } from "@/lib/seo/mea-triazine-schema-data";
 
 /* ─── ISR: revalidate product pages every hour ──────────────── */
@@ -49,12 +51,12 @@ export async function generateMetadata({
     const isMeaTriazine = slug === MEA_TRIAZINE_SLUG;
 
     const title = isMeaTriazine
-      ? "MEA Triazine 78% H2S Scavenger | Industrial Grade | Vasudev Chemo Pharma"
+      ? MEA_TRIAZINE_METADATA.title
       : product.metaTitle ||
         `${product.name}${product.casNumber ? ` (CAS ${product.casNumber})` : ""} — ${CATEGORY_LABELS[product.category]} | Vasudev Chemo Pharma`;
 
     const description = isMeaTriazine
-      ? "MEA Triazine 78% H2S Scavenger (CAS 4719-04-4) — effective monoethanolamine triazine for removing hydrogen sulfide from natural gas, crude oil, and wastewater. Industrial drum & IBC supply. Request a quote today."
+      ? "MEA Triazine 78% (CAS 4719-04-4) — H2S scavenger for oil & gas, wastewater & biogas. Drum, IBC & bulk supply from India."
       : product.metaDescription ||
         `Buy ${product.name}${product.casNumber ? ` (CAS ${product.casNumber})` : ""} from Vasudev Chemo Pharma — ISO 9001:2015 certified manufacturer in Gujarat, India. Export-ready packaging. Request a quote today.`;
 
@@ -64,12 +66,29 @@ export async function generateMetadata({
       product.casNumber || ""
     );
 
-    const canonicalUrl = `https://vasudevchemopharma.com/product/${product.slug}`;
-    const ogImageUrl = product.imageUrl || "https://vasudevchemopharma.com/images/og-default.webp";
+    const canonicalUrl = `https://www.vasudevchemopharma.com/product/${product.slug}`;
+    const ogImageUrl = product.imageUrl || "https://www.vasudevchemopharma.com/images/og-default.webp";
+    const resolvedDescription = isMeaTriazine
+      ? MEA_TRIAZINE_METADATA.description
+      : description;
+    const openGraphDescription = isMeaTriazine
+      ? MEA_TRIAZINE_METADATA.openGraphDescription
+      : resolvedDescription;
+    const twitterDescription = isMeaTriazine
+      ? MEA_TRIAZINE_METADATA.twitterDescription
+      : resolvedDescription;
+    const languageAlternates = isMeaTriazine
+      ? Object.fromEntries(
+          MEA_TRIAZINE_MARKET_LANGUAGE_CODES.map((languageCode) => [languageCode, canonicalUrl])
+        )
+      : {
+          en: canonicalUrl,
+          "x-default": canonicalUrl,
+        };
 
     return {
       title,
-      description,
+      description: resolvedDescription,
       keywords: [
         keywordConfig.primaryKeyword,
         ...keywordConfig.longTailKeywords,
@@ -89,21 +108,18 @@ export async function generateMetadata({
       },
       alternates: {
         canonical: canonicalUrl,
-        languages: {
-          "en": canonicalUrl,
-          "x-default": canonicalUrl,
-        },
+        languages: languageAlternates,
       },
       openGraph: {
         title: isMeaTriazine
-          ? "MEA Triazine 78% H2S Scavenger | Vasudev Chemo Pharma"
+          ? MEA_TRIAZINE_METADATA.title
           : title,
-        description: isMeaTriazine
-          ? "High-purity MEA Triazine 78% for industrial H2S removal in oil & gas, wastewater, and biogas. CAS 4719-04-4. Bulk & drum supply."
-          : description,
+        description: openGraphDescription,
         url: canonicalUrl,
         type: "website",
         siteName: "Vasudev Chemo Pharma Chemicals",
+        locale: isMeaTriazine ? "en_IN" : "en_US",
+        alternateLocale: isMeaTriazine ? [...MEA_TRIAZINE_OG_LOCALES] : undefined,
         images: [
           {
             url: ogImageUrl,
@@ -116,11 +132,9 @@ export async function generateMetadata({
       twitter: {
         card: "summary_large_image",
         title: isMeaTriazine
-          ? "MEA Triazine 78% H2S Scavenger | Vasudev Chemo Pharma"
+          ? MEA_TRIAZINE_METADATA.title
           : title,
-        description: isMeaTriazine
-          ? "Industrial-grade monoethanolamine triazine for H2S removal. CAS 4719-04-4. Bulk pricing available."
-          : description,
+        description: twitterDescription,
         images: [ogImageUrl],
       },
     };
@@ -185,15 +199,15 @@ export default async function ProductDetailPage({
         items={
           isMeaTriazine
             ? [
-                { name: "Home", url: "https://vasudevchemopharma.com" },
-                { name: "Chemicals", url: "https://vasudevchemopharma.com/product" },
-                { name: "H2S Scavengers", url: "https://vasudevchemopharma.com/product?category=industrial" },
-                { name: "MEA Triazine 78% H2S Scavenger", url: `https://vasudevchemopharma.com/product/${product.slug}` },
+                { name: "Home", url: "https://www.vasudevchemopharma.com" },
+                { name: "Chemicals", url: "https://www.vasudevchemopharma.com/product" },
+                { name: "H2S Scavengers", url: "https://www.vasudevchemopharma.com/product?category=industrial" },
+                { name: "MEA Triazine 78% H2S Scavenger", url: `https://www.vasudevchemopharma.com/product/${product.slug}` },
               ]
             : [
-                { name: "Home", url: "https://vasudevchemopharma.com" },
-                { name: "Products", url: "https://vasudevchemopharma.com/product" },
-                { name: product.name, url: `https://vasudevchemopharma.com/product/${product.slug}` },
+                { name: "Home", url: "https://www.vasudevchemopharma.com" },
+                { name: "Products", url: "https://www.vasudevchemopharma.com/product" },
+                { name: product.name, url: `https://www.vasudevchemopharma.com/product/${product.slug}` },
               ]
         }
       />
@@ -488,7 +502,7 @@ export default async function ProductDetailPage({
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-accent/10 text-accent border border-accent/30 hover:bg-accent/20 transition-colors text-sm font-semibold px-4 py-2 rounded-full"
                 >
-                  Download SDS / MSDS
+                  View SDS / MSDS
                 </a>
               </div>
             ) : null}
@@ -700,7 +714,7 @@ export default async function ProductDetailPage({
           </section>
 
           {/* ─── 12. TRADE NAME EQUIVALENCE (MEA Triazine only) ─────── */}
-          {isMeaTriazine && (
+          {false && isMeaTriazine && (
             <section id="trade-names" className="mb-16">
               <h2 className="font-heading text-h3 text-primary mb-3">
                 Also Known As — Trade Name Equivalence
@@ -709,7 +723,7 @@ export default async function ProductDetailPage({
                 MEA Triazine 78% H2S Scavenger by Vasudev Chemo Pharma is a direct equivalent to the following globally recognised trade names. Use this reference to match your current supplier&apos;s brand to our product.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {(Object.entries(MEA_TRIAZINE_TRADE_NAMES) as [string, readonly string[]][]).map(([category, names]) => (
+                {(Object.entries({}) as [string, readonly string[]][]).map(([category, names]) => (
                   <div key={category} className="border border-gray-200 rounded-2xl p-6">
                     <h3 className="font-heading text-h5 text-primary mb-4">{category}</h3>
                     <ul className="space-y-2">
@@ -830,13 +844,18 @@ export default async function ProductDetailPage({
                     <span className="text-xs font-semibold uppercase tracking-wider text-accent">
                       {CATEGORY_LABELS[rp.category]}
                     </span>
-                    <h3 className="font-heading text-h5 text-primary mt-2 mb-2 group-hover:text-accent transition-colors">
-                      {rp.name}
-                    </h3>
+                    <p className="font-heading text-h5 text-primary mt-2 mb-2 group-hover:text-accent transition-colors">
+                      {rp.name}{rp.casNumber ? ` (CAS ${rp.casNumber})` : ""}
+                    </p>
                     <div className="flex flex-wrap gap-2 text-xs text-gray-500">
                       {rp.formula && <span>Formula: {rp.formula}</span>}
-                      {rp.casNumber && <span>· CAS: {rp.casNumber}</span>}
                     </div>
+                    <span className="inline-flex items-center gap-1 text-accent text-sm font-medium mt-3">
+                      View {rp.name} details
+                      <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </span>
                   </Link>
                 ))}
               </div>

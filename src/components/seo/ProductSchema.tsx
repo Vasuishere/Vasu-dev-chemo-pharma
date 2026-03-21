@@ -19,15 +19,18 @@ const SCHEMA_AVAILABILITY_MAP: Record<string, string> = {
 };
 
 function getSchemaAvailability(product: Product): string | undefined {
-  const availabilityCandidate =
-    ((product as Product & { availability?: string; stockStatus?: string }).availability ||
-      (product as Product & { availability?: string; stockStatus?: string }).stockStatus ||
-      product.status ||
-      "")
-      .toLowerCase()
-      .trim();
+  const productAvailability = product as Product & {
+    availability?: unknown;
+    stockStatus?: unknown;
+  };
+  const availabilityCandidate = [
+    productAvailability.availability,
+    productAvailability.stockStatus,
+    product.status,
+  ].find((candidate): candidate is string => typeof candidate === "string");
+  const normalizedAvailability = availabilityCandidate?.toLowerCase().trim() || "";
 
-  return SCHEMA_AVAILABILITY_MAP[availabilityCandidate];
+  return SCHEMA_AVAILABILITY_MAP[normalizedAvailability];
 }
 
 export default function ProductSchema({ product }: ProductSchemaProps) {
@@ -45,7 +48,7 @@ export default function ProductSchema({ product }: ProductSchemaProps) {
       `${product.name} manufactured by Vasudev Chemo Pharma, Gujarat, India.`,
     sku: product.sku,
     image: product.imageUrl || undefined,
-    url: `https://vasudevchemopharma.com/product/${product.slug}`,
+    url: `https://www.vasudevchemopharma.com/product/${product.slug}`,
     brand: {
       "@type": "Brand",
       name: "Vasudev Chemo Pharma",
@@ -53,7 +56,7 @@ export default function ProductSchema({ product }: ProductSchemaProps) {
     manufacturer: {
       "@type": "Organization",
       name: "Vasudev Chemo Pharma Chemicals",
-      url: "https://vasudevchemopharma.com",
+      url: "https://www.vasudevchemopharma.com",
       address: {
         "@type": "PostalAddress",
         addressRegion: "Gujarat",
@@ -74,7 +77,7 @@ export default function ProductSchema({ product }: ProductSchemaProps) {
             },
           }
         : {}),
-      url: `https://vasudevchemopharma.com/product/${product.slug}`,
+      url: `https://www.vasudevchemopharma.com/product/${product.slug}`,
       seller: {
         "@type": "Organization",
         name: "Vasudev Chemo Pharma Chemicals",
@@ -85,13 +88,15 @@ export default function ProductSchema({ product }: ProductSchemaProps) {
   /* --- Slug-specific enrichment (MEA Triazine 78%) --- */
   if (isEnrichedSlug) {
     const enrichment = MEA_TRIAZINE_SCHEMA_ENRICHMENT;
+    productSchema.description = enrichment.description;
     productSchema.alternateName = enrichment.alternateName;
     productSchema.additionalProperty = enrichment.additionalProperty;
     productSchema.material = enrichment.material;
     productSchema.mpn = enrichment.mpn;
     productSchema.category = enrichment.category;
-    productSchema.aggregateRating = enrichment.aggregateRating;
-    productSchema.review = enrichment.review;
+    productSchema.countryOfOrigin = enrichment.countryOfOrigin;
+    productSchema.audience = enrichment.audience;
+    productSchema.areaServed = enrichment.areaServed;
   }
 
   const chemicalSchema = {

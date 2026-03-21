@@ -74,12 +74,12 @@ export async function generateMetadata({
     title: `${service.title} — Chemical Manufacturing Services`,
     description: service.details.slice(0, 160),
     alternates: {
-      canonical: `https://vasudevchemopharma.com/service/${slug}`,
+      canonical: `https://www.vasudevchemopharma.com/service/${slug}`,
     },
     openGraph: {
       title: `${service.title} | Vasudev Chemo Pharma`,
       description: service.description,
-      url: `https://vasudevchemopharma.com/service/${slug}`,
+      url: `https://www.vasudevchemopharma.com/service/${slug}`,
       images: [{ url: service.image }],
     },
   };
@@ -98,11 +98,11 @@ export default async function ServiceDetailPage({
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: "https://vasudevchemopharma.com" },
-          { name: "Services", url: "https://vasudevchemopharma.com/service" },
+          { name: "Home", url: "https://www.vasudevchemopharma.com" },
+          { name: "Services", url: "https://www.vasudevchemopharma.com/service" },
           {
             name: service.title,
-            url: `https://vasudevchemopharma.com/service/${slug}`,
+            url: `https://www.vasudevchemopharma.com/service/${slug}`,
           },
         ]}
       />

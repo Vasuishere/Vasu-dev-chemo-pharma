@@ -11,7 +11,7 @@ export default function NotFound() {
               404
             </h1>
             <h2 className="font-heading text-h2 font-semibold text-primary mt-4">
-              Page not found Redirect to home page - www.vasudevchemopharma.com
+              Page not found
             </h2>
             <p className="text-secondary text-lg mt-4">
               The page you are looking for doesn&apos;t exist or has been moved

@@ -11,7 +11,6 @@ const links = [
   { id: "certifications", label: "Certifications" },
   { id: "documents", label: "Documents" },
   { id: "faq", label: "FAQ" },
-  { id: "trade-names", label: "Trade Names" },
   { id: "comparison", label: "Comparison" },
   { id: "dosing", label: "Dosing" },
   { id: "quote", label: "Get Quote" },

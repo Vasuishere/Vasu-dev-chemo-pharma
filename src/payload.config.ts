@@ -14,6 +14,7 @@ import { SiteImages } from "@/globals/SiteImages";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
+const shouldPushSchema = process.env.NODE_ENV !== "production" && process.env.PAYLOAD_PUSH !== "false";
 
 export default buildConfig({
   editor: lexicalEditor(),
@@ -31,7 +32,8 @@ export default buildConfig({
       idleTimeoutMillis: 30000,
       ssl: { rejectUnauthorized: false },
     },
-    push: true,
+    // Use migrations in production instead of applying schema changes automatically.
+    push: shouldPushSchema,
     disableCreateDatabase: true,
   }),
   sharp,

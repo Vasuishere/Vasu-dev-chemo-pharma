@@ -1,39 +1,38 @@
 import type { MetadataRoute } from "next";
 
-const SITE_URL = "https://vasudevchemopharma.com";
+const SITE_URL = "https://www.vasudevchemopharma.com";
 
 export default function robots(): MetadataRoute.Robots {
+  const allowPublicCrawlPaths = ["/", "/_next/static/", "/_next/image"];
+  const disallowPrivatePaths = [
+    "/admin",
+    "/admin/*",
+    "/payload",
+    "/payload/*",
+    "/api/",
+    "/api/*",
+    "/legal-pages/",
+    "/tmp/",
+    "/*.json$",
+  ];
+
   return {
     rules: [
       {
-        // Google — full access, no crawl-delay needed
+        // Explicitly allow Next.js assets so Google can render App Router pages.
         userAgent: "Googlebot",
-        allow: "/",
-        disallow: ["/admin", "/payload", "/api/", "/_next/", "/admin/*", "/legal-pages/"],
+        allow: allowPublicCrawlPaths,
+        disallow: disallowPrivatePaths,
       },
       {
-        // Bing — full access
         userAgent: "Bingbot",
-        allow: "/",
-        disallow: ["/admin", "/payload", "/api/", "/_next/", "/admin/*", "/legal-pages/"],
+        allow: allowPublicCrawlPaths,
+        disallow: disallowPrivatePaths,
       },
       {
-        // All other crawlers
         userAgent: "*",
-        allow: "/",
-        disallow: [
-          "/admin",
-          "/admin/*",
-          "/payload",
-          "/payload/*",
-          "/api/",
-          "/api/*",
-          "/_next/",
-          "/_next/*",
-          "/legal-pages/",
-          "/tmp/",
-          "/*.json$",
-        ],
+        allow: allowPublicCrawlPaths,
+        disallow: disallowPrivatePaths,
       },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,

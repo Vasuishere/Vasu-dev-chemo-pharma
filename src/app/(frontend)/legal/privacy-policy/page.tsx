@@ -4,14 +4,14 @@ import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
 export const revalidate = 86400;
 
-const POLICY_LAST_UPDATED = new Date("2026-01-15");
+const POLICY_LAST_UPDATED = new Date(2026, 0, 15);
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
     "Privacy policy for Vasudev Chemo Pharma — how we collect, use, and protect your personal information on our website and services.",
   alternates: {
-    canonical: "https://vasudevchemopharma.com/legal/privacy-policy",
+    canonical: "https://www.vasudevchemopharma.com/legal/privacy-policy",
   },
   robots: {
     index: true,
@@ -24,10 +24,10 @@ export default function PrivacyPolicyPage() {
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: "https://vasudevchemopharma.com" },
+          { name: "Home", url: "https://www.vasudevchemopharma.com" },
           {
             name: "Privacy Policy",
-            url: "https://vasudevchemopharma.com/legal/privacy-policy",
+            url: "https://www.vasudevchemopharma.com/legal/privacy-policy",
           },
         ]}
       />

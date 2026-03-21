@@ -30,6 +30,7 @@ const SUSPICIOUS_AGENTS = [
   'go-http-client',
 ];
 
+const CANONICAL_HOST = 'www.vasudevchemopharma.com';
 const CHALLENGE_COOKIE_NAME = 'edge_challenge_clearance';
 const CHALLENGE_ROUTE = '/api/security/challenge';
 const EDGE_CHALLENGE_SECRET = process.env.EDGE_CHALLENGE_SECRET;
@@ -87,6 +88,16 @@ function withSecurityHeaders(response: NextResponse, nonce: string): NextRespons
   return response;
 }
 
+function buildSecurityUnavailableResponse(nonce: string): NextResponse {
+  return withSecurityHeaders(
+    NextResponse.json(
+      { error: 'Security challenge unavailable' },
+      { status: 503 }
+    ),
+    nonce
+  );
+}
+
 function isKnownGoodBot(userAgent: string): boolean {
   return KNOWN_GOOD_BOTS.some((bot) => userAgent.includes(bot));
 }
@@ -126,11 +137,22 @@ function getRouteLimit(pathname: string): number {
   return 100;
 }
 
+function isLocalHost(host: string): boolean {
+  return host.startsWith('localhost') || host.startsWith('127.0.0.1');
+}
+
 function shouldRedirectToHttps(request: NextRequest): boolean {
   const forwardedProto = request.headers.get('x-forwarded-proto');
   const host = request.headers.get('host') || '';
-  const isLocalhost = host.startsWith('localhost') || host.startsWith('127.0.0.1');
-  return forwardedProto === 'http' && !isLocalhost;
+  return forwardedProto === 'http' && !isLocalHost(host);
+}
+
+function shouldRedirectToWww(request: NextRequest): boolean {
+  const host = request.headers.get('host') || '';
+  // Strip port for comparison (e.g. "example.com:3000")
+  const hostname = host.split(':')[0];
+  if (isLocalHost(host)) return false;
+  return hostname !== '' && !hostname.startsWith('www.') && hostname.includes('vasudevchemopharma.com');
 }
 
 function shouldNormalizeCase(pathname: string): boolean {
@@ -157,6 +179,15 @@ function normalizeLegacyPath(pathname: string): string {
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // ── Non-www → www redirect (301 Permanent) ──────────────────────
+  // This must run before any other normalization so that search
+  // engines receive a proper 301 instead of Vercel's 307 domain alias.
+  if (shouldRedirectToWww(request)) {
+    const wwwUrl = request.nextUrl.clone();
+    wwwUrl.host = CANONICAL_HOST;
+    return NextResponse.redirect(wwwUrl, 301);
+  }
+
   const canonicalUrl = request.nextUrl.clone();
   let shouldRedirect = false;
 
@@ -180,12 +211,6 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(canonicalUrl, 308);
   }
 
-  // Admin/Payload routes bypass the security layer entirely.
-  // Payload CMS has its own authentication & session management.
-  if (isAdminPath(pathname)) {
-    return NextResponse.next();
-  }
-
   const nonce = createNonce();
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set('x-nonce', nonce);
@@ -198,6 +223,12 @@ export async function middleware(request: NextRequest) {
     }),
     nonce
   );
+
+  // Admin/Payload routes bypass rate limiting and challenges,
+  // but should still receive the baseline security headers.
+  if (isAdminPath(pathname)) {
+    return passThroughResponse;
+  }
 
   if (!isProtectedPath(pathname)) {
     return passThroughResponse;
@@ -249,9 +280,15 @@ export async function middleware(request: NextRequest) {
   const isChallengePath = isSuspiciousPath(pathname);
   const challengeTriggeredByRate = isChallengePath && rateLimit.remaining <= 5;
   if ((suspiciousAgent || challengeTriggeredByRate) && !allowlisted) {
-    // If challenge secret is not configured, skip challenges gracefully
-    // instead of returning a hard 503.
     if (!EDGE_CHALLENGE_SECRET) {
+      if (process.env.NODE_ENV === 'production') {
+        return buildSecurityUnavailableResponse(nonce);
+      }
+
+      console.warn('[edge-security] EDGE_CHALLENGE_SECRET missing; challenge bypassed in non-production', {
+        pathname,
+        reason: suspiciousAgent ? 'suspicious-user-agent' : 'rate-triggered-challenge',
+      });
       return passThroughResponse;
     }
 

@@ -14,6 +14,7 @@ const footerLinks2 = [
   { label: "Case Studies", href: "/case-study" },
   { label: "Contact", href: "/contact" },
   { label: "Privacy Policy", href: "/legal/privacy-policy" },
+  { label: "Sitemap", href: "/sitemap.xml" },
 ];
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -39,7 +40,7 @@ export default async function Footer() {
   const company = await getCompanyInfo();
 
   return (
-    <footer className="bg-dark text-white max-h-[40vh] overflow-y-auto">
+    <footer className="bg-dark text-white">
       <div className="max-w-container mx-auto px-6 lg:px-10 pt-10 pb-4">
         {/* Logo */}
         <div className="mb-6">

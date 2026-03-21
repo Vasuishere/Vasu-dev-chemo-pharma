@@ -50,8 +50,8 @@ const caseStudyData: Record<
       { value: "95%", label: "First-pass yield accuracy" },
     ],
     serviceLink: {
-      href: "/service/chemical-manufacturing-services",
-      label: "View Chemical Manufacturing Services",
+      href: "/service/chemical-manufacturing",
+      label: "View Chemical Manufacturing",
     },
   },
   "precision-cnc-milling-for-automotive-components": {
@@ -83,8 +83,8 @@ const caseStudyData: Record<
       { value: "99.8%", label: "Quality pass rate" },
     ],
     serviceLink: {
-      href: "/service/custom-chemical-formulation",
-      label: "View Custom Formulation Services",
+      href: "/service/custom-formulation",
+      label: "View Custom Formulation",
     },
   },
   "additive-manufacturing-for-custom-tooling": {
@@ -116,8 +116,8 @@ const caseStudyData: Record<
       { value: "100+", label: "Custom tools produced" },
     ],
     serviceLink: {
-      href: "/service/process-optimization",
-      label: "View Process Optimization Services",
+      href: "/service",
+      label: "Explore Our Services",
     },
   },
   "automated-assembly-line-optimization": {
@@ -149,8 +149,8 @@ const caseStudyData: Record<
       { value: "3x", label: "Throughput increase" },
     ],
     serviceLink: {
-      href: "/service/advanced-control-systems",
-      label: "View Control System Services",
+      href: "/service",
+      label: "Explore Our Services",
     },
   },
 };
@@ -211,12 +211,12 @@ export async function generateMetadata({
     title: `${cs.title} — Case Study`,
     description: cs.overview.slice(0, 160),
     alternates: {
-      canonical: `https://vasudevchemopharma.com/case-study/${slug}`,
+      canonical: `https://www.vasudevchemopharma.com/case-study/${slug}`,
     },
     openGraph: {
       title: cs.title,
       description: cs.overview.slice(0, 160),
-      url: `https://vasudevchemopharma.com/case-study/${slug}`,
+      url: `https://www.vasudevchemopharma.com/case-study/${slug}`,
       images: [{ url: cs.heroImage }],
     },
   };
@@ -239,14 +239,14 @@ export default async function CaseStudyDetailPage({
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: "https://vasudevchemopharma.com" },
+          { name: "Home", url: "https://www.vasudevchemopharma.com" },
           {
             name: "Case Studies",
-            url: "https://vasudevchemopharma.com/case-study",
+            url: "https://www.vasudevchemopharma.com/case-study",
           },
           {
             name: cs.title,
-            url: `https://vasudevchemopharma.com/case-study/${slug}`,
+            url: `https://www.vasudevchemopharma.com/case-study/${slug}`,
           },
         ]}
       />

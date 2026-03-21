@@ -11,18 +11,18 @@ import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
 export const metadata: Metadata = {
   title:
-    "Chemical Manufacturer India — Industrial & Specialty",
+    "Vasudev Chemo Pharma — Industrial & Specialty Chemical Manufacturer",
   description:
     "ISO 9001:2015 certified manufacturer of industrial chemicals, specialty chemicals & pharmaceutical intermediates from Gujarat, India. Request a quote.",
   alternates: {
-    canonical: "https://vasudevchemopharma.com",
+    canonical: "https://www.vasudevchemopharma.com",
   },
   openGraph: {
     title:
       "Vasudev Chemo Pharma — Industrial & Specialty Chemical Manufacturer",
     description:
       "ISO 9001:2015 certified manufacturer and global exporter of 28+ industrial chemicals from Gujarat, India.",
-    url: "https://vasudevchemopharma.com",
+    url: "https://www.vasudevchemopharma.com",
   },
 };
 
@@ -31,8 +31,8 @@ export default function HomePage() {
     <>
       <OrganizationSchema
         name="Vasudev Chemo Pharma"
-        url="https://vasudevchemopharma.com"
-        logo="https://vasudevchemopharma.com/logo.png"
+        url="https://www.vasudevchemopharma.com"
+        logo="https://www.vasudevchemopharma.com/logo.png"
         description="Leading Indian manufacturer and global exporter of industrial chemicals, specialty chemicals, and pharmaceutical intermediates."
         email="info@vasudevchemopharma.com"
         sameAs={["https://www.linkedin.com/company/vasudevchemo"]}
@@ -41,7 +41,7 @@ export default function HomePage() {
         items={[
           {
             name: "Home",
-            url: "https://vasudevchemopharma.com",
+            url: "https://www.vasudevchemopharma.com",
           },
         ]}
       />

@@ -42,24 +42,24 @@ export default async function Footer() {
   return (
     <footer className="bg-dark text-white">
       <div className="max-w-container mx-auto px-6 lg:px-10 pt-10 pb-4">
-        {/* Logo */}
-        <div className="mb-6">
-          <Link href="/" className="inline-flex items-center gap-3">
+        {/* Logo overlap */}
+        <div className="mb-8 relative z-10 w-fit">
+          <Link href="/" className="-mt-14 inline-flex items-center gap-4 bg-white px-4 py-5 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-gray-50">
             <Image
-              src="/images/vcp-logo.png"
+              src="https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Vasudev/Vasudev_Chemo_Pharma_LOGO.png"
               alt="VCP Logo"
-              width={50}
-              height={50}
+              width={250}
+              height={450}
               unoptimized
-              className="h-12 w-auto brightness-0 invert"
+              className="h-12 w-auto"
             />
             <Image
-              src="/images/vcp-name.png"
+              src="https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Vasudev/Vasudev_Chemo_Pharma_Name.png"
               alt="Vasudev Chemo Pharma"
               width={200}
               height={45}
               unoptimized
-              className="h-9 w-auto brightness-0 invert"
+              className="h-12 w-auto"
             />
           </Link>
         </div>
@@ -101,16 +101,16 @@ export default async function Footer() {
                 {company.address}
               </p>
               <h3 className="font-heading text-lg font-semibold mb-4">
-              Mobile Numbers
-            </h3>
+                Mobile Numbers
+              </h3>
               {(company.phoneNumbers || []).map((phone) => (
                 <p key={`${phone.label}-${phone.number}`} className="text-sm text-white/60">
                   Mobile No: {phone.number} - {phone.label}
                 </p>
               ))}
               <h3 className="font-heading text-lg font-semibold mb-4">
-              Emails 
-            </h3>
+                Emails
+              </h3>
               {company.primaryEmail ? (
                 <a
                   href={`mailto:${company.primaryEmail}`}

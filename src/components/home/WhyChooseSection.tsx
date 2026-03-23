@@ -14,7 +14,7 @@ const features = [
   "ISO 9001:2015 certified quality",
   "Export-ready packaging & documentation",
   "Competitive global pricing",
-  "28+ chemical products available",
+  "15+ chemical products available",
   "Near major Gujarat ports (Kandla, Mundra, Hazira)",
 ];
 

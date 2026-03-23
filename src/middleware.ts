@@ -30,7 +30,7 @@ const SUSPICIOUS_AGENTS = [
   'go-http-client',
 ];
 
-const CANONICAL_HOST = 'www.vasudevchemopharma.com';
+const CANONICAL_HOST = 'www.Vasudevchemopharma.com';
 const CHALLENGE_COOKIE_NAME = 'edge_challenge_clearance';
 const CHALLENGE_ROUTE = '/api/security/challenge';
 const EDGE_CHALLENGE_SECRET = process.env.EDGE_CHALLENGE_SECRET;
@@ -152,7 +152,7 @@ function shouldRedirectToWww(request: NextRequest): boolean {
   // Strip port for comparison (e.g. "example.com:3000")
   const hostname = host.split(':')[0];
   if (isLocalHost(host)) return false;
-  return hostname !== '' && !hostname.startsWith('www.') && hostname.includes('vasudevchemopharma.com');
+  return hostname !== '' && !hostname.startsWith('www.') && hostname.includes('Vasudevchemopharma.com');
 }
 
 function shouldNormalizeCase(pathname: string): boolean {

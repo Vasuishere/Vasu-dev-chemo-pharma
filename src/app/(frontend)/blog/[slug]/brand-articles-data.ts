@@ -77,7 +77,7 @@ export const brandArticlesData: Record<string, BrandBlogEntry> = {
       },
       {
         heading: "Why Source Your Bioban GK Alternative from Vasudev Chemo Pharma",
-        id: "why-source-from-vasudev",
+        id: "why-source-from-Vasudev",
         body: "Vasudev Chemo Pharma manufactures MEA Triazine 78% at our dedicated production facility with full batch traceability and ISO-certified quality systems. We deliver CIF Houston with regional distribution capability to all major US basins — Permian, Eagle Ford, Marcellus, Bakken, and Haynesville. Packaging options include 200 L drums, 1,000 L IBCs, and ISO tank containers for high-volume programs. All shipments include GHS-compliant SDS documentation, TSCA compliance confirmation, and DOT UN3082 shipping classification records. Our transparent pricing model gives procurement teams full visibility into chemistry costs — no bundled services, no hidden fees, no minimum purchase commitments beyond standard order quantities.",
       },
     ],
@@ -700,7 +700,7 @@ export const brandArticlesData: Record<string, BrandBlogEntry> = {
       },
       {
         heading: "MEA Triazine 78% from Vasudev — Quality-Certified Alternative",
-        id: "vasudev-quality-certified",
+        id: "Vasudev-quality-certified",
         body: "Vasudev Chemo Pharma's MEA Triazine 78% offers the same triazine chemistry with enhanced quality assurance for the demanding US market. ISO 9001:2015 certified manufacturing ensures process discipline and consistency. Independent batch testing with Certificates of Analysis provides transparent quality documentation. GHS-compliant Safety Data Sheets meet OSHA HazCom 2012 requirements. TSCA inventory listing status is confirmed for every shipment. This documentation package meets the vendor qualification requirements of major US operators and integrates with industry-standard chemical management platforms.",
       },
       {
@@ -747,7 +747,7 @@ export const brandArticlesData: Record<string, BrandBlogEntry> = {
       },
       {
         heading: "Why US Operators Choose Vasudev Over Other Indian Suppliers",
-        id: "why-choose-vasudev",
+        id: "why-choose-Vasudev",
         body: "Vasudev Chemo Pharma differentiates from other Indian triazine manufacturers through ISO 9001:2015 certification, established US import logistics, and comprehensive quality documentation aligned with US regulatory requirements. Our customer-facing documentation package — including batch-specific CoA, GHS SDS, TSCA compliance confirmation, and DOT shipping records — meets the vendor qualification standards of major US oil and gas companies. We maintain dedicated production capacity and shipping schedules to ensure uninterrupted supply.",
       },
       {

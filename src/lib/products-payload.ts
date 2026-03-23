@@ -7,8 +7,8 @@ type ProductCacheEntry<T> = {
 };
 
 const PRODUCT_CACHE_TTL_MS = Number(process.env.PRODUCT_CACHE_TTL_MS || 60 * 1000);
-const PRODUCT_CACHE_KEY = '__vasudev_products_cache__';
-const PRODUCT_IN_FLIGHT_KEY = "__vasudev_products_in_flight__";
+const PRODUCT_CACHE_KEY = '__Vasudev_products_cache__';
+const PRODUCT_IN_FLIGHT_KEY = "__Vasudev_products_in_flight__";
 
 function getProductCacheStore(): Map<string, ProductCacheEntry<unknown>> {
   const globalScope = globalThis as typeof globalThis & {
@@ -158,14 +158,14 @@ function toProduct(doc: any): Product {
 
   const quickImageUrls = Array.isArray(doc.imageDriveUrls)
     ? doc.imageDriveUrls.filter((item: { url?: string }) =>
-        typeof item?.url === "string" && item.url.trim()
-      )
+      typeof item?.url === "string" && item.url.trim()
+    )
     : [];
 
   const quickDocumentUrls = Array.isArray(doc.documentDriveUrls)
     ? doc.documentDriveUrls.filter((item: { url?: string }) =>
-        typeof item?.url === "string" && item.url.trim()
-      )
+      typeof item?.url === "string" && item.url.trim()
+    )
     : [];
 
   return {

@@ -33,14 +33,14 @@ export default function ArticleSchema({
     image: [image],
     author: authorName
       ? {
-          "@type": "Person",
-          name: authorName,
-          ...(authorCredentials ? { jobTitle: authorCredentials } : {}),
-        }
+        "@type": "Person",
+        name: authorName,
+        ...(authorCredentials ? { jobTitle: authorCredentials } : {}),
+      }
       : {
-          "@type": "Organization",
-          name: "Vasudev Chemo Pharma",
-        },
+        "@type": "Organization",
+        name: "Vasudev Chemo Pharma",
+      },
     publisher: {
       "@type": "Organization",
       name: "Vasudev Chemo Pharma",

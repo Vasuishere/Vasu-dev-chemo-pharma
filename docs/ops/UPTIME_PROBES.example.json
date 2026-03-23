@@ -2,28 +2,44 @@
   "provider": "betterstack-or-equivalent",
   "checks": [
     {
-      "name": "vasudev-liveness",
+      "name": "Vasudev-liveness",
       "url": "https://your-production-domain.com/api/health?scope=liveness",
       "intervalSeconds": 60,
-      "regions": ["ap-southeast", "eu-central", "us-east"]
+      "regions": [
+        "ap-southeast",
+        "eu-central",
+        "us-east"
+      ]
     },
     {
-      "name": "vasudev-readiness",
+      "name": "Vasudev-readiness",
       "url": "https://your-production-domain.com/api/health?scope=readiness",
       "intervalSeconds": 60,
-      "regions": ["ap-southeast", "eu-central", "us-east"]
+      "regions": [
+        "ap-southeast",
+        "eu-central",
+        "us-east"
+      ]
     },
     {
-      "name": "vasudev-homepage",
+      "name": "Vasudev-homepage",
       "url": "https://your-production-domain.com/",
       "intervalSeconds": 60,
-      "regions": ["ap-southeast", "eu-central", "us-east"]
+      "regions": [
+        "ap-southeast",
+        "eu-central",
+        "us-east"
+      ]
     },
     {
-      "name": "vasudev-product",
+      "name": "Vasudev-product",
       "url": "https://your-production-domain.com/product",
       "intervalSeconds": 60,
-      "regions": ["ap-southeast", "eu-central", "us-east"]
+      "regions": [
+        "ap-southeast",
+        "eu-central",
+        "us-east"
+      ]
     }
   ]
 }

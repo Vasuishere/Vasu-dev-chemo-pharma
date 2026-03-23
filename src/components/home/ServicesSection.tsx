@@ -10,7 +10,7 @@ const services = [
     icon: "https://framerusercontent.com/images/8A2bCLa6pyOXwAS0i8tAQrdLhTU.svg",
     image: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Service%20Section/Chemical_Manufacturing_Vasudev_Chemo_Pharma.png",
     features: [
-      "28+ specialty chemicals",
+      "15+ specialty chemicals",
       "ISO 9001:2015 certified process",
       "Bulk & custom quantity orders",
       "Strict quality testing at every stage",

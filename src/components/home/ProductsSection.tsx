@@ -18,20 +18,6 @@ const products = [
     capability: "OIL FIELD CHEMICALS",
     sizeRange: "CUSTOM GRADE & PACKAGING AVAILABLE",
   },
-  {
-    title: "Electrical control panels",
-    image: "https://framerusercontent.com/images/tAtl9axoEYtWCItpE02pQkhJW4.webp",
-    material: "Mild Steel, Stainless Steel",
-    capability: "Sheet Metal Fabrication & Assembly",
-    sizeRange: "Small to full-scale cabinets",
-  },
-  {
-    title: "Precision shaft assemblies",
-    image: "https://framerusercontent.com/images/OE2OcltN5LzFLAcVdLYTaSeJAz0.webp",
-    material: "Alloy Steel, Stainless Steel",
-    capability: "Turning & Grinding",
-    sizeRange: "Up to 1200mm",
-  },
 ];
 
 export default async function ProductsSection() {

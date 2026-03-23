@@ -17,7 +17,7 @@ export default async function AboutSection() {
   const siteImages = siteImagesData.homePage?.aboutSection || {};
 
   const activeAvatars = siteImages.avatars?.length ? siteImages.avatars : defaultAvatars;
-  
+
   const companyName = company.companyName || "Our company";
   const companyAddress = company.address || "";
   const brochureUrl = company.brochureUrl?.trim();
@@ -73,7 +73,7 @@ export default async function AboutSection() {
             <p className="text-secondary text-base leading-relaxed mb-8">
               {companyName} is an ISO 9001:2015 certified industrial &amp;
               specialty chemical manufacturer{companyAddress ? ` based in ${companyAddress}` : ""}. We supply
-              28+ chemical products globally — direct from the manufacturer,
+              15+ chemical products globally — direct from the manufacturer,
               eliminating middlemen and ensuring competitive pricing with
               reliable shipping.
             </p>
@@ -111,7 +111,7 @@ export default async function AboutSection() {
               className="mb-6 opacity-40"
             />
             <h3 className="font-heading text-h2 font-semibold text-primary">
-              28+
+              15+
             </h3>
             <p className="text-secondary text-sm mt-2">
               Chemical products exported to buyers across Gulf countries, USA, Middle East, Africa & Southeast Asia

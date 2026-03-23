@@ -231,8 +231,8 @@ export default function BlogPage() {
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: "https://www.vasudevchemopharma.com" },
-          { name: "Blog", url: "https://www.vasudevchemopharma.com/blog" },
+          { name: "Home", url: "https://www.Vasudevchemopharma.com" },
+          { name: "Blog", url: "https://www.Vasudevchemopharma.com/blog" },
         ]}
       />
       <main>
@@ -377,19 +377,17 @@ export default function BlogPage() {
                 <button
                   key={cat}
                   onClick={() => handleCategoryChange(cat)}
-                  className={`inline-flex items-center gap-1.5 text-sm font-medium px-4 py-2 rounded-full border transition-all duration-200 ${
-                    activeCategory === cat
+                  className={`inline-flex items-center gap-1.5 text-sm font-medium px-4 py-2 rounded-full border transition-all duration-200 ${activeCategory === cat
                       ? "bg-primary text-white border-primary shadow-md shadow-primary/20"
                       : "bg-white text-gray-600 border-gray-200 hover:border-primary/30 hover:text-primary hover:bg-primary/5"
-                  }`}
+                    }`}
                 >
                   {cat}
                   <span
-                    className={`text-xs px-1.5 py-0.5 rounded-full ${
-                      activeCategory === cat
+                    className={`text-xs px-1.5 py-0.5 rounded-full ${activeCategory === cat
                         ? "bg-white/20 text-white"
                         : "bg-gray-100 text-gray-500"
-                    }`}
+                      }`}
                   >
                     {categoryCounts[cat] ?? 0}
                   </span>
@@ -562,11 +560,10 @@ export default function BlogPage() {
                       <button
                         key={page}
                         onClick={() => setCurrentPage(page)}
-                        className={`inline-flex items-center justify-center w-10 h-10 rounded-xl text-sm font-semibold transition-all ${
-                          currentPage === page
+                        className={`inline-flex items-center justify-center w-10 h-10 rounded-xl text-sm font-semibold transition-all ${currentPage === page
                             ? "bg-primary text-white shadow-md shadow-primary/25"
                             : "border border-gray-200 text-gray-600 hover:bg-primary/5 hover:text-primary hover:border-primary/30"
-                        }`}
+                          }`}
                       >
                         {page}
                       </button>

@@ -1,7 +1,7 @@
 import config from "@/payload.config";
 import { getPayload as getPayloadInstance, type Payload } from "payload";
 
-const PAYLOAD_PROMISE_KEY = "__vasudev_payload_promise__";
+const PAYLOAD_PROMISE_KEY = "__Vasudev_payload_promise__";
 
 type GlobalWithPayloadPromise = typeof globalThis & {
   [PAYLOAD_PROMISE_KEY]?: Promise<Payload>;

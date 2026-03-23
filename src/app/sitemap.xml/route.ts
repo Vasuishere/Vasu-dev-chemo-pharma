@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { getAllProductSlugs } from "@/lib/products-payload";
 import { getAllProductSlugs as getStaticProductSlugs } from "@/lib/products";
 
-const SITE_URL = "https://www.vasudevchemopharma.com";
+const SITE_URL = "https://www.Vasudevchemopharma.com";
 export const dynamic = "force-dynamic";
 
 /** High-priority product slugs that get a priority boost in the sitemap */

@@ -35,11 +35,10 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md transition-transform duration-300 ${
-        hidden ? "-translate-y-full" : "translate-y-0"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md transition-transform duration-300 ${hidden ? "-translate-y-full" : "translate-y-0"
+        }`}
     >
-        <div className="max-w-container mx-auto flex items-center justify-between px-6 py-4 lg:px-10 relative">
+      <div className="max-w-container mx-auto flex items-center justify-between px-6 py-4 lg:px-10 relative">
         {/* Logo - Left */}
         <Link href="/" className="flex-shrink-0 flex items-center gap-2">
           <Image

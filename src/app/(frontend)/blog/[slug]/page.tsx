@@ -940,7 +940,7 @@ function countWords(blog: BlogEntry): number {
 /* ------------------------------------------------------------------ */
 
 export function generateStaticParams() {
-  return Object.keys(blogData).map((slug) => ({ slug }));
+  return [];
 }
 
 export async function generateMetadata({

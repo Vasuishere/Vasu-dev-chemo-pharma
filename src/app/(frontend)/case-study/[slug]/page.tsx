@@ -195,7 +195,7 @@ const allCaseStudies = [
 ];
 
 export function generateStaticParams() {
-  return Object.keys(caseStudyData).map((slug) => ({ slug }));
+  return [];
 }
 
 export async function generateMetadata({

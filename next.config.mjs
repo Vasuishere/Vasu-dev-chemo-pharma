@@ -28,6 +28,10 @@ const nextConfig = {
         hostname: "framerusercontent.com",
         pathname: "/assets/**",
       },
+      {
+        protocol: "https",
+        hostname: "atjtpw4vvodv5rtp.public.blob.vercel-storage.com",
+      },
     ],
     domains: [
       'media.istockphoto.com',

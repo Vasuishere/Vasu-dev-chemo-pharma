@@ -8,7 +8,7 @@ const services = [
     title: "Chemical Manufacturing",
     href: "/service/chemical-manufacturing",
     icon: "https://framerusercontent.com/images/8A2bCLa6pyOXwAS0i8tAQrdLhTU.svg",
-    image: "https://framerusercontent.com/images/YZXZfUWqk3mC6dHxTkY5u8hc5SA.webp",
+    image: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Service%20Section/Chemical_Manufacturing_Vasudev_Chemo_Pharma.png",
     features: [
       "28+ specialty chemicals",
       "ISO 9001:2015 certified process",
@@ -20,7 +20,7 @@ const services = [
     title: "Import & Export",
     href: "/service/import-export",
     icon: "https://framerusercontent.com/images/M3RsKCQRcVWO3EHXmo2ZCQP0MlE.svg",
-    image: "https://framerusercontent.com/images/uyAxZj87pJISHmPmWJFmfS2Xqw.webp",
+    image: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Service%20Section/Import_Export_Vasudev_Chemo_Pharma.png",
     features: [
       "Global export to 10+ countries",
       "Near Kandla, Mundra & Hazira ports",
@@ -32,7 +32,7 @@ const services = [
     title: "Custom Formulation",
     href: "/service/custom-formulation",
     icon: "https://framerusercontent.com/images/RHYjItVmJDKaNWe0N2Hs5P3hUs.svg",
-    image: "https://framerusercontent.com/images/sCJnodXX6iVr5PAmaVz3lhv3l0.webp",
+    image: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Service%20Section/Custom_Formulation_Vasudev_Chemo_Pharma.png",
     features: [
       "Tailored chemical blends",
       "Application-specific formulations",
@@ -44,7 +44,7 @@ const services = [
     title: "Quality Testing & Packaging",
     href: "/service/quality-testing-packaging",
     icon: "https://framerusercontent.com/images/qyDGFu1whE5nbKHXtS8LQpIfAu4.svg",
-    image: "https://framerusercontent.com/images/DC7FRNfj79xbtthq0V0ykebbAGU.webp",
+    image: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Service%20Section/Quality_Testing_Packaging_Vasudev_Chemo_Pharma.png",
     features: [
       "COA & MSDS documentation",
       "In-house lab quality checks",

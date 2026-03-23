@@ -497,7 +497,7 @@ export const brandArticlesData: Record<string, BrandBlogEntry> = {
     category: "H2S Scavengers",
     image: IMG4,
     imageAlt: "KM200 Mergal alternative MEA Triazine 78 percent H2S scavenger for US industrial applications",
-    excerpt: "Looking for a KM200 or Mergal 174II/165 alternative? MEA Triazine 78% provides the same triazine-based H2S scavenging chemistry at direct-manufacturer pricing — ideal for US oil and gas and industrial applications.",
+    excerpt: "Looking for a KM200 or Mergal 174II/165 alternative? MEA Triazine 78% provides the same triazine-based H2S scavenging chemistry at direct-manufacturer pricing in USA  — ideal for US oil and gas and industrial applications.",
     author: AUTHOR_A.name,
     authorCredentials: AUTHOR_A.creds,
     sections: [
@@ -544,7 +544,7 @@ export const brandArticlesData: Record<string, BrandBlogEntry> = {
     category: "H2S Scavengers",
     image: IMG5,
     imageAlt: "Mergal 174II versus MEA Triazine 78 comparison for H2S scavenger performance and cost",
-    excerpt: "How does Mergal 174II compare to generic MEA Triazine 78% for H2S scavenging? This comparison covers active chemistry, specifications, field performance, and the cost differential that drives operators to seek alternatives.",
+    excerpt: "How does Mergal 174II compare to generic MEA Triazine 78% for H2S scavenging? This comparison covers active chemistry, specifications, field performance, and the cost differential that drives operators to seek alternatives in USA",
     author: AUTHOR_A.name,
     authorCredentials: AUTHOR_A.creds,
     sections: [

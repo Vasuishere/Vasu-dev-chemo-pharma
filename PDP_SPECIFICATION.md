@@ -1,6 +1,6 @@
 # Product Detail Page (PDP) — Complete Specification
 
-> **Project**: VasuDev Chemo Pharma  
+> **Project**: Vasudev Chemo Pharma  
 > **Page**: Individual Product Detail Page  
 > **Route**: `/product/[slug]` (e.g., `/product/sodium-sulphate`)  
 > **Framework**: Next.js 14 (App Router) + Tailwind CSS  
@@ -36,7 +36,7 @@ Serve as the definitive information hub for each chemical product — providing 
 | `casNumber` | string | No | "7757-82-6" |
 | `category` | enum | Yes | "industrial" / "specialty" / "pharmaceutical" |
 | `subcategory` | string | No | "Inorganic Salts" |
-| `metaTitle` | string | No | "Sodium Sulphate — Industrial Grade | VasuDev Chemicals" |
+| `metaTitle` | string | No | "Sodium Sulphate — Industrial Grade | Vasudev Chemicals" |
 | `metaDescription` | string | No | "Buy industrial grade Sodium Sulphate (CAS 7757-82-6)..." |
 
 ### Technical Specifications
@@ -79,7 +79,7 @@ Serve as the definitive information hub for each chemical product — providing 
 | Field | Type | Required | Example |
 |---|---|---|---|
 | `certifications` | string[] | No | `["ISO 9001:2015"]` |
-| `supplier` | string | No | "VasuDev Chemo Pharma" |
+| `supplier` | string | No | "Vasudev Chemo Pharma" |
 
 ### Media
 | Field | Type | Required | Example |
@@ -140,9 +140,9 @@ Serve as the definitive information hub for each chemical product — providing 
 ### Per-Page Meta
 | Element | Pattern | Example |
 |---|---|---|
-| `<title>` | `{name} — {category} Chemical | VasuDev Chemo Pharma` | "Sodium Sulphate — Industrial Chemical \| VasuDev Chemo Pharma" |
-| `meta description` | `Buy {name} (CAS {casNumber}) from VasuDev Chemicals. {grades}. Export-ready packaging. Request a quote.` | "Buy Sodium Sulphate (CAS 7757-82-6)..." |
-| `canonical` | `https://vasudevchemopharma.com/product/{slug}` | |
+| `<title>` | `{name} — {category} Chemical | Vasudev Chemo Pharma` | "Sodium Sulphate — Industrial Chemical \| Vasudev Chemo Pharma" |
+| `meta description` | `Buy {name} (CAS {casNumber}) from Vasudev Chemicals. {grades}. Export-ready packaging. Request a quote.` | "Buy Sodium Sulphate (CAS 7757-82-6)..." |
+| `canonical` | `https://Vasudevchemopharma.com/product/{slug}` | |
 | `H1` | `{name}` | "Sodium Sulphate" |
 | Open Graph | `og:title`, `og:description`, `og:image` | Product primary image |
 
@@ -158,11 +158,11 @@ Serve as the definitive information hub for each chemical product — providing 
   "sku": "VCP-IND-0001",
   "brand": {
     "@type": "Brand",
-    "name": "VasuDev Chemo Pharma"
+    "name": "Vasudev Chemo Pharma"
   },
   "manufacturer": {
     "@type": "Organization",
-    "name": "VasuDev Chemo Pharma",
+    "name": "Vasudev Chemo Pharma",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Ankleshwar",

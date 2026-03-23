@@ -2,6 +2,7 @@
 
 ## 1. Writing Guidelines (Apply to All Countries)
 
+
 ### Voice & Tone
 - **Active voice** throughout; avoid passive constructions
 - **Professional B2B tone** — write for procurement managers, field engineers, plant operators

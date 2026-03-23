@@ -1,6 +1,6 @@
 # SEO-Friendly Website Implementation Guide
 
-> **Project**: VasuDev Chemo Pharma
+> **Project**: Vasudev Chemo Pharma
 > **Stack**: Next.js 14 (App Router) + Payload CMS + Tailwind CSS
 > **Domain**: Chemical manufacturing & export
 > **Date**: March 2026
@@ -117,24 +117,24 @@ Follow a flat, human-readable, keyword-rich hierarchy:
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.vasudevchemopharma.com'),
+  metadataBase: new URL('https://www.Vasudevchemopharma.com'),
   title: {
-    template: '%s | VasuDev Chemo Pharma',
-    default: 'VasuDev Chemo Pharma — Industrial & Specialty Chemical Manufacturer',
+    template: '%s | Vasudev Chemo Pharma',
+    default: 'Vasudev Chemo Pharma — Industrial & Specialty Chemical Manufacturer',
   },
   description: 'Leading Indian manufacturer and exporter of industrial chemicals, specialty chemicals, and pharmaceutical intermediates. ISO certified. Global shipping.',
   keywords: ['chemical manufacturer India', 'industrial chemicals exporter', 'specialty chemicals supplier', 'pharmaceutical intermediates'],
-  authors: [{ name: 'VasuDev Chemo Pharma' }],
-  creator: 'VasuDev Chemo Pharma',
+  authors: [{ name: 'Vasudev Chemo Pharma' }],
+  creator: 'Vasudev Chemo Pharma',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    siteName: 'VasuDev Chemo Pharma',
-    images: [{ url: '/og-default.jpg', width: 1200, height: 630, alt: 'VasuDev Chemo Pharma' }],
+    siteName: 'Vasudev Chemo Pharma',
+    images: [{ url: '/og-default.jpg', width: 1200, height: 630, alt: 'Vasudev Chemo Pharma' }],
   },
   twitter: {
     card: 'summary_large_image',
-    creator: '@vasudevchemo',
+    creator: '@Vasudevchemo',
   },
   robots: {
     index: true,
@@ -148,7 +148,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://www.vasudevchemopharma.com',
+    canonical: 'https://www.Vasudevchemopharma.com',
   },
 };
 ```
@@ -163,7 +163,7 @@ export async function generateMetadata({ params }): Promise<Metadata> {
   const product = await getProduct(params.slug);
   return {
     title: product.metaTitle || `${product.name} — ${product.category} Grade`,
-    description: product.metaDescription || `Buy ${product.name} (CAS ${product.casNumber}) from VasuDev Chemo Pharma. ${product.appearance}. ISO certified manufacturer. Request a quote today.`,
+    description: product.metaDescription || `Buy ${product.name} (CAS ${product.casNumber}) from Vasudev Chemo Pharma. ${product.appearance}. ISO certified manufacturer. Request a quote today.`,
     alternates: {
       canonical: `/product/${product.slug}`,
     },
@@ -181,14 +181,14 @@ export async function generateMetadata({ params }): Promise<Metadata> {
 
 | Page Type | Title Template | Description Pattern |
 |---|---|---|
-| Home | `VasuDev Chemo Pharma — Industrial & Specialty Chemical Manufacturer` | Company overview + key differentiators |
-| Product Listing | `Chemical Products — Industrial & Specialty Grades \| VasuDev` | Browse all products + CTA |
-| Product Detail | `{Product Name} — {Grade} Grade \| VasuDev Chemo Pharma` | Product name + CAS + key spec + CTA |
-| Service | `{Service Name} — Chemical Manufacturing Services \| VasuDev` | Service description + capability |
-| Blog Post | `{Post Title} \| VasuDev Chemo Pharma Blog` | Post excerpt (first 155 chars) |
-| Case Study | `{Case Study Title} \| VasuDev Case Studies` | Result/outcome focused |
-| Contact | `Contact Us — Request a Quote \| VasuDev Chemo Pharma` | Inquiry + global shipping mention |
-| About | `About VasuDev Chemo Pharma — ISO Certified Chemical Manufacturer` | Company story + certifications |
+| Home | `Vasudev Chemo Pharma — Industrial & Specialty Chemical Manufacturer` | Company overview + key differentiators |
+| Product Listing | `Chemical Products — Industrial & Specialty Grades \| Vasudev` | Browse all products + CTA |
+| Product Detail | `{Product Name} — {Grade} Grade \| Vasudev Chemo Pharma` | Product name + CAS + key spec + CTA |
+| Service | `{Service Name} — Chemical Manufacturing Services \| Vasudev` | Service description + capability |
+| Blog Post | `{Post Title} \| Vasudev Chemo Pharma Blog` | Post excerpt (first 155 chars) |
+| Case Study | `{Case Study Title} \| Vasudev Case Studies` | Result/outcome focused |
+| Contact | `Contact Us — Request a Quote \| Vasudev Chemo Pharma` | Inquiry + global shipping mention |
+| About | `About Vasudev Chemo Pharma — ISO Certified Chemical Manufacturer` | Company story + certifications |
 
 **Action Items:**
 - [ ] Implement `generateMetadata()` in every route segment
@@ -228,12 +228,12 @@ export function ProductSchema({ product }) {
     image: product.heroImage,
     brand: {
       '@type': 'Organization',
-      name: 'VasuDev Chemo Pharma',
+      name: 'Vasudev Chemo Pharma',
     },
     manufacturer: {
       '@type': 'Organization',
-      name: 'VasuDev Chemo Pharma',
-      url: 'https://www.vasudevchemopharma.com',
+      name: 'Vasudev Chemo Pharma',
+      url: 'https://www.Vasudevchemopharma.com',
     },
     category: product.category,
     additionalProperty: [
@@ -264,9 +264,9 @@ export function ProductSchema({ product }) {
       priceCurrency: 'USD',
       seller: {
         '@type': 'Organization',
-        name: 'VasuDev Chemo Pharma',
+        name: 'Vasudev Chemo Pharma',
       },
-      url: `https://www.vasudevchemopharma.com/product/${product.slug}`,
+      url: `https://www.Vasudevchemopharma.com/product/${product.slug}`,
     },
   };
 
@@ -285,9 +285,9 @@ export function ProductSchema({ product }) {
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "VasuDev Chemo Pharma",
-  "url": "https://www.vasudevchemopharma.com",
-  "logo": "https://www.vasudevchemopharma.com/logo.png",
+  "name": "Vasudev Chemo Pharma",
+  "url": "https://www.Vasudevchemopharma.com",
+  "logo": "https://www.Vasudevchemopharma.com/logo.png",
   "description": "Leading Indian manufacturer and global exporter of industrial chemicals, specialty chemicals, and pharmaceutical intermediates.",
   "address": {
     "@type": "PostalAddress",
@@ -296,10 +296,10 @@ export function ProductSchema({ product }) {
   "contactPoint": {
     "@type": "ContactPoint",
     "contactType": "sales",
-    "email": "info@vasudevchemopharma.com"
+    "email": "info@Vasudevchemopharma.com"
   },
   "sameAs": [
-    "https://www.linkedin.com/company/vasudevchemo"
+    "https://www.linkedin.com/company/Vasudevchemo"
   ]
 }
 ```
@@ -417,7 +417,7 @@ glass production, textile dyeing, and paper pulping...
 The CAS number of Sodium Sulphate is 7757-82-6...
 
 ### What grades of Sodium Sulphate do you supply?
-VasuDev Chemo Pharma supplies industrial grade and pharmaceutical
+Vasudev Chemo Pharma supplies industrial grade and pharmaceutical
 grade Sodium Sulphate with purity levels of ≥99%...
 ```
 
@@ -481,7 +481,7 @@ import Image from 'next/image';
 
 <Image
   src="/images/products/sodium-sulphate-industrial-grade.webp"
-  alt="Industrial grade Sodium Sulphate white crystalline powder — VasuDev Chemo Pharma"
+  alt="Industrial grade Sodium Sulphate white crystalline powder — Vasudev Chemo Pharma"
   width={800}
   height={600}
   priority={isHero}
@@ -576,24 +576,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const caseStudies = await getAllCaseStudies();
 
   const staticPages = [
-    { url: 'https://www.vasudevchemopharma.com', lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },
-    { url: 'https://www.vasudevchemopharma.com/about', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    { url: 'https://www.vasudevchemopharma.com/product', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-    { url: 'https://www.vasudevchemopharma.com/service', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    { url: 'https://www.vasudevchemopharma.com/blog', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
-    { url: 'https://www.vasudevchemopharma.com/contact', lastModified: new Date(), changeFrequency: 'yearly', priority: 0.7 },
-    { url: 'https://www.vasudevchemopharma.com/case-study', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
+    { url: 'https://www.Vasudevchemopharma.com', lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },
+    { url: 'https://www.Vasudevchemopharma.com/about', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://www.Vasudevchemopharma.com/product', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    { url: 'https://www.Vasudevchemopharma.com/service', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: 'https://www.Vasudevchemopharma.com/blog', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
+    { url: 'https://www.Vasudevchemopharma.com/contact', lastModified: new Date(), changeFrequency: 'yearly', priority: 0.7 },
+    { url: 'https://www.Vasudevchemopharma.com/case-study', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
   ];
 
   const productPages = products.map((p) => ({
-    url: `https://www.vasudevchemopharma.com/product/${p.slug}`,
+    url: `https://www.Vasudevchemopharma.com/product/${p.slug}`,
     lastModified: p.updatedAt,
     changeFrequency: 'monthly' as const,
     priority: 0.9,
   }));
 
   const blogPages = blogPosts.map((b) => ({
-    url: `https://www.vasudevchemopharma.com/blog/${b.slug}`,
+    url: `https://www.Vasudevchemopharma.com/blog/${b.slug}`,
     lastModified: b.updatedAt,
     changeFrequency: 'monthly' as const,
     priority: 0.6,
@@ -618,7 +618,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/admin', '/payload', '/api/', '/_next/'],
       },
     ],
-    sitemap: 'https://www.vasudevchemopharma.com/sitemap.xml',
+    sitemap: 'https://www.Vasudevchemopharma.com/sitemap.xml',
   };
 }
 ```
@@ -707,7 +707,7 @@ Home
 
 ## 11. International SEO
 
-Since VasuDev targets international buyers (importers, distributors):
+Since Vasudev targets international buyers (importers, distributors):
 
 ### 11.1 Essentials
 

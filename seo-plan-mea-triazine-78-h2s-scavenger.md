@@ -1,7 +1,7 @@
 # SEO Implementation Plan — MEA Triazine 78% H2S Scavenger Product Page
 **URL:** `/product/mea-triazine-78-h2s-scavenger`  
 **Brand:** Vasudev Chemo Pharma  
-**Domain:** `https://vasudevchemopharma.com`  
+**Domain:** `https://Vasudevchemopharma.com`  
 **Stack:** Next.js 14 + Payload CMS, hosted on Vercel  
 **SKU:** `VCP-IND-0001`  
 **Document version:** 2.0  
@@ -376,13 +376,13 @@ H1: MEA Triazine 78% H2S Scavenger
 
 ```html
 <!-- Self-referencing canonical — always present -->
-<link rel="canonical" href="https://vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger" />
+<link rel="canonical" href="https://Vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger" />
 ```
 
 If variant pages exist (e.g., `?ref=email`, `?source=ppc`):
 ```
-https://vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger?ref=email
-→ canonical → https://vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger
+https://Vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger?ref=email
+→ canonical → https://Vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger
 ```
 
 For concentration variant pages (42%, 62%, 80%): each gets its **own canonical** — do NOT canonicalize variants to the 78% page.
@@ -563,25 +563,25 @@ Implement `hreflang` in `<head>` for each language/region version of the page:
 
 ```html
 <!-- English — default / international -->
-<link rel="alternate" hreflang="en" href="https://vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger" />
+<link rel="alternate" hreflang="en" href="https://Vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger" />
 
 <!-- English — United States -->
-<link rel="alternate" hreflang="en-US" href="https://vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger" />
+<link rel="alternate" hreflang="en-US" href="https://Vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger" />
 
 <!-- English — United Kingdom -->
-<link rel="alternate" hreflang="en-GB" href="https://vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger" />
+<link rel="alternate" hreflang="en-GB" href="https://Vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger" />
 
 <!-- English — India -->
-<link rel="alternate" hreflang="en-IN" href="https://vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger" />
+<link rel="alternate" hreflang="en-IN" href="https://Vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger" />
 
 <!-- Arabic — Saudi Arabia -->
-<link rel="alternate" hreflang="ar-SA" href="https://vasudevchemopharma.com/ar/product/mea-triazine-78-h2s-scavenger" />
+<link rel="alternate" hreflang="ar-SA" href="https://Vasudevchemopharma.com/ar/product/mea-triazine-78-h2s-scavenger" />
 
 <!-- Portuguese — Brazil -->
-<link rel="alternate" hreflang="pt-BR" href="https://vasudevchemopharma.com/pt-br/product/mea-triazine-78-h2s-scavenger" />
+<link rel="alternate" hreflang="pt-BR" href="https://Vasudevchemopharma.com/pt-br/product/mea-triazine-78-h2s-scavenger" />
 
 <!-- x-default (fallback for all others) -->
-<link rel="alternate" hreflang="x-default" href="https://vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger" />
+<link rel="alternate" hreflang="x-default" href="https://Vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger" />
 ```
 
 **Rules:**
@@ -647,7 +647,7 @@ Implement `hreflang` in `<head>` for each language/region version of the page:
 ```xml
 <!-- sitemap.xml entry -->
 <url>
-  <loc>https://vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger</loc>
+  <loc>https://Vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger</loc>
   <lastmod>2026-03-01</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.9</priority>
@@ -745,7 +745,7 @@ We'd like to submit our MEA Triazine 78% H2S Scavenger product for listing in yo
 [Directory Name] supplier database. This product is widely used for sour gas
 treatment and pipeline protection.
 
-Product URL: https://vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger
+Product URL: https://Vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger
 TDS available: Yes | SDS available: Yes | CAS: 4719-04-4
 
 Would you be able to include our product listing? Happy to provide any additional
@@ -769,7 +769,7 @@ We offer a direct alternative — MEA Triazine 78% H2S Scavenger — that covers
 same application. We've also published a detailed technical guide that may be a
 useful resource for your readers:
 
-https://vasudevchemopharma.com/blog/mea-triazine-dosing-guide
+https://Vasudevchemopharma.com/blog/mea-triazine-dosing-guide
 
 Would you consider updating the link? Happy to answer any technical questions.
 
@@ -982,10 +982,10 @@ document.querySelector('#request-quote-btn').addEventListener('click', () => {
         "Nuosept 78 equivalent"
       ],
       "description": "MEA Triazine 78% H2S Scavenger (CAS 4719-04-4) is a high-concentration monoethanolamine triazine solution for the effective removal of hydrogen sulfide from natural gas, crude oil, and wastewater streams. Manufactured by Vasudev Chemo Pharma. Industrial-grade, water-soluble. Equivalent to Grotan BK, Nipacide BK, Acticide GR, Triadine 3, Onyxide 200, Busan 1060, G-SCAV EA77.",
-      "url": "https://vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger",
+      "url": "https://Vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger",
       "image": [
-        "https://vasudevchemopharma.com/images/mea-triazine-78-h2s-scavenger-drum.webp",
-        "https://vasudevchemopharma.com/images/mea-triazine-78-label.webp"
+        "https://Vasudevchemopharma.com/images/mea-triazine-78-h2s-scavenger-drum.webp",
+        "https://Vasudevchemopharma.com/images/mea-triazine-78-label.webp"
       ],
       "sku": "VCP-IND-0001",
       "mpn": "MEA-T78",
@@ -997,7 +997,7 @@ document.querySelector('#request-quote-btn').addEventListener('click', () => {
       "manufacturer": {
         "@type": "Organization",
         "name": "Vasudev Chemo Pharma Chemicals",
-        "url": "https://vasudevchemopharma.com"
+        "url": "https://Vasudevchemopharma.com"
       },
       "category": "H2S Scavengers / Oilfield Chemicals",
       "material": "Monoethanolamine Triazine",
@@ -1030,7 +1030,7 @@ document.querySelector('#request-quote-btn').addEventListener('click', () => {
       ],
       "offers": {
         "@type": "Offer",
-        "url": "https://vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger",
+        "url": "https://Vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger",
         "priceCurrency": "USD",
         "price": "CONTACT_FOR_PRICE",
         "availability": "https://schema.org/InStock",
@@ -1122,25 +1122,25 @@ document.querySelector('#request-quote-btn').addEventListener('click', () => {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://vasudevchemopharma.com/"
+          "item": "https://Vasudevchemopharma.com/"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Chemicals",
-          "item": "https://vasudevchemopharma.com/chemicals/"
+          "item": "https://Vasudevchemopharma.com/chemicals/"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "H2S Scavengers",
-          "item": "https://vasudevchemopharma.com/chemicals/h2s-scavengers/"
+          "item": "https://Vasudevchemopharma.com/chemicals/h2s-scavengers/"
         },
         {
           "@type": "ListItem",
           "position": 4,
           "name": "MEA Triazine 78% H2S Scavenger",
-          "item": "https://vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger"
+          "item": "https://Vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger"
         }
       ]
     }
@@ -1156,7 +1156,7 @@ document.querySelector('#request-quote-btn').addEventListener('click', () => {
 <title>MEA Triazine 78% H2S Scavenger | Industrial Grade | Vasudev Chemo Pharma</title>
 <meta name="description" content="MEA Triazine 78% H2S Scavenger (CAS 4719-04-4) — effective monoethanolamine triazine for removing hydrogen sulfide from natural gas, crude oil, and wastewater. Industrial drum &amp; IBC supply. Request a quote today.">
 <meta name="keywords" content="MEA triazine, H2S scavenger, monoethanolamine triazine, hydrogen sulfide scavenger, triazine 78%, CAS 4719-04-4, sour gas treatment, oilfield chemicals">
-<link rel="canonical" href="https://vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger" />
+<link rel="canonical" href="https://Vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger" />
 
 <!-- Robots -->
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
@@ -1165,8 +1165,8 @@ document.querySelector('#request-quote-btn').addEventListener('click', () => {
 <meta property="og:type" content="product" />
 <meta property="og:title" content="MEA Triazine 78% H2S Scavenger | Vasudev Chemo Pharma" />
 <meta property="og:description" content="High-purity MEA Triazine 78% for industrial H2S removal in oil &amp; gas, wastewater, and biogas. CAS 4719-04-4. Bulk &amp; drum supply." />
-<meta property="og:url" content="https://vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger" />
-<meta property="og:image" content="https://vasudevchemopharma.com/images/mea-triazine-78-h2s-scavenger-og.webp" />
+<meta property="og:url" content="https://Vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger" />
+<meta property="og:image" content="https://Vasudevchemopharma.com/images/mea-triazine-78-h2s-scavenger-og.webp" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:site_name" content="Vasudev Chemo Pharma Chemicals" />
@@ -1177,16 +1177,16 @@ document.querySelector('#request-quote-btn').addEventListener('click', () => {
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="MEA Triazine 78% H2S Scavenger | Vasudev Chemo Pharma" />
 <meta name="twitter:description" content="Industrial-grade monoethanolamine triazine for H2S removal. CAS 4719-04-4. Bulk pricing available." />
-<meta name="twitter:image" content="https://vasudevchemopharma.com/images/mea-triazine-78-h2s-scavenger-og.webp" />
+<meta name="twitter:image" content="https://Vasudevchemopharma.com/images/mea-triazine-78-h2s-scavenger-og.webp" />
 
 <!-- hreflang -->
-<link rel="alternate" hreflang="en" href="https://vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger" />
-<link rel="alternate" hreflang="en-US" href="https://vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger" />
-<link rel="alternate" hreflang="en-GB" href="https://vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger" />
-<link rel="alternate" hreflang="en-IN" href="https://vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger" />
-<link rel="alternate" hreflang="ar-SA" href="https://vasudevchemopharma.com/ar/product/mea-triazine-78-h2s-scavenger" />
-<link rel="alternate" hreflang="pt-BR" href="https://vasudevchemopharma.com/pt-br/product/mea-triazine-78-h2s-scavenger" />
-<link rel="alternate" hreflang="x-default" href="https://vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger" />
+<link rel="alternate" hreflang="en" href="https://Vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger" />
+<link rel="alternate" hreflang="en-US" href="https://Vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger" />
+<link rel="alternate" hreflang="en-GB" href="https://Vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger" />
+<link rel="alternate" hreflang="en-IN" href="https://Vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger" />
+<link rel="alternate" hreflang="ar-SA" href="https://Vasudevchemopharma.com/ar/product/mea-triazine-78-h2s-scavenger" />
+<link rel="alternate" hreflang="pt-BR" href="https://Vasudevchemopharma.com/pt-br/product/mea-triazine-78-h2s-scavenger" />
+<link rel="alternate" hreflang="x-default" href="https://Vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger" />
 
 <!-- Performance: preload LCP image -->
 <link rel="preload" as="image" href="/images/mea-triazine-78-h2s-scavenger-drum.webp" fetchpriority="high" />
@@ -1206,7 +1206,7 @@ Disallow: /api/
 Disallow: /_next/
 # IMPORTANT: /product/ must NOT appear in Disallow
 
-Sitemap: https://vasudevchemopharma.com/sitemap.xml
+Sitemap: https://Vasudevchemopharma.com/sitemap.xml
 ```
 
 ### 9.4 .htaccess 301 Redirect Examples (Apache)

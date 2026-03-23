@@ -2,7 +2,7 @@
 
 **Brand:** Vasudev Chemo Pharma  
 **Product:** MEA Triazine 78% H2S Scavenger (CAS 4719-04-4)  
-**Domain:** https://vasudevchemopharma.com  
+**Domain:** https://Vasudevchemopharma.com  
 **Date:** March 2026  
 
 ---

@@ -1,4 +1,4 @@
-# Business Logic — VasuDev Chemicals Website
+# Business Logic — Vasudev Chemicals Website
 
 ## Product Filtering Logic
 - Products are stored in a JS array with a `category` field: `"industrial"` or `"specialty"`

@@ -1,7 +1,7 @@
-# Project Overview — VasuDev Chemicals
+# Project Overview — Vasudev Chemicals
 
 ## What Is This?
-A single-page marketing website for **VasuDev Chemicals** — an ISO-certified industrial & specialty chemical manufacturer based in Gujarat, India. The site is designed to generate global export/import inquiries from international buyers.
+A single-page marketing website for **Vasudev Chemicals** — an ISO-certified industrial & specialty chemical manufacturer based in Gujarat, India. The site is designed to generate global export/import inquiries from international buyers.
 
 ## Who Is It For?
 - **International importers & distributors** — especially in Gulf countries, USA, Middle East, Africa, and Southeast Asia
@@ -11,7 +11,7 @@ A single-page marketing website for **VasuDev Chemicals** — an ISO-certified i
 - **Any industry** already buying our chemicals under different brand names from other vendors
 
 ## What Problem Does It Solve?
-VasuDev Chemo Pharma manufactures industrial & specialty chemicals for lubricant, oil & gas, and water treatment industries. Currently, many target customers buy the same chemicals from different vendors under different brand names. This website positions VasuDev as a direct, trusted, export-ready manufacturer — eliminating middlemen and building global brand recognition.
+Vasudev Chemo Pharma manufactures industrial & specialty chemicals for lubricant, oil & gas, and water treatment industries. Currently, many target customers buy the same chemicals from different vendors under different brand names. This website positions Vasudev as a direct, trusted, export-ready manufacturer — eliminating middlemen and building global brand recognition.
 
 ## Core Value Proposition
 - **Direct manufacturer** — not a trader or reseller

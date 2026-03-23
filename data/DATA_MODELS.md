@@ -1,4 +1,4 @@
-# Data Models — VasuDev Chemicals
+# Data Models — Vasudev Chemicals
 
 ## Current State
 Data is managed via Payload CMS (PostgreSQL) with static fallbacks. The schemas below reflect the full product catalog model.

@@ -767,20 +767,20 @@ It can also happen if the client has a browser extension installed which messes 
 [ 1214725ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/product/pregabalin:0
 [ 1217018ms] Error: Cannot find module './vendor-chunks/lexical.js'
 Require stack:
-- C:\Users\DABC\Desktop\VASUDEV-CHEMO\manufact-clone\.next\server\webpack-runtime.js
-- C:\Users\DABC\Desktop\VASUDEV-CHEMO\manufact-clone\.next\server\app\(frontend)\product\[slug]\page.js
-- C:\Users\DABC\Desktop\VASUDEV-CHEMO\manufact-clone\node_modules\next\dist\server\require.js
-- C:\Users\DABC\Desktop\VASUDEV-CHEMO\manufact-clone\node_modules\next\dist\server\load-components.js
-- C:\Users\DABC\Desktop\VASUDEV-CHEMO\manufact-clone\node_modules\next\dist\build\utils.js
-- C:\Users\DABC\Desktop\VASUDEV-CHEMO\manufact-clone\node_modules\next\dist\server\dev\static-paths-worker.js
-- C:\Users\DABC\Desktop\VASUDEV-CHEMO\manufact-clone\node_modules\next\dist\compiled\jest-worker\processChild.js
+- C:\Users\DABC\Desktop\Vasudev-CHEMO\manufact-clone\.next\server\webpack-runtime.js
+- C:\Users\DABC\Desktop\Vasudev-CHEMO\manufact-clone\.next\server\app\(frontend)\product\[slug]\page.js
+- C:\Users\DABC\Desktop\Vasudev-CHEMO\manufact-clone\node_modules\next\dist\server\require.js
+- C:\Users\DABC\Desktop\Vasudev-CHEMO\manufact-clone\node_modules\next\dist\server\load-components.js
+- C:\Users\DABC\Desktop\Vasudev-CHEMO\manufact-clone\node_modules\next\dist\build\utils.js
+- C:\Users\DABC\Desktop\Vasudev-CHEMO\manufact-clone\node_modules\next\dist\server\dev\static-paths-worker.js
+- C:\Users\DABC\Desktop\Vasudev-CHEMO\manufact-clone\node_modules\next\dist\compiled\jest-worker\processChild.js
     at Module.<anonymous> (node:internal/modules/cjs/loader:1456:15)
-    at <unknown> (file://C:\Users\DABC\Desktop\VASUDEV-CHEMO\manufact-clone\node_modules\next\dist\server\require-hook.js:57:36)
+    at <unknown> (file://C:\Users\DABC\Desktop\Vasudev-CHEMO\manufact-clone\node_modules\next\dist\server\require-hook.js:57:36)
     at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
     at Module._load (node:internal/modules/cjs/loader:1242:25)
     at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
     at Module.<anonymous> (node:internal/modules/cjs/loader:1556:12)
-    at mod.require (file://C:\Users\DABC\Desktop\VASUDEV-CHEMO\manufact-clone\node_modules\next\dist\server\require-hook.js:68:28)
+    at mod.require (file://C:\Users\DABC\Desktop\Vasudev-CHEMO\manufact-clone\node_modules\next\dist\server\require-hook.js:68:28)
     at require (node:internal/modules/helpers:152:16)
-    at __webpack_require__.f.require (file://C:\Users\DABC\Desktop\VASUDEV-CHEMO\manufact-clone\.next\server\webpack-runtime.js:259:28)
+    at __webpack_require__.f.require (file://C:\Users\DABC\Desktop\Vasudev-CHEMO\manufact-clone\.next\server\webpack-runtime.js:259:28)

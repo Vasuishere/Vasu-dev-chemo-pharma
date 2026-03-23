@@ -1,6 +1,6 @@
 # Products Setup & Admin Panel — Step-by-Step Plan
 
-> **Goal**: Replace hardcoded placeholder products with real VasuDev Chemicals data, seed the 15 chemical products into a database, and build an admin panel for full CRUD (Add / Update / Delete) control.
+> **Goal**: Replace hardcoded placeholder products with real Vasudev Chemicals data, seed the 15 chemical products into a database, and build an admin panel for full CRUD (Add / Update / Delete) control.
 
 ---
 
@@ -26,11 +26,11 @@ npm install -D @payloadcms/next
 1. Install PostgreSQL locally (or use a cloud service like Supabase / Neon / Railway)
 2. Create a new database:
    ```sql
-   CREATE DATABASE vasudev_chemicals;
+   CREATE DATABASE Vasudev_chemicals;
    ```
 3. Add connection string to `.env.local`:
    ```env
-   DATABASE_URL=postgresql://username:password@localhost:5432/vasudev_chemicals
+   DATABASE_URL=postgresql://username:password@localhost:5432/Vasudev_chemicals
    PAYLOAD_SECRET=your-secret-key-here
    ```
 
@@ -157,7 +157,7 @@ Create `src/lib/products.ts` with data-fetching functions:
 1. Create an `admins` table (or Payload CMS users):
    - `id`, `email`, `password_hash`, `name`, `role`, `created_at`
 2. Create the first admin user (seed):
-   - Email: `admin@vasudevchemicals.com`
+   - Email: `admin@Vasudevchemicals.com`
    - Role: `super_admin`
 3. Set up auth middleware to protect `/admin` routes
 4. Build login page at `/admin/login`

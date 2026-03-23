@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { getCompanyInfo } from "@/lib/company";
@@ -27,16 +27,16 @@ export const metadata: Metadata = {
   },
 };
 
-const clientLogos = [
-  "https://framerusercontent.com/images/XWAlPb58nstaS4Qe2V64MPJ3oEg.svg",
-  "https://framerusercontent.com/images/BAmFSi2zDMhpaE7hI1HjoHTKUM.svg",
-  "https://framerusercontent.com/images/BvZomeQDc5TuXtVugasI3vjA.svg",
-  "https://framerusercontent.com/images/e5YBm1OqZwwtrOjfApIJrIomdM.svg",
-  "https://framerusercontent.com/images/509cFwvGZfkVPdYW7zVHR7EYWt0.svg",
-  "https://framerusercontent.com/images/Jq1zwerPuAxxeeU8AdM3nowkc2Q.svg",
-  "https://framerusercontent.com/images/beRZrWDYxb5i7Y1Z00iFBVzwAog.svg",
-  "https://framerusercontent.com/images/wiofWjcMmYrLE1oQSPB7XuGaoQE.svg",
-];
+// const clientLogos = [
+//   "https://framerusercontent.com/images/XWAlPb58nstaS4Qe2V64MPJ3oEg.svg",
+//   "https://framerusercontent.com/images/BAmFSi2zDMhpaE7hI1HjoHTKUM.svg",
+//   "https://framerusercontent.com/images/BvZomeQDc5TuXtVugasI3vjA.svg",
+//   "https://framerusercontent.com/images/e5YBm1OqZwwtrOjfApIJrIomdM.svg",
+//   "https://framerusercontent.com/images/509cFwvGZfkVPdYW7zVHR7EYWt0.svg",
+//   "https://framerusercontent.com/images/Jq1zwerPuAxxeeU8AdM3nowkc2Q.svg",
+//   "https://framerusercontent.com/images/beRZrWDYxb5i7Y1Z00iFBVzwAog.svg",
+//   "https://framerusercontent.com/images/wiofWjcMmYrLE1oQSPB7XuGaoQE.svg",
+// ];
 
 export default async function ContactPage() {
   const company = await getCompanyInfo();

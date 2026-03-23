@@ -41,7 +41,9 @@ function toSiteImages(doc: any): SiteImagesData {
   };
 }
 
-export async function getSiteImages(): Promise<SiteImagesData> {
+import { cache } from "react";
+
+export const getSiteImages = cache(async function getSiteImages(): Promise<SiteImagesData> {
   try {
     const payload = await getPayload();
     const data = await payload.findGlobal({ slug: "site-images" });
@@ -49,4 +51,4 @@ export async function getSiteImages(): Promise<SiteImagesData> {
   } catch {
     return toSiteImages(null);
   }
-}
+});

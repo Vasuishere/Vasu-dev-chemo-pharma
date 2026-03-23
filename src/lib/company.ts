@@ -63,7 +63,9 @@ function toCompanyInfo(doc: any): CompanyInfoData {
   };
 }
 
-export async function getCompanyInfo(): Promise<CompanyInfoData> {
+import { cache } from "react";
+
+export const getCompanyInfo = cache(async function getCompanyInfo(): Promise<CompanyInfoData> {
   try {
     const payload = await getPayload();
     const data = await payload.findGlobal({ slug: "company-info" });
@@ -71,4 +73,4 @@ export async function getCompanyInfo(): Promise<CompanyInfoData> {
   } catch {
     return toCompanyInfo(null);
   }
-}
+});

@@ -6,14 +6,14 @@ import { getCompanyInfo } from "@/lib/company";
 const products = [
   {
     title: "MEA Triazine 78%",
-    image: "https://framerusercontent.com/images/jHDtKG45VXEX0nkiBpMkSEuN2VI.webp",
+    image: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Product_Section/MEA_Triazine78_Vasudev_Chemo_Pharma.png",
     material: "Monoethanolamine Triazine",
     capability: "Oil Field Chemicals",
     sizeRange: "Custom Grade & Packaging Available",
   },
   {
     title: "MMA Triazine 40%",
-    image: "https://framerusercontent.com/images/f0RFFjVJlOXDEiaSuyLTCybZqQ.png",
+    image: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Product_Section/MMA_Triazine_Vasudev_Chemo_Pharma.png",
     material: "MONOMETHANOLAMINE TRIAZINE",
     capability: "OIL FIELD CHEMICALS",
     sizeRange: "CUSTOM GRADE & PACKAGING AVAILABLE",

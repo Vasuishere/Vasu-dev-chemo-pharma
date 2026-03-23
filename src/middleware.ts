@@ -72,7 +72,7 @@ function buildContentSecurityPolicy(): string {
     // Keep script execution scoped to self + known CAPTCHA/challenge domains.
     scriptSrc,
     "style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net",
-    "img-src 'self' data: blob: https://drive.google.com https://lh3.googleusercontent.com https://framerusercontent.com https://www.gravatar.com https://secure.gravatar.com",
+    "img-src 'self' data: blob: https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com https://drive.google.com https://lh3.googleusercontent.com https://framerusercontent.com https://www.gravatar.com https://secure.gravatar.com",
     "font-src 'self' data:",
     "connect-src 'self' https://challenges.cloudflare.com https://www.google.com",
     "worker-src 'self' blob:",

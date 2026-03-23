@@ -32,7 +32,7 @@ export default function HomePage() {
       <OrganizationSchema
         name="Vasudev Chemo Pharma"
         url="https://www.vasudevchemopharma.com"
-        logo="https://www.vasudevchemopharma.com/logo.png"
+        logo="https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Vasudev/Vasudev_Chemo_Pharma_LOGO.png"
         description="Leading Indian manufacturer and global exporter of industrial chemicals, specialty chemicals, and pharmaceutical intermediates."
         email="info@vasudevchemopharma.com"
         sameAs={["https://www.linkedin.com/company/vasudevchemo"]}

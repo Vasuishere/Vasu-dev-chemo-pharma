@@ -46,7 +46,7 @@ export default function ArticleSchema({
       name: "Vasudev Chemo Pharma",
       logo: {
         "@type": "ImageObject",
-        url: "https://www.vasudevchemopharma.com/logo.png",
+        url: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Vasudev/Vasudev_Chemo_Pharma_LOGO.png",
       },
     },
   };

@@ -6,7 +6,7 @@ const industries = [
     title: "Oil & Gas",
     description:
       "Industrial chemicals and H2S scavengers for oil & gas extraction, refining, and processing.",
-    image: "https://framerusercontent.com/images/yHbIIVOj7hK29ucygE5eIDV47I.jpg",
+    image: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/industry_Solutions/Oil_Gas_Vasudev_Chemo_Pharma.png",
     icon: "https://framerusercontent.com/images/bWWmYghlGrjGsS6uGMAjDrFi0.svg",
     features: [
       "MEA Triazine H2S scavengers",
@@ -18,7 +18,7 @@ const industries = [
     title: "Lubricant Manufacturing",
     description:
       "Specialty chemicals for lubricant formulation, blending, and additive manufacturing.",
-    image: "https://framerusercontent.com/images/yHbIIVOj7hK29ucygE5eIDV47I.jpg",
+    image: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/industry_Solutions/Lubricants_Industry_Vasudev_Chemo_Pharma.png",
     icon: "https://framerusercontent.com/images/bWWmYghlGrjGsS6uGMAjDrFi0.svg",
     features: [
       "Zinc oxide & stearic acid",
@@ -30,7 +30,7 @@ const industries = [
     title: "Water Treatment",
     description:
       "Treatment chemicals for waste water management, purification, and industrial water systems.",
-    image: "https://framerusercontent.com/images/yHbIIVOj7hK29ucygE5eIDV47I.jpg",
+    image: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/industry_Solutions/Waste_Water_Treatment_Vasudev_Chemo_Pharma.png",
     icon: "https://framerusercontent.com/images/bWWmYghlGrjGsS6uGMAjDrFi0.svg",
     features: [
       "Sodium metabisulphite supply",
@@ -42,7 +42,7 @@ const industries = [
     title: "Paper Mill",
     description:
       "Chemical solutions for paper manufacturing, bleaching, and pulp processing industries.",
-    image: "https://framerusercontent.com/images/yHbIIVOj7hK29ucygE5eIDV47I.jpg",
+    image: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/industry_Solutions/Paper_Mill_Treatment_Vasudev_Chemo_Pharma.png",
     icon: "https://framerusercontent.com/images/bWWmYghlGrjGsS6uGMAjDrFi0.svg",
     features: [
       "Sodium sulphate & soda ash",

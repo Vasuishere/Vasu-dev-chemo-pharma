@@ -43,7 +43,7 @@ export default function Navbar() {
         {/* Logo - Left */}
         <Link href="/" className="flex-shrink-0 flex items-center gap-2">
           <Image
-            src="/images/vcp-logo.png"
+            src="https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Vasudev/Vasudev_Chemo_Pharma_LOGO.png"
             alt="VCP Logo"
             width={50}
             height={50}
@@ -51,7 +51,7 @@ export default function Navbar() {
             className="h-11 w-auto"
           />
           <Image
-            src="/images/vcp-name.png"
+            src="https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Vasudev/Vasudev_Chemo_Pharma_Name.png"
             alt="Vasudev Chemo Pharma"
             width={220}
             height={50}

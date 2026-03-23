@@ -7,7 +7,7 @@ type GlobalWithPayloadPromise = typeof globalThis & {
   [PAYLOAD_PROMISE_KEY]?: Promise<Payload>;
 };
 
-export const getPayload = () => {
+export const getPayload = (): Promise<Payload> => {
   const globalScope = globalThis as GlobalWithPayloadPromise;
 
   if (!globalScope[PAYLOAD_PROMISE_KEY]) {
@@ -17,5 +17,5 @@ export const getPayload = () => {
     });
   }
 
-  return globalScope[PAYLOAD_PROMISE_KEY];
+  return globalScope[PAYLOAD_PROMISE_KEY]!;
 };

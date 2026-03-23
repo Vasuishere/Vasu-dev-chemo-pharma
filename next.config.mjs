@@ -41,6 +41,7 @@ const nextConfig = {
   experimental: {
     reactCompiler: false,
   },
+  staticPageGenerationTimeout: 1000,
   async headers() {
     return [
       {

@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import {
   getProductBySlug,
-  getAllProductSlugs,
   getRelatedProducts,
 } from "@/lib/products-payload";
 import { CATEGORY_LABELS } from "@/lib/types";
@@ -28,13 +27,10 @@ export const revalidate = 3600;
 
 /* ─── Static params for all products ─────────────────────────── */
 export async function generateStaticParams() {
-  try {
-    const slugs = await getAllProductSlugs();
-    return slugs.map((slug) => ({ slug }));
-  } catch {
-    // DB unavailable at build time — pages will be generated on-demand via ISR
-    return [];
-  }
+  // Return empty array to skip prerendering products at build time.
+  // This prevents exhausting Vercel DB connections during parallel builds.
+  // Pages will be generated on-demand via ISR when first requested.
+  return [];
 }
 
 /* ─── Dynamic SEO metadata per product ──────────────────────────── */

@@ -79,7 +79,7 @@ export default async function AboutPage() {
                       <Image
                         key={i}
                         src={src}
-                        alt="Vasudev Chemo Pharma team member"
+                        alt="Vasudev Chemo Pharma team"
                         width={40}
                         height={40}
                         className="w-10 h-10 rounded-full border-2 border-white"

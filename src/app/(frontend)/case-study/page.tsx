@@ -4,7 +4,7 @@ import Link from "next/link";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
 export const revalidate = 3600;
-const CASE_STUDY_URL = "https://www.Vasudevchemopharma.com/case-study";
+const CASE_STUDY_URL = "https://www.vasudevchemopharma.com/case-study";
 
 export const metadata: Metadata = {
   title: "Case Studies - Manufacturing Innovation & Engineering Projects",
@@ -65,7 +65,7 @@ export default function CaseStudyPage() {
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: "https://www.Vasudevchemopharma.com" },
+          { name: "Home", url: "https://www.vasudevchemopharma.com" },
           {
             name: "Case Studies",
             url: CASE_STUDY_URL,

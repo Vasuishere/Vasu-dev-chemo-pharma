@@ -15,15 +15,23 @@ import {
   verifyCaptcha,
 } from '@/lib/form-security';
 import { logApiError, logApiEvent } from '@/lib/observability';
+import { sendInquiryEmail } from '@/lib/email';
 
 type ContactPayload = {
   firstName?: string;
   lastName?: string;
   email?: string;
   phone?: string;
-  subject?: string;
+  // new B2B fields
+  companyName?: string;
+  country?: string;
+  industry?: string;
+  product?: string;
+  quantity?: string;
+  inquiryType?: string;
   message?: string;
-  company?: string;
+  // honeypot (hidden field — bots fill it, humans don't)
+  website?: string;
   captchaToken?: string;
   formStartedAt?: number;
 };
@@ -56,9 +64,7 @@ export async function OPTIONS(req: Request) {
 
 export async function POST(req: Request) {
   const corsError = validateCorsOrigin(req);
-  if (corsError) {
-    return corsError;
-  }
+  if (corsError) return corsError;
 
   const rateLimit = checkWriteRateLimit({
     request: req,
@@ -67,7 +73,6 @@ export async function POST(req: Request) {
     tokenLimit: 40,
     windowMs: 60 * 1000,
   });
-
   if (!rateLimit.allowed) {
     return withCorsHeaders(tooManyRequestsResponse(rateLimit), req);
   }
@@ -76,30 +81,33 @@ export async function POST(req: Request) {
     req,
     CONTACT_MAX_BODY_BYTES
   );
-  if (parseError) {
-    return withCorsHeaders(parseError, req);
-  }
+  if (parseError) return withCorsHeaders(parseError, req);
+  if (!payload) return json({ error: 'Request body is required' }, { status: 400 }, req);
 
-  if (!payload) {
-    return json({ error: 'Request body is required' }, { status: 400 }, req);
-  }
-
-  if (normalize(payload.company)) {
+  // ── Honeypot check (bots fill the hidden "website" field) ──────────────────
+  if (normalize(payload.website)) {
     return json({ success: true }, { status: 202 }, req);
   }
 
-  const firstName = normalize(payload.firstName);
-  const lastName = normalize(payload.lastName);
-  const email = normalize(payload.email);
-  const phone = normalize(payload.phone);
-  const subject = normalize(payload.subject);
-  const message = normalize(payload.message);
+  // ── Normalise all fields ───────────────────────────────────────────────────
+  const firstName   = normalize(payload.firstName);
+  const lastName    = normalize(payload.lastName);
+  const email       = normalize(payload.email);
+  const phone       = normalize(payload.phone);
+  const companyName = normalize(payload.companyName);
+  const country     = normalize(payload.country);
+  const industry    = normalize(payload.industry);
+  const product     = normalize(payload.product);
+  const quantity    = normalize(payload.quantity);
+  const inquiryType = normalize(payload.inquiryType) || 'general';
+  const message     = normalize(payload.message);
   const captchaToken = normalize(payload.captchaToken);
   const formStartedAt = Number(payload.formStartedAt);
 
-  if (!firstName || !lastName || !email || !phone) {
+  // ── Required field validation ──────────────────────────────────────────────
+  if (!firstName || !lastName || !email || !phone || !companyName || !country) {
     return json(
-      { error: 'firstName, lastName, email, and phone are required' },
+      { error: 'firstName, lastName, email, phone, companyName, and country are required' },
       { status: 400 },
       req
     );
@@ -114,43 +122,74 @@ export async function POST(req: Request) {
     return json({ error: emailDomainValidation.reason || 'Invalid email domain' }, { status: 400 }, req);
   }
 
-  if (firstName.length > 80 || lastName.length > 80 || email.length > 200 || phone.length > 40) {
+  // ── Length limits ──────────────────────────────────────────────────────────
+  if (
+    firstName.length > 80 || lastName.length > 80 ||
+    email.length > 200 || phone.length > 40 ||
+    companyName.length > 160 || country.length > 80 ||
+    industry.length > 80 || product.length > 160 ||
+    quantity.length > 80 || inquiryType.length > 80 ||
+    message.length > 2000
+  ) {
     return json({ error: 'Input exceeds allowed length' }, { status: 400 }, req);
   }
 
-  if (subject.length > 160 || message.length > 2000) {
-    return json({ error: 'Subject or message is too long' }, { status: 400 }, req);
-  }
-
+  // ── Bot timing check ───────────────────────────────────────────────────────
   const minFillValidation = enforceMinFormFillTime(formStartedAt);
   if (!minFillValidation.valid) {
     return json({ error: minFillValidation.reason || 'Invalid form timing' }, { status: 400 }, req);
   }
 
+  // ── CAPTCHA ────────────────────────────────────────────────────────────────
   const ip = getClientIp(req);
   const captchaVerification = await verifyCaptcha(captchaToken, ip);
   if (!captchaVerification.valid) {
     return json({ error: captchaVerification.reason || 'CAPTCHA verification failed' }, { status: 400 }, req);
   }
 
-  const dedupCheck = checkContactDedup(email, subject, message);
+  // ── Dedup ──────────────────────────────────────────────────────────────────
+  const dedupCheck = checkContactDedup(email, product, message);
   if (dedupCheck.duplicate) {
-    return json({ error: 'Duplicate inquiry detected. Please wait before resubmitting.' }, { status: 409 }, req);
+    return json(
+      { error: 'Duplicate inquiry detected. Please wait before resubmitting.' },
+      { status: 409 },
+      req
+    );
   }
 
+  // ── Send email + log ───────────────────────────────────────────────────────
   try {
     const inquiryId = await createAnonymizedId(email);
+
+    await sendInquiryEmail({
+      firstName,
+      lastName,
+      companyName,
+      email,
+      phone,
+      country,
+      industry,
+      product,
+      quantity,
+      inquiryType,
+      message,
+    });
+
     logApiEvent('contact.inquiry.received', {
       inquiryId,
-      subject,
+      product,
+      country,
+      inquiryType,
       hasMessage: Boolean(message),
     });
 
     return json({ success: true }, { status: 202 }, req);
   } catch (error: unknown) {
-    logApiError('contact.inquiry.failed', error, {
-      route: '/api/contact',
-    });
-    return json({ error: 'Internal Server Error', errorCode: 'INTERNAL_SERVER_ERROR' }, { status: 500 }, req);
+    logApiError('contact.inquiry.failed', error, { route: '/api/contact' });
+    return json(
+      { error: 'Internal Server Error', errorCode: 'INTERNAL_SERVER_ERROR' },
+      { status: 500 },
+      req
+    );
   }
 }

@@ -13,13 +13,13 @@ export const metadata: Metadata = {
   description:
     "Learn about Vasudev Chemo Pharma — ISO 9001:2015 certified industrial and specialty chemical manufacturer from Gujarat, India. 15+ chemical products exported worldwide.",
   alternates: {
-    canonical: "https://www.Vasudevchemopharma.com/about",
+    canonical: "https://www.vasudevchemopharma.com/about",
   },
   openGraph: {
     title: "About Vasudev Chemo Pharma — ISO Certified Chemical Manufacturer",
     description:
       "ISO 9001:2015 certified industrial and specialty chemical manufacturer from Gujarat, India. 15+ chemical products exported worldwide.",
-    url: "https://www.Vasudevchemopharma.com/about",
+    url: "https://www.vasudevchemopharma.com/about",
   },
 };
 
@@ -57,8 +57,8 @@ export default async function AboutPage() {
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: "https://www.Vasudevchemopharma.com" },
-          { name: "About", url: "https://www.Vasudevchemopharma.com/about" },
+          { name: "Home", url: "https://www.vasudevchemopharma.com" },
+          { name: "About", url: "https://www.vasudevchemopharma.com/about" },
         ]}
       />
       <main>

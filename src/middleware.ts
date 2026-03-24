@@ -30,7 +30,7 @@ const SUSPICIOUS_AGENTS = [
   'go-http-client',
 ];
 
-const CANONICAL_HOST = 'www.Vasudevchemopharma.com';
+const CANONICAL_HOST = 'www.vasudevchemopharma.com';
 const CHALLENGE_COOKIE_NAME = 'edge_challenge_clearance';
 const CHALLENGE_ROUTE = '/api/security/challenge';
 const EDGE_CHALLENGE_SECRET = process.env.EDGE_CHALLENGE_SECRET;
@@ -57,19 +57,21 @@ function isAdminPath(pathname: string): boolean {
   );
 }
 
+// Memoize CSP — NODE_ENV never changes at runtime, so build once per cold start.
+let _cachedCsp: string | null = null;
 function buildContentSecurityPolicy(): string {
+  if (_cachedCsp) return _cachedCsp;
+
   const isDevelopment = process.env.NODE_ENV === 'development';
   const scriptSrc = isDevelopment
     ? "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://challenges.cloudflare.com https://www.google.com https://www.gstatic.com https://cdn.jsdelivr.net"
     : "script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://www.google.com https://www.gstatic.com https://cdn.jsdelivr.net";
 
-  return [
+  _cachedCsp = [
     "default-src 'self'",
     "base-uri 'self'",
     "frame-ancestors 'none'",
     "object-src 'none'",
-    // App Router streaming pages include framework inline bootstrap scripts.
-    // Keep script execution scoped to self + known CAPTCHA/challenge domains.
     scriptSrc,
     "style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net",
     "img-src 'self' data: blob: https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com https://drive.google.com https://lh3.googleusercontent.com https://framerusercontent.com https://www.gravatar.com https://secure.gravatar.com",
@@ -80,6 +82,7 @@ function buildContentSecurityPolicy(): string {
     "form-action 'self'",
     "upgrade-insecure-requests",
   ].join('; ');
+  return _cachedCsp;
 }
 
 function withSecurityHeaders(response: NextResponse, nonce: string): NextResponse {
@@ -152,7 +155,7 @@ function shouldRedirectToWww(request: NextRequest): boolean {
   // Strip port for comparison (e.g. "example.com:3000")
   const hostname = host.split(':')[0];
   if (isLocalHost(host)) return false;
-  return hostname !== '' && !hostname.startsWith('www.') && hostname.includes('Vasudevchemopharma.com');
+  return hostname !== '' && !hostname.startsWith('www.') && hostname.includes('vasudevchemopharma.com');
 }
 
 function shouldNormalizeCase(pathname: string): boolean {

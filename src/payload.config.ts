@@ -27,7 +27,10 @@ export default buildConfig({
   db: postgresAdapter({
     pool: {
       connectionString: process.env.DATABASE_URI,
-      max: Number(process.env.DATABASE_POOL_SIZE || 1),
+      max: (() => {
+        const size = parseInt(process.env.DATABASE_POOL_SIZE || "3", 10);
+        return Number.isNaN(size) || size < 1 ? 3 : size;
+      })(),
       connectionTimeoutMillis: 30000,
       idleTimeoutMillis: 30000,
       ssl: { rejectUnauthorized: false },

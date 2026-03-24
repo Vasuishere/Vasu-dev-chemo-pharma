@@ -43,12 +43,21 @@ function toSiteImages(doc: any): SiteImagesData {
 
 import { cache } from "react";
 
+// Build-level singleton to avoid DB pool exhaustion during concurrent SSG.
+let _siteImagesPromise: Promise<SiteImagesData> | null = null;
+
 export const getSiteImages = cache(async function getSiteImages(): Promise<SiteImagesData> {
-  try {
-    const payload = await getPayload();
-    const data = await payload.findGlobal({ slug: "site-images" });
-    return toSiteImages(data);
-  } catch {
-    return toSiteImages(null);
-  }
+  if (_siteImagesPromise) return _siteImagesPromise;
+
+  _siteImagesPromise = (async () => {
+    try {
+      const payload = await getPayload();
+      const data = await payload.findGlobal({ slug: "site-images" });
+      return toSiteImages(data);
+    } catch {
+      return toSiteImages(null);
+    }
+  })();
+
+  return _siteImagesPromise;
 });

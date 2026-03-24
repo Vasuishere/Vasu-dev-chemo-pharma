@@ -195,7 +195,7 @@ const allCaseStudies = [
 ];
 
 export function generateStaticParams() {
-  return [];
+  return Object.keys(caseStudyData).map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
@@ -211,12 +211,12 @@ export async function generateMetadata({
     title: `${cs.title} — Case Study`,
     description: cs.overview.slice(0, 160),
     alternates: {
-      canonical: `https://www.Vasudevchemopharma.com/case-study/${slug}`,
+      canonical: `https://www.vasudevchemopharma.com/case-study/${slug}`,
     },
     openGraph: {
       title: cs.title,
       description: cs.overview.slice(0, 160),
-      url: `https://www.Vasudevchemopharma.com/case-study/${slug}`,
+      url: `https://www.vasudevchemopharma.com/case-study/${slug}`,
       images: [{ url: cs.heroImage }],
     },
   };
@@ -239,14 +239,14 @@ export default async function CaseStudyDetailPage({
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: "https://www.Vasudevchemopharma.com" },
+          { name: "Home", url: "https://www.vasudevchemopharma.com" },
           {
             name: "Case Studies",
-            url: "https://www.Vasudevchemopharma.com/case-study",
+            url: "https://www.vasudevchemopharma.com/case-study",
           },
           {
             name: cs.title,
-            url: `https://www.Vasudevchemopharma.com/case-study/${slug}`,
+            url: `https://www.vasudevchemopharma.com/case-study/${slug}`,
           },
         ]}
       />

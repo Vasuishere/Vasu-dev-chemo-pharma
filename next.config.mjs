@@ -1,4 +1,9 @@
 import { withPayload } from "@payloadcms/next/withPayload";
+import bundleAnalyzer from "@next/bundle-analyzer";
+
+const withBundleAnalyzer = bundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+});
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -35,11 +40,16 @@ const nextConfig = {
     ],
     domains: [
       'media.istockphoto.com',
-      // add other allowed domains here if needed
     ],
   },
-  experimental: {
-    reactCompiler: false,
+  turbopack: {},
+  // Skip type-checking during build (run tsc separately in CI)
+  typescript: {
+    ignoreBuildErrors: false,
+  },
+  // Skip ESLint during build (run separately in CI)
+  eslint: {
+    ignoreDuringBuilds: true,
   },
   staticPageGenerationTimeout: 1000,
   async headers() {
@@ -242,4 +252,4 @@ const nextConfig = {
   },
 };
 
-export default withPayload(nextConfig);
+export default withBundleAnalyzer(withPayload(nextConfig));

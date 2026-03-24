@@ -1,9 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
 import SectionLabel from "@/components/SectionLabel";
 
 const industries = [
   {
     title: "Oil & Gas",
+    href: "/industries/oil-gas-h2s-scavenger",
     description:
       "Industrial chemicals and H2S scavengers for oil & gas extraction, refining, and processing.",
     image: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/industry_Solutions/Oil_Gas_Vasudev_Chemo_Pharma.png",
@@ -15,19 +17,8 @@ const industries = [
     ],
   },
   {
-    title: "Lubricant Manufacturing",
-    description:
-      "Specialty chemicals for lubricant formulation, blending, and additive manufacturing.",
-    image: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/industry_Solutions/Lubricants_Industry_Vasudev_Chemo_Pharma.png",
-    icon: "https://framerusercontent.com/images/bWWmYghlGrjGsS6uGMAjDrFi0.svg",
-    features: [
-      "Zinc oxide & stearic acid",
-      "Calcium carbonate fillers",
-      "Specialty additive chemicals",
-    ],
-  },
-  {
     title: "Water Treatment",
+    href: "/industries/water-treatment",
     description:
       "Treatment chemicals for waste water management, purification, and industrial water systems.",
     image: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/industry_Solutions/Waste_Water_Treatment_Vasudev_Chemo_Pharma.png",
@@ -39,15 +30,29 @@ const industries = [
     ],
   },
   {
+    title: "Metal Working Fluids",
+    href: "/industries/metal-working-fluids",
+    description:
+      "Triazine biocide preservatives for metalworking fluids, cutting oils, and industrial coolants.",
+    image: "https://framerusercontent.com/images/sCJnodXX6iVr5PAmaVz3lhv3l0.webp",
+    icon: "https://framerusercontent.com/images/bWWmYghlGrjGsS6uGMAjDrFi0.svg",
+    features: [
+      "Formaldehyde-releasing biocide",
+      "Grotan BK equivalent",
+      "Bacteria, fungi & algae control",
+    ],
+  },
+  {
     title: "Paper Mill",
+    href: "/industries/paper-mill",
     description:
       "Chemical solutions for paper manufacturing, bleaching, and pulp processing industries.",
     image: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/industry_Solutions/Paper_Mill_Treatment_Vasudev_Chemo_Pharma.png",
     icon: "https://framerusercontent.com/images/bWWmYghlGrjGsS6uGMAjDrFi0.svg",
     features: [
-      "Sodium sulphate & soda ash",
-      "Titanium dioxide for coating",
-      "Calcium carbonate fillers",
+      "MEA Triazine slimicide",
+      "Biofilm & slime control",
+      "Export to Southeast Asia",
     ],
   },
 ];
@@ -67,9 +72,10 @@ export default function IndustriesSection() {
         {/* Industry Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {industries.map((industry) => (
-            <div
+            <Link
+              href={industry.href}
               key={industry.title}
-              className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow"
+              className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow block"
             >
               {/* Image */}
               <div className="relative aspect-[4/3]">
@@ -112,7 +118,7 @@ export default function IndustriesSection() {
                   ))}
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

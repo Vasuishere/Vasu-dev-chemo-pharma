@@ -214,19 +214,21 @@ export async function verifyCaptcha(
   token: string | undefined,
   remoteIp: string
 ): Promise<{ valid: boolean; reason?: string }> {
-  if (!token) {
-    return { valid: false, reason: 'CAPTCHA token is required' };
-  }
-
   const hasTurnstile = Boolean(process.env.TURNSTILE_SECRET_KEY);
   const hasRecaptcha = Boolean(process.env.RECAPTCHA_SECRET_KEY);
 
+  // When no CAPTCHA provider is configured, bypass in dev (the frontend
+  // sends an empty token because captchaMode is "none").
   if (!hasTurnstile && !hasRecaptcha) {
     if (process.env.NODE_ENV === 'production') {
       return { valid: false, reason: 'CAPTCHA is not configured' };
     }
 
     return { valid: true };
+  }
+
+  if (!token) {
+    return { valid: false, reason: 'CAPTCHA token is required' };
   }
 
   if (hasTurnstile) {

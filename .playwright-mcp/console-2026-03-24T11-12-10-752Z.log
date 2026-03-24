@@ -1,0 +1,2 @@
+[    8222ms] [ERROR] Access to fetch at 'http://localhost:3000/api/contact' from origin 'null' has been blocked by CORS policy: The request client is not a secure context and the resource is in more-private address space `loopback`. @ about:blank:0
+[    8222ms] [ERROR] Failed to load resource: net::ERR_FAILED @ http://localhost:3000/api/contact:0

@@ -70,7 +70,8 @@ export const getCompanyInfo = cache(async function getCompanyInfo(): Promise<Com
     const payload = await getPayload();
     const data = await payload.findGlobal({ slug: "company-info" });
     return toCompanyInfo(data);
-  } catch {
+  } catch (error) {
+    console.error("[getCompanyInfo] Error fetching company-info:", error);
     return toCompanyInfo(null);
   }
 });

@@ -15,9 +15,9 @@ const serviceData: Record<string, {
 }> = {
   "chemical-manufacturing": {
     title: "Chemical Manufacturing",
-    description: "ISO 9001:2015 certified manufacturing of 28+ industrial & specialty chemicals.",
+    description: "ISO 9001:2015 certified manufacturing of 15+ industrial & specialty chemicals.",
     image: "https://framerusercontent.com/images/YZXZfUWqk3mC6dHxTkY5u8hc5SA.webp",
-    features: ["28+ specialty chemicals", "ISO 9001:2015 certified process", "Bulk & custom quantity orders", "Strict quality testing at every stage"],
+    features: ["15+ specialty chemicals", "ISO 9001:2015 certified process", "Bulk & custom quantity orders", "Strict quality testing at every stage"],
     details: "Vasudev Chemo Pharma manufactures a wide range of industrial and specialty chemicals including caustic soda, soda ash, sodium metabisulphite, zinc oxide, stearic acid, calcium carbonate, MEA triazine, and more. Our ISO 9001:2015 certified facility ensures consistent quality with every batch.",
   },
   "import-export": {
@@ -58,7 +58,7 @@ const serviceData: Record<string, {
 };
 
 export function generateStaticParams() {
-  return Object.keys(serviceData).map((slug) => ({ slug }));
+  return [];
 }
 
 export async function generateMetadata({
@@ -74,12 +74,12 @@ export async function generateMetadata({
     title: `${service.title} — Chemical Manufacturing Services`,
     description: service.details.slice(0, 160),
     alternates: {
-      canonical: `https://www.vasudevchemopharma.com/service/${slug}`,
+      canonical: `https://www.Vasudevchemopharma.com/service/${slug}`,
     },
     openGraph: {
       title: `${service.title} | Vasudev Chemo Pharma`,
       description: service.description,
-      url: `https://www.vasudevchemopharma.com/service/${slug}`,
+      url: `https://www.Vasudevchemopharma.com/service/${slug}`,
       images: [{ url: service.image }],
     },
   };
@@ -98,109 +98,109 @@ export default async function ServiceDetailPage({
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: "https://www.vasudevchemopharma.com" },
-          { name: "Services", url: "https://www.vasudevchemopharma.com/service" },
+          { name: "Home", url: "https://www.Vasudevchemopharma.com" },
+          { name: "Services", url: "https://www.Vasudevchemopharma.com/service" },
           {
             name: service.title,
-            url: `https://www.vasudevchemopharma.com/service/${slug}`,
+            url: `https://www.Vasudevchemopharma.com/service/${slug}`,
           },
         ]}
       />
       <main>
-      {/* Hero */}
-      <section className="pt-32 pb-16">
-        <div className="max-w-container mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <SectionLabel>Our services</SectionLabel>
-              <h1 className="font-heading text-display font-semibold mt-4">
-                {service.title}
-              </h1>
-              <p className="text-secondary text-lg mt-6">{service.description}</p>
-              <Button href="/contact" className="mt-8">Get a quote</Button>
-            </div>
-            <div className="relative rounded-3xl overflow-hidden aspect-[7/4]">
-              <Image
-                src={service.image}
-                alt={service.title}
-                fill
-                priority
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Details */}
-      <section className="py-20 bg-light">
-        <div className="max-w-container mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <div>
-              <h2 className="font-heading text-h2 font-semibold text-primary mb-6">
-                What we offer
-              </h2>
-              <p className="text-secondary leading-relaxed">{service.details}</p>
-            </div>
-            <div>
-              <h3 className="font-heading text-h4 font-semibold text-primary mb-6">
-                Key features
-              </h3>
-              <div className="space-y-4">
-                {service.features.map((feature) => (
-                  <div key={feature} className="flex items-center gap-3 bg-white rounded-2xl p-4">
-                    <svg width="15" height="10" viewBox="0 0 15 10" fill="none" className="flex-shrink-0" aria-hidden="true">
-                      <path d="M1 5L5.5 9L14 1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-accent" />
-                    </svg>
-                    <span className="text-base text-primary font-medium">{feature}</span>
-                  </div>
-                ))}
+        {/* Hero */}
+        <section className="pt-32 pb-16">
+          <div className="max-w-container mx-auto px-6 lg:px-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <SectionLabel>Our services</SectionLabel>
+                <h1 className="font-heading text-display font-semibold mt-4">
+                  {service.title}
+                </h1>
+                <p className="text-secondary text-lg mt-6">{service.description}</p>
+                <Button href="/contact" className="mt-8">Get a quote</Button>
+              </div>
+              <div className="relative rounded-3xl overflow-hidden aspect-[7/4]">
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  priority
+                  className="object-cover"
+                />
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Internal Links */}
-      <section className="py-12">
-        <div className="max-w-container mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <Link href="/product" className="bg-light rounded-2xl p-5 hover:shadow-md transition-shadow group">
-              <h3 className="font-heading text-h5 font-semibold text-primary group-hover:text-accent transition-colors">Browse Products</h3>
-              <p className="text-sm text-secondary mt-1">View our full chemical product catalogue</p>
-            </Link>
-            <Link href="/contact" className="bg-light rounded-2xl p-5 hover:shadow-md transition-shadow group">
-              <h3 className="font-heading text-h5 font-semibold text-primary group-hover:text-accent transition-colors">Request a Quote</h3>
-              <p className="text-sm text-secondary mt-1">Get pricing for your chemical requirements</p>
-            </Link>
-            <Link href="/about" className="bg-light rounded-2xl p-5 hover:shadow-md transition-shadow group">
-              <h3 className="font-heading text-h5 font-semibold text-primary group-hover:text-accent transition-colors">About Us</h3>
-              <p className="text-sm text-secondary mt-1">ISO 9001:2015 certified manufacturer</p>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-20">
-        <div className="max-w-container mx-auto px-6 lg:px-10">
-          <div className="relative rounded-3xl overflow-hidden bg-dark p-12 lg:p-16 text-center">
-            <Image
-              src="https://framerusercontent.com/images/qbL1L4EXzTjrYawN3GV9Zww8wb4.png"
-              alt=""
-              aria-hidden="true"
-              fill
-              className="object-cover opacity-30"
-            />
-            <div className="relative z-10">
-              <h2 className="font-heading text-h2 font-semibold text-white mb-6">
-                Ready to source quality chemicals?
-              </h2>
-              <Button href="/contact">Request a quote</Button>
+        {/* Details */}
+        <section className="py-20 bg-light">
+          <div className="max-w-container mx-auto px-6 lg:px-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+              <div>
+                <h2 className="font-heading text-h2 font-semibold text-primary mb-6">
+                  What we offer
+                </h2>
+                <p className="text-secondary leading-relaxed">{service.details}</p>
+              </div>
+              <div>
+                <h3 className="font-heading text-h4 font-semibold text-primary mb-6">
+                  Key features
+                </h3>
+                <div className="space-y-4">
+                  {service.features.map((feature) => (
+                    <div key={feature} className="flex items-center gap-3 bg-white rounded-2xl p-4">
+                      <svg width="15" height="10" viewBox="0 0 15 10" fill="none" className="flex-shrink-0" aria-hidden="true">
+                        <path d="M1 5L5.5 9L14 1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-accent" />
+                      </svg>
+                      <span className="text-base text-primary font-medium">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        {/* Internal Links */}
+        <section className="py-12">
+          <div className="max-w-container mx-auto px-6 lg:px-10">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <Link href="/product" className="bg-light rounded-2xl p-5 hover:shadow-md transition-shadow group">
+                <h3 className="font-heading text-h5 font-semibold text-primary group-hover:text-accent transition-colors">Browse Products</h3>
+                <p className="text-sm text-secondary mt-1">View our full chemical product catalogue</p>
+              </Link>
+              <Link href="/contact" className="bg-light rounded-2xl p-5 hover:shadow-md transition-shadow group">
+                <h3 className="font-heading text-h5 font-semibold text-primary group-hover:text-accent transition-colors">Request a Quote</h3>
+                <p className="text-sm text-secondary mt-1">Get pricing for your chemical requirements</p>
+              </Link>
+              <Link href="/about" className="bg-light rounded-2xl p-5 hover:shadow-md transition-shadow group">
+                <h3 className="font-heading text-h5 font-semibold text-primary group-hover:text-accent transition-colors">About Us</h3>
+                <p className="text-sm text-secondary mt-1">ISO 9001:2015 certified manufacturer</p>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="py-20">
+          <div className="max-w-container mx-auto px-6 lg:px-10">
+            <div className="relative rounded-3xl overflow-hidden bg-dark p-12 lg:p-16 text-center">
+              <Image
+                src="https://framerusercontent.com/images/qbL1L4EXzTjrYawN3GV9Zww8wb4.png"
+                alt=""
+                aria-hidden="true"
+                fill
+                className="object-cover opacity-30"
+              />
+              <div className="relative z-10">
+                <h2 className="font-heading text-h2 font-semibold text-white mb-6">
+                  Ready to source quality chemicals?
+                </h2>
+                <Button href="/contact">Request a quote</Button>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
     </>
   );

@@ -48,7 +48,7 @@ export default function ProductSchema({ product }: ProductSchemaProps) {
       `${product.name} manufactured by Vasudev Chemo Pharma, Gujarat, India.`,
     sku: product.sku,
     image: product.imageUrl || undefined,
-    url: `https://www.vasudevchemopharma.com/product/${product.slug}`,
+    url: `https://www.Vasudevchemopharma.com/product/${product.slug}`,
     brand: {
       "@type": "Brand",
       name: "Vasudev Chemo Pharma",
@@ -56,7 +56,7 @@ export default function ProductSchema({ product }: ProductSchemaProps) {
     manufacturer: {
       "@type": "Organization",
       name: "Vasudev Chemo Pharma Chemicals",
-      url: "https://www.vasudevchemopharma.com",
+      url: "https://www.Vasudevchemopharma.com",
       address: {
         "@type": "PostalAddress",
         addressRegion: "Gujarat",
@@ -70,14 +70,14 @@ export default function ProductSchema({ product }: ProductSchemaProps) {
       priceCurrency: product.currency || "USD",
       ...(hasPrice
         ? {
-            priceSpecification: {
-              "@type": "PriceSpecification",
-              price: product.price,
-              priceCurrency: product.currency || "USD",
-            },
-          }
+          priceSpecification: {
+            "@type": "PriceSpecification",
+            price: product.price,
+            priceCurrency: product.currency || "USD",
+          },
+        }
         : {}),
-      url: `https://www.vasudevchemopharma.com/product/${product.slug}`,
+      url: `https://www.Vasudevchemopharma.com/product/${product.slug}`,
       seller: {
         "@type": "Organization",
         name: "Vasudev Chemo Pharma Chemicals",
@@ -106,10 +106,10 @@ export default function ProductSchema({ product }: ProductSchemaProps) {
     molecularFormula: product.formula || undefined,
     identifier: product.casNumber
       ? {
-          "@type": "PropertyValue",
-          name: "CAS Number",
-          value: product.casNumber,
-        }
+        "@type": "PropertyValue",
+        name: "CAS Number",
+        value: product.casNumber,
+      }
       : undefined,
   };
 

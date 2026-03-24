@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import {
   getProductBySlug,
-  getAllProductSlugs,
   getRelatedProducts,
 } from "@/lib/products-payload";
 import { CATEGORY_LABELS } from "@/lib/types";
@@ -28,13 +27,10 @@ export const revalidate = 3600;
 
 /* ─── Static params for all products ─────────────────────────── */
 export async function generateStaticParams() {
-  try {
-    const slugs = await getAllProductSlugs();
-    return slugs.map((slug) => ({ slug }));
-  } catch {
-    // DB unavailable at build time — pages will be generated on-demand via ISR
-    return [];
-  }
+  // Return empty array to skip prerendering products at build time.
+  // This prevents exhausting Vercel DB connections during parallel builds.
+  // Pages will be generated on-demand via ISR when first requested.
+  return [];
 }
 
 /* ─── Dynamic SEO metadata per product ──────────────────────────── */
@@ -53,12 +49,12 @@ export async function generateMetadata({
     const title = isMeaTriazine
       ? MEA_TRIAZINE_METADATA.title
       : product.metaTitle ||
-        `${product.name}${product.casNumber ? ` (CAS ${product.casNumber})` : ""} — ${CATEGORY_LABELS[product.category]} | Vasudev Chemo Pharma`;
+      `${product.name}${product.casNumber ? ` (CAS ${product.casNumber})` : ""} — ${CATEGORY_LABELS[product.category]} | Vasudev Chemo Pharma`;
 
     const description = isMeaTriazine
       ? "MEA Triazine 78% (CAS 4719-04-4) — H2S scavenger for oil & gas, wastewater & biogas. Drum, IBC & bulk supply from India."
       : product.metaDescription ||
-        `Buy ${product.name}${product.casNumber ? ` (CAS ${product.casNumber})` : ""} from Vasudev Chemo Pharma — ISO 9001:2015 certified manufacturer in Gujarat, India. Export-ready packaging. Request a quote today.`;
+      `Buy ${product.name}${product.casNumber ? ` (CAS ${product.casNumber})` : ""} from Vasudev Chemo Pharma — ISO 9001:2015 certified manufacturer in Gujarat, India. Export-ready packaging. Request a quote today.`;
 
     const keywordConfig = getProductSeoKeywords(
       product.slug,
@@ -66,8 +62,8 @@ export async function generateMetadata({
       product.casNumber || ""
     );
 
-    const canonicalUrl = `https://www.vasudevchemopharma.com/product/${product.slug}`;
-    const ogImageUrl = product.imageUrl || "https://www.vasudevchemopharma.com/images/og-default.webp";
+    const canonicalUrl = `https://www.Vasudevchemopharma.com/product/${product.slug}`;
+    const ogImageUrl = product.imageUrl || "https://www.Vasudevchemopharma.com/images/og-default.webp";
     const resolvedDescription = isMeaTriazine
       ? MEA_TRIAZINE_METADATA.description
       : description;
@@ -79,12 +75,12 @@ export async function generateMetadata({
       : resolvedDescription;
     const languageAlternates = isMeaTriazine
       ? Object.fromEntries(
-          MEA_TRIAZINE_MARKET_LANGUAGE_CODES.map((languageCode) => [languageCode, canonicalUrl])
-        )
+        MEA_TRIAZINE_MARKET_LANGUAGE_CODES.map((languageCode) => [languageCode, canonicalUrl])
+      )
       : {
-          en: canonicalUrl,
-          "x-default": canonicalUrl,
-        };
+        en: canonicalUrl,
+        "x-default": canonicalUrl,
+      };
 
     return {
       title,
@@ -199,16 +195,16 @@ export default async function ProductDetailPage({
         items={
           isMeaTriazine
             ? [
-                { name: "Home", url: "https://www.vasudevchemopharma.com" },
-                { name: "Chemicals", url: "https://www.vasudevchemopharma.com/product" },
-                { name: "H2S Scavengers", url: "https://www.vasudevchemopharma.com/product?category=industrial" },
-                { name: "MEA Triazine 78% H2S Scavenger", url: `https://www.vasudevchemopharma.com/product/${product.slug}` },
-              ]
+              { name: "Home", url: "https://www.Vasudevchemopharma.com" },
+              { name: "Chemicals", url: "https://www.Vasudevchemopharma.com/product" },
+              { name: "H2S Scavengers", url: "https://www.Vasudevchemopharma.com/product?category=industrial" },
+              { name: "MEA Triazine 78% H2S Scavenger", url: `https://www.Vasudevchemopharma.com/product/${product.slug}` },
+            ]
             : [
-                { name: "Home", url: "https://www.vasudevchemopharma.com" },
-                { name: "Products", url: "https://www.vasudevchemopharma.com/product" },
-                { name: product.name, url: `https://www.vasudevchemopharma.com/product/${product.slug}` },
-              ]
+              { name: "Home", url: "https://www.Vasudevchemopharma.com" },
+              { name: "Products", url: "https://www.Vasudevchemopharma.com/product" },
+              { name: product.name, url: `https://www.Vasudevchemopharma.com/product/${product.slug}` },
+            ]
         }
       />
 
@@ -387,7 +383,7 @@ export default async function ProductDetailPage({
                 <p>{product.description}</p>
               </div>
             ) : (
-              <ContentPlaceholder label="Product description — 2-3 paragraphs covering what the product is, how it is manufactured, key benefits, and why buyers should choose VasuDev as supplier. Should include the product name, formula, and CAS number naturally for SEO." />
+              <ContentPlaceholder label="Product description — 2-3 paragraphs covering what the product is, how it is manufactured, key benefits, and why buyers should choose Vasudev as supplier. Should include the product name, formula, and CAS number naturally for SEO." />
             )}
           </section>
 
@@ -862,7 +858,7 @@ export default async function ProductDetailPage({
             </section>
           )}
 
-          
+
         </div>
       </main>
     </>

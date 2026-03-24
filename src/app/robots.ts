@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const SITE_URL = "https://www.vasudevchemopharma.com";
+const SITE_URL = "https://www.Vasudevchemopharma.com";
 
 export default function robots(): MetadataRoute.Robots {
   const allowPublicCrawlPaths = ["/", "/_next/static/", "/_next/image"];

@@ -14,7 +14,7 @@ const features = [
   "ISO 9001:2015 certified quality",
   "Export-ready packaging & documentation",
   "Competitive global pricing",
-  "28+ chemical products available",
+  "15+ chemical products available",
   "Near major Gujarat ports (Kandla, Mundra, Hazira)",
 ];
 
@@ -47,7 +47,7 @@ export default function WhyChooseSection() {
           {/* Image */}
           <div className="relative rounded-3xl overflow-hidden aspect-[4/5]">
             <Image
-              src="https://framerusercontent.com/images/yHbIIVOj7hK29ucygE5eIDV47I.jpg"
+              src="https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Vasudev/why_choose%20Us_Vasudev_Chemo_Pharma.png"
               alt="Why Choose Image"
               fill
               className="object-cover"

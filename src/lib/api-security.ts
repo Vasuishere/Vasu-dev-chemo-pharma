@@ -54,7 +54,7 @@ type RateLimitResult = {
   resetAt: number;
 };
 
-const GLOBAL_RATE_LIMIT_STORE_KEY = '__vasudev_rate_limit_store__';
+const GLOBAL_RATE_LIMIT_STORE_KEY = '__Vasudev_rate_limit_store__';
 
 export function apiErrorResponse(
   message: string,

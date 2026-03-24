@@ -35,15 +35,14 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md transition-transform duration-300 ${
-        hidden ? "-translate-y-full" : "translate-y-0"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md transition-transform duration-300 ${hidden ? "-translate-y-full" : "translate-y-0"
+        }`}
     >
-        <div className="max-w-container mx-auto flex items-center justify-between px-6 py-4 lg:px-10 relative">
+      <div className="max-w-container mx-auto flex items-center justify-between px-6 py-4 lg:px-10 relative">
         {/* Logo - Left */}
         <Link href="/" className="flex-shrink-0 flex items-center gap-2">
           <Image
-            src="/images/vcp-logo.png"
+            src="https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Vasudev/Vasudev_Chemo_Pharma_LOGO.png"
             alt="VCP Logo"
             width={50}
             height={50}
@@ -51,7 +50,7 @@ export default function Navbar() {
             className="h-11 w-auto"
           />
           <Image
-            src="/images/vcp-name.png"
+            src="https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Vasudev/Vasudev_Chemo_Pharma_Name.png"
             alt="Vasudev Chemo Pharma"
             width={220}
             height={50}

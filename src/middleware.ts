@@ -30,7 +30,7 @@ const SUSPICIOUS_AGENTS = [
   'go-http-client',
 ];
 
-const CANONICAL_HOST = 'www.vasudevchemopharma.com';
+const CANONICAL_HOST = 'www.Vasudevchemopharma.com';
 const CHALLENGE_COOKIE_NAME = 'edge_challenge_clearance';
 const CHALLENGE_ROUTE = '/api/security/challenge';
 const EDGE_CHALLENGE_SECRET = process.env.EDGE_CHALLENGE_SECRET;
@@ -72,7 +72,7 @@ function buildContentSecurityPolicy(): string {
     // Keep script execution scoped to self + known CAPTCHA/challenge domains.
     scriptSrc,
     "style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net",
-    "img-src 'self' data: blob: https://drive.google.com https://lh3.googleusercontent.com https://framerusercontent.com https://www.gravatar.com https://secure.gravatar.com",
+    "img-src 'self' data: blob: https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com https://drive.google.com https://lh3.googleusercontent.com https://framerusercontent.com https://www.gravatar.com https://secure.gravatar.com",
     "font-src 'self' data:",
     "connect-src 'self' https://challenges.cloudflare.com https://www.google.com",
     "worker-src 'self' blob:",
@@ -152,7 +152,7 @@ function shouldRedirectToWww(request: NextRequest): boolean {
   // Strip port for comparison (e.g. "example.com:3000")
   const hostname = host.split(':')[0];
   if (isLocalHost(host)) return false;
-  return hostname !== '' && !hostname.startsWith('www.') && hostname.includes('vasudevchemopharma.com');
+  return hostname !== '' && !hostname.startsWith('www.') && hostname.includes('Vasudevchemopharma.com');
 }
 
 function shouldNormalizeCase(pathname: string): boolean {

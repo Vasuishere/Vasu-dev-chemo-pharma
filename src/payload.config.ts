@@ -27,7 +27,7 @@ export default buildConfig({
   db: postgresAdapter({
     pool: {
       connectionString: process.env.DATABASE_URI,
-      max: 3,
+      max: Number(process.env.DATABASE_POOL_SIZE || 1),
       connectionTimeoutMillis: 30000,
       idleTimeoutMillis: 30000,
       ssl: { rejectUnauthorized: false },

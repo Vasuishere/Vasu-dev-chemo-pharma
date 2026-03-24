@@ -63,12 +63,15 @@ function toCompanyInfo(doc: any): CompanyInfoData {
   };
 }
 
-export async function getCompanyInfo(): Promise<CompanyInfoData> {
+import { cache } from "react";
+
+export const getCompanyInfo = cache(async function getCompanyInfo(): Promise<CompanyInfoData> {
   try {
     const payload = await getPayload();
     const data = await payload.findGlobal({ slug: "company-info" });
     return toCompanyInfo(data);
-  } catch {
+  } catch (error) {
+    console.error("[getCompanyInfo] Error fetching company-info:", error);
     return toCompanyInfo(null);
   }
-}
+});

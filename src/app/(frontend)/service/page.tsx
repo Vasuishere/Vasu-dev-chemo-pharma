@@ -20,40 +20,40 @@ export const metadata: Metadata = {
   description:
     "Explore chemical manufacturing, import-export, custom formulation, quality testing, and bulk supply services from Vasudev Chemo Pharma. Request a quote today.",
   alternates: {
-    canonical: "https://www.vasudevchemopharma.com/service",
+    canonical: "https://www.Vasudevchemopharma.com/service",
   },
   openGraph: {
     title: "Chemical Manufacturing Services | Vasudev Chemo Pharma",
     description:
       "ISO 9001:2015 certified chemical manufacturing, custom formulation, and global export services from Gujarat, India.",
-    url: "https://www.vasudevchemopharma.com/service",
+    url: "https://www.Vasudevchemopharma.com/service",
   },
 };
 
 const services = [
   {
     title: "Chemical Manufacturing",
-    description: "ISO 9001:2015 certified manufacturing of 28+ industrial & specialty chemicals.",
+    description: "ISO 9001:2015 certified manufacturing of 15+ industrial & specialty chemicals.",
     href: "/service/chemical-manufacturing",
-    image: "https://framerusercontent.com/images/YZXZfUWqk3mC6dHxTkY5u8hc5SA.webp",
+    image: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Service%20Section/Chemical_Manufacturing_Vasudev_Chemo_Pharma.png",
   },
   {
     title: "Import & Export",
     description: "Global chemical trade with complete export documentation and competitive shipping.",
     href: "/service/import-export",
-    image: "https://framerusercontent.com/images/uyAxZj87pJISHmPmWJFmfS2Xqw.webp",
+    image: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Service%20Section/Import_Export_Vasudev_Chemo_Pharma.png",
   },
   {
     title: "Custom Formulation",
     description: "Tailored chemical blends and application-specific formulations for your industry.",
     href: "/service/custom-formulation",
-    image: "https://framerusercontent.com/images/sCJnodXX6iVr5PAmaVz3lhv3l0.webp",
+    image: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Service%20Section/Custom_Formulation_Vasudev_Chemo_Pharma.png",
   },
   {
     title: "Quality Testing & Packaging",
     description: "In-house lab testing with COA, MSDS documentation and export-grade packaging.",
     href: "/service/quality-testing-packaging",
-    image: "https://framerusercontent.com/images/DC7FRNfj79xbtthq0V0ykebbAGU.webp",
+    image: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Service%20Section/Quality_Testing_Packaging_Vasudev_Chemo_Pharma.png",
   },
   {
     title: "Global Logistics & Shipping",
@@ -72,7 +72,7 @@ const services = [
 const faqs = [
   {
     q: "What chemical products do you manufacture?",
-    a: "We manufacture 28+ industrial and specialty chemicals including caustic soda, soda ash, sodium metabisulphite, zinc oxide, stearic acid, calcium carbonate, MEA triazine, and many more.",
+    a: "We manufacture 15+ industrial and specialty chemicals including caustic soda, soda ash, sodium metabisulphite, zinc oxide, stearic acid, calcium carbonate, MEA triazine, and many more.",
   },
   {
     q: "Do you export chemicals internationally?",
@@ -124,126 +124,126 @@ export default async function ServicePage() {
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: "https://www.vasudevchemopharma.com" },
-          { name: "Services", url: "https://www.vasudevchemopharma.com/service" },
+          { name: "Home", url: "https://www.Vasudevchemopharma.com" },
+          { name: "Services", url: "https://www.Vasudevchemopharma.com/service" },
         ]}
       />
       <FAQSchema items={pageFaqs.map((faq) => ({ question: faq.q, answer: faq.a }))} />
       <main>
-      {/* Hero */}
-      <section className="pt-32 pb-16">
-        <div className="max-w-container mx-auto px-6 lg:px-10 text-center">
-          <h1 className="font-heading text-display font-semibold">
-            Chemical Manufacturing Services
-          </h1>
-          <p className="text-secondary text-lg mt-4 max-w-2xl mx-auto">
-            ISO 9001:2015 certified chemical manufacturing, custom formulation, global logistics, and bulk supply from Gujarat, India.
-          </p>
-        </div>
-      </section>
+        {/* Hero */}
+        <section className="pt-32 pb-16">
+          <div className="max-w-container mx-auto px-6 lg:px-10 text-center">
+            <h1 className="font-heading text-display font-semibold">
+              Chemical Manufacturing Services
+            </h1>
+            <p className="text-secondary text-lg mt-4 max-w-2xl mx-auto">
+              ISO 9001:2015 certified chemical manufacturing, custom formulation, global logistics, and bulk supply from Gujarat, India.
+            </p>
+          </div>
+        </section>
 
-      {/* Service Grid */}
-      <section className="pb-20">
-        <div className="max-w-container mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service) => (
-              <Link
-                key={service.href}
-                href={service.href}
-                className="group bg-light rounded-3xl overflow-hidden hover:shadow-xl transition-shadow"
-              >
-                <div className="p-6 flex items-center justify-between">
-                  <Image
-                    src="https://framerusercontent.com/images/xYCVyxuBws5xxo0dgYvczUqqSI.svg"
-                    alt="Navigate to service"
-                    width={16}
-                    height={12}
-                    className="opacity-0 group-hover:opacity-100 transition-opacity"
-                  />
-                </div>
-                <div className="px-6">
-                  <div className="relative rounded-2xl overflow-hidden aspect-[7/4]">
+        {/* Service Grid */}
+        <section className="pb-20">
+          <div className="max-w-container mx-auto px-6 lg:px-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {services.map((service) => (
+                <Link
+                  key={service.href}
+                  href={service.href}
+                  className="group bg-light rounded-3xl overflow-hidden hover:shadow-xl transition-shadow"
+                >
+                  <div className="p-6 flex items-center justify-between">
                     <Image
-                      src={service.image}
-                      alt={service.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      src="https://framerusercontent.com/images/xYCVyxuBws5xxo0dgYvczUqqSI.svg"
+                      alt="Navigate to service"
+                      width={16}
+                      height={12}
+                      className="opacity-0 group-hover:opacity-100 transition-opacity"
                     />
                   </div>
-                </div>
-                <div className="p-6">
-                  <h2 className="font-heading text-h4 font-semibold text-primary mb-2">
-                    {service.title}
-                  </h2>
-                  <p className="text-sm text-secondary">{service.description}</p>
-                </div>
-              </Link>
-            ))}
-          </div>
+                  <div className="px-6">
+                    <div className="relative rounded-2xl overflow-hidden aspect-[7/4]">
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h2 className="font-heading text-h4 font-semibold text-primary mb-2">
+                      {service.title}
+                    </h2>
+                    <p className="text-sm text-secondary">{service.description}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
 
-          {/* CTA */}
-          <div className="relative mt-16 rounded-3xl overflow-hidden bg-dark p-12 lg:p-16 text-center">
-            <Image
-              src="https://framerusercontent.com/images/qbL1L4EXzTjrYawN3GV9Zww8wb4.png"
-              alt="Chemical manufacturing facility background"
-              fill
-              className="object-cover opacity-30"
-            />
-            <div className="relative z-10">
-              <h2 className="font-heading text-h2 font-semibold text-white mb-6">
-                Ready to source quality chemicals?
-              </h2>
-              <Button href="/contact">Request a quote</Button>
+            {/* CTA */}
+            <div className="relative mt-16 rounded-3xl overflow-hidden bg-dark p-12 lg:p-16 text-center">
+              <Image
+                src="https://framerusercontent.com/images/qbL1L4EXzTjrYawN3GV9Zww8wb4.png"
+                alt="Chemical manufacturing facility background"
+                fill
+                className="object-cover opacity-30"
+              />
+              <div className="relative z-10">
+                <h2 className="font-heading text-h2 font-semibold text-white mb-6">
+                  Ready to source quality chemicals?
+                </h2>
+                <Button href="/contact">Request a quote</Button>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* FAQ */}
-      <section className="py-20 bg-light">
-        <div className="max-w-container mx-auto px-6 lg:px-10">
-          <div className="text-center mb-16">
-            <SectionLabel>Common questions</SectionLabel>
-            <h2 className="font-heading text-h2 font-semibold text-primary mt-4">
-              Frequently asked questions
-            </h2>
-          </div>
-          <div className="max-w-3xl mx-auto space-y-4">
-            {pageFaqs.map((faq, i) => (
-              <details
-                key={i}
-                className="bg-white rounded-2xl p-6 group"
-                {...(i === 0 ? { open: true } : {})}
-              >
-                <summary className="font-heading text-lg font-semibold text-primary cursor-pointer list-none flex items-center justify-between">
-                  {faq.q}
-                  <span className="text-accent text-2xl group-open:rotate-45 transition-transform">
-                    +
-                  </span>
-                </summary>
-                <p className="text-secondary mt-4 leading-relaxed">{faq.a}</p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Form */}
-      <section className="py-20">
-        <div className="max-w-container mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <div>
-              <SectionLabel>Get in touch</SectionLabel>
+        {/* FAQ */}
+        <section className="py-20 bg-light">
+          <div className="max-w-container mx-auto px-6 lg:px-10">
+            <div className="text-center mb-16">
+              <SectionLabel>Common questions</SectionLabel>
               <h2 className="font-heading text-h2 font-semibold text-primary mt-4">
-                Start your chemical sourcing journey
+                Frequently asked questions
               </h2>
             </div>
-            <div>
-              <ContactForm />
+            <div className="max-w-3xl mx-auto space-y-4">
+              {pageFaqs.map((faq, i) => (
+                <details
+                  key={i}
+                  className="bg-white rounded-2xl p-6 group"
+                  {...(i === 0 ? { open: true } : {})}
+                >
+                  <summary className="font-heading text-lg font-semibold text-primary cursor-pointer list-none flex items-center justify-between">
+                    {faq.q}
+                    <span className="text-accent text-2xl group-open:rotate-45 transition-transform">
+                      +
+                    </span>
+                  </summary>
+                  <p className="text-secondary mt-4 leading-relaxed">{faq.a}</p>
+                </details>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        {/* Contact Form */}
+        <section className="py-20">
+          <div className="max-w-container mx-auto px-6 lg:px-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+              <div>
+                <SectionLabel>Get in touch</SectionLabel>
+                <h2 className="font-heading text-h2 font-semibold text-primary mt-4">
+                  Start your chemical sourcing journey
+                </h2>
+              </div>
+              <div>
+                <ContactForm />
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
     </>
   );

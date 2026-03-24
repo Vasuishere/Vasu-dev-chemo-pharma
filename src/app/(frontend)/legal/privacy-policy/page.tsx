@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description:
     "Privacy policy for Vasudev Chemo Pharma — how we collect, use, and protect your personal information on our website and services.",
   alternates: {
-    canonical: "https://www.Vasudevchemopharma.com/legal/privacy-policy",
+    canonical: "https://www.vasudevchemopharma.com/legal/privacy-policy",
   },
   robots: {
     index: true,
@@ -24,10 +24,10 @@ export default function PrivacyPolicyPage() {
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: "https://www.Vasudevchemopharma.com" },
+          { name: "Home", url: "https://www.vasudevchemopharma.com" },
           {
             name: "Privacy Policy",
-            url: "https://www.Vasudevchemopharma.com/legal/privacy-policy",
+            url: "https://www.vasudevchemopharma.com/legal/privacy-policy",
           },
         ]}
       />

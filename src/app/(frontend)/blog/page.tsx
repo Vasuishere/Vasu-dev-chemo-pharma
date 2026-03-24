@@ -21,13 +21,29 @@ type BlogListItem = {
 
 const blogs: BlogListItem[] = [
   {
+    slug: "what-is-mea-triazine-best-h2s-scavenger-oil-gas",
+    title: "What is MEA Triazine and Why is it the Best H2S Scavenger for Oil & Gas?",
+    category: "H2S Scavengers",
+    date: "Mar 24, 2026",
+    image: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/industry_Solutions/Oil_Gas_Vasudev_Chemo_Pharma.png",
+    imageAlt: "MEA Triazine 78 percent H2S scavenger for oil and gas",
+    featured: true,
+  },
+  {
+    slug: "h2s-natural-gas-pipelines-risks-regulations-removal",
+    title: "H2S in Natural Gas Pipelines: Risks, Regulations, and Removal Methods",
+    category: "Technical Guides",
+    date: "Mar 24, 2026",
+    image: "https://framerusercontent.com/images/a2Zqj4XmuHOPsbeGYtBENVFMufs.png",
+    imageAlt: "Natural gas pipeline H2S monitoring and removal",
+  },
+  {
     slug: "top-5-specialty-chemicals-revolutionizing-industrial-applications",
     title: "Top 5 Specialty Chemicals Revolutionizing Industrial Applications",
     category: "Specialty Chemicals",
     date: "Jan 10, 2026",
     image: "https://framerusercontent.com/images/Hxgnn8KfIJnGioOtBbfYA5iYdQ8.webp",
     imageAlt: "Specialty chemical compounds including triazine scavengers and pharmaceutical intermediates",
-    featured: true,
   },
   {
     slug: "sustainable-chemical-manufacturing-greener-future-india",
@@ -231,8 +247,8 @@ export default function BlogPage() {
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: "https://www.Vasudevchemopharma.com" },
-          { name: "Blog", url: "https://www.Vasudevchemopharma.com/blog" },
+          { name: "Home", url: "https://www.vasudevchemopharma.com" },
+          { name: "Blog", url: "https://www.vasudevchemopharma.com/blog" },
         ]}
       />
       <main>

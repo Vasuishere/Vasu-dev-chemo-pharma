@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description:
     "Browse chemical products from Vasudev Chemo Pharma — ISO 9001:2015 certified manufacturer in Gujarat, India. Industrial chemicals, specialty chemicals, and pharmaceutical API intermediates. Request a quote today.",
   alternates: {
-    canonical: "https://www.Vasudevchemopharma.com/product",
+    canonical: "https://www.vasudevchemopharma.com/product",
   },
 };
 
@@ -65,8 +65,8 @@ export default async function ProductPage() {
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: "https://www.Vasudevchemopharma.com" },
-          { name: "Products", url: "https://www.Vasudevchemopharma.com/product" },
+          { name: "Home", url: "https://www.vasudevchemopharma.com" },
+          { name: "Products", url: "https://www.vasudevchemopharma.com/product" },
         ]}
       />
       <main>

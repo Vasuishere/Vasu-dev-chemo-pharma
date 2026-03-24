@@ -8,6 +8,7 @@ const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Products", href: "/product" },
+  { label: "Industries", href: "/industries/oil-gas-h2s-scavenger" },
   { label: "Services", href: "/service" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },

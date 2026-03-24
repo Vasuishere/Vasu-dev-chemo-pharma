@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { getAllProductSlugs } from "@/lib/products-payload";
 import { getAllProductSlugs as getStaticProductSlugs } from "@/lib/products";
 
-const SITE_URL = "https://www.Vasudevchemopharma.com";
+const SITE_URL = "https://www.vasudevchemopharma.com";
 export const dynamic = "force-dynamic";
 
 /** High-priority product slugs that get a priority boost in the sitemap */
@@ -11,6 +11,8 @@ const HIGH_PRIORITY_PRODUCTS = new Set([
 ]);
 
 const blogSlugs = [
+  "what-is-mea-triazine-best-h2s-scavenger-oil-gas",
+  "h2s-natural-gas-pipelines-risks-regulations-removal",
   "sustainable-chemical-manufacturing-greener-future-india",
   "ai-iot-breakthroughs-chemical-manufacturing-efficiency",
   "automation-shaping-future-chemical-manufacturing",
@@ -33,6 +35,18 @@ const serviceSlugs = [
   "quality-testing-packaging",
   "global-logistics-shipping",
   "bulk-contract-supply",
+];
+
+const industrySlugs = [
+  "oil-gas-h2s-scavenger",
+  "water-treatment",
+  "metal-working-fluids",
+  "paper-mill",
+];
+
+const guideSlugs = [
+  "how-h2s-scavengers-work",
+  "mea-triazine-vs-mma-triazine",
 ];
 
 type SitemapEntry = {
@@ -120,6 +134,22 @@ export async function GET() {
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.5,
+    })),
+
+    // Industry pages
+    ...industrySlugs.map((slug) => ({
+      url: `${SITE_URL}/industries/${slug}`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.85,
+    })),
+
+    // Guide pages
+    ...guideSlugs.map((slug) => ({
+      url: `${SITE_URL}/${slug}`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
     })),
   ];
 

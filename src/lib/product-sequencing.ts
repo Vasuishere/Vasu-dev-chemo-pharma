@@ -12,35 +12,44 @@ const DEFAULT_CATEGORY_PRIORITIES: CategoryPriority[] = [
   { category: "pharmaceutical", priority: 300 },
 ];
 
-export async function getCategoryPriorityMap(): Promise<Record<ProductCategory, number>> {
-  try {
-    const payload = await getPayload();
-    const data = await payload.findGlobal({ slug: "product-sequencing" });
+// Build-level singleton to avoid DB pool exhaustion during concurrent SSG.
+let _categoryPriorityPromise: Promise<Record<ProductCategory, number>> | null = null;
 
-    const map: Record<ProductCategory, number> = {
-      industrial: 100,
-      specialty: 200,
-      pharmaceutical: 300,
-    };
+export function getCategoryPriorityMap(): Promise<Record<ProductCategory, number>> {
+  if (_categoryPriorityPromise) return _categoryPriorityPromise;
 
-    const rows = Array.isArray(data?.categoryPriorities)
-      ? data.categoryPriorities
-      : DEFAULT_CATEGORY_PRIORITIES;
+  _categoryPriorityPromise = (async () => {
+    try {
+      const payload = await getPayload();
+      const data = await payload.findGlobal({ slug: "product-sequencing" });
 
-    for (const row of rows) {
-      const category = row?.category as ProductCategory | undefined;
-      const priority = row?.priority;
-      if (!category) continue;
-      if (typeof priority !== "number" || Number.isNaN(priority)) continue;
-      map[category] = priority;
+      const map: Record<ProductCategory, number> = {
+        industrial: 100,
+        specialty: 200,
+        pharmaceutical: 300,
+      };
+
+      const rows = Array.isArray(data?.categoryPriorities)
+        ? data.categoryPriorities
+        : DEFAULT_CATEGORY_PRIORITIES;
+
+      for (const row of rows) {
+        const category = row?.category as ProductCategory | undefined;
+        const priority = row?.priority;
+        if (!category) continue;
+        if (typeof priority !== "number" || Number.isNaN(priority)) continue;
+        map[category] = priority;
+      }
+
+      return map;
+    } catch {
+      return {
+        industrial: 100,
+        specialty: 200,
+        pharmaceutical: 300,
+      };
     }
+  })();
 
-    return map;
-  } catch {
-    return {
-      industrial: 100,
-      specialty: 200,
-      pharmaceutical: 300,
-    };
-  }
+  return _categoryPriorityPromise;
 }

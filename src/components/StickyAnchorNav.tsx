@@ -2,7 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const links = [
+type AnchorLink = {
+  id: string;
+  label: string;
+};
+
+const defaultLinks: AnchorLink[] = [
   { id: "description", label: "Overview" },
   { id: "specifications", label: "Specifications" },
   { id: "applications", label: "Applications" },
@@ -16,7 +21,11 @@ const links = [
   { id: "quote", label: "Get Quote" },
 ];
 
-export default function StickyAnchorNav() {
+export default function StickyAnchorNav({
+  links = defaultLinks,
+}: {
+  links?: AnchorLink[];
+}) {
   const [navbarHidden, setNavbarHidden] = useState(false);
   const lastScrollY = useRef(0);
 

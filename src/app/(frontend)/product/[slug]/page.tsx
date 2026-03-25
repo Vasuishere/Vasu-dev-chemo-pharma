@@ -15,9 +15,8 @@ import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 import FAQSchema from "@/components/seo/FAQSchema";
 import { getProductSeoKeywords } from "@/lib/product-seo-keywords";
 import { PRODUCT_META_OVERRIDES } from "@/lib/seo/product-meta-overrides";
-import { MEA_TRIAZINE_SYNONYMS, MMA_TRIAZINE_SYNONYMS } from "@/lib/seo/product-synonyms";
 import { PRODUCT_STATIC_DOCUMENTS } from "@/lib/seo/product-documents";
-import { PRODUCT_FALLBACK_FAQS } from "@/lib/seo/product-faqs";
+import { PRODUCT_FALLBACK_FAQS, PRODUCT_PAGE_FAQS } from "@/lib/seo/product-faqs";
 import {
   MEA_TRIAZINE_SLUG,
   MEA_TRIAZINE_COMPARISON,
@@ -25,6 +24,20 @@ import {
   MEA_TRIAZINE_METADATA,
   MEA_TRIAZINE_OG_LOCALES,
 } from "@/lib/seo/mea-triazine-schema-data";
+import { COUNTRY_PAGES_DATA } from "@/lib/seo/country-pages-data";
+import { COMPETITOR_PAGES_DATA } from "@/lib/seo/competitor-comparison-data";
+import { APPLICATION_PAGES_DATA } from "@/lib/seo/application-pages-data";
+import { RESOURCE_ARTICLES_DATA } from "@/lib/seo/resource-articles-data";
+import {
+  buildApplicationPagePath,
+  buildComparisonPagePath,
+  buildCountryPagePath,
+  buildResourceArticlePath,
+  FEATURED_APPLICATION_SLUGS,
+  FEATURED_COMPARISON_SLUGS,
+  FEATURED_COUNTRY_SLUGS,
+  FEATURED_RESOURCE_SLUGS,
+} from "@/lib/seo/seo-route-helpers";
 
 /* ─── ISR: revalidate product pages every hour ──────────────── */
 export const revalidate = 3600;
@@ -178,18 +191,22 @@ export default async function ProductDetailPage({
   if (!product) notFound();
 
   const isMeaTriazine = slug === MEA_TRIAZINE_SLUG;
-  const isMmaTriazine = slug === "mma-triazine-40";
-  const synonymData = isMeaTriazine
-    ? MEA_TRIAZINE_SYNONYMS
-    : isMmaTriazine
-    ? MMA_TRIAZINE_SYNONYMS
-    : null;
+  const synonymData: {
+    intro: string;
+    groups: { heading: string; items: string[] }[];
+    casNote?: string;
+    closingText: string;
+  } = {
+    intro: "",
+    groups: [],
+    closingText: "",
+  };
   const staticDocs = PRODUCT_STATIC_DOCUMENTS[slug] ?? [];
-  // Use CMS FAQs when available; fall back to hardcoded FAQs for key products
+  const productPageFaqs = PRODUCT_PAGE_FAQS[slug] ?? PRODUCT_FALLBACK_FAQS[slug] ?? [];
   const faqItems =
     product.faqs.length > 0
-      ? product.faqs
-      : (PRODUCT_FALLBACK_FAQS[slug] ?? []);
+      ? product.faqs.slice(0, 6)
+      : productPageFaqs;
   const categoryLabel = CATEGORY_LABELS[product.category];
   const relatedProducts = await getRelatedProducts(
     product.slug,
@@ -205,6 +222,33 @@ export default async function ProductDetailPage({
   });
   const sdsSourceUrl = sdsDocument?.fileUrl || product.documentUrl || "";
   const sdsPreviewUrl = sdsSourceUrl ? toGoogleDrivePreviewUrl(sdsSourceUrl) : "";
+  const featuredCountryPages = FEATURED_COUNTRY_SLUGS
+    .map((countrySlug) => COUNTRY_PAGES_DATA[countrySlug])
+    .filter(Boolean);
+  const featuredComparisonPages = FEATURED_COMPARISON_SLUGS
+    .map((comparisonSlug) => COMPETITOR_PAGES_DATA[comparisonSlug])
+    .filter(Boolean);
+  const featuredApplicationPages = FEATURED_APPLICATION_SLUGS
+    .map((applicationSlug) => APPLICATION_PAGES_DATA[applicationSlug])
+    .filter(Boolean);
+  const featuredResourcePages = FEATURED_RESOURCE_SLUGS
+    .map((resourceSlug) => RESOURCE_ARTICLES_DATA[resourceSlug])
+    .filter(Boolean);
+  const anchorLinks = isMeaTriazine
+    ? [
+        { id: "description", label: "Overview" },
+        { id: "specifications", label: "Specifications" },
+        { id: "applications", label: "Applications" },
+        { id: "safety", label: "Safety & Compliance" },
+        { id: "packaging", label: "Packaging & Grades" },
+        { id: "documents", label: "Documents" },
+        { id: "markets", label: "Global Supply" },
+        { id: "comparison", label: "Compare" },
+        { id: "resources", label: "Resources" },
+        { id: "faq", label: "FAQ" },
+        { id: "quote", label: "Get Quote" },
+      ]
+    : undefined;
 
   return (
     <>
@@ -401,7 +445,7 @@ export default async function ProductDetailPage({
           </section>
 
           {/* ─── ANCHOR NAV (jump links for long page) ──────────────── */}
-          <StickyAnchorNav />
+          <StickyAnchorNav links={anchorLinks} />
 
           {/* ─── 3. PRODUCT DESCRIPTION / OVERVIEW ──────────────────── */}
           <section id="description" className="mb-16">
@@ -418,7 +462,7 @@ export default async function ProductDetailPage({
           </section>
 
           {/* ─── 3b. ALSO KNOWN AS / SYNONYMS (MEA + MMA Triazine) ───── */}
-          {synonymData && (
+          {false && (
             <section id="synonyms" className="mb-16">
               <h2 className="font-heading text-h3 text-primary mb-4">
                 Also Known As / Synonyms / Trade Names
@@ -555,6 +599,27 @@ export default async function ProductDetailPage({
                 )}
               </div>
             </div>
+            {isMeaTriazine && (
+              <div className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-2">
+                {featuredApplicationPages.map((application) => (
+                  <Link
+                    key={application.slug}
+                    href={buildApplicationPagePath(application.slug)}
+                    className="rounded-2xl border border-gray-200 bg-light p-5 transition-all hover:border-accent/40 hover:shadow-md"
+                  >
+                    <p className="text-xs font-semibold uppercase tracking-wide text-accent">
+                      Use-case guide
+                    </p>
+                    <h3 className="font-heading text-h5 text-primary mt-2">
+                      {application.h1}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-gray-600">
+                      {application.description}
+                    </p>
+                  </Link>
+                ))}
+              </div>
+            )}
           </section>
 
           {/* ─── 6. SAFETY & COMPLIANCE ──────────────────────────────── */}
@@ -766,11 +831,55 @@ export default async function ProductDetailPage({
           </section>
 
           {/* ─── 10. SHIPPING & EXPORT INFO ──────────────────────────── */}
-          <section className="mb-16">
+          <section id={isMeaTriazine ? "markets" : undefined} className="mb-16">
             <h2 className="font-heading text-h3 text-primary mb-6">
-              Shipping & Export Information
+              {isMeaTriazine ? "Global Supply & Delivery" : "Shipping & Export Information"}
             </h2>
-            <ContentPlaceholder label="Shipping & export details — Export-ready packaging, nearest ports (Kandla, Mundra, Hazira), shipping lead time, Incoterms offered (FOB, CIF, CFR), countries exported to, customs documentation support, HS code for this product." />
+            {isMeaTriazine ? (
+              <>
+                <p className="max-w-3xl text-sm leading-relaxed text-gray-600 mb-6">
+                  Delivery timelines, ports, local brand references, and import
+                  documentation now live on dedicated market pages so this
+                  product page can stay focused on specifications and buying
+                  actions.
+                </p>
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+                  {featuredCountryPages.map((country) => (
+                    <Link
+                      key={country.slug}
+                      href={buildCountryPagePath(country.slug)}
+                      className="rounded-2xl border border-gray-200 bg-light p-5 transition-all hover:border-accent/40 hover:shadow-md"
+                    >
+                      <div className="flex items-center justify-between gap-3">
+                        <p className="text-2xl" aria-hidden="true">
+                          {country.flag}
+                        </p>
+                        <span className="rounded-full bg-white px-3 py-1 text-xs font-semibold uppercase tracking-wide text-accent">
+                          {country.regionLabel}
+                        </span>
+                      </div>
+                      <h3 className="font-heading text-h5 text-primary mt-4">
+                        {country.countryName}
+                      </h3>
+                      <p className="mt-2 text-sm text-gray-600">{country.logistics.port}</p>
+                      <p className="mt-1 text-sm font-medium text-primary">
+                        Transit: {country.logistics.transitDays}
+                      </p>
+                    </Link>
+                  ))}
+                </div>
+                <div className="mt-6">
+                  <Link
+                    href="/supply/mea-triazine-78"
+                    className="inline-flex items-center gap-2 rounded-full border border-accent px-5 py-3 text-sm font-semibold text-accent transition-colors hover:bg-accent/10"
+                  >
+                    Explore all market pages
+                  </Link>
+                </div>
+              </>
+            ) : (
+              <ContentPlaceholder label="Shipping & export details — Export-ready packaging, nearest ports (Kandla, Mundra, Hazira), shipping lead time, Incoterms offered (FOB, CIF, CFR), countries exported to, customs documentation support, HS code for this product." />
+            )}
           </section>
 
           {/* ─── 11. FAQ SECTION ─────────────────────────────────────── */}
@@ -828,7 +937,7 @@ export default async function ProductDetailPage({
           )}
 
           {/* ─── 13. COMPETITOR COMPARISON TABLE (MEA Triazine only) ── */}
-          {isMeaTriazine && (
+          {false && isMeaTriazine && (
             <section id="comparison" className="mb-16">
               <h2 className="font-heading text-h3 text-primary mb-6">
                 MEA Triazine 78% vs. Other H2S Scavenger Options
@@ -859,7 +968,7 @@ export default async function ProductDetailPage({
           )}
 
           {/* ─── 14. DOSING GUIDELINES (MEA Triazine only) ─────────── */}
-          {isMeaTriazine && (
+          {false && isMeaTriazine && (
             <section id="dosing" className="mb-16">
               <h2 className="font-heading text-h3 text-primary mb-6">
                 Dosing Guidelines &amp; Injection Rates
@@ -893,6 +1002,86 @@ export default async function ProductDetailPage({
           )}
 
           {/* ─── 15. REQUEST QUOTE CTA ───────────────────────────────── */}
+          {isMeaTriazine && (
+            <section id="comparison" className="mb-16">
+              <h2 className="font-heading text-h3 text-primary mb-6">
+                Compare alternatives
+              </h2>
+              <p className="max-w-3xl text-sm leading-relaxed text-gray-600 mb-6">
+                Branded alternatives, distributor offers, and marketplace
+                listings now live on dedicated comparison pages with side-by-side
+                buying context.
+              </p>
+              <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                {featuredComparisonPages.map((comparison) => (
+                  <Link
+                    key={comparison.slug}
+                    href={buildComparisonPagePath(comparison.slug)}
+                    className="rounded-2xl border border-gray-200 bg-light p-5 transition-all hover:border-accent/40 hover:shadow-md"
+                  >
+                    <p className="text-xs font-semibold uppercase tracking-wide text-accent">
+                      {comparison.competitorCompany}
+                    </p>
+                    <h3 className="font-heading text-h5 text-primary mt-2">
+                      {comparison.competitorBrand}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-gray-600">
+                      {comparison.description}
+                    </p>
+                  </Link>
+                ))}
+              </div>
+              <div className="mt-6">
+                <Link
+                  href="/compare"
+                  className="inline-flex items-center gap-2 rounded-full border border-accent px-5 py-3 text-sm font-semibold text-accent transition-colors hover:bg-accent/10"
+                >
+                  Browse all comparison pages
+                </Link>
+              </div>
+            </section>
+          )}
+
+          {isMeaTriazine && (
+            <section id="resources" className="mb-16">
+              <h2 className="font-heading text-h3 text-primary mb-6">
+                Technical resources
+              </h2>
+              <p className="max-w-3xl text-sm leading-relaxed text-gray-600 mb-6">
+                Dosing logic, solids formation, storage guidance, and reaction
+                chemistry are now separated into dedicated resource articles so
+                the product page stays focused on purchase-ready information.
+              </p>
+              <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                {featuredResourcePages.map((resource) => (
+                  <Link
+                    key={resource.slug}
+                    href={buildResourceArticlePath(resource.slug)}
+                    className="rounded-2xl border border-gray-200 bg-light p-5 transition-all hover:border-accent/40 hover:shadow-md"
+                  >
+                    <p className="text-xs font-semibold uppercase tracking-wide text-accent">
+                      {resource.category}
+                    </p>
+                    <h3 className="font-heading text-h5 text-primary mt-2">
+                      {resource.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-gray-600">
+                      {resource.description}
+                    </p>
+                  </Link>
+                ))}
+              </div>
+              <div className="mt-6">
+                <Link
+                  href="/resources"
+                  className="inline-flex items-center gap-2 rounded-full border border-accent px-5 py-3 text-sm font-semibold text-accent transition-colors hover:bg-accent/10"
+                >
+                  Browse technical resources
+                </Link>
+              </div>
+            </section>
+          )}
+
           <section id="quote" className="mb-16">
             <div className="bg-primary rounded-3xl p-10 lg:p-14 text-center">
               <h2 className="font-heading text-h3 text-white mb-4">

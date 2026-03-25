@@ -32,9 +32,9 @@ export default async function HeroSection() {
           <div>
             <SectionLabel>ISO 9001:2015 Certified Manufacturer</SectionLabel>
             <h1 className="font-heading text-[clamp(40px,5.5vw,72px)] leading-[1] font-semibold mt-8">
-              From raw{" "}
-              <span className="text-accent">chemicals</span> to global
-              exports
+              India&apos;s leading{" "}
+              <span className="text-accent">MEA Triazine 78%</span>{" "}
+              manufacturer
             </h1>
           </div>
 
@@ -44,11 +44,23 @@ export default async function HeroSection() {
               {"// 8+ YEARS OF EXCELLENCE //"}
             </p>
             <p className="text-black text-base leading-relaxed mb-8">
-              Vasudev Chemo Pharma manufactures and exports industrial &amp;
-              specialty chemicals for lubricant, oil &amp; gas, and water
-              treatment industries — direct from Gujarat, India.
+              Vasudev Chemo Pharma is a direct manufacturer of{" "}
+              <Link href="/supply/mea-triazine-78" className="text-accent font-semibold hover:underline">
+                MEA Triazine 78% H2S scavenger
+              </Link>{" "}
+              and 15+ industrial chemicals — supplying oil &amp; gas,
+              petrochemical, and water treatment industries in{" "}
+              <Link href="/supply/mea-triazine-78" className="text-accent font-semibold hover:underline">
+                14+ countries
+              </Link>{" "}
+              from Gujarat, India.
             </p>
-            <Button href="/contact">Request a quote</Button>
+            <div className="flex flex-wrap items-center gap-3">
+              <Button href="/contact">Request a quote</Button>
+              <Button href="/supply/mea-triazine-78" variant="outline">
+                MEA Triazine 78%
+              </Button>
+            </div>
           </div>
         </div>
 

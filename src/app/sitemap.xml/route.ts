@@ -2,6 +2,16 @@ import { NextResponse } from "next/server";
 import { getAllProductSlugs } from "@/lib/products-payload";
 import { getAllProductSlugs as getStaticProductSlugs } from "@/lib/products";
 import { blogData } from "@/app/(frontend)/blog/[slug]/seo-blog-data";
+import { COUNTRY_SLUGS } from "@/lib/seo/country-pages-data";
+import { COMPETITOR_SLUGS } from "@/lib/seo/competitor-comparison-data";
+import { APPLICATION_SLUGS } from "@/lib/seo/application-pages-data";
+import { RESOURCE_SLUGS } from "@/lib/seo/resource-articles-data";
+import {
+  buildApplicationPagePath,
+  buildComparisonPagePath,
+  buildCountryPagePath,
+  buildResourceArticlePath,
+} from "@/lib/seo/seo-route-helpers";
 
 const SITE_URL = "https://www.vasudevchemopharma.com";
 export const dynamic = "force-dynamic";
@@ -42,6 +52,10 @@ const STATIC_ROUTES: RouteConfig[] = [
   { path: "/case-study", changeFrequency: "monthly", priority: 0.6 },
   { path: "/how-h2s-scavengers-work", changeFrequency: "monthly", priority: 0.8 },
   { path: "/mea-triazine-vs-mma-triazine", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/supply/mea-triazine-78", changeFrequency: "weekly", priority: 0.85 },
+  { path: "/compare", changeFrequency: "weekly", priority: 0.8 },
+  { path: "/applications", changeFrequency: "weekly", priority: 0.8 },
+  { path: "/resources", changeFrequency: "weekly", priority: 0.75 },
   { path: "/legal/privacy-policy", changeFrequency: "yearly", priority: 0.3 },
 ];
 
@@ -161,6 +175,18 @@ export async function GET() {
     ),
     ...INDUSTRY_SLUGS.map((slug) =>
       buildEntry(`/industries/${slug}`, "monthly", 0.85, now)
+    ),
+    ...COUNTRY_SLUGS.map((slug) =>
+      buildEntry(buildCountryPagePath(slug), "weekly", 0.85, now)
+    ),
+    ...COMPETITOR_SLUGS.map((slug) =>
+      buildEntry(buildComparisonPagePath(slug), "monthly", 0.8, now)
+    ),
+    ...APPLICATION_SLUGS.map((slug) =>
+      buildEntry(buildApplicationPagePath(slug), "monthly", 0.8, now)
+    ),
+    ...RESOURCE_SLUGS.map((slug) =>
+      buildEntry(buildResourceArticlePath(slug), "monthly", 0.75, now)
     ),
   ];
 

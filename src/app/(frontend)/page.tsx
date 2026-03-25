@@ -5,23 +5,24 @@ import ServicesSection from "@/components/home/ServicesSection";
 import ProductsSection from "@/components/home/ProductsSection";
 import IndustriesSection from "@/components/home/IndustriesSection";
 import WhyChooseSection from "@/components/home/WhyChooseSection";
+import GlobalSupplySection from "@/components/home/GlobalSupplySection";
 import BlogSection from "@/components/home/BlogSection";
 import OrganizationSchema from "@/components/seo/OrganizationSchema";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
 export const metadata: Metadata = {
   title:
-    "Vasudev Chemo Pharma — Industrial & Specialty Chemical Manufacturer",
+    "Vasudev Chemo Pharma — India's Leading MEA Triazine 78% Manufacturer",
   description:
-    "ISO 9001:2015 certified manufacturer of industrial chemicals, specialty chemicals & pharmaceutical intermediates from Gujarat, India. Request a quote.",
+    "Direct manufacturer of MEA Triazine 78% H2S scavenger. ISO 9001:2015 certified. Factory pricing. Supplying oil & gas, petrochemical & water treatment industries in 14+ countries from Gujarat, India.",
   alternates: {
     canonical: "https://www.vasudevchemopharma.com",
   },
   openGraph: {
     title:
-      "Vasudev Chemo Pharma — Industrial & Specialty Chemical Manufacturer",
+      "Vasudev Chemo Pharma — India's Leading MEA Triazine 78% Manufacturer",
     description:
-      "ISO 9001:2015 certified manufacturer and global exporter of 15+ industrial chemicals from Gujarat, India.",
+      "Direct manufacturer of MEA Triazine 78% H2S scavenger. ISO 9001:2015 certified. Factory pricing. Supplying 14+ countries from Gujarat, India.",
     url: "https://www.vasudevchemopharma.com",
   },
 };
@@ -56,6 +57,7 @@ export default function HomePage() {
         <ProductsSection />
         <IndustriesSection />
         <WhyChooseSection />
+        <GlobalSupplySection />
         <BlogSection />
       </main>
     </>

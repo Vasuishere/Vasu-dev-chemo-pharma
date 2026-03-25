@@ -1,5 +1,13 @@
 import { getPayload } from "./payload";
 
+/**
+ * Canonical brochure URL — hosted on Vercel Blob (fast, crawlable).
+ * Title: "Vasudev Chemo Pharma — Chemical Manufacturer & Exporter — Product Catalogue 2025"
+ * Update this constant if the file is ever re-uploaded to a new location.
+ */
+export const BROCHURE_URL =
+  "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Vasudev/Vasudev%20Chemo%20Pharma%20Brochure.pdf";
+
 type PhoneNumber = {
   label: string;
   number: string;
@@ -46,7 +54,7 @@ function toCompanyInfo(doc: any): CompanyInfoData {
     phoneNumbers,
     address: doc?.address || "",
     mapUrl: doc?.mapUrl || "",
-    brochureUrl: doc?.brochureUrl || "",
+    brochureUrl: doc?.brochureUrl || BROCHURE_URL,
     yearsOfExperience:
       typeof doc?.yearsOfExperience === "number"
         ? doc.yearsOfExperience
@@ -65,13 +73,25 @@ function toCompanyInfo(doc: any): CompanyInfoData {
 
 import { cache } from "react";
 
+// Build-level singleton: during SSG Next.js generates many pages concurrently,
+// each calling getCompanyInfo. React.cache() only deduplicates within a single
+// request, so without this the DB pool is exhausted. This promise is shared
+// across all concurrent page renders within the same process.
+let _companyInfoPromise: Promise<CompanyInfoData> | null = null;
+
 export const getCompanyInfo = cache(async function getCompanyInfo(): Promise<CompanyInfoData> {
-  try {
-    const payload = await getPayload();
-    const data = await payload.findGlobal({ slug: "company-info" });
-    return toCompanyInfo(data);
-  } catch (error) {
-    console.error("[getCompanyInfo] Error fetching company-info:", error);
-    return toCompanyInfo(null);
-  }
+  if (_companyInfoPromise) return _companyInfoPromise;
+
+  _companyInfoPromise = (async () => {
+    try {
+      const payload = await getPayload();
+      const data = await payload.findGlobal({ slug: "company-info" });
+      return toCompanyInfo(data);
+    } catch (error) {
+      console.error("[getCompanyInfo] Error fetching company-info:", error);
+      return toCompanyInfo(null);
+    }
+  })();
+
+  return _companyInfoPromise;
 });

@@ -14,6 +14,9 @@ import ProductSchema from "@/components/seo/ProductSchema";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 import FAQSchema from "@/components/seo/FAQSchema";
 import { getProductSeoKeywords } from "@/lib/product-seo-keywords";
+import { PRODUCT_META_OVERRIDES } from "@/lib/seo/product-meta-overrides";
+import { PRODUCT_STATIC_DOCUMENTS } from "@/lib/seo/product-documents";
+import { PRODUCT_FALLBACK_FAQS, PRODUCT_PAGE_FAQS } from "@/lib/seo/product-faqs";
 import {
   MEA_TRIAZINE_SLUG,
   MEA_TRIAZINE_COMPARISON,
@@ -21,6 +24,20 @@ import {
   MEA_TRIAZINE_METADATA,
   MEA_TRIAZINE_OG_LOCALES,
 } from "@/lib/seo/mea-triazine-schema-data";
+import { COUNTRY_PAGES_DATA } from "@/lib/seo/country-pages-data";
+import { COMPETITOR_PAGES_DATA } from "@/lib/seo/competitor-comparison-data";
+import { APPLICATION_PAGES_DATA } from "@/lib/seo/application-pages-data";
+import { RESOURCE_ARTICLES_DATA } from "@/lib/seo/resource-articles-data";
+import {
+  buildApplicationPagePath,
+  buildComparisonPagePath,
+  buildCountryPagePath,
+  buildResourceArticlePath,
+  FEATURED_APPLICATION_SLUGS,
+  FEATURED_COMPARISON_SLUGS,
+  FEATURED_COUNTRY_SLUGS,
+  FEATURED_RESOURCE_SLUGS,
+} from "@/lib/seo/seo-route-helpers";
 
 /* ─── ISR: revalidate product pages every hour ──────────────── */
 export const revalidate = 3600;
@@ -45,16 +62,19 @@ export async function generateMetadata({
     if (!product) return {};
 
     const isMeaTriazine = slug === MEA_TRIAZINE_SLUG;
+    const metaOverride = PRODUCT_META_OVERRIDES[slug];
 
     const title = isMeaTriazine
       ? MEA_TRIAZINE_METADATA.title
-      : product.metaTitle ||
-      `${product.name}${product.casNumber ? ` (CAS ${product.casNumber})` : ""} — ${CATEGORY_LABELS[product.category]} | Vasudev Chemo Pharma`;
+      : metaOverride?.title ||
+        product.metaTitle ||
+        `${product.name}${product.casNumber ? ` (CAS ${product.casNumber})` : ""} — ${CATEGORY_LABELS[product.category]} | Vasudev Chemo Pharma`;
 
     const description = isMeaTriazine
       ? "MEA Triazine 78% (CAS 4719-04-4) — H2S scavenger for oil & gas, wastewater & biogas. Drum, IBC & bulk supply from India."
-      : product.metaDescription ||
-      `Buy ${product.name}${product.casNumber ? ` (CAS ${product.casNumber})` : ""} from Vasudev Chemo Pharma — ISO 9001:2015 certified manufacturer in Gujarat, India. Export-ready packaging. Request a quote today.`;
+      : metaOverride?.description ||
+        product.metaDescription ||
+        `Buy ${product.name}${product.casNumber ? ` (CAS ${product.casNumber})` : ""} from Vasudev Chemo Pharma — ISO 9001:2015 certified manufacturer in Gujarat, India. Export-ready packaging. Request a quote today.`;
 
     const keywordConfig = getProductSeoKeywords(
       product.slug,
@@ -62,8 +82,8 @@ export async function generateMetadata({
       product.casNumber || ""
     );
 
-    const canonicalUrl = `https://www.Vasudevchemopharma.com/product/${product.slug}`;
-    const ogImageUrl = product.imageUrl || "https://www.Vasudevchemopharma.com/images/og-default.webp";
+    const canonicalUrl = `https://www.vasudevchemopharma.com/product/${product.slug}`;
+    const ogImageUrl = product.imageUrl || "https://www.vasudevchemopharma.com/images/og-default.webp";
     const resolvedDescription = isMeaTriazine
       ? MEA_TRIAZINE_METADATA.description
       : description;
@@ -171,6 +191,22 @@ export default async function ProductDetailPage({
   if (!product) notFound();
 
   const isMeaTriazine = slug === MEA_TRIAZINE_SLUG;
+  const synonymData: {
+    intro: string;
+    groups: { heading: string; items: string[] }[];
+    casNote?: string;
+    closingText: string;
+  } = {
+    intro: "",
+    groups: [],
+    closingText: "",
+  };
+  const staticDocs = PRODUCT_STATIC_DOCUMENTS[slug] ?? [];
+  const productPageFaqs = PRODUCT_PAGE_FAQS[slug] ?? PRODUCT_FALLBACK_FAQS[slug] ?? [];
+  const faqItems =
+    product.faqs.length > 0
+      ? product.faqs.slice(0, 6)
+      : productPageFaqs;
   const categoryLabel = CATEGORY_LABELS[product.category];
   const relatedProducts = await getRelatedProducts(
     product.slug,
@@ -186,24 +222,51 @@ export default async function ProductDetailPage({
   });
   const sdsSourceUrl = sdsDocument?.fileUrl || product.documentUrl || "";
   const sdsPreviewUrl = sdsSourceUrl ? toGoogleDrivePreviewUrl(sdsSourceUrl) : "";
+  const featuredCountryPages = FEATURED_COUNTRY_SLUGS
+    .map((countrySlug) => COUNTRY_PAGES_DATA[countrySlug])
+    .filter(Boolean);
+  const featuredComparisonPages = FEATURED_COMPARISON_SLUGS
+    .map((comparisonSlug) => COMPETITOR_PAGES_DATA[comparisonSlug])
+    .filter(Boolean);
+  const featuredApplicationPages = FEATURED_APPLICATION_SLUGS
+    .map((applicationSlug) => APPLICATION_PAGES_DATA[applicationSlug])
+    .filter(Boolean);
+  const featuredResourcePages = FEATURED_RESOURCE_SLUGS
+    .map((resourceSlug) => RESOURCE_ARTICLES_DATA[resourceSlug])
+    .filter(Boolean);
+  const anchorLinks = isMeaTriazine
+    ? [
+        { id: "description", label: "Overview" },
+        { id: "specifications", label: "Specifications" },
+        { id: "applications", label: "Applications" },
+        { id: "safety", label: "Safety & Compliance" },
+        { id: "packaging", label: "Packaging & Grades" },
+        { id: "documents", label: "Documents" },
+        { id: "markets", label: "Global Supply" },
+        { id: "comparison", label: "Compare" },
+        { id: "resources", label: "Resources" },
+        { id: "faq", label: "FAQ" },
+        { id: "quote", label: "Get Quote" },
+      ]
+    : undefined;
 
   return (
     <>
       <ProductSchema product={product} />
-      <FAQSchema items={product.faqs} />
+      <FAQSchema items={faqItems} />
       <BreadcrumbSchema
         items={
           isMeaTriazine
             ? [
-              { name: "Home", url: "https://www.Vasudevchemopharma.com" },
-              { name: "Chemicals", url: "https://www.Vasudevchemopharma.com/product" },
-              { name: "H2S Scavengers", url: "https://www.Vasudevchemopharma.com/product?category=industrial" },
-              { name: "MEA Triazine 78% H2S Scavenger", url: `https://www.Vasudevchemopharma.com/product/${product.slug}` },
+              { name: "Home", url: "https://www.vasudevchemopharma.com" },
+              { name: "Chemicals", url: "https://www.vasudevchemopharma.com/product" },
+              { name: "H2S Scavengers", url: "https://www.vasudevchemopharma.com/product?category=industrial" },
+              { name: "MEA Triazine 78% H2S Scavenger", url: `https://www.vasudevchemopharma.com/product/${product.slug}` },
             ]
             : [
-              { name: "Home", url: "https://www.Vasudevchemopharma.com" },
-              { name: "Products", url: "https://www.Vasudevchemopharma.com/product" },
-              { name: product.name, url: `https://www.Vasudevchemopharma.com/product/${product.slug}` },
+              { name: "Home", url: "https://www.vasudevchemopharma.com" },
+              { name: "Products", url: "https://www.vasudevchemopharma.com/product" },
+              { name: product.name, url: `https://www.vasudevchemopharma.com/product/${product.slug}` },
             ]
         }
       />
@@ -360,18 +423,29 @@ export default async function ProductDetailPage({
                 </table>
               </div>
 
-              {/* CTA — Request Quote */}
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark transition-colors text-white text-sm font-medium px-8 py-4 rounded-full"
-              >
-                Request a Quote for {product.name}
-              </Link>
+              {/* CTA — Request Quote + Free Sample */}
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href={`/contact?product=${product.slug}`}
+                  className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark transition-colors text-white text-sm font-medium px-8 py-4 rounded-full"
+                >
+                  Request a Quote for {product.name}
+                </Link>
+                <Link
+                  href={`/contact?product=${product.slug}&type=sample`}
+                  className="inline-flex items-center gap-2 border border-accent text-accent hover:bg-accent/10 transition-colors text-sm font-medium px-8 py-4 rounded-full"
+                >
+                  Request Free Sample →
+                </Link>
+              </div>
+              <p className="text-xs text-gray-400 mt-2">
+                Export: 1 MT minimum order &nbsp;·&nbsp; Domestic: 220 kg minimum order
+              </p>
             </div>
           </section>
 
           {/* ─── ANCHOR NAV (jump links for long page) ──────────────── */}
-          <StickyAnchorNav />
+          <StickyAnchorNav links={anchorLinks} />
 
           {/* ─── 3. PRODUCT DESCRIPTION / OVERVIEW ──────────────────── */}
           <section id="description" className="mb-16">
@@ -386,6 +460,48 @@ export default async function ProductDetailPage({
               <ContentPlaceholder label="Product description — 2-3 paragraphs covering what the product is, how it is manufactured, key benefits, and why buyers should choose Vasudev as supplier. Should include the product name, formula, and CAS number naturally for SEO." />
             )}
           </section>
+
+          {/* ─── 3b. ALSO KNOWN AS / SYNONYMS (MEA + MMA Triazine) ───── */}
+          {false && (
+            <section id="synonyms" className="mb-16">
+              <h2 className="font-heading text-h3 text-primary mb-4">
+                Also Known As / Synonyms / Trade Names
+              </h2>
+              <p className="text-gray-600 mb-6">{synonymData.intro}</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {synonymData.groups.map((group) => (
+                  <div key={group.heading} className="border border-gray-200 rounded-2xl p-6">
+                    <h3 className="font-heading text-h5 text-primary mb-4">{group.heading}</h3>
+                    <ul className="space-y-2">
+                      {group.items.map((item) => (
+                        <li key={item} className="flex items-start gap-2 text-sm text-gray-700">
+                          <span className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0 mt-1.5" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+              {synonymData.casNote && (
+                <p className="mt-6 text-sm font-semibold text-primary">{synonymData.casNote}</p>
+              )}
+              <p className="mt-3 text-sm text-gray-600 max-w-2xl">
+                {synonymData.closingText.split("Contact us").map((part, i, arr) =>
+                  i < arr.length - 1 ? (
+                    <span key={i}>
+                      {part}
+                      <Link href="/contact" className="text-accent hover:underline font-medium">
+                        Contact us
+                      </Link>
+                    </span>
+                  ) : (
+                    <span key={i}>{part}</span>
+                  )
+                )}
+              </p>
+            </section>
+          )}
 
           {/* ─── 4. TECHNICAL SPECIFICATIONS ─────────────────────────── */}
           <section id="specifications" className="mb-16">
@@ -483,6 +599,27 @@ export default async function ProductDetailPage({
                 )}
               </div>
             </div>
+            {isMeaTriazine && (
+              <div className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-2">
+                {featuredApplicationPages.map((application) => (
+                  <Link
+                    key={application.slug}
+                    href={buildApplicationPagePath(application.slug)}
+                    className="rounded-2xl border border-gray-200 bg-light p-5 transition-all hover:border-accent/40 hover:shadow-md"
+                  >
+                    <p className="text-xs font-semibold uppercase tracking-wide text-accent">
+                      Use-case guide
+                    </p>
+                    <h3 className="font-heading text-h5 text-primary mt-2">
+                      {application.h1}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-gray-600">
+                      {application.description}
+                    </p>
+                  </Link>
+                ))}
+              </div>
+            )}
           </section>
 
           {/* ─── 6. SAFETY & COMPLIANCE ──────────────────────────────── */}
@@ -633,8 +770,27 @@ export default async function ProductDetailPage({
             <h2 className="font-heading text-h3 text-primary mb-6">
               Documents & Downloads
             </h2>
-            {safeDocuments.length > 0 || product.documentUrl ? (
+            {staticDocs.length > 0 || safeDocuments.length > 0 || product.documentUrl ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {/* Hardcoded TDS / MSDS from Vercel Blob */}
+                {staticDocs.map((doc) => (
+                  <a
+                    key={doc.url}
+                    href={doc.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="border border-accent/40 bg-accent/5 rounded-2xl p-5 hover:border-accent hover:bg-accent/10 transition-all flex items-center gap-4"
+                  >
+                    <svg className="w-8 h-8 text-accent flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                    </svg>
+                    <div>
+                      <p className="text-sm font-semibold text-primary">{doc.label}</p>
+                      <p className="text-xs text-accent font-semibold uppercase">{doc.docType} — Download PDF</p>
+                    </div>
+                  </a>
+                ))}
+                {/* CMS documents */}
                 {product.documentUrl && (
                   <a
                     href={toGoogleDrivePreviewUrl(product.documentUrl)}
@@ -675,11 +831,55 @@ export default async function ProductDetailPage({
           </section>
 
           {/* ─── 10. SHIPPING & EXPORT INFO ──────────────────────────── */}
-          <section className="mb-16">
+          <section id={isMeaTriazine ? "markets" : undefined} className="mb-16">
             <h2 className="font-heading text-h3 text-primary mb-6">
-              Shipping & Export Information
+              {isMeaTriazine ? "Global Supply & Delivery" : "Shipping & Export Information"}
             </h2>
-            <ContentPlaceholder label="Shipping & export details — Export-ready packaging, nearest ports (Kandla, Mundra, Hazira), shipping lead time, Incoterms offered (FOB, CIF, CFR), countries exported to, customs documentation support, HS code for this product." />
+            {isMeaTriazine ? (
+              <>
+                <p className="max-w-3xl text-sm leading-relaxed text-gray-600 mb-6">
+                  Delivery timelines, ports, local brand references, and import
+                  documentation now live on dedicated market pages so this
+                  product page can stay focused on specifications and buying
+                  actions.
+                </p>
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+                  {featuredCountryPages.map((country) => (
+                    <Link
+                      key={country.slug}
+                      href={buildCountryPagePath(country.slug)}
+                      className="rounded-2xl border border-gray-200 bg-light p-5 transition-all hover:border-accent/40 hover:shadow-md"
+                    >
+                      <div className="flex items-center justify-between gap-3">
+                        <p className="text-2xl" aria-hidden="true">
+                          {country.flag}
+                        </p>
+                        <span className="rounded-full bg-white px-3 py-1 text-xs font-semibold uppercase tracking-wide text-accent">
+                          {country.regionLabel}
+                        </span>
+                      </div>
+                      <h3 className="font-heading text-h5 text-primary mt-4">
+                        {country.countryName}
+                      </h3>
+                      <p className="mt-2 text-sm text-gray-600">{country.logistics.port}</p>
+                      <p className="mt-1 text-sm font-medium text-primary">
+                        Transit: {country.logistics.transitDays}
+                      </p>
+                    </Link>
+                  ))}
+                </div>
+                <div className="mt-6">
+                  <Link
+                    href="/supply/mea-triazine-78"
+                    className="inline-flex items-center gap-2 rounded-full border border-accent px-5 py-3 text-sm font-semibold text-accent transition-colors hover:bg-accent/10"
+                  >
+                    Explore all market pages
+                  </Link>
+                </div>
+              </>
+            ) : (
+              <ContentPlaceholder label="Shipping & export details — Export-ready packaging, nearest ports (Kandla, Mundra, Hazira), shipping lead time, Incoterms offered (FOB, CIF, CFR), countries exported to, customs documentation support, HS code for this product." />
+            )}
           </section>
 
           {/* ─── 11. FAQ SECTION ─────────────────────────────────────── */}
@@ -687,9 +887,9 @@ export default async function ProductDetailPage({
             <h2 className="font-heading text-h3 text-primary mb-6">
               Frequently Asked Questions
             </h2>
-            {product.faqs.length > 0 ? (
+            {faqItems.length > 0 ? (
               <div className="space-y-4">
-                {product.faqs.map((faq) => (
+                {faqItems.map((faq) => (
                   <details
                     key={faq.question}
                     className="border border-gray-200 rounded-2xl overflow-hidden group"
@@ -737,7 +937,7 @@ export default async function ProductDetailPage({
           )}
 
           {/* ─── 13. COMPETITOR COMPARISON TABLE (MEA Triazine only) ── */}
-          {isMeaTriazine && (
+          {false && isMeaTriazine && (
             <section id="comparison" className="mb-16">
               <h2 className="font-heading text-h3 text-primary mb-6">
                 MEA Triazine 78% vs. Other H2S Scavenger Options
@@ -768,7 +968,7 @@ export default async function ProductDetailPage({
           )}
 
           {/* ─── 14. DOSING GUIDELINES (MEA Triazine only) ─────────── */}
-          {isMeaTriazine && (
+          {false && isMeaTriazine && (
             <section id="dosing" className="mb-16">
               <h2 className="font-heading text-h3 text-primary mb-6">
                 Dosing Guidelines &amp; Injection Rates
@@ -802,6 +1002,86 @@ export default async function ProductDetailPage({
           )}
 
           {/* ─── 15. REQUEST QUOTE CTA ───────────────────────────────── */}
+          {isMeaTriazine && (
+            <section id="comparison" className="mb-16">
+              <h2 className="font-heading text-h3 text-primary mb-6">
+                Compare alternatives
+              </h2>
+              <p className="max-w-3xl text-sm leading-relaxed text-gray-600 mb-6">
+                Branded alternatives, distributor offers, and marketplace
+                listings now live on dedicated comparison pages with side-by-side
+                buying context.
+              </p>
+              <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                {featuredComparisonPages.map((comparison) => (
+                  <Link
+                    key={comparison.slug}
+                    href={buildComparisonPagePath(comparison.slug)}
+                    className="rounded-2xl border border-gray-200 bg-light p-5 transition-all hover:border-accent/40 hover:shadow-md"
+                  >
+                    <p className="text-xs font-semibold uppercase tracking-wide text-accent">
+                      {comparison.competitorCompany}
+                    </p>
+                    <h3 className="font-heading text-h5 text-primary mt-2">
+                      {comparison.competitorBrand}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-gray-600">
+                      {comparison.description}
+                    </p>
+                  </Link>
+                ))}
+              </div>
+              <div className="mt-6">
+                <Link
+                  href="/compare"
+                  className="inline-flex items-center gap-2 rounded-full border border-accent px-5 py-3 text-sm font-semibold text-accent transition-colors hover:bg-accent/10"
+                >
+                  Browse all comparison pages
+                </Link>
+              </div>
+            </section>
+          )}
+
+          {isMeaTriazine && (
+            <section id="resources" className="mb-16">
+              <h2 className="font-heading text-h3 text-primary mb-6">
+                Technical resources
+              </h2>
+              <p className="max-w-3xl text-sm leading-relaxed text-gray-600 mb-6">
+                Dosing logic, solids formation, storage guidance, and reaction
+                chemistry are now separated into dedicated resource articles so
+                the product page stays focused on purchase-ready information.
+              </p>
+              <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                {featuredResourcePages.map((resource) => (
+                  <Link
+                    key={resource.slug}
+                    href={buildResourceArticlePath(resource.slug)}
+                    className="rounded-2xl border border-gray-200 bg-light p-5 transition-all hover:border-accent/40 hover:shadow-md"
+                  >
+                    <p className="text-xs font-semibold uppercase tracking-wide text-accent">
+                      {resource.category}
+                    </p>
+                    <h3 className="font-heading text-h5 text-primary mt-2">
+                      {resource.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-gray-600">
+                      {resource.description}
+                    </p>
+                  </Link>
+                ))}
+              </div>
+              <div className="mt-6">
+                <Link
+                  href="/resources"
+                  className="inline-flex items-center gap-2 rounded-full border border-accent px-5 py-3 text-sm font-semibold text-accent transition-colors hover:bg-accent/10"
+                >
+                  Browse technical resources
+                </Link>
+              </div>
+            </section>
+          )}
+
           <section id="quote" className="mb-16">
             <div className="bg-primary rounded-3xl p-10 lg:p-14 text-center">
               <h2 className="font-heading text-h3 text-white mb-4">
@@ -812,7 +1092,7 @@ export default async function ProductDetailPage({
                 technical data sheet. Our team responds within 24 hours.
               </p>
               <Link
-                href="/contact"
+                href={`/contact?product=${encodeURIComponent(product.slug)}`}
                 id="request-quote-btn"
                 className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark transition-colors text-white text-sm font-medium px-8 py-4 rounded-full"
               >

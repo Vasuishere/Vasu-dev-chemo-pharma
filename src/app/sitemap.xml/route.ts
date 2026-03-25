@@ -1,32 +1,72 @@
 import { NextResponse } from "next/server";
 import { getAllProductSlugs } from "@/lib/products-payload";
 import { getAllProductSlugs as getStaticProductSlugs } from "@/lib/products";
+import { blogData } from "@/app/(frontend)/blog/[slug]/seo-blog-data";
+import { COUNTRY_SLUGS } from "@/lib/seo/country-pages-data";
+import { COMPETITOR_SLUGS } from "@/lib/seo/competitor-comparison-data";
+import { APPLICATION_SLUGS } from "@/lib/seo/application-pages-data";
+import { RESOURCE_SLUGS } from "@/lib/seo/resource-articles-data";
+import {
+  buildApplicationPagePath,
+  buildComparisonPagePath,
+  buildCountryPagePath,
+  buildResourceArticlePath,
+} from "@/lib/seo/seo-route-helpers";
 
-const SITE_URL = "https://www.Vasudevchemopharma.com";
+const SITE_URL = "https://www.vasudevchemopharma.com";
 export const dynamic = "force-dynamic";
 
-/** High-priority product slugs that get a priority boost in the sitemap */
+type ChangeFrequency =
+  | "always"
+  | "hourly"
+  | "daily"
+  | "weekly"
+  | "monthly"
+  | "yearly"
+  | "never";
+
+type RouteConfig = {
+  path: string;
+  changeFrequency: ChangeFrequency;
+  priority: number;
+};
+
+type SitemapEntry = {
+  url: string;
+  lastModified: string;
+  changeFrequency: ChangeFrequency;
+  priority: number;
+};
+
 const HIGH_PRIORITY_PRODUCTS = new Set([
   "mea-triazine-78-h2s-scavenger",
 ]);
 
-const blogSlugs = [
-  "sustainable-chemical-manufacturing-greener-future-india",
-  "ai-iot-breakthroughs-chemical-manufacturing-efficiency",
-  "automation-shaping-future-chemical-manufacturing",
-  "top-5-specialty-chemicals-revolutionizing-industrial-applications",
-  "smart-factory-technology-modern-chemical-plants",
-  "3d-printing-additive-manufacturing-chemical-industry",
+const STATIC_ROUTES: RouteConfig[] = [
+  { path: "", changeFrequency: "weekly", priority: 1.0 },
+  { path: "/about", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/product", changeFrequency: "weekly", priority: 0.9 },
+  { path: "/service", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/blog", changeFrequency: "weekly", priority: 0.7 },
+  { path: "/contact", changeFrequency: "yearly", priority: 0.7 },
+  { path: "/case-study", changeFrequency: "monthly", priority: 0.6 },
+  { path: "/how-h2s-scavengers-work", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/mea-triazine-vs-mma-triazine", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/supply/mea-triazine-78", changeFrequency: "weekly", priority: 0.85 },
+  { path: "/compare", changeFrequency: "weekly", priority: 0.8 },
+  { path: "/applications", changeFrequency: "weekly", priority: 0.8 },
+  { path: "/resources", changeFrequency: "weekly", priority: 0.75 },
+  { path: "/legal/privacy-policy", changeFrequency: "yearly", priority: 0.3 },
 ];
 
-const caseStudySlugs = [
+const CASE_STUDY_SLUGS = [
   "lightweight-castings-for-industrial-equipment",
   "precision-cnc-milling-for-automotive-components",
   "additive-manufacturing-for-custom-tooling",
   "automated-assembly-line-optimization",
 ];
 
-const serviceSlugs = [
+const SERVICE_SLUGS = [
   "chemical-manufacturing",
   "import-export",
   "custom-formulation",
@@ -35,12 +75,12 @@ const serviceSlugs = [
   "bulk-contract-supply",
 ];
 
-type SitemapEntry = {
-  url: string;
-  lastModified: string;
-  changeFrequency: string;
-  priority: number;
-};
+const INDUSTRY_SLUGS = [
+  "oil-gas-h2s-scavenger",
+  "water-treatment",
+  "metal-working-fluids",
+  "paper-mill",
+];
 
 function escapeXml(value: string): string {
   return value
@@ -62,6 +102,35 @@ function buildUrlEntry(entry: SitemapEntry): string {
   ].join("\n");
 }
 
+function buildAbsoluteUrl(path: string): string {
+  return path ? `${SITE_URL}${path}` : SITE_URL;
+}
+
+function buildEntry(
+  path: string,
+  changeFrequency: ChangeFrequency,
+  priority: number,
+  lastModified: string
+): SitemapEntry {
+  return {
+    url: buildAbsoluteUrl(path),
+    lastModified,
+    changeFrequency,
+    priority,
+  };
+}
+
+function toIsoDateString(value: string | undefined): string | null {
+  if (!value) return null;
+
+  const timestamp = Date.parse(value);
+  if (Number.isNaN(timestamp)) {
+    return null;
+  }
+
+  return new Date(timestamp).toISOString();
+}
+
 export async function GET() {
   const fallbackProductSlugs = getStaticProductSlugs();
   let productSlugs: string[] = fallbackProductSlugs;
@@ -78,52 +147,53 @@ export async function GET() {
 
   const now = new Date().toISOString();
 
-  /* ── Collect all sitemap entries ───────────────────────────────── */
-  const entries: SitemapEntry[] = [
-    // Static pages
-    { url: SITE_URL, lastModified: now, changeFrequency: "weekly", priority: 1.0 },
-    { url: `${SITE_URL}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${SITE_URL}/product`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
-    { url: `${SITE_URL}/service`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${SITE_URL}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
-    { url: `${SITE_URL}/contact`, lastModified: now, changeFrequency: "yearly", priority: 0.7 },
-    { url: `${SITE_URL}/case-study`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${SITE_URL}/legal/privacy-policy`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
-
-    // Product pages (dynamic from CMS)
-    ...productSlugs.map((slug) => ({
-      url: `${SITE_URL}/product/${slug}`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: HIGH_PRIORITY_PRODUCTS.has(slug) ? 0.95 : 0.9,
-    })),
-
-    // Service pages
-    ...serviceSlugs.map((slug) => ({
-      url: `${SITE_URL}/service/${slug}`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    })),
-
-    // Blog pages
-    ...blogSlugs.map((slug) => ({
-      url: `${SITE_URL}/blog/${slug}`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    })),
-
-    // Case study pages
-    ...caseStudySlugs.map((slug) => ({
-      url: `${SITE_URL}/case-study/${slug}`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.5,
-    })),
+  const rawEntries: SitemapEntry[] = [
+    ...STATIC_ROUTES.map((route) =>
+      buildEntry(route.path, route.changeFrequency, route.priority, now)
+    ),
+    ...productSlugs.map((slug) =>
+      buildEntry(
+        `/product/${slug}`,
+        "monthly",
+        HIGH_PRIORITY_PRODUCTS.has(slug) ? 0.95 : 0.9,
+        now
+      )
+    ),
+    ...SERVICE_SLUGS.map((slug) =>
+      buildEntry(`/service/${slug}`, "monthly", 0.7, now)
+    ),
+    ...Object.entries(blogData).map(([slug, blog]) =>
+      buildEntry(
+        `/blog/${slug}`,
+        "monthly",
+        0.6,
+        toIsoDateString(blog.lastUpdated) ?? toIsoDateString(blog.date) ?? now
+      )
+    ),
+    ...CASE_STUDY_SLUGS.map((slug) =>
+      buildEntry(`/case-study/${slug}`, "monthly", 0.5, now)
+    ),
+    ...INDUSTRY_SLUGS.map((slug) =>
+      buildEntry(`/industries/${slug}`, "monthly", 0.85, now)
+    ),
+    ...COUNTRY_SLUGS.map((slug) =>
+      buildEntry(buildCountryPagePath(slug), "weekly", 0.85, now)
+    ),
+    ...COMPETITOR_SLUGS.map((slug) =>
+      buildEntry(buildComparisonPagePath(slug), "monthly", 0.8, now)
+    ),
+    ...APPLICATION_SLUGS.map((slug) =>
+      buildEntry(buildApplicationPagePath(slug), "monthly", 0.8, now)
+    ),
+    ...RESOURCE_SLUGS.map((slug) =>
+      buildEntry(buildResourceArticlePath(slug), "monthly", 0.75, now)
+    ),
   ];
 
-  /* ── Build XML ────────────────────────────────────────────────── */
+  const entries = Array.from(
+    new Map(rawEntries.map((entry) => [entry.url, entry])).values()
+  );
+
   const xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',

@@ -4,6 +4,7 @@ import { GeistSans } from "geist/font/sans";
 import "../globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -16,7 +17,7 @@ const monaSans = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.Vasudevchemopharma.com"),
+  metadataBase: new URL("https://www.vasudevchemopharma.com"),
   title: {
     template: "%s | Vasudev Chemo Pharma",
     default:
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
       "Vasudev Chemo Pharma — Industrial, Specialty & Pharmaceutical Chemicals",
     description:
       "ISO 9001:2015 certified manufacturer and global exporter of 15+ industrial chemicals, specialty chemicals, and pharmaceutical API intermediates from Gujarat, India.",
-    url: "https://www.Vasudevchemopharma.com",
+    url: "https://www.vasudevchemopharma.com",
   },
   twitter: {
     card: "summary_large_image",
@@ -62,7 +63,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://www.Vasudevchemopharma.com",
+    canonical: "https://www.vasudevchemopharma.com",
   },
   icons: {
     icon: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Vasudev/Vasudev_Chemo_Pharma_LOGO.png",
@@ -93,6 +94,7 @@ export default function FrontendLayout({
         <Navbar />
         {children}
         <Footer />
+        <WhatsAppButton />
         <Analytics />
         <SpeedInsights />
       </body>

@@ -113,6 +113,14 @@ export function validateCorsOrigin(request: Request): NextResponse | null {
     return null;
   }
 
+  // If no CORS origins are configured, allow all origins (same-origin
+  // requests are already protected by the browser; this avoids blocking
+  // legitimate first-party traffic when the env var is unset).
+  const allowedOrigins = getAllowedOriginsSet();
+  if (allowedOrigins.size === 0) {
+    return null;
+  }
+
   const allowedOrigin = getAllowedCorsOrigin(request);
   if (allowedOrigin) {
     return null;

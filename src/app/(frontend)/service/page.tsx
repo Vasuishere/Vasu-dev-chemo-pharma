@@ -20,13 +20,13 @@ export const metadata: Metadata = {
   description:
     "Explore chemical manufacturing, import-export, custom formulation, quality testing, and bulk supply services from Vasudev Chemo Pharma. Request a quote today.",
   alternates: {
-    canonical: "https://www.Vasudevchemopharma.com/service",
+    canonical: "https://www.vasudevchemopharma.com/service",
   },
   openGraph: {
     title: "Chemical Manufacturing Services | Vasudev Chemo Pharma",
     description:
       "ISO 9001:2015 certified chemical manufacturing, custom formulation, and global export services from Gujarat, India.",
-    url: "https://www.Vasudevchemopharma.com/service",
+    url: "https://www.vasudevchemopharma.com/service",
   },
 };
 
@@ -124,8 +124,8 @@ export default async function ServicePage() {
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: "https://www.Vasudevchemopharma.com" },
-          { name: "Services", url: "https://www.Vasudevchemopharma.com/service" },
+          { name: "Home", url: "https://www.vasudevchemopharma.com" },
+          { name: "Services", url: "https://www.vasudevchemopharma.com/service" },
         ]}
       />
       <FAQSchema items={pageFaqs.map((faq) => ({ question: faq.q, answer: faq.a }))} />

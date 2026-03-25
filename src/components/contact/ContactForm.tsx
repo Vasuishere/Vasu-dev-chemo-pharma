@@ -5,9 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 
 declare global {
   interface Window {
-    turnstile?: {
-      reset: (selector?: string) => void;
-    };
+    turnstile?: { reset: (selector?: string) => void };
     onTurnstileSuccess?: (token: string) => void;
     grecaptcha?: {
       execute: (siteKey: string, options: { action: string }) => Promise<string>;
@@ -16,6 +14,87 @@ declare global {
   }
 }
 
+const COUNTRIES = [
+  { code: "AE", name: "UAE" },
+  { code: "SA", name: "Saudi Arabia" },
+  { code: "OM", name: "Oman" },
+  { code: "QA", name: "Qatar" },
+  { code: "KW", name: "Kuwait" },
+  { code: "IQ", name: "Iraq" },
+  { code: "EG", name: "Egypt" },
+  { code: "BR", name: "Brazil" },
+  { code: "US", name: "USA" },
+  { code: "VN", name: "Vietnam" },
+  { code: "TH", name: "Thailand" },
+  { code: "IN", name: "India" },
+  { code: "---", name: "──────────────", disabled: true },
+  { code: "AU", name: "Australia" },
+  { code: "CA", name: "Canada" },
+  { code: "CN", name: "China" },
+  { code: "DE", name: "Germany" },
+  { code: "FR", name: "France" },
+  { code: "GB", name: "United Kingdom" },
+  { code: "ID", name: "Indonesia" },
+  { code: "IT", name: "Italy" },
+  { code: "JP", name: "Japan" },
+  { code: "KR", name: "South Korea" },
+  { code: "MY", name: "Malaysia" },
+  { code: "MX", name: "Mexico" },
+  { code: "NL", name: "Netherlands" },
+  { code: "NG", name: "Nigeria" },
+  { code: "PK", name: "Pakistan" },
+  { code: "PH", name: "Philippines" },
+  { code: "PL", name: "Poland" },
+  { code: "RU", name: "Russia" },
+  { code: "ES", name: "Spain" },
+  { code: "TR", name: "Türkiye" },
+  { code: "ZA", name: "South Africa" },
+  { code: "OTHER", name: "Other" },
+] as const;
+
+const INDUSTRIES = [
+  { value: "oil-gas", label: "Oil & Gas" },
+  { value: "water-treatment", label: "Water Treatment" },
+  { value: "paper-mill", label: "Paper Mill" },
+  { value: "metalworking", label: "Metal Working Fluids" },
+  { value: "pharma", label: "Pharmaceuticals" },
+  { value: "agriculture", label: "Agriculture" },
+  { value: "petrochemical", label: "Petrochemical" },
+  { value: "textile", label: "Textile" },
+  { value: "paint-coatings", label: "Paint & Coatings" },
+  { value: "other", label: "Other" },
+];
+
+const PRODUCTS = [
+  { value: "mea-triazine-78-h2s-scavenger", label: "MEA Triazine 78% H2S Scavenger" },
+  { value: "mea-triazine-60", label: "MEA Triazine 60%" },
+  { value: "mea-triazine-50", label: "MEA Triazine 50%" },
+  { value: "mea-triazine-40", label: "MEA Triazine 40%" },
+  { value: "mma-triazine-40", label: "MMA Triazine 40%" },
+  { value: "copper-sulphate", label: "Copper Sulphate" },
+  { value: "manganese-sulphate", label: "Manganese Sulphate" },
+  { value: "albendazole", label: "Albendazole API" },
+  { value: "ketoconazole", label: "Ketoconazole API" },
+  { value: "pregabalin", label: "Pregabalin API" },
+  { value: "p-toluenesulfonic-acid", label: "P-Toluenesulfonic Acid" },
+  { value: "2-amino-5-methylthiazole", label: "2-Amino-5-methylthiazole" },
+  { value: "2-chloroethylamine-hydrochloride", label: "2-Chloroethylamine Hydrochloride" },
+  { value: "bis-2-chloroethyl-amine-hydrochloride", label: "Bis(2-chloroethyl)amine HCl" },
+  { value: "di-ethyl-amino-ethyl-chloride-hydrochloride", label: "Di Ethyl Amino Ethyl Chloride HCl" },
+  { value: "other", label: "Other / Multiple Products" },
+];
+
+const INQUIRY_TYPES = [
+  { value: "quote", label: "Request Pricing / Quote" },
+  { value: "sample", label: "Request Free Sample" },
+  { value: "tds", label: "Request TDS / MSDS" },
+  { value: "general", label: "General Inquiry" },
+];
+
+const inputClass =
+  "w-full border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-accent transition-colors";
+const labelClass = "text-sm text-primary font-medium block mb-2";
+
 export default function ContactForm({ nonce }: { nonce?: string }) {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -23,43 +102,39 @@ export default function ContactForm({ nonce }: { nonce?: string }) {
   const [captchaToken, setCaptchaToken] = useState("");
   const [formStartedAt] = useState<number>(() => Date.now());
 
+  // Pre-fill product and inquiry type from URL params (?product=slug&type=sample)
+  const [defaultProduct, setDefaultProduct] = useState("");
+  const [defaultInquiryType, setDefaultInquiryType] = useState("quote");
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const productParam = params.get("product") || "";
+    const typeParam = params.get("type") || "";
+    if (productParam) setDefaultProduct(productParam);
+    if (typeParam && INQUIRY_TYPES.some((t) => t.value === typeParam)) {
+      setDefaultInquiryType(typeParam);
+    }
+  }, []);
+
   const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "";
   const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "";
   const captchaMode = useMemo(() => {
-    if (turnstileSiteKey) {
-      return "turnstile" as const;
-    }
-
-    if (recaptchaSiteKey) {
-      return "recaptcha" as const;
-    }
-
+    if (turnstileSiteKey) return "turnstile" as const;
+    if (recaptchaSiteKey) return "recaptcha" as const;
     return "none" as const;
   }, [recaptchaSiteKey, turnstileSiteKey]);
 
   useEffect(() => {
-    if (captchaMode !== "turnstile") {
-      return;
-    }
-
-    window.onTurnstileSuccess = (token: string) => {
-      setCaptchaToken(token);
-    };
-
-    return () => {
-      window.onTurnstileSuccess = undefined;
-    };
+    if (captchaMode !== "turnstile") return;
+    window.onTurnstileSuccess = (token: string) => setCaptchaToken(token);
+    return () => { window.onTurnstileSuccess = undefined; };
   }, [captchaMode]);
 
   async function getRecaptchaToken(): Promise<string> {
-    if (captchaMode !== "recaptcha") {
-      return "";
-    }
-
+    if (captchaMode !== "recaptcha") return "";
     if (!window.grecaptcha || !recaptchaSiteKey) {
       throw new Error("reCAPTCHA is not ready. Please try again.");
     }
-
     return window.grecaptcha.execute(recaptchaSiteKey, { action: "contact_form" });
   }
 
@@ -77,48 +152,47 @@ export default function ContactForm({ nonce }: { nonce?: string }) {
       }
 
       const providerToken =
-        captchaMode === "turnstile"
-          ? captchaToken
-          : await getRecaptchaToken();
+        captchaMode === "turnstile" ? captchaToken : await getRecaptchaToken();
 
       const payload = {
-        firstName: String(formData.get("firstName") || "").trim(),
-        lastName: String(formData.get("lastName") || "").trim(),
-        email: String(formData.get("email") || "").trim(),
-        phone: String(formData.get("phone") || "").trim(),
-        subject: String(formData.get("subject") || "").trim(),
-        message: String(formData.get("message") || "").trim(),
-        company: String(formData.get("company") || "").trim(),
+        firstName:    String(formData.get("firstName")   || "").trim(),
+        lastName:     String(formData.get("lastName")    || "").trim(),
+        email:        String(formData.get("email")       || "").trim(),
+        phone:        String(formData.get("phone")       || "").trim(),
+        companyName:  String(formData.get("companyName") || "").trim(),
+        country:      String(formData.get("country")     || "").trim(),
+        industry:     String(formData.get("industry")    || "").trim(),
+        product:      String(formData.get("product")     || "").trim(),
+        quantity:     String(formData.get("quantity")    || "").trim(),
+        inquiryType:  String(formData.get("inquiryType") || "").trim(),
+        message:      String(formData.get("message")     || "").trim(),
+        website:      String(formData.get("website")     || "").trim(), // honeypot
         captchaToken: providerToken,
         formStartedAt,
       };
 
       const response = await fetch("/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
 
       if (!response.ok) {
         const body = (await response.json().catch(() => null)) as { error?: string } | null;
-        throw new Error(body?.error || "Failed to submit form. Please try again.");
+        throw new Error(body?.error || "Failed to submit. Please try again.");
       }
 
       setSubmitted(true);
       form.reset();
       setCaptchaToken("");
     } catch (submitError: unknown) {
-      if (captchaMode === "turnstile") {
-        window.turnstile?.reset();
-      }
-
+      if (captchaMode === "turnstile") window.turnstile?.reset();
       setCaptchaToken("");
-      const message = submitError instanceof Error
-        ? submitError.message
-        : "Failed to submit form. Please try again.";
-      setError(message);
+      setError(
+        submitError instanceof Error
+          ? submitError.message
+          : "Failed to submit form. Please try again."
+      );
     } finally {
       setSubmitting(false);
     }
@@ -126,125 +200,169 @@ export default function ContactForm({ nonce }: { nonce?: string }) {
 
   return (
     <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100">
-      {captchaMode === "turnstile" ? (
+      {captchaMode === "turnstile" && (
         <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer nonce={nonce} />
-      ) : null}
-      {captchaMode === "recaptcha" ? (
+      )}
+      {captchaMode === "recaptcha" && (
         <Script
           src={`https://www.google.com/recaptcha/api.js?render=${recaptchaSiteKey}`}
           strategy="afterInteractive"
           nonce={nonce}
         />
-      ) : null}
+      )}
+
       {submitted ? (
         <div className="text-center py-12">
-          <h3 className="font-heading text-h3 font-semibold text-primary mb-2">Thank you!</h3>
-          <p className="text-secondary">Your message has been sent. We&apos;ll get back to you soon.</p>
+          <div className="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg className="w-7 h-7 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <h3 className="font-heading text-h3 font-semibold text-primary mb-2">Inquiry Sent!</h3>
+          <p className="text-secondary">
+            Thank you. Our team will respond within 24 hours.
+            <br />
+            For urgent requirements, reach us on WhatsApp directly.
+          </p>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-5">
+          {/* ── Honeypot (hidden from real users) ─────────── */}
           <input
             type="text"
-            name="company"
+            name="website"
             tabIndex={-1}
             autoComplete="off"
             aria-hidden="true"
             className="hidden"
           />
           <input type="hidden" name="formStartedAt" value={String(formStartedAt)} />
-          <div>
-            <label htmlFor="firstName" className="text-sm text-primary font-medium block mb-2">
-              First name*
-            </label>
-            <input
-              id="firstName"
-              name="firstName"
-              type="text"
-              required
-              placeholder="Enter your first name"
-              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-accent transition-colors"
-            />
+
+          {/* ── Row 1: Name ────────────────────────────────── */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label htmlFor="firstName" className={labelClass}>First Name*</label>
+              <input id="firstName" name="firstName" type="text" required
+                placeholder="First name" className={inputClass} />
+            </div>
+            <div>
+              <label htmlFor="lastName" className={labelClass}>Last Name*</label>
+              <input id="lastName" name="lastName" type="text" required
+                placeholder="Last name" className={inputClass} />
+            </div>
           </div>
-          <div>
-            <label htmlFor="lastName" className="text-sm text-primary font-medium block mb-2">
-              Last name*
-            </label>
-            <input
-              id="lastName"
-              name="lastName"
-              type="text"
-              required
-              placeholder="Enter your last name"
-              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-accent transition-colors"
-            />
+
+          {/* ── Row 2: Company + Country ────────────────────── */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label htmlFor="companyName" className={labelClass}>Company Name*</label>
+              <input id="companyName" name="companyName" type="text" required
+                placeholder="Your company name" className={inputClass} />
+            </div>
+            <div>
+              <label htmlFor="country" className={labelClass}>Country*</label>
+              <select id="country" name="country" required defaultValue=""
+                className={inputClass}>
+                <option value="" disabled>Select your country</option>
+                {COUNTRIES.map((c) =>
+                  "disabled" in c && c.disabled ? (
+                    <option key={c.code} value={c.code} disabled>{c.name}</option>
+                  ) : (
+                    <option key={c.code} value={c.code}>{c.name}</option>
+                  )
+                )}
+              </select>
+            </div>
           </div>
-          <div>
-            <label htmlFor="email" className="text-sm text-primary font-medium block mb-2">
-              Work Email*
-            </label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              required
-              placeholder="Enter your work email"
-              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-accent transition-colors"
-            />
+
+          {/* ── Row 3: Email + Phone ────────────────────────── */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label htmlFor="email" className={labelClass}>Work Email*</label>
+              <input id="email" name="email" type="email" required
+                placeholder="you@company.com" className={inputClass} />
+            </div>
+            <div>
+              <label htmlFor="phone" className={labelClass}>Phone / WhatsApp*</label>
+              <input id="phone" name="phone" type="tel" required
+                placeholder="+1 555 000 0000" className={inputClass} />
+            </div>
           </div>
-          <div>
-            <label htmlFor="phone" className="text-sm text-primary font-medium block mb-2">
-              Phone*
-            </label>
-            <input
-              id="phone"
-              name="phone"
-              type="tel"
-              required
-              placeholder="Enter your contact number"
-              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-accent transition-colors"
-            />
+
+          {/* ── Row 4: Product + Quantity ───────────────────── */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label htmlFor="product" className={labelClass}>Product Interested In*</label>
+              <select id="product" name="product" required
+                key={defaultProduct}
+                defaultValue={defaultProduct}
+                className={inputClass}>
+                <option value="" disabled>Select a product</option>
+                {PRODUCTS.map((p) => (
+                  <option key={p.value} value={p.value}>{p.label}</option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label htmlFor="quantity" className={labelClass}>Quantity Needed</label>
+              <input id="quantity" name="quantity" type="text"
+                placeholder="e.g. 1 MT, 5000 Kg" className={inputClass} />
+            </div>
           </div>
+
+          {/* ── Row 5: Industry ─────────────────────────────── */}
           <div>
-            <label htmlFor="subject" className="text-sm text-primary font-medium block mb-2">
-              Subject
-            </label>
-            <input
-              id="subject"
-              name="subject"
-              type="text"
-              placeholder="Enter topic or subject"
-              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-accent transition-colors"
-            />
+            <label htmlFor="industry" className={labelClass}>Your Industry</label>
+            <select id="industry" name="industry" defaultValue="" className={inputClass}>
+              <option value="">Select your industry (optional)</option>
+              {INDUSTRIES.map((i) => (
+                <option key={i.value} value={i.value}>{i.label}</option>
+              ))}
+            </select>
           </div>
+
+          {/* ── Row 6: Inquiry Type ──────────────────────────── */}
           <div>
-            <label htmlFor="message" className="text-sm text-primary font-medium block mb-2">
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              placeholder="Tell us about your project"
-              rows={4}
-              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-accent transition-colors resize-none"
-            />
+            <p className={labelClass}>Type of Inquiry*</p>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {INQUIRY_TYPES.map((t) => (
+                <label key={t.value}
+                  className="flex items-center gap-2 cursor-pointer border border-gray-200 rounded-xl px-3 py-2.5 text-sm hover:border-accent transition-colors has-[:checked]:border-accent has-[:checked]:bg-accent/5">
+                  <input
+                    type="radio"
+                    name="inquiryType"
+                    value={t.value}
+                    key={`${t.value}-${defaultInquiryType}`}
+                    defaultChecked={t.value === defaultInquiryType}
+                    className="accent-accent"
+                  />
+                  {t.label}
+                </label>
+              ))}
+            </div>
           </div>
-          {captchaMode === "turnstile" ? (
-            <div
-              className="cf-turnstile"
+
+          {/* ── Row 7: Message ───────────────────────────────── */}
+          <div>
+            <label htmlFor="message" className={labelClass}>Message</label>
+            <textarea id="message" name="message" rows={4}
+              placeholder="Tell us more about your requirement — grade, purity, delivery port, application..."
+              className={`${inputClass} resize-none`} />
+          </div>
+
+          {/* ── CAPTCHA ──────────────────────────────────────── */}
+          {captchaMode === "turnstile" && (
+            <div className="cf-turnstile"
               data-sitekey={turnstileSiteKey}
-              data-callback="onTurnstileSuccess"
-            />
-          ) : null}
-          <button
-            type="submit"
-            disabled={submitting}
-            className="w-full bg-accent text-white py-3 rounded-xl font-medium hover:bg-accent-dark transition-colors"
-          >
-            {submitting ? "Submitting..." : "Submit details"}
+              data-callback="onTurnstileSuccess" />
+          )}
+
+          <button type="submit" disabled={submitting}
+            className="w-full bg-accent hover:bg-accent-dark transition-colors text-white py-3.5 rounded-xl font-medium text-sm disabled:opacity-60">
+            {submitting ? "Sending..." : "Send Inquiry →"}
           </button>
-          {error ? (
-            <p className="text-sm text-red-600">{error}</p>
-          ) : null}
+
+          {error && <p className="text-sm text-red-600">{error}</p>}
         </form>
       )}
     </div>

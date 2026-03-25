@@ -89,7 +89,7 @@ export default function ProductSchema({ product }: ProductSchemaProps) {
   if (isEnrichedSlug) {
     const enrichment = MEA_TRIAZINE_SCHEMA_ENRICHMENT;
     productSchema.description = enrichment.description;
-    productSchema.alternateName = enrichment.alternateName;
+    productSchema.alternateName = enrichment.alternateName.slice(0, 12);
     productSchema.additionalProperty = enrichment.additionalProperty;
     productSchema.material = enrichment.material;
     productSchema.mpn = enrichment.mpn;

@@ -47,7 +47,7 @@ export default function WhyChooseSection() {
           {/* Image */}
           <div className="relative rounded-3xl overflow-hidden aspect-[4/5]">
             <Image
-              src="https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Vasudev/why_choose%20Us_Vasudev_Chemo_Pharma.png"
+              src="https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Vasudev/Why%20Choose%20Us%20Post.svg"
               alt="Why Choose Image"
               fill
               className="object-cover"

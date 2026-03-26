@@ -2,49 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SectionLabel from "@/components/SectionLabel";
 import Button from "@/components/Button";
-
-const caseStudies = [
-  {
-    title: "Lightweight castings for Industrial equipment",
-    description:
-      "Redesigned metal castings to reduce material use and maintain strength, optimizing cost and weight.",
-    stat: "35%",
-    statLabel: "Heavy-duty machinery",
-    href: "/case-study/lightweight-castings-for-industrial-equipment",
-    clientLogo: "https://framerusercontent.com/images/TqbYVzg7ybZyZdS0f5Kul8k3qE.svg",
-    image: "https://framerusercontent.com/images/vmDI6OhtvdrUzZdCKxTTjToIeI.webp",
-  },
-  {
-    title: "Precision CNC milling for automotive components",
-    description:
-      "Improved machining process to achieve tighter tolerances and faster production cycles for car parts.",
-    stat: "54%",
-    statLabel: "Engine components",
-    href: "/case-study/precision-cnc-milling-for-automotive-components",
-    clientLogo: "https://framerusercontent.com/images/ZOshmfIPPyIgwc1vt8fg4jl7XPw.svg",
-    image: "https://framerusercontent.com/images/X3MBElAP8OnuJAyHhtV3aubNNY.webp",
-  },
-  {
-    title: "Additive manufacturing for custom tooling",
-    description:
-      "Implemented 3D-printed tools to accelerate prototyping and reduce lead time in production.",
-    stat: "50%",
-    statLabel: "Traditional tooling",
-    href: "/case-study/additive-manufacturing-for-custom-tooling",
-    clientLogo: "https://framerusercontent.com/images/dkPEYiQUEC8xGo7JZ3roQZEMCyo.svg",
-    image: "https://framerusercontent.com/images/FWAVl33ic80iuYm3hIN84RA50k.webp",
-  },
-  {
-    title: "Automated assembly line optimization",
-    description:
-      "Streamlined assembly processes with robotics, reducing labor costs and improving output consistency.",
-    stat: "62%",
-    statLabel: "Assembly process",
-    href: "/case-study/automated-assembly-line-optimization",
-    clientLogo: "https://framerusercontent.com/images/5gEKWg2vllhD1ObP6AQ66ePRw.svg",
-    image: "https://framerusercontent.com/images/LhPTSEVoZEIypVL0icUZIbKl3uA.webp",
-  },
-];
+import { CASE_STUDIES } from "@/lib/case-studies-data";
 
 export default function CaseStudiesSection() {
   return (
@@ -54,7 +12,7 @@ export default function CaseStudiesSection() {
         <div className="text-center mb-6">
           <SectionLabel>Real-world success</SectionLabel>
           <h2 className="font-heading text-h2 font-semibold text-primary mt-4">
-            Real results from real projects
+            Real results from chemical-industry projects
           </h2>
         </div>
 
@@ -91,9 +49,9 @@ export default function CaseStudiesSection() {
 
         {/* Case Study Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {caseStudies.map((study) => (
+          {CASE_STUDIES.map((study) => (
             <div
-              key={study.href}
+              key={study.slug}
               className="bg-light rounded-3xl overflow-hidden hover:shadow-lg transition-shadow"
             >
               <div className="p-6">
@@ -112,7 +70,7 @@ export default function CaseStudiesSection() {
                     <p className="text-sm text-secondary">{study.statLabel}</p>
                   </div>
                   <Link
-                    href={study.href}
+                    href={`/case-study/${study.slug}`}
                     className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-accent transition-colors"
                   >
                     View case

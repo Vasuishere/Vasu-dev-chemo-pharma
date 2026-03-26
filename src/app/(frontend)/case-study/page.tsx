@@ -2,63 +2,25 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
+import { CASE_STUDIES } from "@/lib/case-studies-data";
 
 export const revalidate = 3600;
 const CASE_STUDY_URL = "https://www.vasudevchemopharma.com/case-study";
 
 export const metadata: Metadata = {
-  title: "Case Studies - Manufacturing Innovation & Engineering Projects",
+  title: "Case Studies - Chemical Manufacturing and Process Improvement Projects",
   description:
-    "Explore manufacturing and engineering case studies spanning CNC machining, additive manufacturing, automation, and materials engineering project outcomes.",
+    "Explore chemical-industry case studies across H2S treatment, specialty chemicals, pharma intermediates, and process optimization.",
   alternates: {
     canonical: CASE_STUDY_URL,
   },
   openGraph: {
     title: "Case Studies | Vasudev Chemo Pharma",
     description:
-      "Manufacturing and engineering case studies covering automation, CNC machining, 3D printing, and materials engineering.",
+      "Chemical-industry case studies covering H2S treatment, specialty chemical scale-up, pharma intermediates, and process debottlenecking.",
     url: CASE_STUDY_URL,
   },
 };
-
-const caseStudies = [
-  {
-    slug: "lightweight-castings-for-industrial-equipment",
-    category: "Materials engineering",
-    title: "Lightweight castings for Industrial equipment",
-    stat: "35%",
-    statLabel: "Heavy-duty machinery",
-    clientLogo: "https://framerusercontent.com/images/TqbYVzg7ybZyZdS0f5Kul8k3qE.svg",
-    image: "https://framerusercontent.com/images/vmDI6OhtvdrUzZdCKxTTjToIeI.webp",
-  },
-  {
-    slug: "precision-cnc-milling-for-automotive-components",
-    category: "CNC machining",
-    title: "Precision CNC milling for automotive components",
-    stat: "54%",
-    statLabel: "Engine components",
-    clientLogo: "https://framerusercontent.com/images/ZOshmfIPPyIgwc1vt8fg4jl7XPw.svg",
-    image: "https://framerusercontent.com/images/X3MBElAP8OnuJAyHhtV3aubNNY.webp",
-  },
-  {
-    slug: "additive-manufacturing-for-custom-tooling",
-    category: "3D printing",
-    title: "Additive manufacturing for custom tooling",
-    stat: "50%",
-    statLabel: "Traditional tooling",
-    clientLogo: "https://framerusercontent.com/images/dkPEYiQUEC8xGo7JZ3roQZEMCyo.svg",
-    image: "https://framerusercontent.com/images/FWAVl33ic80iuYm3hIN84RA50k.webp",
-  },
-  {
-    slug: "automated-assembly-line-optimization",
-    category: "Automation",
-    title: "Automated assembly line optimization",
-    stat: "62%",
-    statLabel: "Assembly process",
-    clientLogo: "https://framerusercontent.com/images/5gEKWg2vllhD1ObP6AQ66ePRw.svg",
-    image: "https://framerusercontent.com/images/LhPTSEVoZEIypVL0icUZIbKl3uA.webp",
-  },
-];
 
 export default function CaseStudyPage() {
   return (
@@ -76,14 +38,16 @@ export default function CaseStudyPage() {
         <section className="pt-32 pb-20">
           <div className="max-w-container mx-auto px-6 lg:px-10">
             <h1 className="font-heading text-display font-semibold text-primary mb-4">
-              Manufacturing Innovation Case Studies
+              Chemical Industry Case Studies
             </h1>
             <p className="text-secondary text-lg mb-12 max-w-2xl">
-              Explore concept-driven project stories across automation, CNC machining, additive manufacturing, and materials engineering, and learn more about <Link href="/service" className="text-accent hover:underline">our services</Link> and <Link href="/about" className="text-accent hover:underline">our company</Link>.
+              Explore project stories across H2S treatment, specialty chemicals,
+              pharma intermediates, and process improvement, and learn more
+              about <Link href="/service" className="text-accent hover:underline">our services</Link> and <Link href="/about" className="text-accent hover:underline">our company</Link>.
             </p>
 
             <div className="space-y-6">
-              {caseStudies.map((cs) => (
+              {CASE_STUDIES.map((cs) => (
                 <Link
                   key={cs.slug}
                   href={`/case-study/${cs.slug}`}

@@ -23,6 +23,7 @@ import {
 import { APPLICATION_PAGES_DATA } from "@/lib/seo/application-pages-data";
 import { COMPETITOR_PAGES_DATA } from "@/lib/seo/competitor-comparison-data";
 import { RESOURCE_ARTICLES_DATA } from "@/lib/seo/resource-articles-data";
+import { COUNTRY_CLUSTER_MAP } from "@/lib/seo/country-clusters";
 
 export const revalidate = 3600;
 
@@ -99,6 +100,7 @@ export default async function CountrySupplyPage({
   const resourceCards = FEATURED_RESOURCE_SLUGS.slice(0, 3)
     .map((slug) => RESOURCE_ARTICLES_DATA[slug])
     .filter(Boolean);
+  const clusterCountries = COUNTRY_CLUSTER_MAP[page.slug] ?? [];
 
   return (
     <>
@@ -144,6 +146,16 @@ export default async function CountrySupplyPage({
                     View product page
                   </Link>
                 </div>
+                <p className="mt-4 text-sm text-secondary">
+                  Learn more{" "}
+                  <Link href="/about" className="text-accent underline underline-offset-2 hover:text-accent-dark">
+                    about our manufacturing
+                  </Link>{" "}
+                  or explore{" "}
+                  <Link href="/how-h2s-scavengers-work" className="text-accent underline underline-offset-2 hover:text-accent-dark">
+                    how H2S scavengers work
+                  </Link>.
+                </p>
               </div>
 
               <div className="rounded-3xl border border-gray-200 bg-light p-6">
@@ -166,6 +178,20 @@ export default async function CountrySupplyPage({
                     <dd className="mt-1 text-primary">{page.logistics.incoterms}</dd>
                   </div>
                 </dl>
+                <div className="mt-5 space-y-2">
+                  <Link
+                    href="/resources/mea-triazine-technical-datasheet"
+                    className="block rounded-2xl bg-white px-4 py-3 text-sm font-medium text-accent transition-all hover:bg-accent/10"
+                  >
+                    Download full technical datasheet
+                  </Link>
+                  <Link
+                    href="/resources/mea-triazine-safety-data-sheet"
+                    className="block rounded-2xl bg-white px-4 py-3 text-sm font-medium text-accent transition-all hover:bg-accent/10"
+                  >
+                    View safety data sheet
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -183,6 +209,14 @@ export default async function CountrySupplyPage({
                   </li>
                 ))}
               </ul>
+              <div className="mt-5">
+                <Link
+                  href="/resources/import-compliance-guide"
+                  className="inline-flex items-center text-sm font-medium text-accent hover:underline"
+                >
+                  View full import compliance guide →
+                </Link>
+              </div>
             </div>
             <div className="rounded-3xl border border-gray-200 bg-white p-6">
               <h2 className="font-heading text-h4 text-primary">Local market names</h2>
@@ -227,6 +261,70 @@ export default async function CountrySupplyPage({
                   </ul>
                 </div>
               )}
+            </div>
+          </section>
+        )}
+
+        {/* Key internal links — chemistry, comparison, dosing */}
+        <section className="mb-16">
+          <div className="max-w-container mx-auto px-6 lg:px-10">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              <Link
+                href="/industries/oil-gas-h2s-scavenger"
+                className="rounded-2xl border border-gray-200 bg-white p-5 transition-all hover:border-accent/40 hover:shadow-md group"
+              >
+                <h3 className="font-heading text-h5 font-semibold text-primary group-hover:text-accent transition-colors">
+                  H2S Scavenging in Oil &amp; Gas
+                </h3>
+                <p className="text-xs text-secondary mt-1">Industry applications</p>
+              </Link>
+              <Link
+                href="/applications/gas-sweetening"
+                className="rounded-2xl border border-gray-200 bg-white p-5 transition-all hover:border-accent/40 hover:shadow-md group"
+              >
+                <h3 className="font-heading text-h5 font-semibold text-primary group-hover:text-accent transition-colors">
+                  Gas Sweetening Solutions
+                </h3>
+                <p className="text-xs text-secondary mt-1">Process applications</p>
+              </Link>
+              <Link
+                href="/mea-triazine-vs-mma-triazine"
+                className="rounded-2xl border border-gray-200 bg-white p-5 transition-all hover:border-accent/40 hover:shadow-md group"
+              >
+                <h3 className="font-heading text-h5 font-semibold text-primary group-hover:text-accent transition-colors">
+                  MEA vs MMA Triazine Comparison
+                </h3>
+                <p className="text-xs text-secondary mt-1">Detailed comparison</p>
+              </Link>
+              <Link
+                href="/resources/h2s-scavenger-dosing-guide"
+                className="rounded-2xl border border-gray-200 bg-white p-5 transition-all hover:border-accent/40 hover:shadow-md group"
+              >
+                <h3 className="font-heading text-h5 font-semibold text-primary group-hover:text-accent transition-colors">
+                  H2S Scavenger Dosing Guide
+                </h3>
+                <p className="text-xs text-secondary mt-1">Technical reference</p>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Also available in — country cluster links */}
+        {clusterCountries.length > 0 && (
+          <section className="mb-16">
+            <div className="max-w-container mx-auto px-6 lg:px-10">
+              <h2 className="font-heading text-h4 text-primary mb-4">Also available in</h2>
+              <div className="flex flex-wrap gap-3">
+                {clusterCountries.map((neighbor) => (
+                  <Link
+                    key={neighbor.slug}
+                    href={buildCountryPagePath(neighbor.slug)}
+                    className="rounded-full border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-primary transition-all hover:border-accent/40 hover:text-accent"
+                  >
+                    MEA Triazine 78% Supplier {neighbor.countryName}
+                  </Link>
+                ))}
+              </div>
             </div>
           </section>
         )}
@@ -300,6 +398,26 @@ export default async function CountrySupplyPage({
                   </Link>
                 ))}
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Final CTA */}
+        <section className="mb-16">
+          <div className="max-w-container mx-auto px-6 lg:px-10">
+            <div className="rounded-3xl bg-dark p-10 lg:p-14 text-center">
+              <h2 className="font-heading text-h3 font-semibold text-white mb-4">
+                Get a Quote for MEA Triazine 78% in {page.countryName}
+              </h2>
+              <p className="text-white/80 mb-6 max-w-xl mx-auto text-sm">
+                Contact us for CIF pricing to {page.logistics.port}. Direct manufacturer supply with full documentation and technical support.
+              </p>
+              <Link
+                href="/contact?product=mea-triazine-78-h2s-scavenger"
+                className="inline-flex items-center rounded-full bg-accent px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-accent-dark"
+              >
+                Request pricing
+              </Link>
             </div>
           </div>
         </section>

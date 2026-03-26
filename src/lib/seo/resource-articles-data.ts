@@ -514,6 +514,563 @@ Understanding these kinetic factors allows operators to predict scavenger perfor
       { text: "Contact Technical Team", href: "/contact" },
     ],
   },
+
+  "h2s-scavenger-selection-guide": {
+    slug: "h2s-scavenger-selection-guide",
+    title: "H2S Scavenger Selection Guide",
+    description:
+      "Practical guide to selecting the right H2S scavenger for gas, liquids, tanks, offshore systems, and biogas service. Compare triazine, glyoxal, iron sponge, and hybrid treatment strategies.",
+    keywords: [
+      "H2S scavenger selection guide",
+      "choose H2S scavenger",
+      "triazine vs glyoxal vs iron sponge",
+      "liquid vs solid H2S scavenger",
+      "H2S removal technology selection",
+      "best H2S scavenger for gas treating",
+      "H2S scavenger buying guide",
+    ],
+    category: "Product Knowledge",
+    h1: "H2S Scavenger Selection Guide for Oil, Gas, Biogas, and Tank Applications",
+    intro:
+      "Selecting an H2S scavenger is less about picking a brand and more about matching chemistry to the stream, the equipment, and the operating risk. This guide shows how experienced operators choose between liquid scavengers such as MEA Triazine, non-triazine liquid options such as glyoxal, and fixed-bed media such as iron sponge.",
+    publishedDate: "2026-03-26",
+    sections: [
+      {
+        heading: "Step 1: Define the Actual Duty",
+        id: "define-duty",
+        body: `Start by defining where H2S is located and what must be protected. Gas gathering lines, crude tank vapor space, produced water, offshore separators, and biogas polishing each create different treating requirements.
+
+The main selection variables are H2S mass load, flow variability, available contact time, temperature, water content, footprint, and the consequence of breakthrough. If the stream is highly variable or an off-spec event is expensive, response speed becomes a major selection factor.`,
+      },
+      {
+        heading: "Step 2: Choose Between Liquid and Solid Treatment Models",
+        id: "liquid-vs-solid",
+        body: `Liquid scavengers are usually preferred when operators want compact equipment, rapid deployment, or the ability to adjust treatment rates quickly. MEA Triazine is the most common example because it is easy to pump, well understood in the field, and effective across many oil and gas duties.
+
+Solid media such as iron sponge fit best where gas flow is steady, H2S levels are relatively modest, and the site can accommodate a vessel plus media change-out. The tradeoff is that fixed beds add footprint, pressure drop, shutdown planning, and spent-media handling.`,
+      },
+      {
+        heading: "Step 3: Match the Chemistry to the Application",
+        id: "match-chemistry-application",
+        body: `MEA Triazine is usually the best fit for gathering systems, offshore skids, contact towers, amine backup treatment, and many tank or pipeline applications. Glyoxal is more often selected when an operator wants a non-triazine liquid option or has a specific downstream compatibility reason to avoid triazine by-products.
+
+Iron sponge remains useful in low-flow, steady gas service. Biogas plants sometimes use any of these options depending on outlet specification, staffing, and whether the plant values compact retrofit speed or lower reagent cost at larger footprint.`,
+      },
+      {
+        heading: "Step 4: Evaluate Total Operating Risk",
+        id: "evaluate-risk",
+        body: `The correct choice is rarely the lowest nominal unit price. You also need to consider labor, inventory, waste handling, solids risk, safety exposure, and how hard the system is to recover after an upset.
+
+In many field programs, a more flexible chemistry wins because it reduces off-spec events and operator intervention. In others, a hybrid approach is best: bulk removal with a vessel or primary system, followed by liquid scavenger trim treatment for excursions and polishing.`,
+      },
+      {
+        heading: "Step 5: Validate With Monitoring and Supply Planning",
+        id: "validate-selection",
+        body: `No selection is complete until it is connected to outlet monitoring, dosing logic, and realistic supply planning. The best scavenger on paper will still disappoint if the site cannot replenish it on time or verify whether it is actually working.
+
+For that reason, final selection should include delivery format, documentation, batch consistency, spare equipment, and the field team's ability to operate the chosen treatment method with confidence.`,
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the best H2S scavenger for most oil and gas applications?",
+        answer:
+          "For many compact and variable field applications, MEA Triazine is the best overall fit because it is easy to inject, reacts quickly, and is well proven in gathering systems, tanks, offshore service, and trim-treatment duty. The best choice still depends on the stream and site constraints.",
+      },
+      {
+        question: "When should I choose iron sponge instead of triazine?",
+        answer:
+          "Iron sponge is often chosen for steady, lower-flow gas streams where a fixed bed is acceptable and the site can manage media replacement safely. It becomes less attractive when flow or H2S load is highly variable, footprint is limited, or shutdowns are costly.",
+      },
+      {
+        question: "Where does glyoxal fit in H2S scavenger selection?",
+        answer:
+          "Glyoxal is typically a niche liquid option used when the operator wants a non-triazine chemistry or has a downstream compatibility issue that makes triazine less attractive. It can work well, but selection should be based on a specific process reason rather than treated as a universal substitute.",
+      },
+      {
+        question: "Can one site use more than one H2S scavenging technology?",
+        answer:
+          "Yes. Many sites use hybrid strategies, such as bulk removal with a primary system and liquid scavenger trim treatment for upset control, polishing, or backup duty. Hybrid designs are common when uptime and specification control matter more than optimizing around a single technology.",
+      },
+    ],
+    relatedLinks: [
+      { text: "MEA Triazine 78% Product Page", href: "/product" },
+      { text: "MEA Triazine vs Iron Sponge", href: "/resources/mea-triazine-vs-iron-sponge" },
+      { text: "Dosing Calculator & Guidelines", href: "/resources/mea-triazine-dosing-guidelines" },
+      { text: "How H2S Scavengers Work", href: "/how-h2s-scavengers-work" },
+      { text: "Contact Technical Team", href: "/contact" },
+    ],
+  },
+
+  /* ────────────────────────────────────────────────────────────── */
+  /* 7. Technical Datasheet                                        */
+  /* ────────────────────────────────────────────────────────────── */
+  "mea-triazine-technical-datasheet": {
+    slug: "mea-triazine-technical-datasheet",
+    title: "MEA Triazine 78% Technical Datasheet",
+    description:
+      "Download the full MEA Triazine 78% technical datasheet. Covers product specifications, physical properties, packaging options, storage guidelines, and quality certifications from Vasudev Chemo Pharma.",
+    keywords: [
+      "MEA Triazine technical datasheet",
+      "MEA Triazine 78 TDS",
+      "MEA Triazine specifications",
+      "H2S scavenger datasheet",
+      "triazine 78 product data",
+      "MEA Triazine CAS 4719-04-4 datasheet",
+      "H2S scavenger technical data sheet",
+    ],
+    category: "Technical Guide",
+    h1: "MEA Triazine 78% Technical Datasheet — Product Specifications & Download",
+    intro:
+      "This technical datasheet provides the complete product specifications for MEA Triazine 78% (CAS 4719-04-4) manufactured by Vasudev Chemo Pharma. Use it as your reference for procurement, quality verification, and field deployment planning.",
+    publishedDate: "2026-03-26",
+    sections: [
+      {
+        heading: "Product Identity",
+        id: "product-identity",
+        body: `Chemical name: 1,3,5-Tris(2-hydroxyethyl)hexahydro-s-triazine
+CAS Number: 4719-04-4
+Trade name: MEA Triazine 78% H2S Scavenger
+Manufacturer: Vasudev Chemo Pharma, Gujarat, India
+Primary function: Hydrogen sulfide scavenging in oil & gas, refining, biogas, water treatment, and industrial applications`,
+      },
+      {
+        heading: "Physical and Chemical Properties",
+        id: "physical-chemical-properties",
+        body: `Appearance: Clear to slightly yellow liquid
+Active content: 78% (w/w) minimum
+Density: 1.08 ± 0.02 kg/L at 25 °C
+pH: 9.5–11.0 (neat)
+Viscosity: 15–25 cP at 25 °C
+Flash point: > 100 °C (closed cup)
+Freezing point: approximately −5 °C
+Water solubility: Fully miscible
+Odour: Mild amine (slight formaldehyde trace)
+
+The 78% active concentration is the highest commercially stable concentration of MEA Triazine. It delivers maximum scavenging capacity per litre, reducing transport volume and chemical consumption compared to lower-concentration alternatives (40–50%).`,
+      },
+      {
+        heading: "Packaging and Delivery Options",
+        id: "packaging-delivery",
+        body: `Vasudev Chemo Pharma supplies MEA Triazine 78% in the following packaging formats:
+
+200 L HDPE drums (net weight approximately 216 kg per drum)
+1000 L IBC totes (net weight approximately 1080 kg per IBC)
+Bulk ISO tank containers (20–24 MT per container)
+Flexitanks for cost-effective bulk ocean freight
+
+All packaging is UN-rated for safe international transport. Custom packaging and labelling are available for OEM and private-label customers. Deliveries are available FOB, CIF, and DDP to major ports worldwide.`,
+      },
+      {
+        heading: "Storage and Shelf Life",
+        id: "storage-shelf-life",
+        body: `Store MEA Triazine 78% in a cool, dry, well-ventilated area away from direct sunlight and heat sources. Keep containers sealed when not in use. Recommended storage temperature is 10–35 °C. Avoid prolonged storage below 0 °C to prevent crystallisation.
+
+Shelf life is 12 months from date of manufacture when stored under recommended conditions in original sealed packaging. Product integrity should be verified by active content analysis if stored beyond 12 months.
+
+Material compatibility: HDPE, polypropylene, stainless steel (304/316), and carbon steel are suitable. Avoid copper, brass, aluminium, and zinc due to potential amine-metal reactions.`,
+      },
+      {
+        heading: "Quality Certifications and Documentation",
+        id: "quality-certifications",
+        body: `Every shipment from Vasudev Chemo Pharma includes:
+
+Certificate of Analysis (COA) with batch-specific active content, density, and pH
+Technical Data Sheet (TDS) — this document
+Material Safety Data Sheet (MSDS) / Safety Data Sheet (SDS) in GHS format
+Customs and export documentation as required by destination country
+
+Manufacturing facility is ISO 9001:2015 aligned. Product is manufactured under consistent batch conditions with in-process quality controls and final release testing.`,
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the active concentration of Vasudev MEA Triazine?",
+        answer:
+          "Our MEA Triazine is manufactured at 78% active content (w/w), which is the highest stable commercial concentration. This means more scavenging capacity per litre compared to 40–50% products commonly available.",
+      },
+      {
+        question: "What documentation is included with each shipment?",
+        answer:
+          "Every shipment includes a batch-specific Certificate of Analysis (COA), Technical Data Sheet (TDS), and Safety Data Sheet (SDS/MSDS). We also provide customs documentation, packing lists, and any additional certificates required by the destination country.",
+      },
+      {
+        question: "What is the minimum order quantity for export?",
+        answer:
+          "The minimum order quantity for international shipments is 1 metric tonne (approximately 5 drums of 200 L each). For domestic orders within India, the minimum is 220 kg (one drum).",
+      },
+      {
+        question: "Can Vasudev provide private-label or OEM packaging?",
+        answer:
+          "Yes. We offer private-label and OEM packaging for chemical distributors, service companies, and industrial buyers. Contact our sales team to discuss custom labelling, packaging formats, and branding requirements.",
+      },
+      {
+        question: "How should I verify product quality on arrival?",
+        answer:
+          "Check the COA against your purchase specification. For field verification, measure density (should be 1.08 ± 0.02 kg/L) and pH (should be 9.5–11.0). If active content testing is required, we can recommend suitable analytical methods.",
+      },
+    ],
+    relatedLinks: [
+      { text: "MEA Triazine 78% Product Page", href: "/product" },
+      { text: "How H2S Scavengers Work", href: "/how-h2s-scavengers-work" },
+      { text: "Dosing Calculator & Guidelines", href: "/resources/mea-triazine-dosing-guidelines" },
+      { text: "Safety Data Sheet", href: "/resources/mea-triazine-safety-data-sheet" },
+      { text: "Contact for Quote", href: "/contact" },
+    ],
+  },
+
+  /* ────────────────────────────────────────────────────────────── */
+  /* 8. Safety Data Sheet                                          */
+  /* ────────────────────────────────────────────────────────────── */
+  "mea-triazine-safety-data-sheet": {
+    slug: "mea-triazine-safety-data-sheet",
+    title: "MEA Triazine 78% Safety Data Sheet (SDS)",
+    description:
+      "Access the MEA Triazine 78% Safety Data Sheet. Covers hazard identification, first aid, handling and storage, exposure controls, and regulatory information for safe H2S scavenger use.",
+    keywords: [
+      "MEA Triazine safety data sheet",
+      "MEA Triazine SDS",
+      "MEA Triazine MSDS",
+      "H2S scavenger safety",
+      "triazine 78 SDS",
+      "CAS 4719-04-4 safety data",
+      "MEA Triazine hazard classification",
+    ],
+    category: "Safety",
+    h1: "MEA Triazine 78% Safety Data Sheet (SDS) — Hazards, Handling & Compliance",
+    intro:
+      "This safety data sheet summarises the key hazard, handling, storage, and regulatory information for MEA Triazine 78% (CAS 4719-04-4). Use it alongside the manufacturer-issued SDS included with every shipment from Vasudev Chemo Pharma.",
+    publishedDate: "2026-03-26",
+    sections: [
+      {
+        heading: "Hazard Identification",
+        id: "hazard-identification",
+        body: `MEA Triazine 78% is classified under the Globally Harmonized System (GHS) as:
+
+Skin irritation — Category 2 (H315: Causes skin irritation)
+Serious eye damage — Category 1 (H318: Causes serious eye damage)
+Specific target organ toxicity, single exposure — Category 3 (H335: May cause respiratory irritation)
+
+The product contains residual free formaldehyde (typically < 1%). Formaldehyde is classified as a suspected carcinogen (Category 1B) and skin sensitiser. Exposure to formaldehyde vapour should be minimised through proper ventilation and PPE use.
+
+Signal word: DANGER
+Hazard statements: H315, H318, H335
+Precautionary statements: P261, P264, P271, P280, P302+P352, P305+P351+P338, P332+P313, P337+P313, P362+P364`,
+      },
+      {
+        heading: "First Aid Measures",
+        id: "first-aid",
+        body: `Inhalation: Move the person to fresh air. If breathing is difficult, provide oxygen. If respiratory irritation persists, seek medical attention.
+
+Skin contact: Remove contaminated clothing immediately. Wash affected skin with plenty of water and mild soap for at least 15 minutes. If irritation develops or persists, seek medical attention.
+
+Eye contact: Rinse cautiously with water for at least 15 minutes. Remove contact lenses if present and easy to do. Continue rinsing. Seek immediate medical attention — MEA Triazine can cause serious eye damage.
+
+Ingestion: Rinse mouth with water. Do not induce vomiting. Seek medical attention immediately. Provide the SDS to medical personnel.`,
+      },
+      {
+        heading: "Handling and Storage Precautions",
+        id: "handling-storage",
+        body: `Handling: Use only in well-ventilated areas or with local exhaust ventilation. Avoid breathing vapours or mist. Wear appropriate PPE (chemical splash goggles, nitrile gloves, chemical-resistant clothing). Avoid contact with skin and eyes. Wash hands thoroughly after handling.
+
+Storage: Store in original sealed containers in a cool, dry, well-ventilated area. Keep away from direct sunlight and heat sources (recommended 10–35 °C). Keep containers tightly closed when not in use. Do not store with strong oxidisers or acids. Ensure secondary containment is in place to manage potential spills.
+
+Incompatible materials: Strong acids, strong oxidisers, copper, brass, aluminium, and zinc.`,
+      },
+      {
+        heading: "Exposure Controls and Personal Protection",
+        id: "exposure-controls",
+        body: `Occupational exposure limits:
+Formaldehyde (residual): OSHA PEL 0.75 ppm (TWA), 2 ppm (STEL)
+MEA Triazine: No specific OEL established — apply good industrial hygiene practice
+
+Engineering controls: Use local exhaust ventilation at mixing and injection points. Enclosed systems are preferred for continuous dosing operations. Ensure adequate general ventilation in storage and handling areas.
+
+Personal protective equipment:
+Eye protection — Chemical splash goggles or full-face shield
+Hand protection — Nitrile or neoprene chemical-resistant gloves
+Body protection — Chemical-resistant clothing or coveralls
+Respiratory protection — If ventilation is insufficient, use an organic vapour respirator (e.g. half-face with formaldehyde cartridge)`,
+      },
+      {
+        heading: "Regulatory and Transport Information",
+        id: "regulatory-transport",
+        body: `UN Number: Not classified as dangerous goods for transport under standard conditions. Some jurisdictions may classify based on formaldehyde content — check local regulations.
+
+REACH: The substance is pre-registered under REACH (EC 1907/2006).
+TSCA: Listed on the US Toxic Substances Control Act Inventory.
+DSL: Listed on the Canadian Domestic Substances List.
+
+Export documentation: Vasudev Chemo Pharma provides all required export safety documentation including GHS-compliant SDS in the language of the destination country, dangerous goods declarations where required, and customs classification support.
+
+Waste disposal: Spent MEA Triazine solution (containing dithiazine reaction products) is generally non-hazardous and can be disposed of through standard industrial wastewater treatment. Check local regulations for specific disposal requirements.`,
+      },
+    ],
+    faqs: [
+      {
+        question: "Is MEA Triazine 78% classified as a dangerous good for shipping?",
+        answer:
+          "Under most international transport regulations, MEA Triazine 78% is not classified as a dangerous good. However, some jurisdictions may apply additional requirements based on the residual formaldehyde content. We provide all necessary shipping documentation for your destination.",
+      },
+      {
+        question: "What PPE is required when handling MEA Triazine?",
+        answer:
+          "At minimum, wear chemical splash goggles, nitrile gloves, and chemical-resistant clothing. If handling in poorly ventilated areas or during open mixing, add respiratory protection with an organic vapour cartridge.",
+      },
+      {
+        question: "What should I do if MEA Triazine contacts my eyes?",
+        answer:
+          "Rinse immediately with clean water for at least 15 minutes, removing contact lenses if present. MEA Triazine can cause serious eye damage — seek medical attention promptly even if symptoms seem mild initially.",
+      },
+      {
+        question: "How should spent MEA Triazine solution be disposed of?",
+        answer:
+          "Spent solution containing dithiazine reaction products is generally non-hazardous and can be treated through standard industrial wastewater systems. Always check local environmental regulations for specific disposal requirements in your jurisdiction.",
+      },
+      {
+        question: "Does Vasudev provide SDS in local languages?",
+        answer:
+          "Yes. We provide GHS-compliant Safety Data Sheets in the official language of the destination country as part of our standard export documentation package.",
+      },
+    ],
+    relatedLinks: [
+      { text: "MEA Triazine 78% Product Page", href: "/product" },
+      { text: "Technical Datasheet", href: "/resources/mea-triazine-technical-datasheet" },
+      { text: "Import Compliance Guide", href: "/resources/import-compliance-guide" },
+      { text: "Storage & Handling Guide", href: "/resources/mea-triazine-storage-handling" },
+      { text: "Request Custom Documentation", href: "/contact" },
+    ],
+  },
+
+  /* ────────────────────────────────────────────────────────────── */
+  /* 9. H2S Scavenger Dosing Guide                                 */
+  /* ────────────────────────────────────────────────────────────── */
+  "h2s-scavenger-dosing-guide": {
+    slug: "h2s-scavenger-dosing-guide",
+    title: "H2S Scavenger Dosing Guide — Calculation & Field Reference",
+    description:
+      "Complete H2S scavenger dosing guide covering dosing calculations, injection methods, contact tower sizing, field optimisation, and troubleshooting for MEA Triazine 78% applications.",
+    keywords: [
+      "H2S scavenger dosing guide",
+      "MEA Triazine dosing calculation",
+      "H2S scavenger injection rate",
+      "triazine contact tower dosing",
+      "H2S removal dosing chart",
+      "scavenger dosing optimisation",
+      "H2S scavenger field guide",
+    ],
+    category: "Technical Guide",
+    h1: "H2S Scavenger Dosing Guide — Calculations, Injection Methods & Field Optimisation",
+    intro:
+      "This dosing guide provides the practical calculations and field reference information you need to design and operate an MEA Triazine 78% H2S scavenging programme. It covers dosing from first principles through to field optimisation and troubleshooting.",
+    publishedDate: "2026-03-26",
+    sections: [
+      {
+        heading: "Dosing Fundamentals",
+        id: "dosing-fundamentals",
+        body: `MEA Triazine reacts with H2S at a theoretical stoichiometry of 1 mole triazine to 3 moles H2S. At 78% active content and 1.08 kg/L density, the theoretical minimum consumption is approximately 2.6 litres of MEA Triazine 78% per kilogram of H2S removed.
+
+In field conditions, expect practical consumption of 3.2–5.0 L/kg H2S in well-designed systems with good gas-liquid contact, and 5–10 L/kg in less favourable conditions such as direct pipeline injection without a contact vessel.
+
+The key variables that affect dosing efficiency are: H2S concentration and mass loading, gas or liquid flow rate, system temperature, contact time and mixing quality, water availability in the system, and competing reactions with CO2 or organic acids.`,
+      },
+      {
+        heading: "Step-by-Step Dosing Calculation",
+        id: "dosing-calculation",
+        body: `Step 1 — Determine H2S mass load:
+Calculate the total mass of H2S entering your system per hour. For gas systems: H2S load (kg/hr) = gas flow rate (Nm³/hr) × H2S concentration (mg/Nm³) ÷ 1,000,000. For liquid systems: H2S load (kg/hr) = liquid flow rate (m³/hr) × H2S concentration (mg/L) ÷ 1,000.
+
+Step 2 — Select a consumption factor:
+Use 3.2 L/kg for contact tower systems with good mixing. Use 4.5 L/kg for inline injection with a static mixer. Use 6–8 L/kg for direct pipeline injection without a mixer. Use 8–10 L/kg for batch treatment of tanks or low-contact systems.
+
+Step 3 — Calculate hourly dosing rate:
+Dose rate (L/hr) = H2S load (kg/hr) × consumption factor (L/kg).
+
+Step 4 — Size the dosing pump:
+Select a chemical metering pump rated for at least 1.5x the calculated dose rate to allow for turndown and H2S variability. Ensure the pump materials are compatible with MEA Triazine (stainless steel or PTFE wetted parts recommended).`,
+      },
+      {
+        heading: "Contact Tower and Injection Design",
+        id: "contact-tower-design",
+        body: `Contact towers deliver the best chemical efficiency because they maximise gas-liquid contact time and surface area. A well-designed contact tower can achieve near-stoichiometric consumption (2.6–3.5 L/kg).
+
+Tower sizing guidelines: Minimum gas residence time of 15–30 seconds in the packed section. Liquid circulation rate sufficient to keep packing wetted — typically 2–5 L/min/m² of tower cross-section. Packing height of 1.5–3 metres depending on H2S loading and target outlet specification.
+
+For inline injection (no tower), install a static mixer downstream of the injection point to improve dispersion. Minimum pipe length of 10–15 pipe diameters after the mixer is recommended for adequate reaction time. Injection quills should be oriented to spray into the gas or liquid flow, not against the pipe wall.`,
+      },
+      {
+        heading: "Monitoring and Field Optimisation",
+        id: "field-optimisation",
+        body: `Effective field optimisation requires regular monitoring of inlet and outlet H2S concentrations, chemical consumption rates, and system operating conditions.
+
+Key monitoring points: Measure H2S at the inlet and outlet of the treatment system. Track litres of MEA Triazine consumed per kilogram of H2S removed — this is your primary efficiency metric. Log operating temperature, flow rate, and any changes in H2S loading.
+
+Optimisation actions: If consumption is above expected range, check for poor mixing, low temperature, or competing reactions. If outlet H2S is consistently well below target, reduce the dose rate — you may be over-treating. If you observe solids formation, reduce the dose rate and check temperature (solids risk increases below 15 °C and with overdosing).
+
+Our technical team provides dosing optimisation support for customers purchasing MEA Triazine 78% from Vasudev Chemo Pharma.`,
+      },
+      {
+        heading: "Dosing Quick-Reference Table",
+        id: "dosing-reference-table",
+        body: `Application type — Consumption factor — Typical dose range:
+
+Contact tower (gas treating): 3.0–3.5 L/kg H2S — 50–500 L/hr depending on gas volume
+Inline injection with static mixer: 4.0–5.0 L/kg H2S — 20–200 L/hr
+Direct pipeline injection: 6.0–8.0 L/kg H2S — 10–150 L/hr
+Batch tank treatment: 8.0–10.0 L/kg H2S — volume-based calculation
+Produced water treatment: 5.0–7.0 L/kg H2S — proportional to water flow
+
+These are starting estimates. Actual consumption should be verified in the field and optimised based on monitoring data. Vasudev Chemo Pharma's technical team can assist with site-specific dosing calculations.`,
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the typical dosing rate for MEA Triazine 78% in a gas contact tower?",
+        answer:
+          "In a well-designed gas contact tower, expect consumption of 3.0–3.5 litres of MEA Triazine 78% per kilogram of H2S removed. The exact rate depends on gas flow, H2S concentration, temperature, and tower design.",
+      },
+      {
+        question: "How do I calculate MEA Triazine dosing for my specific system?",
+        answer:
+          "Start by calculating your H2S mass load in kg/hr, then multiply by the appropriate consumption factor for your system type (3.2 L/kg for towers, 4.5 L/kg for inline, 6–8 L/kg for direct injection). Our technical team can help with site-specific calculations.",
+      },
+      {
+        question: "What pump do I need for MEA Triazine injection?",
+        answer:
+          "Use a chemical metering pump (diaphragm or plunger type) with stainless steel or PTFE wetted parts. Size it for at least 1.5x your calculated maximum dose rate to allow for flow variability and turndown.",
+      },
+      {
+        question: "Can I use this guide for dosing other H2S scavengers?",
+        answer:
+          "The principles of dosing calculation apply broadly, but the consumption factors in this guide are specific to MEA Triazine 78%. Other scavenger chemistries (glyoxal, iron sponge, MMA Triazine) have different reaction stoichiometry and efficiency profiles.",
+      },
+      {
+        question: "How often should I adjust my dosing rate?",
+        answer:
+          "Monitor outlet H2S continuously or at least every shift. Adjust dosing when H2S loading changes (production rate changes, new wells, seasonal variation) or when your consumption efficiency metric drifts outside the expected range.",
+      },
+    ],
+    relatedLinks: [
+      { text: "MEA Triazine 78% Product Page", href: "/product" },
+      { text: "Gas Sweetening Applications", href: "/applications/gas-sweetening" },
+      { text: "Solids Formation: Causes & Prevention", href: "/resources/h2s-scavenger-solids-formation" },
+      { text: "How H2S Scavengers Work", href: "/how-h2s-scavengers-work" },
+      { text: "Contact Technical Team", href: "/contact" },
+    ],
+  },
+
+  /* ────────────────────────────────────────────────────────────── */
+  /* 10. Import Compliance Guide                                   */
+  /* ────────────────────────────────────────────────────────────── */
+  "import-compliance-guide": {
+    slug: "import-compliance-guide",
+    title: "MEA Triazine Import Compliance Guide — Country-Specific Requirements",
+    description:
+      "Practical import compliance guide for MEA Triazine 78% covering HS codes, documentation, customs requirements, and regulatory frameworks for major importing countries.",
+    keywords: [
+      "MEA Triazine import compliance",
+      "H2S scavenger import requirements",
+      "triazine customs documentation",
+      "MEA Triazine HS code",
+      "chemical import regulations",
+      "MEA Triazine export documentation",
+      "H2S scavenger import guide",
+    ],
+    category: "Product Knowledge",
+    h1: "MEA Triazine Import Compliance Guide — Documentation, HS Codes & Country Requirements",
+    intro:
+      "Importing MEA Triazine 78% requires the right documentation, HS classification, and an understanding of destination-country regulations. This guide covers the compliance essentials for major importing markets so you can plan procurement with confidence.",
+    publishedDate: "2026-03-26",
+    sections: [
+      {
+        heading: "HS Code Classification",
+        id: "hs-code",
+        body: `MEA Triazine (1,3,5-tris(2-hydroxyethyl)hexahydro-s-triazine, CAS 4719-04-4) is typically classified under HS Code 2933.69 — other compounds containing an unfused triazine ring in the structure. Some countries may also accept classification under 3824.99 (chemical preparations not elsewhere specified) depending on end-use declarations.
+
+The correct HS code affects duty rates, import licensing requirements, and regulatory classification. Vasudev Chemo Pharma provides the appropriate HS code recommendation for each destination country as part of our standard export documentation.
+
+Always confirm the HS classification with your customs broker before the first shipment to a new destination. We can provide supporting documentation including chemical composition certificates and end-use declarations to assist with customs classification.`,
+      },
+      {
+        heading: "Standard Export Documentation",
+        id: "export-documentation",
+        body: `Every shipment from Vasudev Chemo Pharma includes the following documentation package:
+
+Commercial Invoice with full product description, quantity, value, and Incoterms
+Packing List with container, drum/IBC count, and gross/net weights
+Certificate of Analysis (COA) with batch-specific test results
+Technical Data Sheet (TDS)
+Safety Data Sheet (SDS/MSDS) in GHS format and destination-country language
+Certificate of Origin (COO) — preferably issued by the Indian Chamber of Commerce
+Bill of Lading or Airway Bill
+
+Additional documents available on request: Phytosanitary certificate, fumigation certificate, dangerous goods declaration (where applicable), and pre-shipment inspection certificates (SGS, Bureau Veritas, Intertek).`,
+      },
+      {
+        heading: "GCC and Middle East Import Requirements",
+        id: "gcc-middle-east",
+        body: `The Gulf Cooperation Council countries (UAE, Saudi Arabia, Qatar, Kuwait, Oman, Bahrain) and broader Middle East markets (Iraq, Iran, Jordan, Egypt) represent major demand centres for MEA Triazine due to extensive oil and gas operations.
+
+Common requirements across the GCC: SASO/GSO conformity for Saudi Arabia, ESMA registration for UAE, Qatar QS mark or pre-clearance for chemicals, and Kuwait KUCAS or PAI approval depending on the product classification.
+
+Import documentation typically requires: COA, SDS in Arabic and English, certificate of origin, and in some cases a pre-shipment inspection certificate. Halal certification is not applicable for industrial chemicals but some buyers request it for supply chain compliance.
+
+Transit and logistics: Vasudev Chemo Pharma ships regularly to Jebel Ali (UAE), Hamad Port (Qatar), Shuwaikh (Kuwait), Sohar (Oman), and Jeddah/Jubail (Saudi Arabia) with established freight forwarding relationships.`,
+      },
+      {
+        heading: "Americas Import Requirements",
+        id: "americas",
+        body: `United States: MEA Triazine is listed on the TSCA Inventory. No import permit is required for industrial use. The importer of record must ensure compliance with EPA TSCA reporting requirements and OSHA hazard communication standards. An SDS conforming to OSHA HCS 2012 (GHS-aligned) is required.
+
+Brazil: ANVISA registration is required for chemical products used in certain applications. For oilfield chemicals, ANP (Agência Nacional do Petróleo) may require additional documentation. Import duties are applied based on NCM classification (Brazilian Mercosur tariff code). A licença de importação (import licence) may be needed depending on the product classification.
+
+Both markets require clear end-use documentation. Vasudev Chemo Pharma provides all necessary supporting documentation for US and Brazilian customs clearance.`,
+      },
+      {
+        heading: "Asia-Pacific Import Requirements",
+        id: "asia-pacific",
+        body: `Vietnam: Chemical import requires registration with the Ministry of Industry and Trade (MOIT) chemical inventory. An SDS in Vietnamese is recommended. Import duties are based on HS code classification and any applicable ASEAN trade agreements with India.
+
+Thailand: The Department of Industrial Works (DIW) regulates chemical imports. A chemical import notification is required. Thailand has specific labelling requirements in Thai language for hazardous chemicals. GHS-compliant SDS in Thai is recommended.
+
+Both countries benefit from reduced duty rates under regional trade agreements. Vasudev Chemo Pharma has experience shipping to Hai Phong (Vietnam) and Laem Chabang (Thailand) with full compliance documentation.`,
+      },
+    ],
+    faqs: [
+      {
+        question: "What HS code is used for MEA Triazine 78%?",
+        answer:
+          "MEA Triazine is typically classified under HS 2933.69 (triazine ring compounds). Some countries may accept 3824.99 (chemical preparations NES). We provide destination-specific HS code guidance with every quotation.",
+      },
+      {
+        question: "Does Vasudev handle export documentation?",
+        answer:
+          "Yes. We provide the complete documentation package including commercial invoice, COA, TDS, SDS (in destination language), certificate of origin, and any additional certificates required by your country. We work with your freight forwarder to ensure smooth customs clearance.",
+      },
+      {
+        question: "Do I need an import licence for MEA Triazine?",
+        answer:
+          "This depends on your country. In the US, no import permit is required for industrial-use MEA Triazine. In Brazil, a licença de importação may be needed. GCC countries have varying requirements. Contact us with your destination and we will advise on specific requirements.",
+      },
+      {
+        question: "Can Vasudev supply to countries not listed in this guide?",
+        answer:
+          "Yes. We export to over 25 countries worldwide. If your destination is not covered here, contact our export team and we will provide country-specific compliance guidance and documentation.",
+      },
+      {
+        question: "How long does customs clearance typically take?",
+        answer:
+          "With proper documentation, customs clearance typically takes 2–5 business days in most markets. Delays usually occur when documentation is incomplete or HS codes are disputed. Our export team works proactively to prevent clearance issues.",
+      },
+    ],
+    relatedLinks: [
+      { text: "MEA Triazine 78% Product Page", href: "/product" },
+      { text: "Technical Datasheet", href: "/resources/mea-triazine-technical-datasheet" },
+      { text: "Safety Data Sheet", href: "/resources/mea-triazine-safety-data-sheet" },
+      { text: "MEA Triazine Supply to UAE", href: "/supply/mea-triazine-78/uae" },
+      { text: "Contact Export Team", href: "/contact" },
+    ],
+  },
 };
 
 export const RESOURCE_SLUGS: string[] = Object.keys(RESOURCE_ARTICLES_DATA);

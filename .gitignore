@@ -38,6 +38,8 @@ build_error.log
 .env*.local
 .env.production
 .env.staging
+update-site-urls.js
+all-urls.txt
 
 # payload
 payload.db

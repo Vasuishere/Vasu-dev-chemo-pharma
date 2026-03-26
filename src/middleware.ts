@@ -74,7 +74,7 @@ function buildContentSecurityPolicy(): string {
     "object-src 'none'",
     scriptSrc,
     "style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net",
-    "img-src 'self' data: blob: https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com https://drive.google.com https://lh3.googleusercontent.com https://framerusercontent.com https://www.gravatar.com https://secure.gravatar.com",
+    "img-src 'self' data: blob: https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com https://framerusercontent.com https://www.gravatar.com https://secure.gravatar.com",
     "font-src 'self' data:",
     "connect-src 'self' https://challenges.cloudflare.com https://www.google.com",
     "worker-src 'self' blob:",
@@ -123,10 +123,6 @@ function isProtectedPath(pathname: string): boolean {
 function getRouteLimit(pathname: string): number {
   if (pathname.startsWith('/api/contact')) {
     return 20;
-  }
-
-  if (pathname.startsWith('/api/assets/upload') || pathname.startsWith('/api/assets/ingest-drive-link')) {
-    return 40;
   }
 
   if (pathname.startsWith('/api/seed') || pathname.startsWith('/admin') || pathname.startsWith('/payload')) {

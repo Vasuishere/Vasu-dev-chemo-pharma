@@ -40,6 +40,7 @@ build_error.log
 .env.staging
 update-site-urls.js
 all-urls.txt
+seed.ts
 
 # payload
 payload.db

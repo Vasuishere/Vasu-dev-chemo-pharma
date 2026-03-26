@@ -51,19 +51,24 @@ export const PRODUCT_META_OVERRIDES: Record<string, ProductMetaOverride> = {
     description:
       "Di Ethyl Amino Ethyl Chloride Hydrochloride manufacturer in Gujarat, India. ISO 9001:2015 certified. Pharmaceutical and industrial grade. Export available.",
   },
-  albendazole: {
-    title: "Albendazole API Manufacturer India | ISO 9001:2015 | Vasudev Chemo Pharma",
+  "sodium-cumene-sulfonate-40": {
+    title: "Sodium Cumene Sulfonate 40% (SCS-40) Manufacturer & Exporter India | Vasudev Chemo Pharma",
     description:
-      "Albendazole Active Pharmaceutical Ingredient (API) manufacturer in Ankleshwar, Gujarat. ISO 9001:2015 certified. Bulk export to pharmaceutical companies globally.",
+      "Sodium Cumene Sulfonate 40% liquid (CAS 28348-53-0) — leading manufacturer & bulk exporter from Gujarat, India. ISO 9001:2015 certified hydrotrope & coupling agent for detergent, personal care, oilfield & industrial cleaner formulations. Get competitive pricing.",
   },
-  ketoconazole: {
-    title: "Ketoconazole API Manufacturer Gujarat India | Vasudev Chemo Pharma",
+  "sodium-cumene-sulfonate-90": {
+    title: "Sodium Cumene Sulfonate 90% Powder (SCS-90) Manufacturer India | Vasudev Chemo Pharma",
     description:
-      "Ketoconazole API manufacturer in Ankleshwar, Gujarat, India. ISO 9001:2015 certified. High purity, pharmaceutical grade. Bulk supply for domestic and export.",
+      "Sodium Cumene Sulfonate 90% powder (CAS 28348-53-0) — top manufacturer & exporter from Gujarat, India. ISO 9001:2015 certified. High-purity hydrotrope for powder detergent, industrial cleaners, personal care & oilfield chemicals. Bulk & export supply available.",
   },
-  pregabalin: {
-    title: "Pregabalin API Supplier India | ISO Certified | Vasudev Chemo Pharma",
+  "sodium-xylene-sulfonate-90": {
+    title: "Sodium Xylene Sulfonate 90% Manufacturer India | Vasudev Chemo Pharma",
     description:
-      "Pregabalin API manufacturer in Gujarat, India. ISO 9001:2015 certified. Pharmaceutical grade. Subject to regulatory compliance. Domestic and export supply.",
+      "Sodium Xylene Sulfonate 90% (CAS 1300-72-7) manufacturer in Gujarat, India. ISO 9001:2015 certified. Hydrotrope for cleaning and industrial formulations. Bulk supply available.",
+  },
+  "sodium-xylene-sulfonate-40": {
+    title: "Sodium Xylene Sulfonate 40% Manufacturer India | Vasudev Chemo Pharma",
+    description:
+      "Sodium Xylene Sulfonate 40% (CAS 1300-72-7) manufacturer in Gujarat, India. ISO 9001:2015 certified. Liquid hydrotrope for detergent and cleaning formulations. Bulk export available.",
   },
 };

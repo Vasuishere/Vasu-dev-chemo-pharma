@@ -9,7 +9,7 @@ type CategoryPriority = {
 const DEFAULT_CATEGORY_PRIORITIES: CategoryPriority[] = [
   { category: "industrial", priority: 100 },
   { category: "specialty", priority: 200 },
-  { category: "pharmaceutical", priority: 300 },
+  { category: "surfactant", priority: 300 },
 ];
 
 // Build-level singleton to avoid DB pool exhaustion during concurrent SSG.
@@ -26,7 +26,7 @@ export function getCategoryPriorityMap(): Promise<Record<ProductCategory, number
       const map: Record<ProductCategory, number> = {
         industrial: 100,
         specialty: 200,
-        pharmaceutical: 300,
+        surfactant: 300,
       };
 
       const rows = Array.isArray(data?.categoryPriorities)
@@ -46,7 +46,7 @@ export function getCategoryPriorityMap(): Promise<Record<ProductCategory, number
       return {
         industrial: 100,
         specialty: 200,
-        pharmaceutical: 300,
+        surfactant: 300,
       };
     }
   })();

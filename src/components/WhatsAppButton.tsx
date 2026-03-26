@@ -1,19 +1,13 @@
 "use client";
 
-// TODO: Replace with your actual WhatsApp business number (country code + number, no + or spaces)
-// Example: "919876543210" for +91 98765 43210
-const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
-
-const MESSAGE = encodeURIComponent(
-  "Hello, I am interested in your MEA Triazine / MMA Triazine products. Please share your TDS and pricing."
-);
+import { buildWhatsAppUrl } from "@/lib/social-links";
 
 export default function WhatsAppButton() {
-  if (!WHATSAPP_NUMBER) return null;
-
   return (
     <a
-      href={`https://wa.me/${WHATSAPP_NUMBER}?text=${MESSAGE}`}
+      href={buildWhatsAppUrl(
+        "Hello, I am interested in your products. Please share your TDS, pricing, and availability."
+      )}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"

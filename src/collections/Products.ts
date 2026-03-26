@@ -1,45 +1,6 @@
 import type { CollectionConfig } from "payload";
 import { slugify } from "@/lib/slug";
 
-function clearPrimaryFlags(items: unknown): unknown {
-  if (!Array.isArray(items)) return items;
-
-  return items.map((item) => {
-    if (!item || typeof item !== "object") return item;
-    return { ...(item as Record<string, unknown>), isPrimary: false };
-  });
-}
-
-function normalizePrimaryFlags(items: unknown): unknown {
-  if (!Array.isArray(items)) return items;
-
-  let primarySeen = false;
-  return items.map((item) => {
-    if (!item || typeof item !== "object") return item;
-
-    const next = { ...(item as Record<string, unknown>) };
-    if (next.isPrimary === true) {
-      if (primarySeen) {
-        next.isPrimary = false;
-      } else {
-        primarySeen = true;
-      }
-    }
-
-    return next;
-  });
-}
-
-function hasPrimary(items: unknown): boolean {
-  return (
-    Array.isArray(items) &&
-    items.some(
-      (item) =>
-        item && typeof item === "object" && (item as Record<string, unknown>).isPrimary === true
-    )
-  );
-}
-
 export const Products: CollectionConfig = {
   slug: "products",
   admin: {
@@ -61,34 +22,6 @@ export const Products: CollectionConfig = {
               : "";
         if (sourceSlug) {
           next.slug = slugify(sourceSlug);
-        }
-
-        const hasImageUrl =
-          typeof next.imageUrl === "string" && next.imageUrl.trim().length > 0;
-        if (hasImageUrl) {
-          next.imageDriveUrls = clearPrimaryFlags(next.imageDriveUrls);
-          next.images = clearPrimaryFlags(next.images);
-        } else {
-          next.imageDriveUrls = normalizePrimaryFlags(next.imageDriveUrls);
-          if (hasPrimary(next.imageDriveUrls)) {
-            next.images = clearPrimaryFlags(next.images);
-          } else {
-            next.images = normalizePrimaryFlags(next.images);
-          }
-        }
-
-        const hasDocumentUrl =
-          typeof next.documentUrl === "string" && next.documentUrl.trim().length > 0;
-        if (hasDocumentUrl) {
-          next.documentDriveUrls = clearPrimaryFlags(next.documentDriveUrls);
-          next.documents = clearPrimaryFlags(next.documents);
-        } else {
-          next.documentDriveUrls = normalizePrimaryFlags(next.documentDriveUrls);
-          if (hasPrimary(next.documentDriveUrls)) {
-            next.documents = clearPrimaryFlags(next.documents);
-          } else {
-            next.documents = normalizePrimaryFlags(next.documents);
-          }
         }
 
         return next;
@@ -136,7 +69,7 @@ export const Products: CollectionConfig = {
       options: [
         { label: "Industrial Chemicals", value: "industrial" },
         { label: "Specialty Chemicals", value: "specialty" },
-        { label: "Pharmaceutical API Intermediates", value: "pharmaceutical" },
+        { label: "Surfactant Chemicals", value: "surfactant" },
       ],
       admin: { position: "sidebar" },
     },
@@ -237,7 +170,7 @@ export const Products: CollectionConfig = {
           options: ["COA", "TDS", "MSDS", "SDS", "SPEC", "OTHER"],
           required: true,
         },
-        { name: "fileUrl", type: "text", required: true, admin: { description: "Google Drive sharing URL or direct document URL" } },
+        { name: "fileUrl", type: "text", required: true, admin: { description: "Direct document URL" } },
         { name: "fileName", type: "text", required: true },
         {
           name: "isPrimary",
@@ -249,45 +182,6 @@ export const Products: CollectionConfig = {
           type: "select",
           options: ["public", "on-request", "internal"],
           defaultValue: "public",
-        },
-      ],
-    },
-    {
-      name: "documentDriveUrls",
-      label: "Quick Document URLs (Google Drive)",
-      type: "array",
-      admin: {
-        description:
-          "Fast input: add document URLs directly. Frontend will auto-render these in Documents & Downloads.",
-      },
-      fields: [
-        {
-          name: "url",
-          type: "text",
-          required: true,
-          admin: {
-            description:
-              "Google Drive sharing URL or direct document URL",
-          },
-        },
-        {
-          name: "docType",
-          type: "select",
-          options: ["COA", "TDS", "MSDS", "SDS", "SPEC", "OTHER"],
-          defaultValue: "OTHER",
-        },
-        {
-          name: "fileName",
-          type: "text",
-          admin: {
-            description:
-              "Optional display name. If blank, frontend will generate a default name.",
-          },
-        },
-        {
-          name: "isPrimary",
-          type: "checkbox",
-          defaultValue: false,
         },
       ],
     },
@@ -364,7 +258,7 @@ export const Products: CollectionConfig = {
       type: "text",
       admin: {
         description:
-          "Primary image source. Precedence: imageUrl > imageDriveUrls[isPrimary] > images[isPrimary]. If imageUrl is set, array primaries are auto-cleared.",
+          "Primary image URL.",
       },
     },
     {
@@ -372,7 +266,7 @@ export const Products: CollectionConfig = {
       type: "text",
       admin: {
         description:
-          "Primary document source. Precedence: documentUrl > documentDriveUrls[isPrimary] > documents[isPrimary]. If documentUrl is set, array primaries are auto-cleared.",
+          "Primary document URL.",
       },
     },
     {
@@ -380,44 +274,12 @@ export const Products: CollectionConfig = {
       type: "array",
       admin: { description: "Additional product images (optional). Use the imageUrl field above for the primary image." },
       fields: [
-        { name: "src", type: "text", required: true, admin: { description: "Google Drive share URL or direct image URL" } },
+        { name: "src", type: "text", required: true, admin: { description: "Direct image URL" } },
         { name: "alt", type: "text", required: true },
         { name: "width", type: "number", defaultValue: 800 },
         { name: "height", type: "number", defaultValue: 600 },
         { name: "isPrimary", type: "checkbox", defaultValue: false },
         { name: "caption", type: "text" },
-      ],
-    },
-    {
-      name: "imageDriveUrls",
-      label: "Quick Image URLs (Google Drive)",
-      type: "array",
-      admin: {
-        description:
-          "Fast input: add image URLs directly. Frontend will auto-render these on the product page.",
-      },
-      fields: [
-        {
-          name: "url",
-          type: "text",
-          required: true,
-          admin: {
-            description: "Google Drive share URL or direct image URL",
-          },
-        },
-        {
-          name: "alt",
-          type: "text",
-          admin: {
-            description:
-              "Optional alt text. If blank, frontend uses product name.",
-          },
-        },
-        {
-          name: "isPrimary",
-          type: "checkbox",
-          defaultValue: false,
-        },
       ],
     },
 

@@ -302,7 +302,7 @@ export const blogData: Record<string, BlogEntry> = {
       {
         heading: "The Digital Transformation of Chemical Production",
         id: "digital-transformation-chemical",
-        body: "The chemical manufacturing industry is experiencing its most significant technological transformation since the advent of continuous processing. Artificial intelligence, machine learning, and the Internet of Things are converging to create intelligent production systems that can monitor, analyse, and optimise every variable in chemical synthesis — from reactor temperature and pressure profiles to raw material feed rates and product purity. For manufacturers producing pharmaceutical intermediates like Albendazole API, Pregabalin, and Ketoconazole raw materials, these technologies enable unprecedented precision in meeting stringent pharmacopoeial specifications while reducing batch failures and waste.",
+        body: "The chemical manufacturing industry is experiencing its most significant technological transformation since the advent of continuous processing. Artificial intelligence, machine learning, and the Internet of Things are converging to create intelligent production systems that can monitor, analyse, and optimise every variable in chemical synthesis — from reactor temperature and pressure profiles to raw material feed rates and product purity. For manufacturers producing specialty chemicals like hydrotropes, triazines, and industrial intermediates, these technologies enable unprecedented precision in meeting stringent quality specifications while reducing batch failures and waste.",
       },
       {
         heading: "Predictive Maintenance and Equipment Reliability",
@@ -461,9 +461,9 @@ export const blogData: Record<string, BlogEntry> = {
       },
       {
         heading:
-          "3. Albendazole API — Essential Pharmaceutical Intermediate",
-        id: "albendazole-api-intermediate",
-        body: "Albendazole (CAS 54965-21-8) is a benzimidazole-class anthelmintic drug included in the World Health Organisation's List of Essential Medicines. As an Active Pharmaceutical Ingredient (API), Albendazole is critical for treating parasitic worm infections affecting over 1.5 billion people globally, particularly in tropical and subtropical regions. The synthesis of pharmaceutical-grade Albendazole requires precise control of reaction conditions, rigorous impurity profiling, and compliance with Good Manufacturing Practice (GMP) standards. Indian manufacturers have become global leaders in Albendazole API production, supplying pharmaceutical formulators across Africa, Southeast Asia, Latin America, and the Middle East with competitively priced, high-purity material.",
+          "3. Sodium Cumene Sulfonate — Versatile Hydrotrope",
+        id: "sodium-cumene-sulfonate-hydrotrope",
+        body: "Sodium Cumene Sulfonate (CAS 28348-53-0) is a widely used hydrotrope in cleaning product formulations, personal care, and industrial applications. It functions by increasing the solubility of sparingly soluble organic compounds in aqueous solutions, enabling clear and stable liquid detergent, shampoo, and industrial cleaner formulations. Available in 40% liquid and 90% powder concentrations, Sodium Cumene Sulfonate is preferred over other hydrotropes due to its excellent cloud-point elevation and coupling efficiency. Indian manufacturers like Vasudev Chemo Pharma supply Sodium Cumene Sulfonate to detergent formulators and industrial chemical companies across the Middle East, Africa, Southeast Asia, and Latin America.",
       },
       {
         heading:
@@ -481,7 +481,7 @@ export const blogData: Record<string, BlogEntry> = {
     bullets: [
       "MEA Triazine for critical H2S scavenging in oil & gas",
       "P-Toluenesulfonic Acid as a versatile industrial catalyst",
-      "Albendazole API for essential medicines worldwide",
+      "Sodium Cumene Sulfonate as a versatile hydrotrope",
       "Copper Sulphate for agriculture, mining, and water treatment",
     ],
     quote:

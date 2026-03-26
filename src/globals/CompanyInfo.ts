@@ -58,7 +58,7 @@ export const CompanyInfo: GlobalConfig = {
       type: "text",
       admin: {
         description:
-          "Company brochure PDF URL (Google Drive share link or direct PDF URL).",
+          "Company brochure PDF URL (direct PDF URL).",
       },
     },
     {

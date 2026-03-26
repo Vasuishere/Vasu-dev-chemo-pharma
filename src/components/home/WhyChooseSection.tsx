@@ -75,33 +75,6 @@ export default function WhyChooseSection() {
             </div>
 
             <Button href="/product">View our products</Button>
-
-            {/* Happy Clients */}
-            <div className="flex items-center gap-4 mt-8">
-              <div className="flex -space-x-3">
-                {avatars.map((src, i) => (
-                  <Image
-                    key={i}
-                    src={src}
-                    alt="Avatar"
-                    width={36}
-                    height={36}
-                    className="w-9 h-9 rounded-full border-2 border-white"
-                  />
-                ))}
-              </div>
-              <div>
-                <Image
-                  src="https://framerusercontent.com/images/vLIB1zDP4bI0m0N2PXLiIxcw5Y.svg"
-                  alt="Rating Image"
-                  width={80}
-                  height={12}
-                />
-                <p className="text-sm text-secondary mt-1">
-                  Trusted by buyers worldwide
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </div>

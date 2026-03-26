@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title:
     "MEA Triazine 78% Manufacturer — Direct Factory Supply | Vasudev Chemo Pharma",
   description:
-    "Vasudev Chemo Pharma is a direct manufacturer of MEA Triazine 78% (CAS 4719-04-4) H2S scavenger. ISO 9001:2015 certified. Factory pricing. 200L drums, 1000L IBC, bulk. Supply to 14+ countries.",
+    "Vasudev Chemo Pharma is a direct manufacturer of MEA Triazine 78% (CAS 4719-04-4) H2S scavenger. ISO 9001:2015 certified. Factory pricing. 200L drums, 1000L IBC, bulk. Supply to 10+ countries.",
   keywords: [
     "MEA Triazine 78%",
     "MEA Triazine manufacturer",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     title:
       "MEA Triazine 78% Manufacturer — Direct Factory Supply | Vasudev Chemo Pharma",
     description:
-      "Direct manufacturer of MEA Triazine 78% H2S scavenger. ISO 9001:2015 certified. Factory-direct pricing. Supplying 14+ countries.",
+      "Direct manufacturer of MEA Triazine 78% H2S scavenger. ISO 9001:2015 certified. Factory-direct pricing. Supplying 10+ countries.",
     url: `${SITE_URL}/supply/mea-triazine-78`,
     type: "website",
     locale: "en_US",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "MEA Triazine 78% Manufacturer | Vasudev Chemo Pharma",
     description:
-      "Direct manufacturer of MEA Triazine 78% H2S scavenger. Supply to 14+ countries with factory pricing.",
+      "Direct manufacturer of MEA Triazine 78% H2S scavenger. Supply to 10+ countries with factory pricing.",
   },
 };
 
@@ -73,7 +73,7 @@ const whyVasudev = [
   { title: "Direct Manufacturer", desc: "Factory-direct pricing with no middlemen or trader markups." },
   { title: "78% Guaranteed", desc: "Every batch tested and certified. Certificate of Analysis included." },
   { title: "ISO 9001:2015", desc: "Quality management system certified — consistent batch-to-batch quality." },
-  { title: "14+ Countries Served", desc: "Proven export track record across Middle East, Americas, and Asia-Pacific." },
+  { title: "10+ Countries Served", desc: "Proven export track record across Middle East, Americas, and Asia-Pacific." },
   { title: "Fast Delivery", desc: "3-5 days to GCC ports. Near Kandla, Mundra, and Hazira ports in Gujarat." },
   { title: "Custom Packaging", desc: "200L drums, 1000L IBC, or bulk ISO tanks — your choice." },
 ];
@@ -132,7 +132,7 @@ export default function MeaTriazineSupplyIndexPage() {
                 </Link>{" "}
                 used in oil &amp; gas, petrochemical, biogas, and water treatment
                 operations. We supply factory-direct from Gujarat, India to{" "}
-                <strong>14+ countries</strong> with ISO 9001:2015 certified
+                <strong>10+ countries</strong> with ISO 9001:2015 certified
                 quality and competitive pricing.
               </p>
               <div className="flex flex-wrap gap-3 mt-8">

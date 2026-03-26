@@ -11,9 +11,9 @@ import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "Chemical Products — Industrial, Specialty & Pharmaceutical | Vasudev Chemo Pharma",
+  title: "Chemical Products — Industrial, Specialty & Surfactant | Vasudev Chemo Pharma",
   description:
-    "Browse chemical products from Vasudev Chemo Pharma — ISO 9001:2015 certified manufacturer in Gujarat, India. Industrial chemicals, specialty chemicals, and pharmaceutical API intermediates. Request a quote today.",
+    "Browse chemical products from Vasudev Chemo Pharma — ISO 9001:2015 certified manufacturer in Gujarat, India. Industrial chemicals, specialty chemicals, and surfactant chemicals. Request a quote today.",
   alternates: {
     canonical: "https://www.vasudevchemopharma.com/product",
   },
@@ -77,7 +77,7 @@ export default async function ProductPage() {
               <div>
                 <SectionLabel>Our Chemical Products</SectionLabel>
                 <h1 className="font-heading text-display font-semibold mt-4">
-                  Industrial & Specialty Chemicals
+                  Industrial, Specialty & Surfactant Chemicals
                 </h1>
                 <p className="text-gray-500 mt-4 max-w-xl">
                   Chemical products manufactured in Gujarat, India — ISO 9001:2015 certified,

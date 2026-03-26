@@ -1,6 +1,6 @@
 // Product data model for Vasudev Chemo Pharma PDP
 
-export type ProductCategory = "industrial" | "specialty" | "pharmaceutical";
+export type ProductCategory = "industrial" | "specialty" | "surfactant";
 export type ProductStatus = "active" | "inactive" | "discontinued";
 export type DocumentType = "COA" | "TDS" | "MSDS" | "SDS" | "SPEC" | "OTHER";
 export type DocumentAccess = "public" | "on-request" | "internal";
@@ -24,18 +24,6 @@ export interface ProductImage {
 export interface ProductFAQ {
   question: string;
   answer: string;
-}
-
-export interface QuickImageUrl {
-  url: string;
-  alt?: string;
-  isPrimary?: boolean;
-}
-
-export interface QuickDocumentUrl {
-  url: string;
-  docType?: string;
-  fileName?: string;
 }
 
 export interface Product {
@@ -93,8 +81,6 @@ export interface Product {
   imageUrl?: string;
   documentUrl?: string;
   images: ProductImage[];
-  imageDriveUrls?: QuickImageUrl[];
-  documentDriveUrls?: QuickDocumentUrl[];
 
   // Status
   status: ProductStatus;
@@ -107,5 +93,5 @@ export interface Product {
 export const CATEGORY_LABELS: Record<ProductCategory, string> = {
   industrial: "Industrial Chemicals",
   specialty: "Specialty Chemicals",
-  pharmaceutical: "Pharmaceutical API Intermediates",
+  surfactant: "Surfactant Chemicals",
 };

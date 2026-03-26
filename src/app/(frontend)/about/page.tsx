@@ -73,26 +73,6 @@ export default async function AboutPage() {
                 </h1>
               </div>
               <div className="flex flex-col justify-end">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="flex -space-x-3">
-                    {avatars.map((src, i) => (
-                      <Image
-                        key={i}
-                        src={src}
-                        alt="Vasudev Chemo Pharma team"
-                        width={40}
-                        height={40}
-                        className="w-10 h-10 rounded-full border-2 border-white"
-                      />
-                    ))}
-                    <div className="w-10 h-10 rounded-full bg-accent text-white text-xs font-bold flex items-center justify-center border-2 border-white">
-                      10+
-                    </div>
-                  </div>
-                  <p className="text-sm text-secondary">
-                    Team of dedicated chemical professionals
-                  </p>
-                </div>
                 <p className="text-sm text-muted">{companyAddress || "-"}</p>
               </div>
             </div>
@@ -104,7 +84,7 @@ export default async function AboutPage() {
           <div className="max-w-container mx-auto px-6 lg:px-10">
             <div className="relative rounded-3xl overflow-hidden aspect-[16/7] mb-12">
               <Image
-                src="https://framerusercontent.com/images/yHbIIVOj7hK29ucygE5eIDV47I.jpg"
+                src="https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Vasudev/Exporter%2010%2B%20Countries.svg"
                 alt="Vasudev Chemo Pharma chemical manufacturing facility in Gujarat India"
                 fill
                 priority
@@ -164,13 +144,6 @@ export default async function AboutPage() {
               {/* Left - Company Info */}
               <div>
                 <div className="flex items-center gap-4 mb-8">
-                  <Image
-                    src="https://framerusercontent.com/images/4joakeBMa5GHrq9uyQPg0bnmko.png"
-                    alt="Avatar"
-                    width={48}
-                    height={48}
-                    className="rounded-full"
-                  />
                   <div>
                     <h3 className="font-heading text-lg font-semibold text-primary">
                       {companyName}

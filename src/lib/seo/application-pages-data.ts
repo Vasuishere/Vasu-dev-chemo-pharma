@@ -804,7 +804,7 @@ Many operations use both: amine systems for bulk H2S removal and MEA Triazine fo
     ],
     h1: "Pipeline H2S Treatment with MEA Triazine 78%",
     intro:
-      "Hydrogen sulfide in pipelines causes corrosion, safety hazards, and product quality failures. MEA Triazine 78% is injected directly into sour gas and crude oil pipelines to react with H2S inline, protecting infrastructure and ensuring transported products meet downstream specifications. Vasudev Chemo Pharma supplies MEA Triazine 78% for pipeline H2S treatment operations across 14+ countries from our manufacturing facility in India.",
+      "Hydrogen sulfide in pipelines causes corrosion, safety hazards, and product quality failures. MEA Triazine 78% is injected directly into sour gas and crude oil pipelines to react with H2S inline, protecting infrastructure and ensuring transported products meet downstream specifications. Vasudev Chemo Pharma supplies MEA Triazine 78% for pipeline H2S treatment operations across 10+ countries from our manufacturing facility in India.",
     sections: [
       {
         heading: "H2S Risks in Pipeline Systems",

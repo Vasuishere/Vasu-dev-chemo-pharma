@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { getAllProductSlugs } from "@/lib/products-payload";
 import { getAllProductSlugs as getStaticProductSlugs } from "@/lib/products";
 import { blogData } from "@/app/(frontend)/blog/[slug]/seo-blog-data";
+import { CASE_STUDY_SLUGS } from "@/lib/case-studies-data";
 import { COUNTRY_SLUGS } from "@/lib/seo/country-pages-data";
 import { COMPETITOR_SLUGS } from "@/lib/seo/competitor-comparison-data";
 import { APPLICATION_SLUGS } from "@/lib/seo/application-pages-data";
@@ -57,13 +58,6 @@ const STATIC_ROUTES: RouteConfig[] = [
   { path: "/applications", changeFrequency: "weekly", priority: 0.8 },
   { path: "/resources", changeFrequency: "weekly", priority: 0.75 },
   { path: "/legal/privacy-policy", changeFrequency: "yearly", priority: 0.3 },
-];
-
-const CASE_STUDY_SLUGS = [
-  "lightweight-castings-for-industrial-equipment",
-  "precision-cnc-milling-for-automotive-components",
-  "additive-manufacturing-for-custom-tooling",
-  "automated-assembly-line-optimization",
 ];
 
 const SERVICE_SLUGS = [

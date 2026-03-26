@@ -41,6 +41,10 @@ export const FEATURED_RESOURCE_SLUGS = [
   "h2s-scavenger-solids-formation",
   "mea-triazine-storage-handling",
   "triazine-reaction-chemistry",
+  "mea-triazine-technical-datasheet",
+  "mea-triazine-safety-data-sheet",
+  "h2s-scavenger-dosing-guide",
+  "import-compliance-guide",
 ] as const;
 
 export function buildAbsoluteUrl(path: string): string {

@@ -6,6 +6,11 @@ import SectionLabel from "@/components/SectionLabel";
 import Button from "@/components/Button";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 import FAQSchema from "@/components/seo/FAQSchema";
+import {
+  buildCountryPagePath,
+  FEATURED_COUNTRY_SLUGS,
+} from "@/lib/seo/seo-route-helpers";
+import { COUNTRY_PAGES_DATA } from "@/lib/seo/country-pages-data";
 
 /* ── Industry data ────────────────────────────────────────────── */
 
@@ -254,6 +259,251 @@ Recommended dosage is typically 0.1–0.3% by volume for initial charge, with ma
         question: "Is triazine biocide safe for operators?",
         answer:
           "Triazine biocides release formaldehyde at controlled, low concentrations — well below levels that would cause workplace exposure concerns when used at recommended dosages. Standard chemical handling precautions (gloves, eye protection) should be observed when adding the concentrate.",
+      },
+    ],
+  },
+
+  "petrochemical": {
+    title: "MEA Triazine H2S Scavenger for Petrochemical Plants",
+    h1: "MEA Triazine H2S Scavenger for Petrochemical Operations — Direct from Manufacturer",
+    description:
+      "MEA Triazine 78% H2S scavenger for petrochemical plants. Protects crackers, reformers, and downstream units from sulfide corrosion. Manufactured by Vasudev Chemo Pharma, India.",
+    keywords: [
+      "MEA Triazine petrochemical",
+      "H2S scavenger petrochemical plant",
+      "hydrogen sulfide removal petrochemical",
+      "triazine for naphtha cracker",
+      "petrochemical corrosion inhibitor H2S",
+      "H2S scavenger manufacturer India",
+    ],
+    image:
+      "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/industry_Solutions/Oil_Gas_Vasudev_Chemo_Pharma.png",
+    sections: [
+      {
+        heading: "H2S Challenges in Petrochemical Operations",
+        body: `Petrochemical complexes process hydrocarbon feedstocks that frequently contain hydrogen sulfide and other sulfur compounds. Steam crackers, catalytic reformers, hydrotreaters, and amine regeneration units all generate or encounter H2S at concentrations that threaten equipment integrity and product quality. Sulfide stress cracking in heat exchangers, fouling of catalyst beds, and off-spec product contamination are common consequences of inadequate H2S management.
+
+The scale of petrochemical operations amplifies the cost of corrosion-related failures. A single unplanned shutdown of a cracker or reformer can cost millions in lost production. Regulatory compliance under OSHA, EPA, and local environmental agencies requires continuous monitoring and control of sulfur emissions from process vents, flare systems, and wastewater streams.`,
+      },
+      {
+        heading: "MEA Triazine 78% in Petrochemical Applications",
+        body: `MEA Triazine (1,3,5-tri(2-hydroxyethyl)-hexahydro-s-triazine) is deployed across multiple points in petrochemical facilities for H2S control. It is injected into process streams, amine system overheads, sour water strippers, and flare gas headers to reduce H2S concentrations below safety and compliance thresholds.
+
+At 78% active concentration, MEA Triazine delivers high scavenging capacity with minimal dilution of process streams. The irreversible reaction with H2S produces water-soluble dithiazine — a stable, non-toxic by-product that does not re-release hydrogen sulfide under process conditions. This makes MEA Triazine suitable for both continuous injection and batch treatment scenarios common in petrochemical plants.
+
+Unlike regenerable amine systems that require dedicated stripping columns and reboilers, MEA Triazine is a simple liquid injection that can be deployed at any point in the process where H2S control is needed — including locations where installing a full amine unit is impractical or uneconomical.`,
+      },
+    ],
+    specs: [
+      { label: "Product", value: "MEA Triazine 78%" },
+      { label: "Active content", value: "78% (w/w)" },
+      { label: "CAS Number", value: "4719-04-4" },
+      { label: "Appearance", value: "Clear to slightly yellow liquid" },
+      { label: "Application points", value: "Amine overheads, sour water strippers, flare headers" },
+      { label: "Packaging", value: "220 L drums, IBC 1000 L, bulk tanker" },
+      { label: "MOQ (Export)", value: "1 MT" },
+      { label: "Lead time (Export)", value: "10–15 days" },
+      { label: "Lead time (Domestic)", value: "4–5 days" },
+    ],
+    benefits: [
+      "ISO 9001:2015 certified manufacturer",
+      "High 78% concentration — maximum scavenging per litre",
+      "Direct from manufacturer — competitive bulk pricing",
+      "Effective across cracker, reformer, and amine system applications",
+      "COA, TDS, MSDS documentation with every shipment",
+      "Technical support for process-specific dosing optimisation",
+    ],
+    servedIndustries: [
+      "Steam cracker complexes",
+      "Catalytic reforming units",
+      "Amine regeneration systems",
+      "Sulfur recovery units",
+    ],
+    faqs: [
+      {
+        question: "Where is MEA Triazine injected in a petrochemical plant?",
+        answer:
+          "MEA Triazine 78% is typically injected at amine system overheads, sour water stripper outlets, flare gas headers, and any process stream where H2S concentrations exceed safety or specification limits. The exact injection points depend on your facility configuration — our technical team can help you identify optimal locations.",
+      },
+      {
+        question: "Can MEA Triazine replace amine systems in petrochemical operations?",
+        answer:
+          "MEA Triazine is used as a complement to amine systems — not a replacement for large-scale amine treating. It is ideal for polishing residual H2S after amine treatment, treating low-volume streams where a full amine unit is uneconomical, and providing backup scavenging during amine system upsets or turnarounds.",
+      },
+      {
+        question: "What is the scavenging capacity of MEA Triazine 78% in petrochemical service?",
+        answer:
+          "Approximately 4.5 litres of MEA Triazine 78% is required per kilogram of H2S removed. Actual consumption depends on H2S concentration, contact time, temperature, and injection method. Our team provides dosing calculations for your specific process conditions.",
+      },
+      {
+        question: "Do you supply MEA Triazine in bulk for petrochemical complexes?",
+        answer:
+          "Yes. We supply MEA Triazine 78% in 220 L drums, 1000 L IBCs, and bulk tanker quantities. For large petrochemical complexes with continuous consumption, we offer scheduled bulk supply arrangements with competitive pricing.",
+      },
+    ],
+  },
+
+  "refining": {
+    title: "H2S Scavenger for Refinery Operations — MEA Triazine 78%",
+    h1: "H2S Scavenger for Refinery Operations — MEA Triazine 78% Manufacturer",
+    description:
+      "MEA Triazine 78% H2S scavenger for petroleum refineries. Crude unit overheads, FCC off-gas, and tank vapour treatment. Manufactured by Vasudev Chemo Pharma, India.",
+    keywords: [
+      "H2S scavenger refinery",
+      "MEA Triazine refinery operations",
+      "hydrogen sulfide removal refinery",
+      "crude unit overhead H2S",
+      "FCC off-gas H2S scavenger",
+      "refinery corrosion control H2S",
+    ],
+    image:
+      "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/industry_Solutions/Oil_Gas_Vasudev_Chemo_Pharma.png",
+    sections: [
+      {
+        heading: "H2S Corrosion Risks in Refineries",
+        body: `Petroleum refineries process crude oil containing varying levels of sulfur compounds that decompose into hydrogen sulfide during thermal and catalytic processing. The crude distillation unit (CDU) overhead system, fluid catalytic cracker (FCC) off-gas, hydrocracker effluent, and coker unit are all significant H2S generation points. Storage tanks receiving sour intermediates also accumulate H2S in the vapour space.
+
+H2S-induced corrosion in refinery equipment is a leading cause of unplanned shutdowns and safety incidents. Overhead condenser systems are particularly vulnerable — wet H2S combined with chlorides creates aggressive corrosion environments that can perforate heat exchanger tubes and overhead piping within months. API 571 classifies wet H2S damage as one of the most common damage mechanisms in refining service. Beyond equipment integrity, refineries must comply with SOx emission limits and sulfur content specifications in finished products.`,
+      },
+      {
+        heading: "MEA Triazine 78% for Refinery H2S Control",
+        body: `MEA Triazine is applied in refineries as a targeted H2S scavenging agent at process points where amine treatment alone is insufficient or impractical. Common refinery applications include:
+
+Crude unit overhead systems: MEA Triazine injection into the overhead accumulator or reflux drum controls H2S that contributes to overhead corrosion. This complements neutralising amines and filming inhibitors in a comprehensive overhead corrosion management programme.
+
+FCC off-gas treatment: The FCC wet gas compressor discharge and downstream absorber overhead contain H2S that must be removed before the gas enters the fuel gas system or sulfur recovery unit. MEA Triazine provides fast-acting scavenging at these critical points.
+
+Tank vapour treatment: Crude and intermediate storage tanks accumulate H2S in the vapour space. MEA Triazine-based scrubbing systems or direct vapour-space injection reduce H2S to safe levels for tank maintenance and reduce emissions from tank vents.
+
+The 78% active concentration provides maximum chemical efficiency, reducing the volume of scavenger required per unit of H2S removed — an important consideration in refineries where chemical storage and handling space is often constrained.`,
+      },
+    ],
+    specs: [
+      { label: "Product", value: "MEA Triazine 78%" },
+      { label: "Active content", value: "78% (w/w)" },
+      { label: "CAS Number", value: "4719-04-4" },
+      { label: "Appearance", value: "Clear to slightly yellow liquid" },
+      { label: "Refinery applications", value: "CDU overheads, FCC off-gas, tank vapour, sour water" },
+      { label: "Packaging", value: "220 L drums, IBC 1000 L, bulk tanker" },
+      { label: "MOQ (Export)", value: "1 MT" },
+      { label: "Lead time (Export)", value: "10–15 days" },
+      { label: "Lead time (Domestic)", value: "4–5 days" },
+    ],
+    benefits: [
+      "ISO 9001:2015 certified manufacturer",
+      "78% concentration — high efficiency in constrained spaces",
+      "Effective at CDU overheads, FCC off-gas, and tank vapour service",
+      "Direct from manufacturer — no middlemen, competitive pricing",
+      "COA, TDS, MSDS included with every shipment",
+      "Technical support for refinery-specific dosing programmes",
+    ],
+    servedIndustries: [
+      "Crude oil refineries",
+      "FCC and hydrocracking units",
+      "Petroleum storage terminals",
+      "Refinery wastewater treatment",
+    ],
+    faqs: [
+      {
+        question: "How is MEA Triazine used in refinery overhead systems?",
+        answer:
+          "MEA Triazine 78% is injected into the crude unit overhead system — typically at the overhead accumulator or reflux drum — to scavenge H2S before it can cause corrosion in condenser tubes and piping. It works alongside neutralising amines and filming corrosion inhibitors as part of a comprehensive overhead treatment programme.",
+      },
+      {
+        question: "Can MEA Triazine treat FCC off-gas?",
+        answer:
+          "Yes. MEA Triazine is commonly injected into FCC wet gas compressor discharge and absorber overhead streams to remove H2S before the gas enters the refinery fuel gas system or sulfur recovery unit. Dosing is adjusted based on FCC feed sulfur content and operating severity.",
+      },
+      {
+        question: "Is MEA Triazine compatible with other refinery chemical treatments?",
+        answer:
+          "MEA Triazine 78% is compatible with neutralising amines (MDEA, morpholine), filming inhibitors, and demulsifiers commonly used in refinery operations. Our technical team can review your existing chemical programme to ensure compatibility.",
+      },
+      {
+        question: "What quantity of MEA Triazine does a typical refinery consume?",
+        answer:
+          "Consumption depends on crude sulfur content, throughput, and the number of injection points. A mid-size refinery processing sour crude may consume 5–20 MT per month of MEA Triazine 78%. We offer bulk supply arrangements with scheduled deliveries for continuous operations.",
+      },
+    ],
+  },
+
+  "biogas": {
+    title: "MEA Triazine H2S Scavenger for Biogas Purification",
+    h1: "MEA Triazine H2S Scavenger for Biogas & Biomethane Purification",
+    description:
+      "MEA Triazine 78% removes H2S from biogas, landfill gas, and anaerobic digester output. Protects engines, turbines, and upgrading equipment. Supplied by Vasudev Chemo Pharma, India.",
+    keywords: [
+      "H2S scavenger biogas",
+      "MEA Triazine biogas purification",
+      "hydrogen sulfide removal biogas",
+      "biogas H2S removal chemical",
+      "landfill gas H2S treatment",
+      "biomethane H2S scavenger",
+      "anaerobic digester H2S",
+    ],
+    image:
+      "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/industry_Solutions/Waste_Water_Treatment_Vasudev_Chemo_Pharma.png",
+    sections: [
+      {
+        heading: "The H2S Problem in Biogas",
+        body: `Biogas produced from anaerobic digestion of organic waste, wastewater sludge, agricultural residues, and landfill decomposition typically contains hydrogen sulfide at concentrations ranging from 100 to over 10,000 ppm. This H2S originates from the bacterial reduction of sulfate and the decomposition of sulfur-containing proteins in the feedstock.
+
+Untreated H2S in biogas causes rapid corrosion of engines, turbines, piping, and biogas upgrading equipment. It also poses a direct safety hazard to plant operators and produces sulfur dioxide (SO2) emissions when combusted — a regulated air pollutant. For biogas upgrading to biomethane or renewable natural gas (RNG), pipeline injection specifications typically require H2S below 4 ppm, demanding effective and reliable removal technology.`,
+      },
+      {
+        heading: "MEA Triazine for Biogas H2S Removal",
+        body: `MEA Triazine 78% is an effective liquid H2S scavenger for biogas applications. It is injected into the biogas stream — typically in a packed scrubbing column or inline injection system — where it reacts irreversibly with H2S to form dithiazine, a water-soluble and non-toxic by-product.
+
+For smaller biogas plants (agricultural digesters, small landfills), MEA Triazine offers a simple, low-capital solution: a chemical dosing pump and a contact vessel are the only equipment required. For larger operations, MEA Triazine can be used as a polishing step after biological desulfurisation or iron-based removal to achieve the stringent H2S limits required for biomethane upgrading and grid injection.
+
+The 78% active concentration minimises chemical consumption and reduces the frequency of chemical deliveries — an important consideration for biogas plants in rural or remote locations. The spent solution is non-hazardous and can typically be disposed of through the existing wastewater management system at the biogas facility.`,
+      },
+    ],
+    specs: [
+      { label: "Product", value: "MEA Triazine 78%" },
+      { label: "Active content", value: "78% (w/w)" },
+      { label: "CAS Number", value: "4719-04-4" },
+      { label: "Appearance", value: "Clear to slightly yellow liquid" },
+      { label: "H2S removal capacity", value: "~4.5 L per kg H2S removed" },
+      { label: "Biogas applications", value: "Digesters, landfill gas, biomethane upgrading" },
+      { label: "Packaging", value: "220 L drums, IBC 1000 L" },
+      { label: "MOQ (Export)", value: "1 MT" },
+      { label: "Lead time (Export)", value: "10–15 days" },
+    ],
+    benefits: [
+      "Simple deployment — dosing pump + contact vessel only",
+      "78% concentration — fewer deliveries to remote biogas sites",
+      "Non-hazardous spent solution — easy disposal",
+      "Effective from 100 ppm to 10,000+ ppm H2S",
+      "Suitable for biomethane upgrading to pipeline spec (< 4 ppm H2S)",
+      "ISO 9001:2015 certified manufacturer — COA, TDS, MSDS included",
+    ],
+    servedIndustries: [
+      "Agricultural biogas plants",
+      "Landfill gas collection facilities",
+      "Wastewater sludge digesters",
+      "Biomethane upgrading and RNG plants",
+    ],
+    faqs: [
+      {
+        question: "Can MEA Triazine achieve biomethane pipeline specifications?",
+        answer:
+          "Yes. MEA Triazine 78% can reduce H2S to below 4 ppm when used in a properly designed scrubbing system. For high-H2S biogas, it is often used as a polishing step after biological or iron-based primary removal to reliably achieve pipeline-grade biomethane specifications.",
+      },
+      {
+        question: "What equipment is needed to use MEA Triazine in a biogas plant?",
+        answer:
+          "A basic MEA Triazine dosing system requires a chemical storage tank, a metering/dosing pump, and a gas-liquid contact vessel (packed column or spray tower). For smaller plants, inline injection with a static mixer can also be effective. No regeneration equipment is needed.",
+      },
+      {
+        question: "How does MEA Triazine compare to iron sponge for biogas?",
+        answer:
+          "Iron sponge (iron oxide) media requires periodic replacement and generates spent media that may be classified as hazardous waste. MEA Triazine is a liquid that is continuously dosed, produces non-hazardous spent solution, and requires no media change-outs. MEA Triazine has higher operating cost per unit of H2S removed but lower capital and maintenance costs.",
+      },
+      {
+        question: "Is MEA Triazine suitable for landfill gas applications?",
+        answer:
+          "Yes. MEA Triazine 78% is effective for landfill gas H2S removal. Landfill gas typically contains 50–500 ppm H2S, which is well within the effective range for MEA Triazine treatment. It protects landfill gas engines, turbines, and upgrading equipment from sulfide corrosion.",
       },
     ],
   },
@@ -562,6 +812,84 @@ export default async function IndustryPage({
           </div>
         </section>
 
+        {/* Technical resources */}
+        <section className="py-12">
+          <div className="max-w-container mx-auto px-6 lg:px-10">
+            <h2 className="font-heading text-h3 font-semibold text-primary mb-6">
+              Technical Resources
+            </h2>
+            <p className="text-secondary mb-6">
+              <Link href="/resources" className="text-accent underline underline-offset-2 hover:text-accent-dark">
+                View all technical resources
+              </Link>{" "}
+              for MEA Triazine 78% including datasheets, safety information, and dosing guides.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <Link
+                href="/resources/mea-triazine-technical-datasheet"
+                className="bg-light rounded-2xl p-5 hover:shadow-md transition-shadow group"
+              >
+                <h3 className="font-heading text-h5 font-semibold text-primary group-hover:text-accent transition-colors">
+                  Technical Datasheet
+                </h3>
+                <p className="text-xs text-secondary mt-1">Product specs &amp; download</p>
+              </Link>
+              <Link
+                href="/resources/mea-triazine-safety-data-sheet"
+                className="bg-light rounded-2xl p-5 hover:shadow-md transition-shadow group"
+              >
+                <h3 className="font-heading text-h5 font-semibold text-primary group-hover:text-accent transition-colors">
+                  Safety Data Sheet
+                </h3>
+                <p className="text-xs text-secondary mt-1">Hazards, handling &amp; compliance</p>
+              </Link>
+              <Link
+                href="/resources/h2s-scavenger-dosing-guide"
+                className="bg-light rounded-2xl p-5 hover:shadow-md transition-shadow group"
+              >
+                <h3 className="font-heading text-h5 font-semibold text-primary group-hover:text-accent transition-colors">
+                  Dosing Guide
+                </h3>
+                <p className="text-xs text-secondary mt-1">Calculations &amp; field reference</p>
+              </Link>
+              <Link
+                href="/resources/import-compliance-guide"
+                className="bg-light rounded-2xl p-5 hover:shadow-md transition-shadow group"
+              >
+                <h3 className="font-heading text-h5 font-semibold text-primary group-hover:text-accent transition-colors">
+                  Import Compliance Guide
+                </h3>
+                <p className="text-xs text-secondary mt-1">Country-specific requirements</p>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Global supply links */}
+        <section className="py-12 bg-light">
+          <div className="max-w-container mx-auto px-6 lg:px-10">
+            <h2 className="font-heading text-h3 font-semibold text-primary mb-6">
+              Global Supply for Industry Operations
+            </h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+              {FEATURED_COUNTRY_SLUGS.map((countrySlug) => {
+                const countryData = COUNTRY_PAGES_DATA[countrySlug];
+                if (!countryData) return null;
+                return (
+                  <Link
+                    key={countrySlug}
+                    href={buildCountryPagePath(countrySlug)}
+                    className="rounded-2xl bg-white p-4 text-center text-sm font-medium text-primary hover:text-accent hover:shadow-md transition-all"
+                  >
+                    <span className="text-2xl block mb-1">{countryData.flag}</span>
+                    MEA Triazine 78% supply to {countryData.countryName}
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
         {/* Internal links */}
         <section className="py-12">
           <div className="max-w-container mx-auto px-6 lg:px-10">
@@ -571,10 +899,10 @@ export default async function IndustryPage({
                 className="bg-light rounded-2xl p-5 hover:shadow-md transition-shadow group"
               >
                 <h3 className="font-heading text-h5 font-semibold text-primary group-hover:text-accent transition-colors">
-                  Browse Products
+                  MEA Triazine 78% Specifications
                 </h3>
                 <p className="text-sm text-secondary mt-1">
-                  View our full chemical product catalogue
+                  View full product details and specifications
                 </p>
               </Link>
               <Link
@@ -582,7 +910,7 @@ export default async function IndustryPage({
                 className="bg-light rounded-2xl p-5 hover:shadow-md transition-shadow group"
               >
                 <h3 className="font-heading text-h5 font-semibold text-primary group-hover:text-accent transition-colors">
-                  How H2S Scavengers Work
+                  Understand H2S Scavenger Chemistry
                 </h3>
                 <p className="text-sm text-secondary mt-1">
                   Complete technical guide to H2S removal chemistry
@@ -596,7 +924,7 @@ export default async function IndustryPage({
                   MEA vs MMA Triazine
                 </h3>
                 <p className="text-sm text-secondary mt-1">
-                  Which H2S scavenger should you choose?
+                  Detailed comparison to choose the right scavenger
                 </p>
               </Link>
             </div>
@@ -622,7 +950,7 @@ export default async function IndustryPage({
                   Get a quote, request a free sample, or download our Technical Data Sheet.
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
-                  <Button href="/contact">Request a quote</Button>
+                  <Button href="/contact">Request industry-specific consultation</Button>
                   <Button href="/contact?subject=sample" variant="dark">
                     Request free sample
                   </Button>

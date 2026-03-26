@@ -21,6 +21,20 @@ export default buildConfig({
   collections: [Users, Products, Assets],
   globals: [CompanyInfo, ProductSequencing, SiteImages],
   secret: process.env.PAYLOAD_SECRET!,
+  email: ({ payload }) => ({
+    name: "console",
+    defaultFromAddress: process.env.PAYLOAD_FROM_EMAIL || "noreply@vasudevchemopharma.com",
+    defaultFromName: process.env.PAYLOAD_FROM_NAME || "Vasudev Chemo Pharma",
+    async sendEmail(message) {
+      const recipients = Array.isArray(message.to)
+        ? message.to.join(", ")
+        : message.to || "unknown recipient";
+
+      payload.logger.info({
+        msg: `Email logged by configured console adapter. To: '${recipients}', Subject: '${message.subject || ""}'`,
+      });
+    },
+  }),
   typescript: {
     outputFile: path.resolve(dirname, "payload-types.ts"),
   },

@@ -38,9 +38,6 @@ const nextConfig = {
         hostname: "atjtpw4vvodv5rtp.public.blob.vercel-storage.com",
       },
     ],
-    domains: [
-      'media.istockphoto.com',
-    ],
   },
   turbopack: {},
   // Skip type-checking during build (run tsc separately in CI)
@@ -198,6 +195,26 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      {
+        source: '/products',
+        destination: '/product',
+        permanent: true,
+      },
+      {
+        source: '/insights',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/insights/chemistry-behind-mea-triazine',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/aboutus',
+        destination: '/about',
+        permanent: true,
+      },
       {
         source: '/products/mea-triazine-78',
         destination: '/product/mea-triazine-78-h2s-scavenger',

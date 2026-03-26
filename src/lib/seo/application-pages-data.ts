@@ -1027,6 +1027,119 @@ MEA Triazine 78% does not introduce new environmental hazards — the reaction p
       },
     ],
   },
+
+  /* ----------------------------------------------------------------
+   * 10. Downhole H2S Scavenging
+   * -------------------------------------------------------------- */
+  "downhole-h2s-scavenging": {
+    slug: "downhole-h2s-scavenging",
+    title: "Downhole H2S Scavenger Injection — MEA Triazine 78%",
+    description:
+      "MEA Triazine 78% for downhole H2S scavenger injection in sour wells. Reduces H2S at source, protects wellbore tubulars, and improves surface safety. Direct manufacturer supply from India.",
+    keywords: [
+      "downhole H2S scavenger",
+      "downhole H2S injection",
+      "sour well H2S treatment",
+      "wellbore H2S scavenging",
+      "MEA Triazine downhole injection",
+      "H2S scavenger sour well",
+      "chemical injection sour gas well",
+      "wellhead H2S removal",
+    ],
+    h1: "Downhole H2S Scavenger Injection with MEA Triazine 78%",
+    intro:
+      "Sour wells that produce hydrogen sulfide (H2S) alongside hydrocarbons require chemical intervention at the earliest possible point in the production system. Downhole injection of MEA Triazine 78% directly into the wellbore scavenges H2S at source — before it reaches surface facilities, flowlines, and personnel. Vasudev Chemo Pharma manufactures MEA Triazine 78% for downhole scavenger injection programmes across oil and gas producing regions worldwide, including the Middle East, Americas, and Southeast Asia.",
+    sections: [
+      {
+        heading: "Why Treat H2S Downhole?",
+        id: "why-downhole",
+        body: `Surface H2S treatment — at separators, treaters, or gas plants — is the conventional approach, but it leaves all upstream equipment exposed to corrosive sour production. Wellbore tubulars, downhole safety valves, production tubing, and surface flowlines from the wellhead to the processing facility are all at risk of sulfide stress cracking, pitting corrosion, and material failure.
+
+Downhole chemical injection addresses H2S at the source. By injecting MEA Triazine directly into the wellbore — below the tubing hanger or at the perforations — the scavenger reacts with H2S as soon as it enters the production stream. This protects the entire production system from wellbore to surface, reduces corrosion inhibitor requirements, and improves safety at the wellhead where personnel exposure risk is highest.
+
+For wells with intermittent or increasing H2S production — common in mature fields and in reservoirs undergoing souring from bacterial sulfate reduction — downhole treatment is often the most cost-effective first response, requiring no new surface facilities.`,
+      },
+      {
+        heading: "MEA Triazine 78% for Downhole Service",
+        id: "downhole-application",
+        body: `MEA Triazine 78% is injected downhole through a chemical injection capillary line (typically 1/4" or 3/8" stainless steel or Inconel tubing) that runs alongside or is strapped to the production tubing. The injection point is positioned near the perforations or in the tubing-casing annulus, depending on well completion design.
+
+At 78% active concentration, MEA Triazine provides maximum scavenging capacity per litre of injected fluid — a critical advantage in downhole applications where injection rates are constrained by capillary line capacity and downhole pressures. The product is fully water-soluble and compatible with common completion and workover fluids.
+
+Dosing is controlled by a surface chemical injection pump, with rates adjusted based on wellhead H2S measurements and production rate changes. Typical downhole injection rates range from 5 to 100 litres per day depending on well production rate and H2S concentration. The dithiazine by-product remains in the produced water phase and is separated at surface facilities.`,
+      },
+      {
+        heading: "Field Application Considerations",
+        id: "field-considerations",
+        body: `Successful downhole H2S scavenging with MEA Triazine requires attention to several field factors:
+
+Capillary line sizing: The injection line must deliver sufficient chemical volume at the required downhole pressure. For deep or high-pressure wells, pump discharge pressures of 5,000-10,000 psi may be required. Chemical injection pump selection should account for the viscosity of MEA Triazine 78% at ambient temperature.
+
+Chemical compatibility: MEA Triazine 78% is compatible with most production chemicals including corrosion inhibitors, scale inhibitors, and demulsifiers. However, it should not be co-mingled with strong acids or oxidizers in the injection system. Dedicated capillary lines or verified compatibility testing are recommended.
+
+Temperature stability: MEA Triazine 78% is effective at bottomhole temperatures up to approximately 120°C. Above this temperature, thermal degradation may reduce scavenging efficiency. For higher-temperature wells, contact our technical team for alternative formulation recommendations.
+
+Monitoring: Regular wellhead H2S measurements (using Draeger tubes, online analyzers, or portable H2S detectors) are essential for optimizing injection rates and confirming treatment effectiveness.`,
+      },
+    ],
+    specs: [
+      { label: "Product", value: "MEA Triazine 78%" },
+      { label: "Chemical name", value: "1,3,5-Tri(2-hydroxyethyl)-hexahydro-s-triazine" },
+      { label: "CAS Number", value: "4719-04-4" },
+      { label: "Active content", value: "78% (w/w)" },
+      { label: "Appearance", value: "Clear to slightly yellow liquid" },
+      { label: "Specific gravity", value: "1.10 - 1.14 at 25 °C" },
+      { label: "Effective temperature range", value: "Up to ~120 °C bottomhole" },
+      { label: "Scavenging capacity", value: "~4.5 L per kg H2S removed" },
+      { label: "Injection method", value: "Capillary line (1/4\" or 3/8\" SS/Inconel)" },
+      { label: "Packaging", value: "220 L drums, IBC 1000 L, bulk tanker" },
+    ],
+    benefits: [
+      "Treats H2S at source — protects entire production system from wellbore to surface",
+      "78% concentration — maximum scavenging per litre through capillary lines",
+      "No surface facilities required — low capital expenditure",
+      "Effective for continuous and intermittent sour well treatment",
+      "Reduces wellhead H2S exposure risk for field personnel",
+      "Compatible with standard completion and production chemicals",
+    ],
+    relatedCountries: [
+      { name: "UAE", slug: "uae" },
+      { name: "Saudi Arabia", slug: "saudi-arabia" },
+      { name: "Qatar", slug: "qatar" },
+      { name: "Kuwait", slug: "kuwait" },
+      { name: "Oman", slug: "oman" },
+      { name: "USA", slug: "usa" },
+      { name: "Iraq", slug: "iraq" },
+      { name: "Iran", slug: "iran" },
+    ],
+    faqs: [
+      {
+        question: "What injection rate of MEA Triazine is needed for downhole H2S scavenging?",
+        answer:
+          "Downhole injection rates depend on the well's H2S production rate and target surface H2S concentration. As a starting point, approximately 4.5 litres of MEA Triazine 78% is required per kilogram of H2S. For a well producing 50 ppm H2S at 5 MMscfd gas, this translates to roughly 15-25 litres per day. Our technical team provides well-specific dosing calculations based on your production data.",
+      },
+      {
+        question: "Can MEA Triazine be injected through existing chemical injection capillary lines?",
+        answer:
+          "Yes. MEA Triazine 78% is a low-viscosity liquid that flows readily through standard 1/4\" and 3/8\" capillary lines used for downhole chemical injection. Ensure the injection pump can achieve the required downhole pressure and that the capillary line is flushed with fresh water if the well is shut in for extended periods to prevent crystallization.",
+      },
+      {
+        question: "Does downhole MEA Triazine injection affect produced water quality?",
+        answer:
+          "The dithiazine by-product of the MEA Triazine + H2S reaction is water-soluble and reports to the produced water phase. It is non-toxic and does not typically affect produced water treatment processes (oil-water separation, hydrocyclones, water injection). At standard dosing rates, dithiazine concentrations in produced water are low and do not create disposal issues.",
+      },
+      {
+        question: "What is the maximum bottomhole temperature for MEA Triazine?",
+        answer:
+          "MEA Triazine 78% is effective at bottomhole temperatures up to approximately 120°C (248°F). Above this temperature, thermal degradation may reduce scavenging efficiency. For wells with higher bottomhole temperatures, contact our technical team to discuss alternative H2S scavenger formulations designed for high-temperature service.",
+      },
+      {
+        question: "Is downhole H2S scavenging more cost-effective than surface treatment?",
+        answer:
+          "For sour wells with moderate H2S levels (< 5% in gas phase), downhole scavenging often has a lower total cost than installing dedicated surface H2S treatment equipment. The capital cost is limited to a capillary line and injection pump. Operating cost depends on H2S loading and chemical consumption. Our team provides economic comparisons for your specific well conditions.",
+      },
+    ],
+  },
 };
 
 export const APPLICATION_SLUGS: string[] = Object.keys(APPLICATION_PAGES_DATA);

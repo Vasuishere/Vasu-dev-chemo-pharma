@@ -8,8 +8,6 @@ import {
 import { CATEGORY_LABELS } from "@/lib/types";
 import SectionLabel from "@/components/SectionLabel";
 import StickyAnchorNav from "@/components/StickyAnchorNav";
-import GoogleDriveImage from "@/components/GoogleDriveImage";
-import { toGoogleDrivePreviewUrl } from "@/lib/gdrive";
 import ProductSchema from "@/components/seo/ProductSchema";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 import FAQSchema from "@/components/seo/FAQSchema";
@@ -221,7 +219,7 @@ export default async function ProductDetailPage({
     return docType.includes("SDS") || docType.includes("MSDS") || fileName.includes("SDS") || fileName.includes("MSDS");
   });
   const sdsSourceUrl = sdsDocument?.fileUrl || product.documentUrl || "";
-  const sdsPreviewUrl = sdsSourceUrl ? toGoogleDrivePreviewUrl(sdsSourceUrl) : "";
+  const sdsPreviewUrl = sdsSourceUrl;
   const featuredCountryPages = FEATURED_COUNTRY_SLUGS
     .map((countrySlug) => COUNTRY_PAGES_DATA[countrySlug])
     .filter(Boolean);
@@ -234,6 +232,81 @@ export default async function ProductDetailPage({
   const featuredResourcePages = FEATURED_RESOURCE_SLUGS
     .map((resourceSlug) => RESOURCE_ARTICLES_DATA[resourceSlug])
     .filter(Boolean);
+  const hydrotropeContextConfig: Record<
+    string,
+    {
+      quoteHref: string;
+      links: { href: string; label: string; title: string; description: string }[];
+    }
+  > = {
+    "sodium-xylene-sulfonate-90": {
+      quoteHref: "/contact?product=sodium-xylene-sulfonate-90",
+      links: [
+        {
+          href: "/product/sodium-xylene-sulfonate-40",
+          label: "Alternate concentration",
+          title: "Sodium Xylene Sulfonate 40%",
+          description:
+            "Compare the liquid 40% grade when your formulation needs a lower-active hydrotrope option.",
+        },
+        {
+          href: "/product/sodium-cumene-sulfonate-90",
+          label: "Related hydrotrope",
+          title: "Sodium Cumene Sulfonate 90%",
+          description:
+            "Review another powder hydrotrope used in detergent, cleaner, and specialty formulation work.",
+        },
+        {
+          href: "/product/sodium-cumene-sulfonate-40",
+          label: "Related hydrotrope",
+          title: "Sodium Cumene Sulfonate 40%",
+          description:
+            "See the liquid cumene sulfonate grade for coupling and solubilizing performance in aqueous systems.",
+        },
+        {
+          href: "/blog/top-5-specialty-chemicals-revolutionizing-industrial-applications",
+          label: "Industry article",
+          title: "Top 5 Specialty Chemicals Revolutionizing Industrial Applications",
+          description:
+            "Read broader specialty-chemical context, including hydrotrope demand across cleaning and industrial uses.",
+        },
+      ],
+    },
+    "sodium-xylene-sulfonate-40": {
+      quoteHref: "/contact?product=sodium-xylene-sulfonate-40",
+      links: [
+        {
+          href: "/product/sodium-xylene-sulfonate-90",
+          label: "Alternate concentration",
+          title: "Sodium Xylene Sulfonate 90%",
+          description:
+            "Review the higher-active powder grade for concentrated hydrotrope and low-water formulations.",
+        },
+        {
+          href: "/product/sodium-cumene-sulfonate-40",
+          label: "Related hydrotrope",
+          title: "Sodium Cumene Sulfonate 40%",
+          description:
+            "Compare another liquid hydrotrope used for solubilizing, coupling, and cleaner formulation systems.",
+        },
+        {
+          href: "/product/sodium-cumene-sulfonate-90",
+          label: "Related hydrotrope",
+          title: "Sodium Cumene Sulfonate 90%",
+          description:
+            "See the powder hydrotrope alternative for detergent, industrial cleaner, and specialty chemical applications.",
+        },
+        {
+          href: "/blog/top-5-specialty-chemicals-revolutionizing-industrial-applications",
+          label: "Industry article",
+          title: "Top 5 Specialty Chemicals Revolutionizing Industrial Applications",
+          description:
+            "Read broader specialty-chemical context, including hydrotrope demand across cleaning and industrial uses.",
+        },
+      ],
+    },
+  };
+  const hydrotropeContext = hydrotropeContextConfig[slug];
   const anchorLinks = isMeaTriazine
     ? [
         { id: "description", label: "Overview" },
@@ -309,7 +382,7 @@ export default async function ProductDetailPage({
             <div className="bg-light rounded-3xl p-8 flex items-center justify-center min-h-[360px]">
               {product.imageUrl ? (
                 <div className="w-full space-y-4">
-                  <GoogleDriveImage
+                  <img
                     src={product.imageUrl}
                     alt={product.name}
                     width={800}
@@ -318,7 +391,7 @@ export default async function ProductDetailPage({
                   />
                   {safeImages.length > 0 &&
                     safeImages.map((img, i) => (
-                      <GoogleDriveImage
+                      <img
                         key={i}
                         src={img.src}
                         alt={img.alt}
@@ -331,7 +404,7 @@ export default async function ProductDetailPage({
               ) : safeImages.length > 0 ? (
                 <div className="w-full space-y-4">
                   {safeImages.map((img, i) => (
-                    <GoogleDriveImage
+                    <img
                       key={i}
                       src={img.src}
                       alt={img.alt}
@@ -793,7 +866,7 @@ export default async function ProductDetailPage({
                 {/* CMS documents */}
                 {product.documentUrl && (
                   <a
-                    href={toGoogleDrivePreviewUrl(product.documentUrl)}
+                    href={product.documentUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="border border-gray-200 rounded-2xl p-5 hover:border-accent/50 hover:bg-accent/5 transition-all flex items-center gap-4"
@@ -810,7 +883,7 @@ export default async function ProductDetailPage({
                 {safeDocuments.map((doc) => (
                   <a
                     key={doc.fileName}
-                    href={toGoogleDrivePreviewUrl(doc.fileUrl)}
+                    href={doc.fileUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="border border-gray-200 rounded-2xl p-5 hover:border-accent/50 hover:bg-accent/5 transition-all flex items-center gap-4"
@@ -883,6 +956,52 @@ export default async function ProductDetailPage({
           </section>
 
           {/* ─── 11. FAQ SECTION ─────────────────────────────────────── */}
+          {hydrotropeContext && (
+            <section className="mb-16">
+              <h2 className="font-heading text-h3 text-primary mb-6">
+                Explore Related Hydrotrope Pages
+              </h2>
+              <p className="max-w-3xl text-sm leading-relaxed text-gray-600 mb-6">
+                Use these internal links to review adjacent hydrotrope grades,
+                compare similar solubilizer options, and continue into the
+                broader specialty-chemicals catalog.
+              </p>
+              <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                {hydrotropeContext.links.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="rounded-2xl border border-gray-200 bg-light p-5 transition-all hover:border-accent/40 hover:shadow-md"
+                  >
+                    <p className="text-xs font-semibold uppercase tracking-wide text-accent">
+                      {item.label}
+                    </p>
+                    <h3 className="font-heading text-h5 text-primary mt-2">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-gray-600">
+                      {item.description}
+                    </p>
+                  </Link>
+                ))}
+              </div>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Link
+                  href="/product"
+                  className="inline-flex items-center gap-2 rounded-full border border-accent px-5 py-3 text-sm font-semibold text-accent transition-colors hover:bg-accent/10"
+                >
+                  Browse all products
+                </Link>
+                <Link
+                  href={hydrotropeContext.quoteHref}
+                  className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-dark"
+                >
+                  Request pricing
+                </Link>
+              </div>
+            </section>
+          )}
+
           <section id="faq" className="mb-16">
             <h2 className="font-heading text-h3 text-primary mb-6">
               Frequently Asked Questions

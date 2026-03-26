@@ -7,7 +7,7 @@ import { fileURLToPath } from "url";
 
 import { Products } from "@/collections/Products";
 import { Users } from "@/collections/Users";
-import { Assets } from "@/collections/Assets";
+
 import { CompanyInfo } from "@/globals/CompanyInfo";
 import { ProductSequencing } from "@/globals/ProductSequencing";
 import { SiteImages } from "@/globals/SiteImages";
@@ -18,7 +18,7 @@ const shouldPushSchema = process.env.NODE_ENV !== "production" && process.env.PA
 
 export default buildConfig({
   editor: lexicalEditor(),
-  collections: [Users, Products, Assets],
+  collections: [Users, Products],
   globals: [CompanyInfo, ProductSequencing, SiteImages],
   secret: process.env.PAYLOAD_SECRET!,
   email: ({ payload }) => ({

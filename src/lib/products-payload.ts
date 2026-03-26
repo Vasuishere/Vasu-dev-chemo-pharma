@@ -82,40 +82,6 @@ async function loadWithCache<T>(key: string, loader: () => Promise<T>): Promise<
   return pending;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function mapQuickImageUrls(doc: any): Product["images"] {
-  if (!Array.isArray(doc.imageDriveUrls)) return [];
-
-  return doc.imageDriveUrls
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    .filter((item: any) => typeof item?.url === "string" && item.url.trim())
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    .map((item: any, index: number) => ({
-      src: item.url.trim(),
-      alt: item.alt?.trim() || `${doc.name || "Product"} image ${index + 1}`,
-      width: 800,
-      height: 600,
-      isPrimary: Boolean(item.isPrimary),
-      caption: "",
-    }));
-}
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function mapQuickDocumentUrls(doc: any): Product["documents"] {
-  if (!Array.isArray(doc.documentDriveUrls)) return [];
-
-  return doc.documentDriveUrls
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    .filter((item: any) => typeof item?.url === "string" && item.url.trim())
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    .map((item: any, index: number) => ({
-      fileUrl: item.url.trim(),
-      fileName: item.fileName?.trim() || `Document ${index + 1}`,
-      docType: item.docType || "OTHER",
-      accessLevel: "public",
-    }));
-}
-
 function dedupeByUrl<T extends { src?: string; fileUrl?: string }>(items: T[]): T[] {
   const seen = new Set<string>();
   return items.filter((item) => {
@@ -146,27 +112,13 @@ function toProduct(doc: any): Product {
     }
   }
 
-  const mappedImages = dedupeByUrl([
-    ...(Array.isArray(doc.images) ? doc.images : []),
-    ...mapQuickImageUrls(doc),
-  ]);
+  const mappedImages: Product["images"] = dedupeByUrl(
+    Array.isArray(doc.images) ? doc.images : []
+  );
 
-  const mappedDocuments = dedupeByUrl([
-    ...(Array.isArray(doc.documents) ? doc.documents : []),
-    ...mapQuickDocumentUrls(doc),
-  ]);
-
-  const quickImageUrls = Array.isArray(doc.imageDriveUrls)
-    ? doc.imageDriveUrls.filter((item: { url?: string }) =>
-      typeof item?.url === "string" && item.url.trim()
-    )
-    : [];
-
-  const quickDocumentUrls = Array.isArray(doc.documentDriveUrls)
-    ? doc.documentDriveUrls.filter((item: { url?: string }) =>
-      typeof item?.url === "string" && item.url.trim()
-    )
-    : [];
+  const mappedDocuments: Product["documents"] = dedupeByUrl(
+    Array.isArray(doc.documents) ? doc.documents : []
+  );
 
   return {
     id: doc.id,
@@ -206,8 +158,6 @@ function toProduct(doc: any): Product {
     supplier: doc.supplier ?? "Vasudev Chemo Pharma",
     imageUrl: doc.imageUrl ?? "",
     documentUrl: doc.documentUrl ?? "",
-    imageDriveUrls: quickImageUrls,
-    documentDriveUrls: quickDocumentUrls,
     images: mappedImages,
     status: doc.status ?? "active",
     faqs: doc.faqs ?? [],

@@ -9,12 +9,13 @@ import GlobalSupplySection from "@/components/home/GlobalSupplySection";
 import BlogSection from "@/components/home/BlogSection";
 import OrganizationSchema from "@/components/seo/OrganizationSchema";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
+import { ORGANIZATION_SAME_AS } from "@/lib/social-links";
 
 export const metadata: Metadata = {
   title:
     "Vasudev Chemo Pharma — India's Leading MEA Triazine 78% Manufacturer",
   description:
-    "Direct manufacturer of MEA Triazine 78% H2S scavenger. ISO 9001:2015 certified. Factory pricing. Supplying oil & gas, petrochemical & water treatment industries in 14+ countries from Gujarat, India.",
+    "Direct manufacturer of MEA Triazine 78% H2S scavenger. ISO 9001:2015 certified. Factory pricing. Supplying oil & gas, petrochemical & water treatment industries in 10+ countries from Gujarat, India.",
   alternates: {
     canonical: "https://www.vasudevchemopharma.com",
   },
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     title:
       "Vasudev Chemo Pharma — India's Leading MEA Triazine 78% Manufacturer",
     description:
-      "Direct manufacturer of MEA Triazine 78% H2S scavenger. ISO 9001:2015 certified. Factory pricing. Supplying 14+ countries from Gujarat, India.",
+      "Direct manufacturer of MEA Triazine 78% H2S scavenger. ISO 9001:2015 certified. Factory pricing. Supplying 10+ countries from Gujarat, India.",
     url: "https://www.vasudevchemopharma.com",
   },
 };
@@ -37,10 +38,7 @@ export default function HomePage() {
         description="ISO 9001:2015 certified manufacturer and exporter of MEA Triazine, MMA Triazine H2S Scavengers, and specialty chemicals. Based in Ankleshwar, Gujarat, India."
         email="info@vasudevchemopharma.com"
         foundingDate="2020"
-        sameAs={[
-          "https://www.linkedin.com/company/Vasudevchemo",
-          "https://www.indiamart.com/vasudev-chemo-pharma",
-        ]}
+        sameAs={[...ORGANIZATION_SAME_AS]}
       />
       <BreadcrumbSchema
         items={[

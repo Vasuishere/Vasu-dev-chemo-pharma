@@ -2,6 +2,12 @@
 
 import Script from "next/script";
 import { useEffect, useMemo, useState } from "react";
+import SocialLinksRow from "@/components/SocialLinksRow";
+import {
+  INSTAGRAM_URL,
+  LINKEDIN_URL,
+  buildWhatsAppUrl,
+} from "@/lib/social-links";
 
 declare global {
   interface Window {
@@ -73,9 +79,10 @@ const PRODUCTS = [
   { value: "mma-triazine-40", label: "MMA Triazine 40%" },
   { value: "copper-sulphate", label: "Copper Sulphate" },
   { value: "manganese-sulphate", label: "Manganese Sulphate" },
-  { value: "albendazole", label: "Albendazole API" },
-  { value: "ketoconazole", label: "Ketoconazole API" },
-  { value: "pregabalin", label: "Pregabalin API" },
+  { value: "sodium-cumene-sulfonate-40", label: "Sodium Cumene Sulfonate 40%" },
+  { value: "sodium-cumene-sulfonate-90", label: "Sodium Cumene Sulfonate 90%" },
+  { value: "sodium-xylene-sulfonate-90", label: "Sodium Xylene Sulfonate 90%" },
+  { value: "sodium-xylene-sulfonate-40", label: "Sodium Xylene Sulfonate 40%" },
   { value: "p-toluenesulfonic-acid", label: "P-Toluenesulfonic Acid" },
   { value: "2-amino-5-methylthiazole", label: "2-Amino-5-methylthiazole" },
   { value: "2-chloroethylamine-hydrochloride", label: "2-Chloroethylamine Hydrochloride" },
@@ -107,10 +114,21 @@ export default function ContactForm({ nonce }: { nonce?: string }) {
   const [defaultInquiryType, setDefaultInquiryType] = useState("quote");
 
   useEffect(() => {
+    // Old slug → current slug aliases (preserves existing URLs/submissions)
+    const SLUG_ALIASES: Record<string, string> = {
+      "sodium-xylene-sulphonate-40": "sodium-xylene-sulfonate-40",
+      "sodium-xylene-sulphonate-90": "sodium-xylene-sulfonate-90",
+      "sodium-cumene-sulphonate-40": "sodium-cumene-sulfonate-40",
+      "sodium-cumene-sulphonate-90": "sodium-cumene-sulfonate-90",
+    };
+
     const params = new URLSearchParams(window.location.search);
-    const productParam = params.get("product") || "";
+    let productParam = params.get("product") || "";
     const typeParam = params.get("type") || "";
-    if (productParam) setDefaultProduct(productParam);
+    if (productParam) {
+      productParam = SLUG_ALIASES[productParam] || productParam;
+      setDefaultProduct(productParam);
+    }
     if (typeParam && INQUIRY_TYPES.some((t) => t.value === typeParam)) {
       setDefaultInquiryType(typeParam);
     }
@@ -224,6 +242,20 @@ export default function ContactForm({ nonce }: { nonce?: string }) {
             <br />
             For urgent requirements, reach us on WhatsApp directly.
           </p>
+          <SocialLinksRow
+            links={[
+              {
+                label: "WhatsApp",
+                href: buildWhatsAppUrl(
+                  "Hello, I just submitted an inquiry on your website and would like to follow up on WhatsApp."
+                ),
+              },
+              { label: "LinkedIn", href: LINKEDIN_URL },
+              { label: "Instagram", href: INSTAGRAM_URL },
+            ]}
+            className="mt-5 flex flex-wrap items-center justify-center gap-3"
+            itemClassName="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-secondary transition-colors hover:border-accent hover:text-accent"
+          />
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-5">
@@ -361,6 +393,20 @@ export default function ContactForm({ nonce }: { nonce?: string }) {
             className="w-full bg-accent hover:bg-accent-dark transition-colors text-white py-3.5 rounded-xl font-medium text-sm disabled:opacity-60">
             {submitting ? "Sending..." : "Send Inquiry →"}
           </button>
+
+          <SocialLinksRow
+            links={[
+              {
+                label: "WhatsApp",
+                href: buildWhatsAppUrl("Hello, I would like to discuss my inquiry on WhatsApp."),
+              },
+              { label: "LinkedIn", href: LINKEDIN_URL },
+              { label: "Instagram", href: INSTAGRAM_URL },
+            ]}
+            className="flex flex-wrap items-center gap-3"
+            itemClassName="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white text-secondary transition-colors hover:border-accent hover:text-accent"
+            iconClassName="h-[18px] w-[18px]"
+          />
 
           {error && <p className="text-sm text-red-600">{error}</p>}
         </form>

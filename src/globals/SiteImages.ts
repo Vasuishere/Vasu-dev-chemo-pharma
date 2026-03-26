@@ -23,7 +23,7 @@ export const SiteImages: GlobalConfig = {
                   type: "text",
                   admin: {
                     description:
-                      "Google Drive URL or direct URL for the background video.",
+                      "Direct URL for the background video.",
                   },
                 },
               ],

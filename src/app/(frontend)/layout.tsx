@@ -21,15 +21,15 @@ export const metadata: Metadata = {
   title: {
     template: "%s | Vasudev Chemo Pharma",
     default:
-      "Vasudev Chemo Pharma — Industrial, Specialty & Pharmaceutical Chemicals",
+      "Vasudev Chemo Pharma — Industrial, Specialty & Surfactant Chemicals",
   },
   description:
-    "Vasudev Chemo Pharma is an ISO 9001:2015 certified manufacturer and exporter of industrial chemicals, specialty chemicals, and pharmaceutical API intermediates from Gujarat, India. Global shipping.",
+    "Vasudev Chemo Pharma is an ISO 9001:2015 certified manufacturer and exporter of industrial chemicals, specialty chemicals, and surfactant chemicals from Gujarat, India. Global shipping.",
   keywords: [
     "chemical manufacturer India",
     "industrial chemicals exporter",
     "specialty chemicals supplier Gujarat",
-    "pharmaceutical intermediates manufacturer",
+    "surfactant chemicals manufacturer",
     "chemical exporter Gujarat India",
   ],
   authors: [{ name: "Vasudev Chemo Pharma" }],
@@ -39,17 +39,17 @@ export const metadata: Metadata = {
     locale: "en_US",
     siteName: "Vasudev Chemo Pharma",
     title:
-      "Vasudev Chemo Pharma — Industrial, Specialty & Pharmaceutical Chemicals",
+      "Vasudev Chemo Pharma — Industrial, Specialty & Surfactant Chemicals",
     description:
-      "ISO 9001:2015 certified manufacturer and global exporter of 15+ industrial chemicals, specialty chemicals, and pharmaceutical API intermediates from Gujarat, India.",
+      "ISO 9001:2015 certified manufacturer and global exporter of 15+ industrial chemicals, specialty chemicals, and surfactant chemicals from Gujarat, India.",
     url: "https://www.vasudevchemopharma.com",
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "Vasudev Chemo Pharma — Industrial, Specialty & Pharmaceutical Chemicals",
+      "Vasudev Chemo Pharma — Industrial, Specialty & Surfactant Chemicals",
     description:
-      "ISO 9001:2015 certified manufacturer and global exporter of industrial chemicals from Gujarat, India.",
+      "ISO 9001:2015 certified manufacturer and global exporter of industrial, specialty & surfactant chemicals from Gujarat, India.",
   },
   robots: {
     index: true,
@@ -66,8 +66,8 @@ export const metadata: Metadata = {
     canonical: "https://www.vasudevchemopharma.com",
   },
   icons: {
-    icon: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Vasudev/Vasudev_Chemo_Pharma_LOGO.png",
-    apple: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Vasudev/Vasudev_Chemo_Pharma_LOGO.png",
+    icon: "/favicon.png",
+    apple: "/favicon.png",
   },
 };
 
@@ -79,6 +79,10 @@ export default function FrontendLayout({
   return (
     <html lang="en">
       <head>
+        {/* Favicon — local file so it shows before page loads */}
+        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
+
         {/* Preconnect to external image CDN for faster LCP */}
         <link rel="preconnect" href="https://framerusercontent.com" />
         <link rel="dns-prefetch" href="https://framerusercontent.com" />

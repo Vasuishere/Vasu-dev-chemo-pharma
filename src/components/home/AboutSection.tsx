@@ -41,27 +41,7 @@ export default async function AboutSection() {
           <div>
             <SectionLabel>Who we are</SectionLabel>
 
-            {/* Team avatars */}
-            <div className="flex items-center gap-4 mt-8">
-              <div className="flex -space-x-3">
-                {activeAvatars.slice(0, 4).map((src, i) => (
-                  <Image
-                    key={i}
-                    src={src}
-                    alt="Avatar"
-                    width={40}
-                    height={40}
-                    className="w-10 h-10 rounded-full border-2 border-white object-cover"
-                  />
-                ))}
-                <div className="w-10 h-10 rounded-full bg-accent text-white text-xs font-bold flex items-center justify-center border-2 border-white">
-                  10+
-                </div>
-              </div>
-              <p className="text-sm text-secondary">
-                Team of passionate professionals
-              </p>
-            </div>
+            
           </div>
 
           {/* Right Column */}

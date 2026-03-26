@@ -44,7 +44,7 @@ export const ProductSequencing: GlobalConfig = {
           options: [
             { label: "Industrial Chemicals", value: "industrial" },
             { label: "Specialty Chemicals", value: "specialty" },
-            { label: "Pharmaceutical API Intermediates", value: "pharmaceutical" },
+            { label: "Surfactant Chemicals", value: "surfactant" },
           ],
         },
         {

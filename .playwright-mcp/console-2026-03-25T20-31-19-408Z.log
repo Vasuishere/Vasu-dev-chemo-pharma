@@ -1,0 +1,56 @@
+[  293230ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ http://localhost:3000/_vercel/insights/script.js:0
+[  293233ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ http://localhost:3000/_next/image?url=https%3A%2F%2Fdrive.google.com%2Fuc%3Fexport%3Dview%26id%3D1Z5199bCRGk6XIgdA6p_RdadeP-38aBFl&w=1920&q=75:0
+[  293233ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ http://localhost:3000/_next/image?url=https%3A%2F%2Fframerusercontent.com%2Fimages%2FcrOykN7l4AlMK9acNXCVRzJmcg.png&w=48&q=75:0
+[  293233ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ http://localhost:3000/_next/image?url=https%3A%2F%2Fframerusercontent.com%2Fimages%2FatqhDfm1Q5VKmWwNHnp8Cl7GHo.png&w=48&q=75:0
+[  295589ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/image?url=https%3A%2F%2Fframerusercontent.com%2Fimages%2FHfRFaPjzU8WCChxWa4MmTB1BWg.png&w=48&q=75:0
+[  295592ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/image?url=https%3A%2F%2Fframerusercontent.com%2Fimages%2F4joakeBMa5GHrq9uyQPg0bnmko.png&w=48&q=75:0
+[  295593ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/about?_rsc=1u2ju:0
+[  295593ms] [ERROR] Failed to fetch RSC payload for http://localhost:3000/about. Falling back to browser navigation. TypeError: Failed to fetch
+    at y (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:134441)
+    at _ (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:133352)
+    at http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:37885
+    at Object.l [as task] (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:120934)
+    at c.s (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:121639)
+    at c.enqueue (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:121064)
+    at s (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:37848)
+    at i (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:37364)
+    at o (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:135503)
+    at Object.prefetch (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:10249) @ http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:0
+[  295595ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/supply/mea-triazine-78?_rsc=1u2ju:0
+[  295595ms] [ERROR] Failed to fetch RSC payload for http://localhost:3000/supply/mea-triazine-78. Falling back to browser navigation. TypeError: Failed to fetch
+    at y (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:134441)
+    at _ (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:133352)
+    at http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:37885
+    at Object.l [as task] (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:120934)
+    at c.s (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:121639)
+    at c.enqueue (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:121064)
+    at s (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:37848)
+    at i (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:37364)
+    at o (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:135503)
+    at Object.prefetch (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:10249) @ http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:0
+[  295596ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/product?_rsc=1u2ju:0
+[  295596ms] [ERROR] Failed to fetch RSC payload for http://localhost:3000/product. Falling back to browser navigation. TypeError: Failed to fetch
+    at y (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:134441)
+    at _ (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:133352)
+    at http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:37885
+    at Object.l [as task] (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:120934)
+    at c.s (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:121639)
+    at c.enqueue (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:121064)
+    at s (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:37848)
+    at i (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:37364)
+    at o (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:135503)
+    at Object.prefetch (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:10249) @ http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:0
+[  295596ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/mea-triazine-vs-mma-triazine?_rsc=1u2ju:0
+[  295596ms] [ERROR] Failed to fetch RSC payload for http://localhost:3000/mea-triazine-vs-mma-triazine. Falling back to browser navigation. TypeError: Failed to fetch
+    at y (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:134441)
+    at _ (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:133352)
+    at http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:37885
+    at Object.l [as task] (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:120934)
+    at c.s (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:121639)
+    at c.enqueue (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:121064)
+    at s (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:37848)
+    at i (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:37364)
+    at o (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:135503)
+    at Object.prefetch (http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:1:10249) @ http://localhost:3000/_next/static/chunks/5964-217149ecc4b4e5f3.js:0
+[  297359ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_vercel/speed-insights/script.js:0
+[  297359ms] [ERROR] Refused to execute script from 'http://localhost:3000/_vercel/speed-insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. @ http://localhost:3000/:0

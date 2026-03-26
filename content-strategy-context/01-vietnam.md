@@ -75,10 +75,65 @@ Vietnam's oil and gas sector, anchored by PetroVietnam and its upstream joint ve
 
 ---
 
-## 3. Competitor Analysis Notes
-- **Key competitors:** ECHEMI-listed Chinese suppliers, Jay Dinesh Chemicals, Dorf Ketal (regional), ChampionX (for PetroVietnam JVs)
-- **Differentiation:** Most Chinese suppliers offer 70–75% concentration; emphasize 78% as higher purity with verifiable CoA. Indian manufacturing offers price competitiveness + quality assurance vs. Chinese alternatives.
-- **Gap:** Few suppliers provide Vietnam-specific compliance guidance or Vietnamese-language product content
+## 3. Competitor Analysis — Keyword Extraction (15 per Page)
+
+### 3.1 Q2 Technologies (q2technologies.com)
+1. MEA-Triazine H2S Scavengers | 2. Amine Solution | 3. Wholesale MEA Triazine | 4. Hydrogen sulfide removal | 5. Natural gas treatment | 6. Refinery chemical | 7. H2S scavenger manufacturer | 8. MEA-Triazine manufacturer | 9. Gas sweetening | 10. Liquid scavenger | 11. Pipeline injection | 12. Sour gas treatment | 13. Oil and gas chemicals | 14. Sulfide removal | 15. Industrial amine solution
+
+### 3.2 Geocon Products (geoconproducts.com)
+1. MEA Triazine 80% | 2. H2S scavenger 80% | 3. High concentration triazine | 4. Oil field chemicals | 5. Hydrogen sulfide scavenger | 6. Triazine solution | 7. Gas treatment chemical | 8. Sour gas sweetening | 9. Liquid triazine | 10. CAS 4719-04-4 | 11. Industrial grade triazine | 12. MEA Triazine concentrate | 13. Pipeline chemical treatment | 14. Geocon MEA Triazine | 15. Triazine scavenger
+
+### 3.3 ChemAnalyst (chemanalyst.com)
+1. MEA Triazine market size | 2. MEA Triazine market growth | 3. Global MEA Triazine market USD 223M | 4. Hydrogen sulfide scavenger | 5. Sour gas sweetening | 6. Monoethanolamine and formaldehyde | 7. Oil and gas extraction | 8. Metalworking fluids biocide | 9. Water treatment | 10. Pulp and paper | 11. Dithiazines | 12. Pipeline injection | 13. Sulfide stress cracking | 14. Unconventional shale gas | 15. CAGR 6.0% forecast
+
+### 3.4 Jay Dinesh Chemicals (jaydinesh.com)
+1. Triazine based H2S scavenger | 2. H2S scavenger manufacturer India | 3. Triazine biocide | 4. Oil and gas industrial applications | 5. H2S scavenger supplier | 6. Triazine manufacturer India | 7. Hydrogen sulfide scavenger | 8. Gas phase scavenger | 9. Liquid phase scavenger | 10. Sour gas treatment | 11. Industrial biocide | 12. Rotten egg smell removal | 13. Corrosive H2S removal | 14. Industrial grade triazine | 15. Export quality triazine
+
+### 3.5 Sunwise Chem (sunwisechem.com)
+1. MEA Triazine | 2. Chemical supplier China | 3. CAS 4719-04-4 | 4. Triazine chemical | 5. Oil field chemicals | 6. Gas treatment | 7. Biocide | 8. Industrial chemical supplier | 9. Monoethanolamine triazine | 10. Hydrogen sulfide treatment | 11. Chemical manufacturer | 12. Bulk chemical supply | 13. Export chemical | 14. H2S scavenger | 15. Sunwise Chemical
+
+### 3.6 Third Coast Chemicals (thirdcoastchemicals.com)
+1. MEA Triazine 30% | 2. MEA Triazine 60% | 3. H2S scavenger | 4. Triazine solution | 5. Low concentration triazine | 6. Gas sweetening chemical | 7. Oil and gas treatment | 8. Liquid triazine | 9. Pipeline chemical | 10. Hydrogen sulfide removal | 11. Custom concentration triazine | 12. Bulk triazine supply | 13. Natural gas processing | 14. Sour gas chemical | 15. Third Coast Chemicals
+
+### 3.7 Sinotrust Chemical (sinotrustchemical.com)
+1. MEA Triazine 78% | 2. BK Biocide | 3. CAS 4719-04-4 | 4. Hexahydro-1,3,5-tris(hydroxyethyl)-s-triazine | 5. H2S Scavenger Conc | 6. Broad-spectrum fungicide | 7. Antiseptic bactericide | 8. Paper industry biocide | 9. Metal processing cutting fluid | 10. Coatings industry | 11. Electroplating industry | 12. Oil field industry | 13. Non-hazardous sea shipment | 14. 200kg drum / 1000L IBC | 15. Low-toxic antiseptic
+
+### 3.8 K2P Chemicals (k2pchemicals.com)
+1. Monoethanolamine Triazine | 2. MEA-T | 3. Gas treatment scavenger | 4. Hydrogen sulfide removal | 5. Natural gas sweetening | 6. Refinery stream treatment | 7. Sulfur removal | 8. Corrosion prevention | 9. Acidic gas removal | 10. Industrial applications | 11. Premium-grade MEA-T | 12. Chemical synthesis | 13. Catalytic properties | 14. Amine functional group | 15. Triazine structure
+
+### 3.9 Dayong Chemical / Made-in-China (dayongchemical.en.made-in-china.com)
+1. Monoethanoloamine MEA Triazine | 2. H2S Scavenger 42%-80% | 3. Colorless liquid | 4. Drilling fluid | 5. Oil drilling chemical | 6. SGS Certified | 7. CAS 4719-04-4 | 8. Made-in-China supplier | 9. Petroleum additives | 10. Environmental protection | 11. China chemical manufacturer | 12. Bulk chemical export | 13. Vietnamese language available | 14. Price USD 1200 | 15. International chemical trade
+
+### 3.10 IRO Chemical (irochemical.com)
+1. MEA Triazine | 2. Hexahydro-1,3,5-tris(hydroxyethyl)-s-triazine | 3. Hydrogen sulfide scavenger | 4. Oil and gas exploitation | 5. H2S elimination | 6. IRO Group Inc. | 7. CAS 4719-04-4 | 8. 200L plastic drum | 9. Oilfield chemical | 10. Production chemical | 11. Gas treatment chemical | 12. Chemical supplier | 13. H2S removal | 14. Industrial triazine | 15. Petroleum chemical
+
+### 3.11 MarketsandMarkets (marketsandmarkets.com)
+1. Triazine market USD 319.9M | 2. CAGR 3.6% | 3. MEA Triazine | 4. MMA Triazine | 5. Water soluble triazine | 6. Oil soluble triazine | 7. Gas phase triazine | 8. Crude oil treatment | 9. Natural gas processing | 10. Geothermal energy | 11. Industrial processes | 12. H2S removal demand | 13. Upstream investments | 14. Pipeline corrosion prevention | 15. Emission standards compliance
+
+### 3.12 Jay Dinesh Chemicals / IndiaMART (jaydineshchemicals.com)
+1. H2S Scavenger 78% Triazine | 2. Hydrogen Sulfite Scavengers | 3. Triazine H2S Scavenger | 4. H2S Scavenger Triazine Chemical | 5. Triazine Biocide | 6. CAS 4719-04-4 | 7. C9H21N3O3 | 8. HDPE Drums / IBC / ISO tanks | 9. Oil field chemical | 10. Industrial grade | 11. Technical grade | 12. Specific gravity 1.10-1.16 | 13. pH 9-12 | 14. Corrosive H2S removal | 15. INR 130-145/kg
+
+---
+
+### 3.13 Brand / Trade Names Recognized in Vietnam
+
+| Brand Name | Origin | Notes |
+|-----------|--------|-------|
+| MEA Triazine | Universal | Most recognized globally |
+| BK Biocide | China (Sinotrust) | Widely traded in SEA |
+| H2S Scavenger Conc | Generic | Trade description name |
+| MEA-T | Abbreviation | K2P Chemicals brand |
+| Dayong MEA Triazine | China (Made-in-China) | Vietnamese-language page available |
+| IRO MEA Triazine | IRO Group Inc. | Active in Asia |
+| JDC H2S Scavenger | India (Jay Dinesh) | Active exporter to SEA |
+| Amine Solution | USA (Q2 Technologies) | Wholesale brand descriptor |
+| Grotan BK | Germany (Schülke) | Premium benchmark brand |
+| Nuosept 78 | USA | Industrial preservative name |
+
+### 3.14 Differentiation Strategy
+- **Gap:** Most Chinese suppliers offer 70–75% concentration; few provide Vietnam-specific compliance guidance or Vietnamese-language product content
+- **Strength to match:** Dayong Chemical already has Vietnamese-language pages on Made-in-China.com; ChampionX/Halliburton dominate premium contract supply via PetroVietnam JVs
+- **Opportunity:** Emphasize 78% as higher purity with verifiable CoA; provide Vietnamese-language content; include Vietnam import compliance guidance (Decree 113/2017/ND-CP); competitive Indian manufacturing pricing vs. Chinese alternatives
 
 ---
 

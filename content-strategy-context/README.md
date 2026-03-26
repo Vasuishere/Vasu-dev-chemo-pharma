@@ -30,6 +30,7 @@
 | `15-turkey.md` | Turkey content brief |
 | `16-niger.md` | Niger content brief |
 | `17-russia.md` | Russia content brief |
+| `week-5-6-resources-downloadable-content.md` | Week 5-6 resource-page plan, downloadable content templates, and exact internal-link placement rules |
 
 ---
 

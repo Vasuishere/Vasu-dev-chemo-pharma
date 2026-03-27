@@ -25,7 +25,10 @@ export const PRODUCT_SEO_KEYWORDS: Record<string, ProductKeywordConfig> = {
       "MEA triazine H2S scavenger",
       "MEA triazine 78%",
       "triazine scavenger",
+      "TACELENE Cam 62081",
       "MEA triazine",
+      "triazine based h2s scavenger",
+      "Hydrogen Sulfide Scavenger",
       "monoethanolamine triazine H2S scavenger",
       "monoethanolamine triazine 78%",
       "MEA triazine hydrogen sulfide scavenger",
@@ -43,7 +46,7 @@ export const PRODUCT_SEO_KEYWORDS: Record<string, ProductKeywordConfig> = {
       "oilfield H2S scavenger",
       "gas sweetening chemical triazine",
       "MEA triazine vs MMA triazine",
-      "triazine scavenger wastewater treatment",
+      "treatmenttriazine scavenger wastewater ",
       "triazine biogas H2S removal",
       "water-soluble H2S scavenger",
       "MEA triazine supplier",
@@ -271,6 +274,8 @@ export const PRODUCT_SEO_KEYWORDS: Record<string, ProductKeywordConfig> = {
 
       // ── Egypt market keywords ─────────────────────────
       "MEA triazine 78% Egypt",
+      "triazine based h2s scavenger",
+      "triazine based h2s scavenger and corrsion inhibitor",
       "buy MEA triazine Egypt",
       "MEA triazine supplier Egypt",
       "H2S scavenger supplier Cairo",

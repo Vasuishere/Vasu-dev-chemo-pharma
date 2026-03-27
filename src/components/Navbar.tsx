@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
+import GoogleTranslate from "./GoogleTranslate";
 
 /* ── Static nav links (no dropdown) ──────────────────────────────────── */
 const simpleLinks = [
@@ -326,14 +327,17 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* CTA */}
-        <Link
-          href="/contact"
-          className="hidden lg:flex items-center gap-2 bg-accent hover:bg-accent-dark transition-colors text-white text-sm font-medium px-6 py-3 rounded-full"
-          onMouseEnter={closeDropdown}
-        >
-          <span>Get a quote</span>
-        </Link>
+        {/* Translation Widget and CTA */}
+        <div className="hidden lg:flex items-center gap-4 absolute right-6 lg:right-10">
+          <GoogleTranslate />
+          <Link
+            href="/contact"
+            className="flex items-center gap-2 bg-accent hover:bg-accent-dark transition-colors text-white text-sm font-medium px-6 py-3 rounded-full"
+            onMouseEnter={closeDropdown}
+          >
+            <span>Get a quote</span>
+          </Link>
+        </div>
 
         {/* Mobile hamburger */}
         <button
@@ -375,9 +379,12 @@ export default function Navbar() {
           <Link href="/contact" className="block py-3 text-sm font-medium text-primary hover:text-accent" onClick={closeMobile}>
             Contact
           </Link>
+          <div className="mt-2 mb-2">
+            <GoogleTranslate />
+          </div>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 mt-4 bg-accent text-white text-sm font-medium px-6 py-3 rounded-full"
+            className="inline-flex items-center gap-2 mt-2 bg-accent text-white text-sm font-medium px-6 py-3 rounded-full"
             onClick={closeMobile}
           >
             <span>Get a quote</span>

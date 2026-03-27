@@ -10,6 +10,7 @@ import BlogSection from "@/components/home/BlogSection";
 import OrganizationSchema from "@/components/seo/OrganizationSchema";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 import { ORGANIZATION_SAME_AS } from "@/lib/social-links";
+import QuickEnquiryModal from "@/components/home/QuickEnquiryModal";
 
 export const metadata: Metadata = {
   title:
@@ -49,6 +50,7 @@ export default function HomePage() {
         ]}
       />
       <main>
+        <QuickEnquiryModal />
         <HeroSection />
         <AboutSection />
         <ServicesSection />

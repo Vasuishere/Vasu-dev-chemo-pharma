@@ -64,8 +64,8 @@ function buildContentSecurityPolicy(): string {
 
   const isDevelopment = process.env.NODE_ENV === 'development';
   const scriptSrc = isDevelopment
-    ? "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://challenges.cloudflare.com https://www.google.com https://www.gstatic.com https://cdn.jsdelivr.net"
-    : "script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://www.google.com https://www.gstatic.com https://cdn.jsdelivr.net";
+    ? "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://challenges.cloudflare.com https://www.google.com https://www.gstatic.com https://cdn.jsdelivr.net https://translate.google.com https://translate.googleapis.com https://translate-pa.googleapis.com https://va.vercel-scripts.com"
+    : "script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://www.google.com https://www.gstatic.com https://cdn.jsdelivr.net https://translate.google.com https://translate.googleapis.com https://translate-pa.googleapis.com https://va.vercel-scripts.com";
 
   _cachedCsp = [
     "default-src 'self'",
@@ -73,10 +73,10 @@ function buildContentSecurityPolicy(): string {
     "frame-ancestors 'none'",
     "object-src 'none'",
     scriptSrc,
-    "style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net",
-    "img-src 'self' data: blob: https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com https://framerusercontent.com https://www.gravatar.com https://secure.gravatar.com",
-    "font-src 'self' data:",
-    "connect-src 'self' https://challenges.cloudflare.com https://www.google.com",
+    "style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://translate.google.com https://translate.googleapis.com https://www.gstatic.com fonts.googleapis.com",
+    "img-src 'self' data: blob: https://flagcdn.com https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com https://framerusercontent.com https://www.gravatar.com https://secure.gravatar.com https://www.google.com https://translate.google.com https://translate.googleapis.com https://www.gstatic.com https://fonts.gstatic.com",
+    "font-src 'self' data: https://fonts.gstatic.com",
+    "connect-src 'self' https://challenges.cloudflare.com https://www.google.com https://translate.google.com https://translate.googleapis.com https://translate-pa.googleapis.com",
     "worker-src 'self' blob:",
     "frame-src 'self' https://challenges.cloudflare.com https://www.google.com",
     "form-action 'self'",

@@ -25,16 +25,17 @@ https://www.vasudevchemopharma.com/service
 https://www.vasudevchemopharma.com/supply/mea-triazine-78
 
 ────────────────────────────────────────────────────────────────────────────────
-  PRODUCT PAGES (12)
+  PRODUCT PAGES (13)
 ────────────────────────────────────────────────────────────────────────────────
 https://www.vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger
 https://www.vasudevchemopharma.com/product/mma-triazine-40
 https://www.vasudevchemopharma.com/product/p-toluenesulfonic-acid
 https://www.vasudevchemopharma.com/product/copper-sulphate
 https://www.vasudevchemopharma.com/product/manganese-sulphate
-https://www.vasudevchemopharma.com/product/albendazole
-https://www.vasudevchemopharma.com/product/ketoconazole
-https://www.vasudevchemopharma.com/product/pregabalin
+https://www.vasudevchemopharma.com/product/sodium-cumene-sulfonate-40
+https://www.vasudevchemopharma.com/product/sodium-cumene-sulfonate-90
+https://www.vasudevchemopharma.com/product/sodium-xylene-sulfonate-90
+https://www.vasudevchemopharma.com/product/sodium-xylene-sulfonate-40
 https://www.vasudevchemopharma.com/product/bis-2-chloroethyl-amine-hydrochloride
 https://www.vasudevchemopharma.com/product/di-ethyl-amino-ethyl-chloride-hydrochloride
 https://www.vasudevchemopharma.com/product/2-amino-5-methylthiazole
@@ -197,5 +198,5 @@ https://www.vasudevchemopharma.com/sitemap.xml
 https://www.vasudevchemopharma.com/robots.txt
 
 ════════════════════════════════════════════════════════════════════════════════
-  TOTAL: 146 indexable pages + 2 system files
+  TOTAL: 147 indexable pages + 2 system files
 ════════════════════════════════════════════════════════════════════════════════

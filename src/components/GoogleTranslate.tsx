@@ -97,12 +97,15 @@ export default function GoogleTranslate() {
       // does not include 'en' explicitly in the generated select options for English pages.
       const domain = window.location.hostname;
       const apexDomain = domain.replace(/^www\./, "");
+      const domains = ["", domain, `.${domain}`, apexDomain, `.${apexDomain}`];
 
-      document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-      document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${domain}`;
-      document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${domain}`;
-      document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${apexDomain}`;
-      document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${apexDomain}`;
+      domains.forEach((d) => {
+        const domainString = d ? `domain=${d};` : "";
+        // Try all combinations of secure/samesite that Google might have used to set it
+        document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; ${domainString}`;
+        document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; ${domainString} Secure;`;
+        document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; ${domainString} SameSite=None; Secure;`;
+      });
       
       localStorage.setItem("lang", "en");
       setOpen(false);

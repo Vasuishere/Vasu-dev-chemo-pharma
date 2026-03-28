@@ -58,7 +58,7 @@ export default function GoogleTranslate() {
     } else {
       // Fallback to localStorage if cookie was cleared or expired
       const savedLang = localStorage.getItem("lang");
-      if (savedLang) {
+      if (savedLang && savedLang !== "en") {
         initialLangCode = savedLang;
         document.cookie = `googtrans=/en/${savedLang}; path=/; max-age=31536000`;
       }
@@ -92,6 +92,20 @@ export default function GoogleTranslate() {
   }, []);
 
   const changeLanguage = (langCode: string) => {
+    if (langCode === "en") {
+      // To revert to original page language, we MUST clear the cookie. Google Translate
+      // does not include 'en' explicitly in the generated select options for English pages.
+      const domain = window.location.hostname;
+      document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+      document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${domain}`;
+      document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${domain}`;
+      
+      localStorage.setItem("lang", "en");
+      setOpen(false);
+      window.location.reload();
+      return;
+    }
+
     // 1. Find the hidden google select
     const select = document.querySelector(".goog-te-combo") as HTMLSelectElement;
     if (select) {
@@ -100,21 +114,20 @@ export default function GoogleTranslate() {
     }
 
     // 2. Fallback: Update cookies manually and reload if widget didn't catch the event
-    // The format of googtrans is /pageLanguage/targetLanguage, max-age 1 year
-    document.cookie = `googtrans=/en/${langCode}; path=/; domain=${window.location.hostname}; max-age=31536000`;
-    document.cookie = `googtrans=/en/${langCode}; path=/; max-age=31536000`; // also root domain
+    const domain = window.location.hostname;
+    document.cookie = `googtrans=/en/${langCode}; path=/; max-age=31536000`; 
+    document.cookie = `googtrans=/en/${langCode}; path=/; domain=${domain}; max-age=31536000`;
+    document.cookie = `googtrans=/en/${langCode}; path=/; domain=.${domain}; max-age=31536000`;
     localStorage.setItem("lang", langCode);
 
     setOpen(false);
     const found = languages.find((l) => l.code === langCode);
     if (found) setCurrentLang(found);
     
-    // Optional: force reload if the translation didn't apply instantly 
-    // Just relying on dispatch event is usually enough but Next.js SPA navigation ruins it sometimes
+    // Force reload to guarantee translation applies accurately if the change event failed
     setTimeout(() => {
-      if (select) { select.dispatchEvent(new Event("change")); }
-      else { window.location.reload(); }
-    }, 100);
+      window.location.reload();
+    }, 300);
   };
 
   if (!isClient) return null;

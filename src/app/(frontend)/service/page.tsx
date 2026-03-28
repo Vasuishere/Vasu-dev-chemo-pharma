@@ -59,13 +59,13 @@ const services = [
     title: "Global Logistics & Shipping",
     description: "End-to-end logistics with FOB, CIF & CFR terms from Gujarat ports.",
     href: "/service/global-logistics-shipping",
-    image: "https://framerusercontent.com/images/LhPTSEVoZEIypVL0icUZIbKl3uA.webp",
+    image: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Blogs/Global%20Logistics%20%26%20Shipping.svg",
   },
   {
     title: "Bulk & Contract Supply",
     description: "Long-term supply contracts and bulk chemical orders with reliable delivery.",
     href: "/service/bulk-contract-supply",
-    image: "https://framerusercontent.com/images/FWAVl33ic80iuYm3hIN84RA50k.webp",
+    image: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Blogs/bulk-contract-VASUDEV-CHEMO-PHARMA.svg",
   },
 ];
 

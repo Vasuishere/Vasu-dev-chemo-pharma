@@ -53,7 +53,7 @@ const industries = [
     description:
       "Triazine biocide for cutting fluid and coolant preservation. Formaldehyde-releasing biocide effective against bacteria, fungi, and algae.",
     image:
-      "https://framerusercontent.com/images/sCJnodXX6iVr5PAmaVz3lhv3l0.webp",
+      "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Blogs/metal-working-fluids.svg",
   },
   {
     slug: "paper-mill",

@@ -96,9 +96,13 @@ export default function GoogleTranslate() {
       // To revert to original page language, we MUST clear the cookie. Google Translate
       // does not include 'en' explicitly in the generated select options for English pages.
       const domain = window.location.hostname;
+      const apexDomain = domain.replace(/^www\./, "");
+
       document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
       document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${domain}`;
       document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${domain}`;
+      document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${apexDomain}`;
+      document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${apexDomain}`;
       
       localStorage.setItem("lang", "en");
       setOpen(false);
@@ -115,9 +119,14 @@ export default function GoogleTranslate() {
 
     // 2. Fallback: Update cookies manually and reload if widget didn't catch the event
     const domain = window.location.hostname;
+    const apexDomain = domain.replace(/^www\./, "");
+
     document.cookie = `googtrans=/en/${langCode}; path=/; max-age=31536000`; 
     document.cookie = `googtrans=/en/${langCode}; path=/; domain=${domain}; max-age=31536000`;
     document.cookie = `googtrans=/en/${langCode}; path=/; domain=.${domain}; max-age=31536000`;
+    document.cookie = `googtrans=/en/${langCode}; path=/; domain=${apexDomain}; max-age=31536000`;
+    document.cookie = `googtrans=/en/${langCode}; path=/; domain=.${apexDomain}; max-age=31536000`;
+    
     localStorage.setItem("lang", langCode);
 
     setOpen(false);

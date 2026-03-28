@@ -19,7 +19,7 @@ const blogs = [
   {
     title: "Top 5 Specialty Chemicals Revolutionizing Industrial Applications",
     href: "/blog/top-5-specialty-chemicals-revolutionizing-industrial-applications",
-    image: "https://framerusercontent.com/images/FWAVl33ic80iuYm3hIN84RA50k.webp",
+    image: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Blogs/top%205%20specialty%20chemicals%20revolutionizing%20industrial.svg",
     imageAlt: "Specialty chemicals for industrial applications including triazines and pharmaceutical intermediates",
   },
 ];

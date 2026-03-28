@@ -34,7 +34,7 @@ const industries = [
     href: "/industries/metal-working-fluids",
     description:
       "Triazine biocide preservatives for metalworking fluids, cutting oils, and industrial coolants.",
-    image: "https://framerusercontent.com/images/sCJnodXX6iVr5PAmaVz3lhv3l0.webp",
+    image: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Blogs/metal-working-fluids.svg",
     icon: "https://framerusercontent.com/images/bWWmYghlGrjGsS6uGMAjDrFi0.svg",
     features: [
       "Formaldehyde-releasing biocide",

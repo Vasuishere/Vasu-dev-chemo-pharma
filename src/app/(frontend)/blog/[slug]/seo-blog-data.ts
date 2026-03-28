@@ -127,7 +127,7 @@ export const blogData: Record<string, BlogEntry> = {
     lastUpdated: "Mar 24, 2026",
     category: "Technical Guides",
     image:
-      "https://framerusercontent.com/images/a2Zqj4XmuHOPsbeGYtBENVFMufs.png",
+      "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Blogs/H2S%20in%20Natural%20Gas%20Pipelines%20Risks%2C%20Regulations%2C%20and%20Removal%20Methods.png",
     imageAlt:
       "Natural gas pipeline with H2S monitoring equipment and chemical injection system for hydrogen sulfide removal",
     excerpt:
@@ -216,7 +216,7 @@ export const blogData: Record<string, BlogEntry> = {
     lastUpdated: "Mar 15, 2026",
     category: "Sustainability",
     image:
-      "https://framerusercontent.com/images/a2Zqj4XmuHOPsbeGYtBENVFMufs.png",
+      "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Blogs/sustainable-chemical-manufacturing-greener-future-india.svg",
     imageAlt:
       "Sustainable chemical manufacturing plant with green energy systems and eco-friendly production lines in Gujarat India",
     excerpt:
@@ -438,7 +438,7 @@ export const blogData: Record<string, BlogEntry> = {
     lastUpdated: "Mar 10, 2026",
     category: "Specialty Chemicals",
     image:
-      "https://framerusercontent.com/images/Hxgnn8KfIJnGioOtBbfYA5iYdQ8.webp",
+      "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Blogs/top%205%20specialty%20chemicals%20revolutionizing%20industrial.svg",
     imageAlt:
       "Specialty chemical compounds including triazine scavengers and pharmaceutical intermediates in laboratory setting",
     excerpt:

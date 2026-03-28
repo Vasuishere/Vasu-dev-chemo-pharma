@@ -34,7 +34,7 @@ const blogs: BlogListItem[] = [
     title: "H2S in Natural Gas Pipelines: Risks, Regulations, and Removal Methods",
     category: "Technical Guides",
     date: "Mar 24, 2026",
-    image: "https://framerusercontent.com/images/a2Zqj4XmuHOPsbeGYtBENVFMufs.png",
+    image: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Blogs/H2S%20in%20Natural%20Gas%20Pipelines%20Risks%2C%20Regulations%2C%20and%20Removal%20Methods.png",
     imageAlt: "Natural gas pipeline H2S monitoring and removal",
   },
   {
@@ -42,7 +42,7 @@ const blogs: BlogListItem[] = [
     title: "Top 5 Specialty Chemicals Revolutionizing Industrial Applications",
     category: "Specialty Chemicals",
     date: "Jan 10, 2026",
-    image: "https://framerusercontent.com/images/Hxgnn8KfIJnGioOtBbfYA5iYdQ8.webp",
+    image: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Blogs/top%205%20specialty%20chemicals%20revolutionizing%20industrial.svg",
     imageAlt: "Specialty chemical compounds including triazine scavengers and pharmaceutical intermediates",
   },
   {
@@ -50,7 +50,7 @@ const blogs: BlogListItem[] = [
     title: "Sustainable Chemical Manufacturing: Driving a Greener Future in India",
     category: "Sustainability",
     date: "Jan 6, 2026",
-    image: "https://framerusercontent.com/images/a2Zqj4XmuHOPsbeGYtBENVFMufs.png",
+    image: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Blogs/sustainable-chemical-manufacturing-greener-future-india.svg",
     imageAlt: "Sustainable chemical manufacturing processes in India",
   },
   {
@@ -97,7 +97,7 @@ const blogs: BlogListItem[] = [
   // -- Brand Competitor Articles (36) --
   { slug: "bioban-gk-alternative-mea-triazine-78-h2s-scavenger", title: "Bioban GK Alternative — MEA Triazine 78% H2S Scavenger for US Oil & Gas", category: "Brand Alternatives", date: "Mar 21, 2026", image: "https://framerusercontent.com/images/Hxgnn8KfIJnGioOtBbfYA5iYdQ8.webp", imageAlt: "Bioban GK alternative MEA Triazine 78 H2S scavenger" },
   { slug: "bioban-gk-vs-mea-triazine-78-comparison", title: "Bioban GK vs MEA Triazine 78% — H2S Scavenger Performance Comparison", category: "Comparisons", date: "Mar 21, 2026", image: "https://framerusercontent.com/images/a2Zqj4XmuHOPsbeGYtBENVFMufs.png", imageAlt: "Bioban GK vs MEA Triazine comparison" },
-  { slug: "buy-bioban-gk-equivalent-usa-mea-triazine-supplier", title: "Buy Bioban GK Equivalent in USA — MEA Triazine 78% Direct Supplier", category: "Buying Guides", date: "Mar 21, 2026", image: "https://framerusercontent.com/images/NKrt6BfazML4t6STW4J7jw1qHoQ.png", imageAlt: "Buy Bioban GK equivalent USA supplier" },
+  { slug: "buy-bioban-gk-equivalent-usa-mea-triazine-supplier", title: "Buy Bioban GK Equivalent in USA — MEA Triazine 78% Direct Manufacturer From India", category: "Buying Guides", date: "Mar 21, 2026", image: "https://framerusercontent.com/images/NKrt6BfazML4t6STW4J7jw1qHoQ.png", imageAlt: "Buy Bioban GK equivalent USA supplier" },
   { slug: "onyxide-200-alternative-mea-triazine-78-h2s-scavenger", title: "Onyxide 200 Alternative — MEA Triazine 78% H2S Scavenger USA", category: "Brand Alternatives", date: "Mar 21, 2026", image: "https://framerusercontent.com/images/nwElwJzRsjpV0KeBSkL7mR2bQ.png", imageAlt: "Onyxide 200 alternative MEA Triazine 78" },
   { slug: "onyxide-200-vs-mea-triazine-78-comparison", title: "Onyxide 200 vs MEA Triazine 78% — H2S Scavenger Comparison", category: "Comparisons", date: "Mar 21, 2026", image: "https://framerusercontent.com/images/u48JppC0L67MN952GwxQr0v8uY8.webp", imageAlt: "Onyxide 200 vs MEA Triazine comparison" },
   { slug: "buy-onyxide-200-equivalent-usa-mea-triazine-supplier", title: "Buy Onyxide 200 Equivalent in USA — MEA Triazine 78% Supplier", category: "Buying Guides", date: "Mar 21, 2026", image: "https://framerusercontent.com/images/NaB1BTPudXw9U4z7E7pwUp79iic.webp", imageAlt: "Buy Onyxide 200 equivalent USA" },
@@ -394,15 +394,15 @@ export default function BlogPage() {
                   key={cat}
                   onClick={() => handleCategoryChange(cat)}
                   className={`inline-flex items-center gap-1.5 text-sm font-medium px-4 py-2 rounded-full border transition-all duration-200 ${activeCategory === cat
-                      ? "bg-primary text-white border-primary shadow-md shadow-primary/20"
-                      : "bg-white text-gray-600 border-gray-200 hover:border-primary/30 hover:text-primary hover:bg-primary/5"
+                    ? "bg-primary text-white border-primary shadow-md shadow-primary/20"
+                    : "bg-white text-gray-600 border-gray-200 hover:border-primary/30 hover:text-primary hover:bg-primary/5"
                     }`}
                 >
                   {cat}
                   <span
                     className={`text-xs px-1.5 py-0.5 rounded-full ${activeCategory === cat
-                        ? "bg-white/20 text-white"
-                        : "bg-gray-100 text-gray-500"
+                      ? "bg-white/20 text-white"
+                      : "bg-gray-100 text-gray-500"
                       }`}
                   >
                     {categoryCounts[cat] ?? 0}
@@ -577,8 +577,8 @@ export default function BlogPage() {
                         key={page}
                         onClick={() => setCurrentPage(page)}
                         className={`inline-flex items-center justify-center w-10 h-10 rounded-xl text-sm font-semibold transition-all ${currentPage === page
-                            ? "bg-primary text-white shadow-md shadow-primary/25"
-                            : "border border-gray-200 text-gray-600 hover:bg-primary/5 hover:text-primary hover:border-primary/30"
+                          ? "bg-primary text-white shadow-md shadow-primary/25"
+                          : "border border-gray-200 text-gray-600 hover:bg-primary/5 hover:text-primary hover:border-primary/30"
                           }`}
                       >
                         {page}

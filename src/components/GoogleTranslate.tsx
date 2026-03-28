@@ -49,14 +49,23 @@ export default function GoogleTranslate() {
       document.body.appendChild(gtDiv);
     }
 
+    let initialLangCode = "en";
     // Read cookie to check if a language is already selected by Google Translate
     const match = document.cookie.match(/(^|;) ?googtrans=([^;]*)(;|$)/);
     if (match && match[2]) {
       const parts = match[2].split("/");
-      const code = parts[parts.length - 1]; // e.g. "en/es" -> "es"
-      const found = languages.find((l) => l.code === code);
-      if (found) setCurrentLang(found);
+      initialLangCode = parts[parts.length - 1]; // e.g. "en/es" -> "es"
+    } else {
+      // Fallback to localStorage if cookie was cleared or expired
+      const savedLang = localStorage.getItem("lang");
+      if (savedLang) {
+        initialLangCode = savedLang;
+        document.cookie = `googtrans=/en/${savedLang}; path=/; max-age=31536000`;
+      }
     }
+
+    const found = languages.find((l) => l.code === initialLangCode);
+    if (found) setCurrentLang(found);
 
     // Define the initialization function for Google Translate
     window.googleTranslateElementInit = () => {
@@ -91,9 +100,10 @@ export default function GoogleTranslate() {
     }
 
     // 2. Fallback: Update cookies manually and reload if widget didn't catch the event
-    // The format of googtrans is /pageLanguage/targetLanguage
-    document.cookie = `googtrans=/en/${langCode}; path=/; domain=${window.location.hostname}`;
-    document.cookie = `googtrans=/en/${langCode}; path=/;`; // also root domain
+    // The format of googtrans is /pageLanguage/targetLanguage, max-age 1 year
+    document.cookie = `googtrans=/en/${langCode}; path=/; domain=${window.location.hostname}; max-age=31536000`;
+    document.cookie = `googtrans=/en/${langCode}; path=/; max-age=31536000`; // also root domain
+    localStorage.setItem("lang", langCode);
 
     setOpen(false);
     const found = languages.find((l) => l.code === langCode);

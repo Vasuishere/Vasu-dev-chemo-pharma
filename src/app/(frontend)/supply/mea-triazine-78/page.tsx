@@ -83,7 +83,7 @@ const industryLinks = [
   { label: "Water Treatment", href: "/industries/water-treatment", desc: "Triazine biocide for industrial water systems" },
   { label: "Metal Working Fluids", href: "/industries/metal-working-fluids", desc: "Biocide preservative for cutting oils & coolants" },
   { label: "Paper Mill", href: "/industries/paper-mill", desc: "Slimicide for pulp & paper processing" },
-];
+];  
 
 const applicationLinks = [
   { label: "Natural Gas Sweetening", href: "/applications/gas-sweetening" },

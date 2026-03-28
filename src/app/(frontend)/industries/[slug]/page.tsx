@@ -204,7 +204,7 @@ Compared to iron-based and oxidiser alternatives, MMA Triazine offers consistent
       "triazine biocide manufacturer",
     ],
     image:
-      "https://framerusercontent.com/images/sCJnodXX6iVr5PAmaVz3lhv3l0.webp",
+      "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Blogs/metal-working-fluids.svg",
     sections: [
       {
         heading: "Microbial Contamination in Cutting Fluids",

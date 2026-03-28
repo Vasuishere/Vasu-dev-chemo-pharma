@@ -38,9 +38,9 @@ export default async function HeroSection() {
           <div>
             <SectionLabel>ISO 9001:2015 Certified Manufacturer</SectionLabel>
             <h1 className="font-heading text-[clamp(40px,5.5vw,72px)] leading-[1] font-semibold mt-8">
-              India&apos;s leading{" "}
-              <span className="text-accent">MEA Triazine 78%</span>{" "}
-              manufacturer
+              India&apos;s {" "}
+              <span className="text-accent">Industrial, Specialty & Surfactant Chemicals</span>{" "}
+              manufacturer & Exporter
             </h1>
           </div>
 

@@ -25,9 +25,162 @@ export type CompetitorPageData = {
   advantages: string[];
   markets: string[];
   faqs: CompetitorFAQ[];
+  searchLanguage?: {
+    intro: string;
+    chemicalNames: string[];
+    functionalTerms: string[];
+    brandReferences: string[];
+    informationalIntent: string[];
+    buyingIntent: string[];
+    note: string;
+  };
 };
 
-export const COMPETITOR_PAGES_DATA: Record<string, CompetitorPageData> = {
+const COMMON_MEATRIAZINE_CHEMICAL_NAMES = [
+  "1,3,5-Triazine-1,3,5(2H,4H,6H)-triethanol",
+  "1, 3, 5-Tris (2-hydroxyethyl) hexahydro-triazine",
+  "Hexahydro-1,3,5-tris(2-hydroxyethyl)-s-triazine",
+  "HEXAHYDRO-1,3,5-TRIS(HYDROXYETHYL)-5-TRIAZINE",
+  "TRIS(N-HYDROXYETHYL) HEXAHYDROTRIAZINE",
+  "2,2',2''-(1,3,5-triazinane-1,3,5-triyl)triethanol",
+  "2,2',2''-(hexahydro-1,3,5-triazine-1,3,5-triyl)triethanol",
+  "2,2',2''-(hexahydro-1,3,5-triazine-1,3,5-triyl)triethanol (HHT)",
+  "2,2',2''-(Hexahydro-1,3,5-triazine-1,3,5-triyl) Triethanol",
+  "1,3,5-tris(2-hydroxyethyl)hexahydro-1,3,5-triazine",
+  "triazinetriethanol",
+  "Triazinetriethanol",
+  "MEA based Triazine",
+  "MEA Triazine",
+  "1,3,5-Triazine",
+  "J2.219E",
+  "s-Triazine-1,3,5-triethanol",
+];
+
+const COMMON_FUNCTIONAL_TERMS = [
+  "Triazine H2S Scavenger",
+  "Hydrogen Sulfide Scavenger",
+  "Desulfurizer",
+  "Gas Sweetener",
+  "Sweetening Agent",
+  "Mercaptan Scavenger",
+  "Offshore Scavenger",
+  "Onshore Scavenger",
+  "Industrial Preservation (Biocides)",
+  "Formaldehyde-Releasing Biocide",
+  "Industrial Microbiocide",
+  "Microbiostat",
+  "Slimicide",
+  "Bactericide and Algicide",
+  "Cutting Fluid Preservative",
+  "Anti-mildew Agent",
+];
+
+const COMMON_BRAND_REFERENCES = [
+  "Grotan BK",
+  "Nipacide BK",
+  "Acticide GR / HHB",
+  "Bioban GK",
+  "Protectol HT",
+  "Triadine 3 / 174",
+  "Actane",
+  "Onyxide 200",
+  "ETA 75",
+  "Busan 1506",
+  "Mergal KM200 / 174",
+  "Troyshield B2",
+  "Exocide BK",
+  "Cobate C",
+  "Miliden X-2",
+  "Roksol T 1-7",
+  "Surcide D / P",
+  "Permachem OB 2",
+  "Bactraclean",
+  "Ottaform 204",
+  "JadeScan54",
+];
+
+const COMMON_INFORMATIONAL_INTENT = [
+  "MEA Triazine chemical name",
+  "MEA Triazine synonyms and IUPAC names",
+  "what is MEA Triazine 78%",
+  "how MEA Triazine works as an H2S scavenger",
+  "MEA Triazine vs competitor chemistry",
+  "MEA Triazine vs Grotan BK chemistry",
+  "Hydrogen Sulfide Scavenger comparison guide",
+  "Gas sweetener brand comparison",
+  "triazine biocide equivalence explanation",
+  "what is hexahydro-1,3,5-tris(2-hydroxyethyl)-s-triazine",
+  "MEA Triazine TDS vs SDS",
+  "why buyers compare MEA Triazine brands",
+];
+
+const COMMON_BUYING_INTENT = [
+  "buy MEA Triazine 78%",
+  "MEA Triazine manufacturer India",
+  "MEA Triazine supplier India",
+  "MEA Triazine exporter India",
+  "bulk MEA Triazine supplier",
+  "MEA Triazine price per ton",
+  "factory direct H2S scavenger supplier",
+  "request MEA Triazine replacement quote",
+  "request MEA Triazine TDS and SDS",
+  "request MEA Triazine sample",
+  "Gas sweetening chemical supplier",
+  "Mercaptan scavenger supplier",
+  "Industrial biocide supplier",
+  "competitor replacement supplier for MEA Triazine",
+  "direct manufacturer alternative to branded triazine",
+];
+
+function dedupeKeywords(values: string[]): string[] {
+  return Array.from(new Set(values.map((value) => value.trim()).filter(Boolean)));
+}
+
+function buildSearchLanguageSection(page: CompetitorPageData) {
+  return {
+    intro: `Buyers comparing ${page.competitorBrand} with Vasudev MEA Triazine 78% often search using a mix of chemical identity, brand shorthand, functional terminology, and commercial procurement language. Some searches are explicitly oilfield-oriented, while others borrow language from preservation, slimicide, or industrial biocide markets where the same core triazine chemistry appears under different trade references.`,
+    chemicalNames: COMMON_MEATRIAZINE_CHEMICAL_NAMES,
+    functionalTerms: COMMON_FUNCTIONAL_TERMS,
+    brandReferences: dedupeKeywords([
+      page.competitorBrand,
+      ...COMMON_BRAND_REFERENCES,
+    ]),
+    informationalIntent: dedupeKeywords([
+      ...COMMON_INFORMATIONAL_INTENT,
+      `${page.competitorBrand} equivalent chemistry`,
+      `${page.competitorBrand} vs MEA Triazine`,
+      `${page.competitorCompany} triazine replacement`,
+    ]),
+    buyingIntent: dedupeKeywords([
+      ...COMMON_BUYING_INTENT,
+      `${page.competitorBrand} alternative supplier`,
+      `${page.competitorBrand} replacement quote`,
+      `${page.competitorCompany} alternative manufacturer`,
+    ]),
+    note: "Comparable search terms do not always mean identical commercial positioning, concentration, or end-use fit. Buyers should match chemical identity, active concentration, application, and document set before treating one branded product as a direct replacement for another.",
+  };
+}
+
+function enrichCompetitorPage(page: CompetitorPageData): CompetitorPageData {
+  return {
+    ...page,
+    keywords: dedupeKeywords([
+      ...page.keywords,
+      ...COMMON_MEATRIAZINE_CHEMICAL_NAMES,
+      ...COMMON_FUNCTIONAL_TERMS,
+      ...COMMON_BRAND_REFERENCES,
+      ...COMMON_INFORMATIONAL_INTENT,
+      ...COMMON_BUYING_INTENT,
+      `${page.competitorBrand} alternative`,
+      `${page.competitorBrand} replacement`,
+      `${page.competitorCompany} replacement supplier`,
+      `${page.competitorBrand} quote`,
+    ]),
+    searchLanguage: buildSearchLanguageSection(page),
+  };
+}
+
+const RAW_COMPETITOR_PAGES_DATA: Record<string, CompetitorPageData> = {
   /* ── 1. Pro3 / Q2 Technologies ──────────────────────────────── */
   "pro3-q2-technologies": {
     slug: "pro3-q2-technologies",
@@ -807,5 +960,13 @@ export const COMPETITOR_PAGES_DATA: Record<string, CompetitorPageData> = {
     ],
   },
 };
+
+export const COMPETITOR_PAGES_DATA: Record<string, CompetitorPageData> =
+  Object.fromEntries(
+    Object.entries(RAW_COMPETITOR_PAGES_DATA).map(([slug, page]) => [
+      slug,
+      enrichCompetitorPage(page),
+    ])
+  );
 
 export const COMPETITOR_SLUGS: string[] = Object.keys(COMPETITOR_PAGES_DATA);

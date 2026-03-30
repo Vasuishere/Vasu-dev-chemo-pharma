@@ -8,6 +8,113 @@ import FAQSchema from "@/components/seo/FAQSchema";
 
 const SITE_URL = "https://www.vasudevchemopharma.com";
 
+const meaChemicalNames = [
+  "1,3,5-Triazine-1,3,5(2H,4H,6H)-triethanol",
+  "1, 3, 5-Tris (2-hydroxyethyl) hexahydro-triazine",
+  "Hexahydro-1,3,5-tris(2-hydroxyethyl)-s-triazine",
+  "TRIS(N-HYDROXYETHYL) HEXAHYDROTRIAZINE",
+  "HEXAHYDRO-1,3,5-TRIS(HYDROXYETHYL)-s-TRIAZINE",
+  "2,2',2''-(1,3,5-triazinane-1,3,5-triyl)triethanol",
+  "2,2',2''-(hexahydro-1,3,5-triazine-1,3,5-triyl)triethanol",
+  "2,2',2''-(Hexahydro-1,3,5-triazine-1,3,5-triyl) Triethanol",
+  "2,2',2''-(hexahydro-1,3,5-triazine-1,3,5-triyl)triethanol (HHT)",
+  "1,3,5-tris(2-hydroxyethyl)hexahydro-1,3,5-triazine",
+  "Triazinetriethanol",
+  "Triazine triethanol",
+  "MEA based Triazine",
+  "MEA Triazine",
+];
+
+const functionalTerms = [
+  "Triazine H2S Scavenger",
+  "Hydrogen Sulfide Scavenger",
+  "Desulfurizer",
+  "Gas Sweetener",
+  "Sweetening Agent",
+  "Mercaptan Scavenger",
+  "Offshore Scavenger",
+  "Onshore Scavenger",
+  "Industrial Preservation Biocide",
+  "Formaldehyde-Releasing Biocide",
+  "Industrial Microbiocide",
+  "Microbiostat",
+  "Slimicide",
+  "Bactericide and Algicide",
+  "Cutting Fluid Preservative",
+  "Anti-mildew Agent",
+];
+
+const marketTradeTerms = [
+  "Grotan BK",
+  "Nipacide BK",
+  "Acticide GR / HHB",
+  "Bioban GK",
+  "Protectol HT",
+  "Triadine 3 / 174",
+  "Actane",
+  "Onyxide 200",
+  "ETA 75",
+  "Busan 1506",
+  "Mergal KM200 / 174",
+  "Troyshield B2",
+  "Exocide BK",
+  "Cobate C",
+  "Miliden X-2",
+  "Roksol T 1-7",
+  "Surcide D / P",
+  "Permachem OB 2",
+  "Bactraclean",
+  "Ottaform 204",
+  "JadeScan54",
+  "J2.219E",
+];
+
+const informationalIntentKeywords = [
+  "difference between MEA Triazine and MMA Triazine",
+  "what is MEA Triazine used for",
+  "what is MMA Triazine used for",
+  "how MEA Triazine works as an H2S scavenger",
+  "how MMA Triazine works in water treatment",
+  "MEA Triazine chemical name",
+  "MEA Triazine synonyms and IUPAC names",
+  "hexahydro-1,3,5-tris(2-hydroxyethyl)-s-triazine meaning",
+  "triazinetriethanol applications",
+  "MEA Triazine CAS and chemical structure",
+  "MMA Triazine concentration comparison",
+  "MEA vs MMA Triazine dosage comparison",
+  "MEA Triazine vs MMA Triazine for wastewater",
+  "MEA Triazine vs MMA Triazine for oil and gas",
+  "triazine biocide vs H2S scavenger difference",
+  "Grotan BK equivalent chemistry explanation",
+];
+
+const buyingIntentKeywords = [
+  "buy MEA Triazine 78%",
+  "MEA Triazine manufacturer India",
+  "MEA Triazine supplier India",
+  "MEA Triazine exporter India",
+  "MEA Triazine price per ton",
+  "MEA Triazine quote",
+  "bulk MEA Triazine supplier",
+  "H2S scavenger manufacturer for oil and gas",
+  "gas sweetening chemical supplier",
+  "mercaptan scavenger supplier India",
+  "buy MMA Triazine 40%",
+  "MMA Triazine manufacturer India",
+  "MMA Triazine supplier India",
+  "MMA Triazine price",
+  "bulk MMA Triazine supplier",
+  "triazine biocide manufacturer",
+  "cutting fluid preservative supplier",
+  "paper mill slimicide manufacturer",
+  "formaldehyde releasing biocide supplier India",
+  "Grotan BK alternative supplier",
+  "industrial microbiocide manufacturer",
+  "request MEA Triazine TDS and MSDS",
+  "request MMA Triazine sample",
+  "buy triazine H2S scavenger direct from manufacturer",
+];
+
 export const metadata: Metadata = {
   title:
     "MEA Triazine vs MMA Triazine — Which H2S Scavenger Should You Choose? | Vasudev Chemo Pharma",
@@ -19,6 +126,15 @@ export const metadata: Metadata = {
     "which triazine to use",
     "MEA Triazine 78 vs MMA Triazine 40",
     "triazine comparison H2S scavenger",
+    "MEA Triazine",
+    "MMA Triazine",
+    "1,3,5-Triazine",
+    "Hydrogen Sulfide Scavenger",
+    ...meaChemicalNames,
+    ...functionalTerms,
+    ...marketTradeTerms,
+    ...informationalIntentKeywords,
+    ...buyingIntentKeywords,
   ],
   alternates: {
     canonical: `${SITE_URL}/mea-triazine-vs-mma-triazine`,
@@ -66,6 +182,11 @@ const faqs = [
     answer:
       "Yes. Vasudev Chemo Pharma manufactures both MEA Triazine 78% and MMA Triazine 40% at our ISO 9001:2015 certified facility in Gujarat, India. Both products are available in 220L drums, IBC 1000L, and bulk tanker quantities. Contact us for pricing and free samples.",
   },
+  {
+    question: "Are all triazine trade names interchangeable across H2S scavenger and biocide applications?",
+    answer:
+      "No. Some search terms and trade names are used in industrial preservation, metalworking fluid, or slimicide markets, while others are used in oilfield H2S scavenging. Buyers should always confirm the target application, concentration, CAS number, TDS, and compatibility data before treating one product as a direct replacement for another.",
+  },
 ];
 
 export default function MeaVsMmaTriazinePage() {
@@ -95,8 +216,11 @@ export default function MeaVsMmaTriazinePage() {
               <p className="text-secondary text-lg mt-6">
                 Both MEA Triazine and MMA Triazine are effective triazine-based
                 H2S scavengers, but they are designed for different applications.
-                This guide helps you choose the right product for your industry
-                and operating conditions.
+                Buyers also search this chemistry under multiple names such as
+                hexahydro-1,3,5-tris(2-hydroxyethyl)-s-triazine, triazinetriethanol,
+                gas sweetener, desulfurizer, formaldehyde-releasing biocide, and
+                slimicide. This guide helps you choose the right product for your
+                industry, operating conditions, and procurement requirements.
               </p>
               <div className="flex flex-wrap gap-4 mt-8">
                 <Button href="/contact">Request technical guidance</Button>
@@ -170,6 +294,143 @@ export default function MeaVsMmaTriazinePage() {
                   ))}
                 </tbody>
               </table>
+            </div>
+          </div>
+        </section>
+
+        {/* Search intent and synonym map */}
+        <section className="py-16">
+          <div className="max-w-container mx-auto px-6 lg:px-10">
+            <div className="max-w-4xl">
+              <h2 className="font-heading text-h2 font-semibold text-primary mb-6">
+                Chemical Names, Market Terms, and How Buyers Search This Chemistry
+              </h2>
+              <p className="text-secondary leading-relaxed mb-4">
+                In technical procurement, MEA Triazine and related triazine products
+                are often searched using IUPAC names, common chemical synonyms,
+                application-driven phrases, and trade-name shorthand. That means a
+                buyer looking for <strong>MEA Triazine</strong>, a
+                <strong> hydrogen sulfide scavenger</strong>, a
+                <strong> gas sweetener</strong>, or a
+                <strong> formaldehyde-releasing biocide</strong> may be trying to
+                solve different operational problems with closely related triazine
+                chemistry.
+              </p>
+              <p className="text-secondary leading-relaxed">
+                The most important step is to match the chemistry to the job:
+                MEA Triazine 78% is usually selected for oil and gas H2S scavenging,
+                while MMA Triazine 40% is often preferred where lower-rate dosing,
+                water-phase treatment, industrial preservation, metalworking fluids,
+                or slimicide service is needed.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
+              <div className="rounded-3xl bg-light p-6">
+                <h3 className="font-heading text-h4 text-primary mb-4">
+                  MEA Triazine Chemical Names
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {meaChemicalNames.map((term) => (
+                    <span
+                      key={term}
+                      className="rounded-full bg-white px-3 py-2 text-sm text-secondary border border-gray-200"
+                    >
+                      {term}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="rounded-3xl bg-light p-6">
+                <h3 className="font-heading text-h4 text-primary mb-4">
+                  Functional Search Terms
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {functionalTerms.map((term) => (
+                    <span
+                      key={term}
+                      className="rounded-full bg-white px-3 py-2 text-sm text-secondary border border-gray-200"
+                    >
+                      {term}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="rounded-3xl bg-light p-6">
+                <h3 className="font-heading text-h4 text-primary mb-4">
+                  Trade and Market Reference Terms
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {marketTradeTerms.map((term) => (
+                    <span
+                      key={term}
+                      className="rounded-full bg-white px-3 py-2 text-sm text-secondary border border-gray-200"
+                    >
+                      {term}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+              <div className="rounded-3xl border border-gray-200 p-6">
+                <h3 className="font-heading text-h4 text-primary mb-4">
+                  Informational Intent Keywords
+                </h3>
+                <p className="text-secondary leading-relaxed mb-4">
+                  These are the kinds of queries engineers, formulators, and
+                  sourcing teams use when they want technical clarity before
+                  choosing a product.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {informationalIntentKeywords.map((term) => (
+                    <span
+                      key={term}
+                      className="rounded-full bg-light px-3 py-2 text-sm text-secondary"
+                    >
+                      {term}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="rounded-3xl border border-gray-200 p-6">
+                <h3 className="font-heading text-h4 text-primary mb-4">
+                  Buying Intent Keywords
+                </h3>
+                <p className="text-secondary leading-relaxed mb-4">
+                  These purchase-oriented searches usually indicate a buyer is
+                  comparing manufacturers, requesting samples, reviewing TDS/MSDS,
+                  or evaluating a direct supplier for bulk orders.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {buyingIntentKeywords.map((term) => (
+                    <span
+                      key={term}
+                      className="rounded-full bg-light px-3 py-2 text-sm text-secondary"
+                    >
+                      {term}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-3xl bg-accent/5 border border-accent/15 p-6 mt-8">
+              <h3 className="font-heading text-h4 text-primary mb-3">
+                Application Matching Matters
+              </h3>
+              <p className="text-secondary leading-relaxed">
+                Some of the market terms above are used in oilfield scavenging,
+                while others are common in industrial preservation, cutting fluid
+                protection, wastewater treatment, or pulp and paper slimicide
+                programs. Use the chemical name, concentration, CAS number, and
+                application note together when comparing products or asking for a
+                quote, so you receive the correct triazine grade for your process.
+              </p>
             </div>
           </div>
         </section>

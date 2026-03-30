@@ -23,11 +23,162 @@ export type CountryPageData = {
   localLanguageNames: string[];
   faqs: { question: string; answer: string }[];
   oilfields: string[];
+  searchLanguage?: {
+    intro: string;
+    chemicalNames: string[];
+    functionalTerms: string[];
+    brandReferences: string[];
+    informationalIntent: string[];
+    buyingIntent: string[];
+    note: string;
+  };
 };
+
+const COMMON_MEATRIAZINE_CHEMICAL_NAMES = [
+  "1,3,5-Triazine-1,3,5(2H,4H,6H)-triethanol",
+  "Hexahydro-1,3,5-tris(2-hydroxyethyl)-s-triazine",
+  "TRIS(N-HYDROXYETHYL) HEXAHYDROTRIAZINE",
+  "HEXAHYDRO-1,3,5-TRIS(HYDROXYETHYL)-5-TRIAZINE",
+  "2,2',2''-(1,3,5-triazinane-1,3,5-triyl)triethanol",
+  "2,2',2\"-(hexahydro-1,3,5-triazine-1,3,5-triyl)triethanol",
+  "2,2′,2′′-(hexahydro-1,3,5-triazine-1,3,5-triyl)triethanol (HHT)",
+  "2,2',2'-(Hexahydro-1,3,5-triazine-1,3,5-triyl) Triethanol",
+  "1, 3, 5-Tris (2-hydroxyethyl) hexahydro-triazine",
+  "triazinetriethanol",
+  "1,3,5-tris(2-hydroxyethyl)hexahydro-1,3,5-triazine",
+  "Triazinetriethanol",
+  "MEA based Triazine",
+  "MEA Triazine",
+  "1,3,5-Triazine",
+  "J2.219E",
+];
+
+const COMMON_FUNCTIONAL_TERMS = [
+  "H2S Scavenger",
+  "Hydrogen Sulfide Scavenger",
+  "Desulfurizer",
+  "Gas Sweetener",
+  "Sweetening Agent",
+  "Mercaptan Scavenger",
+  "Offshore Scavenger",
+  "Onshore Scavenger",
+  "Triazine H2S Scavenger",
+  "Industrial Preservation Biocide",
+  "Formaldehyde-Releasing Biocide",
+  "Industrial Microbiocide",
+  "Microbiostat",
+  "Slimicide",
+  "Bactericide and Algicide",
+  "Cutting Fluid Preservative",
+  "Anti-mildew Agent",
+];
+
+const COMMON_BRAND_REFERENCES = [
+  "Grotan BK",
+  "Nipacide BK",
+  "Acticide GR",
+  "Acticide HHB",
+  "Bioban GK",
+  "Protectol HT",
+  "Triadine 3",
+  "Triadine 174",
+  "Actane",
+  "Onyxide 200",
+  "ETA 75",
+  "Busan 1506",
+  "Mergal KM200",
+  "Troyshield B2",
+  "Exocide BK",
+  "Cobate C",
+  "Miliden X-2",
+  "Roksol T 1-7",
+  "Surcide D",
+  "Surcide P",
+  "Permachem OB 2",
+  "Bactraclean",
+  "Ottaform 204",
+  "JadeScan54",
+];
+
+function dedupeKeywords(values: string[]) {
+  return Array.from(
+    new Set(values.map((value) => value.trim()).filter(Boolean))
+  );
+}
+
+function buildCountrySearchLanguage(page: CountryPageData) {
+  const portLabel = page.logistics.port;
+  const brandReferences = dedupeKeywords([
+    ...page.localBrandNames.map((term) => term.split(" (")[0].trim()),
+    ...COMMON_BRAND_REFERENCES,
+  ]).slice(0, 24);
+
+  const informationalIntent = dedupeKeywords([
+    `what is MEA Triazine in ${page.countryName}`,
+    `MEA Triazine uses in ${page.countryName}`,
+    `MEA Triazine SDS for ${page.countryName}`,
+    `MEA Triazine import documents ${page.countryName}`,
+    `H2S scavenger applications ${page.countryName}`,
+    `Hydrogen Sulfide Scavenger oil and gas ${page.countryName}`,
+    `Gas sweetening chemical supplier ${page.countryName}`,
+    `mercaptan scavenger for refineries ${page.countryName}`,
+    `how to import MEA Triazine into ${page.countryName}`,
+    `MEA Triazine CAS 4719-04-4 ${page.countryName}`,
+    `Hexahydro-1,3,5-tris(2-hydroxyethyl)-s-triazine ${page.countryName}`,
+    `MEA based Triazine for sour gas treatment ${page.countryName}`,
+  ]);
+
+  const buyingIntent = dedupeKeywords([
+    `buy MEA Triazine in ${page.countryName}`,
+    `MEA Triazine supplier ${page.countryName}`,
+    `MEA Triazine manufacturer for ${page.countryName}`,
+    `MEA Triazine exporter to ${page.countryName}`,
+    `MEA Triazine price ${page.countryName}`,
+    `MEA Triazine quote ${page.countryName}`,
+    `bulk MEA Triazine ${page.countryName}`,
+    `H2S scavenger supplier ${page.countryName}`,
+    `Hydrogen Sulfide Scavenger distributor ${page.countryName}`,
+    `Gas sweetening chemical price ${page.countryName}`,
+    `triazine chemical import ${page.countryName}`,
+    `order MEA Triazine CIF ${portLabel}`,
+  ]);
+
+  return {
+    intro: `Buyers in ${page.countryName} usually search this chemistry by formal chemical identity, oilfield function, older biocide trade references, and direct procurement terms tied to ${portLabel}. This section groups the search language that procurement teams, distributors, and technical users commonly use when evaluating MEA Triazine 78% for sour gas treatment, H2S scavenging, and related industrial applications.`,
+    chemicalNames: COMMON_MEATRIAZINE_CHEMICAL_NAMES,
+    functionalTerms: COMMON_FUNCTIONAL_TERMS,
+    brandReferences,
+    informationalIntent,
+    buyingIntent,
+    note: `Trade names and comparison keywords used in ${page.countryName} do not always indicate the same active concentration, application fit, or documentation package. For procurement alignment, buyers should match CAS, active content, end use, packaging, and SDS/TDS details before treating two triazine products as direct equivalents.`,
+  };
+}
+
+function enrichCountryPage(page: CountryPageData): CountryPageData {
+  const searchLanguage = buildCountrySearchLanguage(page);
+
+  return {
+    ...page,
+    keywords: dedupeKeywords([
+      ...page.keywords,
+      ...COMMON_MEATRIAZINE_CHEMICAL_NAMES,
+      ...COMMON_FUNCTIONAL_TERMS,
+      ...searchLanguage.brandReferences,
+      ...searchLanguage.informationalIntent,
+      ...searchLanguage.buyingIntent,
+      `${page.countryName} MEA Triazine`,
+      `${page.countryName} Hydrogen Sulfide Scavenger`,
+      `${page.countryName} Gas Sweetener`,
+      `${page.countryName} Triazine H2S Scavenger`,
+      `${page.countryName} MEA based Triazine`,
+    ]),
+    searchLanguage,
+  };
+}
 
 /* ── Data ─────────────────────────────────────────────────────────────── */
 
-export const COUNTRY_PAGES_DATA: Record<string, CountryPageData> = {
+const RAW_COUNTRY_PAGES_DATA: Record<string, CountryPageData> = {
   /* ── Vietnam ────────────────────────────────────────────────────────── */
   vietnam: {
     slug: "vietnam",
@@ -1267,5 +1418,13 @@ export const COUNTRY_PAGES_DATA: Record<string, CountryPageData> = {
 };
 
 /* ── Slug list for static params ──────────────────────────────────────── */
+
+export const COUNTRY_PAGES_DATA: Record<string, CountryPageData> =
+  Object.fromEntries(
+    Object.entries(RAW_COUNTRY_PAGES_DATA).map(([slug, page]) => [
+      slug,
+      enrichCountryPage(page),
+    ])
+  );
 
 export const COUNTRY_SLUGS: string[] = Object.keys(COUNTRY_PAGES_DATA);

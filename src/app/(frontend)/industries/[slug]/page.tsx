@@ -143,7 +143,7 @@ MEA Triazine is the industry-standard liquid H2S scavenger for good reason: it i
       "MMA Triazine 40 manufacturer",
       "MMA Triazine 40% supplier for wastewater treatment",
       "buy H2S scavenger for sewage collection systems",
-      "wastewater odour control chemical manufacturer India",
+      "wastewater odor control chemical manufacturer India",
       "hydrogen sulfide control chemical for lift stations",
       "MMA Triazine supplier for municipal wastewater plants",
       "industrial effluent H2S treatment chemical supplier",

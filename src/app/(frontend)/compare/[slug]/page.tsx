@@ -186,6 +186,114 @@ export default async function ComparisonDetailPage({
           </div>
         </section>
 
+        {page.searchLanguage && (
+          <section className="mb-16">
+            <div className="max-w-container mx-auto px-6 lg:px-10">
+              <div className="max-w-4xl">
+                <h2 className="font-heading text-h3 text-primary mb-4">
+                  Search Language, Chemical Names, and Buying Terms
+                </h2>
+                <p className="text-secondary leading-relaxed">
+                  {page.searchLanguage.intro}
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-8">
+                <div className="rounded-3xl bg-light p-6">
+                  <h3 className="font-heading text-h4 text-primary mb-4">
+                    Chemical Name Variants
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {page.searchLanguage.chemicalNames.map((term) => (
+                      <span
+                        key={term}
+                        className="rounded-full border border-gray-200 bg-white px-3 py-2 text-sm text-secondary"
+                      >
+                        {term}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="rounded-3xl bg-light p-6">
+                  <h3 className="font-heading text-h4 text-primary mb-4">
+                    Functional Terms
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {page.searchLanguage.functionalTerms.map((term) => (
+                      <span
+                        key={term}
+                        className="rounded-full border border-gray-200 bg-white px-3 py-2 text-sm text-secondary"
+                      >
+                        {term}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="rounded-3xl bg-light p-6">
+                  <h3 className="font-heading text-h4 text-primary mb-4">
+                    Brand Reference Terms
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {page.searchLanguage.brandReferences.map((term) => (
+                      <span
+                        key={term}
+                        className="rounded-full border border-gray-200 bg-white px-3 py-2 text-sm text-secondary"
+                      >
+                        {term}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+                <div className="rounded-3xl border border-gray-200 bg-white p-6">
+                  <h3 className="font-heading text-h4 text-primary mb-4">
+                    Informational Intent Searches
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {page.searchLanguage.informationalIntent.map((term) => (
+                      <span
+                        key={term}
+                        className="rounded-full bg-light px-3 py-2 text-sm text-secondary"
+                      >
+                        {term}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="rounded-3xl border border-gray-200 bg-white p-6">
+                  <h3 className="font-heading text-h4 text-primary mb-4">
+                    Buying Intent Searches
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {page.searchLanguage.buyingIntent.map((term) => (
+                      <span
+                        key={term}
+                        className="rounded-full bg-light px-3 py-2 text-sm text-secondary"
+                      >
+                        {term}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 rounded-3xl border border-accent/20 bg-accent/5 p-6">
+                <h3 className="font-heading text-h4 text-primary mb-3">
+                  Procurement Note
+                </h3>
+                <p className="text-secondary leading-relaxed">
+                  {page.searchLanguage.note}
+                </p>
+              </div>
+            </div>
+          </section>
+        )}
+
         <section className="mb-16">
           <div className="max-w-container mx-auto px-6 lg:px-10">
             <h2 className="font-heading text-h3 text-primary mb-6">Frequently asked questions</h2>

@@ -5,12 +5,6 @@ import Button from "@/components/Button";
 
 const blogs = [
   {
-    title: "AI & IoT Breakthroughs Powering Chemical Manufacturing Efficiency",
-    href: "/blog/ai-iot-breakthroughs-chemical-manufacturing-efficiency",
-    image: "https://framerusercontent.com/images/vmDI6OhtvdrUzZdCKxTTjToIeI.webp",
-    imageAlt: "AI and IoT breakthroughs in chemical manufacturing efficiency",
-  },
-  {
     title: "How Automation Is Shaping the Future of Chemical Manufacturing",
     href: "/blog/automation-shaping-future-chemical-manufacturing",
     image: "https://framerusercontent.com/images/X3MBElAP8OnuJAyHhtV3aubNNY.webp",

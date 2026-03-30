@@ -11,6 +11,191 @@ import {
 
 export const revalidate = 3600;
 
+const meaChemicalNames = [
+  "1,3,5-Triazine-1,3,5(2H,4H,6H)-triethanol",
+  "1, 3, 5-Tris (2-hydroxyethyl) hexahydro-triazine",
+  "Hexahydro-1,3,5-tris(2-hydroxyethyl)-s-triazine",
+  "HEXAHYDRO-1,3,5-TRIS(HYDROXYETHYL)-5-TRIAZINE",
+  "TRIS(N-HYDROXYETHYL) HEXAHYDROTRIAZINE",
+  "2,2',2''-(1,3,5-triazinane-1,3,5-triyl)triethanol",
+  "2,2',2''-(hexahydro-1,3,5-triazine-1,3,5-triyl)triethanol",
+  "2,2',2''-(hexahydro-1,3,5-triazine-1,3,5-triyl)triethanol (HHT)",
+  "2,2',2''-(Hexahydro-1,3,5-triazine-1,3,5-triyl) Triethanol",
+  "1,3,5-tris(2-hydroxyethyl)hexahydro-1,3,5-triazine",
+  "triazinetriethanol",
+  "Triazinetriethanol",
+  "MEA based Triazine",
+  "MEA Triazine",
+  "1,3,5-Triazine",
+  "J2.219E",
+  "s-Triazine-1,3,5-triethanol",
+];
+
+const functionalTerms = [
+  "Triazine H2S Scavenger",
+  "Hydrogen Sulfide Scavenger",
+  "Desulfurizer",
+  "Gas Sweetener",
+  "Sweetening Agent",
+  "Mercaptan Scavenger",
+  "Offshore Scavenger",
+  "Onshore Scavenger",
+  "Industrial Preservation Biocide",
+  "Formaldehyde-Releasing Biocide",
+  "Industrial Microbiocide",
+  "Microbiostat",
+  "Slimicide",
+  "Bactericide and Algicide",
+  "Cutting Fluid Preservative",
+  "Anti-mildew Agent",
+  "Oil Drilling Fluid",
+];
+
+const brandReferenceTerms = [
+  "Grotan BK",
+  "Grotan B",
+  "Grotan HD",
+  "Grotanol",
+  "Parmetol",
+  "Nipacide BK",
+  "Acticide GR / HHB",
+  "Bioban GK",
+  "Protectol HT",
+  "Triadine 3 / 174",
+  "ACTANE",
+  "Actane",
+  "Onyxide 200",
+  "Onyxide 200-50",
+  "ETA 75",
+  "Busan 1060",
+  "Busan 1506",
+  "Mergal KM200 / 174",
+  "KM 200",
+  "Troyshield B2",
+  "Exocide BK",
+  "Cobate C",
+  "Miliden X-2",
+  "Roksol T 1-7",
+  "Surcide D / P",
+  "Permachem OB 2",
+  "Bactraclean",
+  "Ottaform 204",
+  "JadeScan54",
+  "Nuosept 78",
+  "Cola Triazine 80 (ME)",
+  "IR-Triazine",
+  "Silworld Triazine 78",
+  "GreatAp HHT",
+  "Triazine BK",
+  "Scavtreat",
+  "Syntan OXB",
+  "Explorax / MEA Triazine 70",
+  "ICPL H2S Scavenger",
+  "JDC-TR",
+  "JDC-H2S Scavenger",
+];
+
+const companyReferenceTerms = [
+  "SLB (Schlumberger)",
+  "Baker Hughes Company",
+  "Hexion Inc.",
+  "Saudi Multichem Company",
+  "Dongying Dayong Petroleum Additive Co., Ltd.",
+  "Q2 Technologies",
+  "IRO Group Inc. / IRO Chemical",
+  "Sinotrust Chemical Co. Ltd.",
+  "Jay Dinesh Chemicals",
+  "Xipeng Technology (Luoyang) Co., Ltd.",
+  "Chemtex Speciality Ltd.",
+  "Shanghai Million Chemical Limited",
+  "Spectrum Cutting Solutions Pvt Ltd",
+  "OndaVia, Inc.",
+  "GLOBAL CO.",
+  "FARABI DOWNSTREAM CO.",
+  "MSTACK INC.",
+  "Dalian Tianwei Chemical Co., Ltd.",
+  "Vasudev Chemo Pharma",
+  "KeenBolden, LLC",
+  "Green Stream Solutions",
+  "Geocon Products",
+  "WUHAN SILWORLD CHEMICAL CO., LTD.",
+  "Shanghai Sunwise Chemical Co., Ltd",
+  "Vink Chemicals GmbH & Co. KG",
+  "Schulke & Mayr GmbH",
+  "Thor Specialties UK Ltd (Thor Group)",
+  "Clariant AG",
+  "Dow Chemical Company",
+  "Stepan Company",
+  "Buckman Laboratories Inc.",
+  "BASF SE",
+  "Troy Corporation",
+  "Angus Chemical Company (Innospec)",
+  "Global Company for Chemical Industries",
+  "Colonial Chemical",
+  "Vink Chemicals",
+  "Buckman",
+  "Arxada (Lonza)",
+  "Clariant",
+  "BASF",
+  "Ashland (ISP)",
+  "GreatAp Chemicals",
+  "Dalian Tianwei",
+  "IRO Group",
+  "Luoyang Fansun",
+  "Wuhan Silworld",
+  "Xipeng Technology",
+  "Shanghai Sunwise",
+  "Ningbo Inno Pharm",
+  "Dayang Chem",
+  "Henan Tianfu Chem",
+  "Imperial Oilfield (ICPL)",
+  "Maxwell Additives",
+  "Chemtex Speciality",
+  "Manas Petrochem",
+  "Sai Samarth Chem",
+];
+
+const informationalIntentKeywords = [
+  "MEA Triazine chemical name",
+  "MEA Triazine synonyms and IUPAC names",
+  "what is MEA Triazine 78%",
+  "CAS 4719-04-4 chemical identity",
+  "how MEA Triazine removes H2S",
+  "MEA Triazine vs Grotan BK chemistry",
+  "MEA Triazine vs oilfield scavenger brands",
+  "Hexahydro-1,3,5-tris(2-hydroxyethyl)-s-triazine meaning",
+  "triazinetriethanol uses",
+  "MEA Triazine H2S scavenger applications",
+  "what documents are needed to import MEA Triazine",
+  "MEA Triazine TDS vs SDS",
+  "MEA Triazine storage and handling guide",
+  "MEA Triazine supply by country",
+  "best MEA Triazine manufacturer for export",
+];
+
+const buyingIntentKeywords = [
+  "buy MEA Triazine 78%",
+  "MEA Triazine 78 manufacturer India",
+  "MEA Triazine 78 supplier India",
+  "MEA Triazine 78 exporter India",
+  "bulk MEA Triazine 78 supplier",
+  "MEA Triazine 78 price per ton",
+  "MEA Triazine 78 quotation request",
+  "factory direct MEA Triazine 78%",
+  "buy H2S scavenger direct from manufacturer",
+  "request MEA Triazine TDS and SDS",
+  "request MEA Triazine free sample",
+  "MEA Triazine supplier for oil and gas",
+  "MEA Triazine supplier for gas sweetening",
+  "MEA Triazine supplier for mercaptan scavenging",
+  "MEA Triazine exporter to GCC",
+  "MEA Triazine exporter to USA",
+  "MEA Triazine exporter to Southeast Asia",
+  "CAS 4719-04-4 supplier",
+  "triazine based scavenger manufacturer",
+  "MEA Triazine competitor alternative supplier",
+];
+
 /* ── SEO Metadata ────────────────────────────────────────────────────── */
 
 export const metadata: Metadata = {
@@ -27,6 +212,13 @@ export const metadata: Metadata = {
     "Hexahydro-1,3,5-tris(hydroxyethyl)-s-triazine",
     "H2S scavenger manufacturer India",
     "Vasudev Chemo Pharma",
+    "1,3,5-Triazine-1,3,5(2H,4H,6H)-triethanol",
+    ...meaChemicalNames,
+    ...functionalTerms,
+    ...brandReferenceTerms,
+    ...companyReferenceTerms,
+    ...informationalIntentKeywords,
+    ...buyingIntentKeywords,
   ],
   alternates: {
     canonical: `${SITE_URL}/supply/mea-triazine-78`,
@@ -241,6 +433,171 @@ export default function MeaTriazineSupplyIndexPage() {
                   .
                 </p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── How Buyers Search This Market ──────────────────────────────── */}
+        <section className="mb-20">
+          <div className="max-w-container mx-auto px-6 lg:px-10">
+            <div className="max-w-4xl">
+              <h2 className="font-heading text-h3 text-primary mb-4">
+                Chemical Names, Brand References, and How Global Buyers Search for MEA Triazine 78%
+              </h2>
+              <p className="text-secondary leading-relaxed mb-4">
+                In export markets, MEA Triazine 78% is not searched only by one product name.
+                Buyers may request the same chemistry using IUPAC naming, CAS-linked chemical
+                descriptions, oilfield H2S scavenger terminology, gas sweetening language, or
+                industrial preservation references. That means an RFQ for
+                <strong> MEA Triazine</strong>, a
+                <strong> hydrogen sulfide scavenger</strong>, a
+                <strong> gas sweetener</strong>, or even a
+                <strong> formaldehyde-releasing biocide</strong> may point to overlapping,
+                but not always identical, use cases.
+              </p>
+              <p className="text-secondary leading-relaxed">
+                For procurement accuracy, the best approach is to match the chemical identity,
+                active concentration, intended application, and required documents together.
+                This page is written to help buyers, importers, and technical teams connect the
+                naming variants they see in tenders or competitor benchmarking with the actual
+                MEA Triazine 78% product manufactured by Vasudev Chemo Pharma.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-10">
+              <div className="rounded-3xl bg-light p-6">
+                <h3 className="font-heading text-h4 text-primary mb-4">
+                  Chemical Name Variants
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {meaChemicalNames.map((term) => (
+                    <span
+                      key={term}
+                      className="rounded-full border border-gray-200 bg-white px-3 py-2 text-sm text-secondary"
+                    >
+                      {term}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="rounded-3xl bg-light p-6">
+                <h3 className="font-heading text-h4 text-primary mb-4">
+                  Functional Search Terms
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {functionalTerms.map((term) => (
+                    <span
+                      key={term}
+                      className="rounded-full border border-gray-200 bg-white px-3 py-2 text-sm text-secondary"
+                    >
+                      {term}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+              <div className="rounded-3xl border border-gray-200 p-6">
+                <h3 className="font-heading text-h4 text-primary mb-4">
+                  Brand and Product Reference Terms
+                </h3>
+                <p className="text-secondary leading-relaxed mb-4">
+                  These names commonly appear in competitor research, distributor catalogs,
+                  tender comparisons, and buyer search behavior around triazine-based scavenger
+                  or preservation chemistry.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {brandReferenceTerms.map((term) => (
+                    <span
+                      key={term}
+                      className="rounded-full bg-light px-3 py-2 text-sm text-secondary"
+                    >
+                      {term}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="rounded-3xl border border-gray-200 p-6">
+                <h3 className="font-heading text-h4 text-primary mb-4">
+                  Company Names Buyers Compare in This Market
+                </h3>
+                <p className="text-secondary leading-relaxed mb-4">
+                  Global buyers often benchmark suppliers, oilfield service companies,
+                  preservative manufacturers, and chemical exporters side by side before
+                  requesting pricing, samples, or documentation.
+                </p>
+                <div className="flex flex-wrap gap-2 max-h-[320px] overflow-y-auto">
+                  {companyReferenceTerms.map((term) => (
+                    <span
+                      key={term}
+                      className="rounded-full bg-light px-3 py-2 text-sm text-secondary"
+                    >
+                      {term}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+              <div className="rounded-3xl border border-gray-200 p-6">
+                <h3 className="font-heading text-h4 text-primary mb-4">
+                  Informational Intent Searches
+                </h3>
+                <p className="text-secondary leading-relaxed mb-4">
+                  These searches usually come from engineers, sourcing teams, and importers who
+                  are validating chemistry, synonyms, regulatory identity, or application fit
+                  before they speak with a supplier.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {informationalIntentKeywords.map((term) => (
+                    <span
+                      key={term}
+                      className="rounded-full bg-light px-3 py-2 text-sm text-secondary"
+                    >
+                      {term}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="rounded-3xl border border-gray-200 p-6">
+                <h3 className="font-heading text-h4 text-primary mb-4">
+                  Buying Intent Searches
+                </h3>
+                <p className="text-secondary leading-relaxed mb-4">
+                  These are stronger procurement signals and usually indicate a buyer needs
+                  factory pricing, supply confirmation, TDS/SDS files, export paperwork,
+                  or a direct manufacturer for ongoing bulk orders.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {buyingIntentKeywords.map((term) => (
+                    <span
+                      key={term}
+                      className="rounded-full bg-light px-3 py-2 text-sm text-secondary"
+                    >
+                      {term}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-3xl bg-accent/5 border border-accent/15 p-6 mt-6">
+              <h3 className="font-heading text-h4 text-primary mb-3">
+                Important Procurement Note
+              </h3>
+              <p className="text-secondary leading-relaxed">
+                Not every trade name or company reference above represents the same marketed
+                concentration, specification, or end-use positioning. Some names are more common
+                in oilfield H2S scavenging, while others are used in industrial preservation,
+                slimicide, or cutting-fluid applications. When requesting a quote, always match
+                the chemistry, CAS number, active concentration, and application note so you
+                receive the right MEA Triazine grade for your process.
+              </p>
             </div>
           </div>
         </section>

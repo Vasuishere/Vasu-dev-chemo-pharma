@@ -623,7 +623,7 @@ export default async function ProductDetailPage({
                 <p className="text-sm text-primary font-medium">{product.molecularWeight || "To be added"}</p>
               </div>
               <div className="bg-light rounded-2xl p-5">
-                <p className="text-xs font-semibold uppercase tracking-wider text-accent mb-1">HS Code</p>
+                <p className="text-xs font-semibold uppercase tracking-wider text-accent mb-1">HSN Code</p>
                 <p className={`text-sm font-medium ${product.hsCode ? "text-primary" : "text-gray-400 italic"}`}>{product.hsCode || "To be added"}</p>
               </div>
             </div>

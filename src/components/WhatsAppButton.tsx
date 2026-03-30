@@ -6,7 +6,7 @@ export default function WhatsAppButton() {
   return (
     <a
       href={buildWhatsAppUrl(
-        "Hello, I am interested in your products. Please share your TDS, pricing, and availability."
+        "Hello, I am interested in your products. Could you please provide more information?"
       )}
       target="_blank"
       rel="noopener noreferrer"

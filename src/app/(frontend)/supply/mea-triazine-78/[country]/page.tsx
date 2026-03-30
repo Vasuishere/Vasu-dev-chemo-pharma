@@ -265,6 +265,115 @@ export default async function CountrySupplyPage({
           </section>
         )}
 
+        {/* Search language, chemical names, and buying terms */}
+        {page.searchLanguage && (
+          <section className="mb-16">
+            <div className="max-w-container mx-auto px-6 lg:px-10">
+              <div className="max-w-4xl">
+                <h2 className="font-heading text-h3 text-primary mb-4">
+                  Search Language, Chemical Names, and Buying Terms in {page.countryName}
+                </h2>
+                <p className="text-secondary leading-relaxed">
+                  {page.searchLanguage.intro}
+                </p>
+              </div>
+
+              <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
+                <div className="rounded-3xl bg-light p-6">
+                  <h3 className="font-heading text-h4 text-primary mb-4">
+                    Chemical Name Variants
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {page.searchLanguage.chemicalNames.map((term) => (
+                      <span
+                        key={term}
+                        className="rounded-full border border-gray-200 bg-white px-3 py-2 text-sm text-secondary"
+                      >
+                        {term}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="rounded-3xl bg-light p-6">
+                  <h3 className="font-heading text-h4 text-primary mb-4">
+                    Functional Terms
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {page.searchLanguage.functionalTerms.map((term) => (
+                      <span
+                        key={term}
+                        className="rounded-full border border-gray-200 bg-white px-3 py-2 text-sm text-secondary"
+                      >
+                        {term}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="rounded-3xl bg-light p-6">
+                  <h3 className="font-heading text-h4 text-primary mb-4">
+                    Brand Reference Terms
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {page.searchLanguage.brandReferences.map((term) => (
+                      <span
+                        key={term}
+                        className="rounded-full border border-gray-200 bg-white px-3 py-2 text-sm text-secondary"
+                      >
+                        {term}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-2">
+                <div className="rounded-3xl border border-gray-200 bg-white p-6">
+                  <h3 className="font-heading text-h4 text-primary mb-4">
+                    Informational Intent Searches
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {page.searchLanguage.informationalIntent.map((term) => (
+                      <span
+                        key={term}
+                        className="rounded-full bg-light px-3 py-2 text-sm text-secondary"
+                      >
+                        {term}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="rounded-3xl border border-gray-200 bg-white p-6">
+                  <h3 className="font-heading text-h4 text-primary mb-4">
+                    Buying Intent Searches
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {page.searchLanguage.buyingIntent.map((term) => (
+                      <span
+                        key={term}
+                        className="rounded-full bg-light px-3 py-2 text-sm text-secondary"
+                      >
+                        {term}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 rounded-3xl border border-accent/20 bg-accent/5 p-6">
+                <h3 className="font-heading text-h4 text-primary mb-3">
+                  Procurement Note
+                </h3>
+                <p className="text-secondary leading-relaxed">
+                  {page.searchLanguage.note}
+                </p>
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* Key internal links — chemistry, comparison, dosing */}
         <section className="mb-16">
           <div className="max-w-container mx-auto px-6 lg:px-10">

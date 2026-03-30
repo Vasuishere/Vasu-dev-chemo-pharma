@@ -3,7 +3,7 @@
 
 **Objective:** Rank #1 on Google for MEA Triazine 78% keywords across 14 countries by building topical authority through a structured internal linking architecture and semantic content writing.
 
-**Core Message:** Vasudev Chemo Pharma is the best direct manufacturer of MEA Triazine 78% — offering factory-direct pricing, ISO 9001:2015 quality, and supply to 14+ countries.
+**Core Message:** Vasudev Chemo Pharma is the best direct manufacturer of MEA Triazine 78% — offering factory-direct pricing, ISO 9001:2015 quality, and supply to 10+ countries.
 
 ---
 
@@ -606,7 +606,7 @@ This single paragraph covers: product, geography, industry, logistics, regulator
 | Page Type | How to Promote |
 |-----------|---------------|
 | **Homepage** | Hero headline: "India's Leading MEA Triazine 78% Manufacturer" + Why Choose Us section with 5 differentiators |
-| **Product Pillar** | "Why Vasudev Chemo Pharma" section: Direct manufacturer (not reseller), 78% guaranteed concentration, ISO certification, 14+ countries served, competitive pricing |
+| **Product Pillar** | "Why Vasudev Chemo Pharma" section: Direct manufacturer (not reseller), 78% guaranteed concentration, ISO certification, 10+ countries served, competitive pricing |
 | **Country Pages** | Each page's first paragraph must include: "Vasudev Chemo Pharma, a direct manufacturer of MEA Triazine 78%..." |
 | **Industry Pages** | "Trusted by [Industry] operators worldwide" — mention client credibility |
 | **Blog Posts** | Author byline: "By Vasudev Chemo Pharma — India's leading MEA Triazine 78% manufacturer" |
@@ -620,7 +620,7 @@ This single paragraph covers: product, geography, industry, logistics, regulator
 | **Direct Manufacturer** | Every page | "factory-direct", "manufacturer not trader", "direct from production facility" |
 | **78% Guaranteed Concentration** | Product + Country pages | "78% active content", "guaranteed concentration", "batch-tested" |
 | **ISO 9001:2015** | Product + About + Country pages | "ISO certified", "quality management system", "certified manufacturer" |
-| **14+ Countries Served** | Homepage + Product + About | "global supplier", "export to 14+ countries", "international supply chain" |
+| **10+ countries Served** | Homepage + Product + About | "global supplier", "export to 10+ countries", "international supply chain" |
 | **Competitive Pricing** | Country + Contact pages | "factory pricing", "bulk discount", "competitive rates", "no middlemen markup" |
 | **Fast Delivery from India** | Country pages | "3-5 days to GCC", "direct shipping from India", "short transit time" |
 | **Custom Packaging** | Product + Country pages | "200L drums", "1000L IBC", "bulk tanker", "custom packaging available" |

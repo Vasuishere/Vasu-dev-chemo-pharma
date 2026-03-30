@@ -132,7 +132,7 @@ Informational-intent searches: ${COMMON_INFORMATIONAL_INTENT.join("; ")}.
 
 Buying-intent searches: ${COMMON_BUYING_INTENT.join("; ")}.
 
-The key commercial point is that similar search terms do not always mean identical application fit. In oil and gas, MEA Triazine 78% is commonly selected as a direct H2S scavenger and gas sweetening chemical. In other industrial settings, related terms may appear in preservation, slimicide, or cutting-fluid contexts. Matching the chemical name, CAS number, concentration, end use, and required documents is the best way to select the right application and supplier.` ,
+The key commercial point is that similar search terms do not always mean identical application fit. In oil and gas, MEA Triazine 78% is commonly selected as a direct H2S scavenger and gas sweetening chemical. In other industrial settings, related terms may appear in preservation, slimicide, or cutting-fluid contexts. Matching the chemical name, CAS number, concentration, end use, and required documents is the best way to select the right application and supplier.`,
   };
 }
 

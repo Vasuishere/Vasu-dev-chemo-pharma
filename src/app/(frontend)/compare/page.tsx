@@ -4,6 +4,7 @@ import SectionLabel from "@/components/SectionLabel";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 import { COMPETITOR_PAGES_DATA } from "@/lib/seo/competitor-comparison-data";
 import {
+  buildAbsoluteUrl,
   buildComparisonPagePath,
   MEA_TRIAZINE_PRODUCT_PATH,
   SITE_URL,
@@ -12,16 +13,18 @@ import {
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "MEA Triazine 78% Comparison Pages",
+  title:
+    "MEA Triazine 78% vs Top H2S Scavenger Brands — Direct Comparisons (2026)",
   description:
-    "Compare Vasudev MEA Triazine 78% against major market alternatives, including Pro3, RXSOL, SULFA-CLEAR, Triasorb, and Chinese supplier offers.",
+    "Compare Vasudev MEA Triazine 78% against major market alternatives, including Pro3, RXSOL, SULFA-CLEAR, Triasorb, ChampionX, and Chinese supplier offers.",
   alternates: {
     canonical: `${SITE_URL}/compare`,
   },
   openGraph: {
-    title: "MEA Triazine 78% Comparison Pages",
+    title:
+      "MEA Triazine 78% vs Top H2S Scavenger Brands — Direct Comparisons",
     description:
-      "Alternative and competitor comparison pages for MEA Triazine 78% buyers.",
+      "Side-by-side competitor comparison pages for MEA Triazine 78% buyers. Direct manufacturer pricing vs branded alternatives.",
     url: `${SITE_URL}/compare`,
     type: "website",
     locale: "en_US",
@@ -29,6 +32,32 @@ export const metadata: Metadata = {
 };
 
 const comparisonPages = Object.values(COMPETITOR_PAGES_DATA);
+
+function ItemListSchema() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "MEA Triazine 78% Competitor Comparisons",
+    description:
+      "Direct manufacturer comparisons of Vasudev MEA Triazine 78% against major H2S scavenger brands worldwide.",
+    numberOfItems: comparisonPages.length,
+    itemListElement: comparisonPages.map((page, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: `MEA Triazine 78% vs ${page.competitorBrand}`,
+      url: buildAbsoluteUrl(buildComparisonPagePath(page.slug)),
+    })),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(schema).replace(/</g, "\\u003c"),
+      }}
+    />
+  );
+}
 
 export default function ComparisonIndexPage() {
   return (
@@ -39,6 +68,7 @@ export default function ComparisonIndexPage() {
           { name: "Compare", url: `${SITE_URL}/compare` },
         ]}
       />
+      <ItemListSchema />
 
       <main className="pt-28 pb-20">
         <section className="mb-16">

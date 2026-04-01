@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import SectionLabel from "@/components/SectionLabel";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 import FAQSchema from "@/components/seo/FAQSchema";
+import ComparisonProductSchema from "@/components/seo/ComparisonProductSchema";
 import {
   COMPETITOR_PAGES_DATA,
   type CompetitorPageData,
@@ -96,6 +97,10 @@ export default async function ComparisonDetailPage({
     .map((resourceSlug) => RESOURCE_ARTICLES_DATA[resourceSlug])
     .filter(Boolean);
 
+  const otherComparisons = Object.values(COMPETITOR_PAGES_DATA).filter(
+    (c) => c.slug !== page.slug
+  );
+
   return (
     <>
       <BreadcrumbSchema
@@ -106,6 +111,7 @@ export default async function ComparisonDetailPage({
         ]}
       />
       <FAQSchema items={page.faqs} />
+      <ComparisonProductSchema page={page} />
 
       <main className="pt-28 pb-20">
         <section className="mb-16">
@@ -118,7 +124,14 @@ export default async function ComparisonDetailPage({
               <p className="mt-6 text-lg leading-relaxed text-secondary">
                 {page.intro}
               </p>
-              <div className="mt-8 flex flex-wrap gap-3">
+              <p className="mt-3 text-xs text-secondary/60">
+                Last reviewed:{" "}
+                {new Date(page.lastReviewed).toLocaleDateString("en-US", {
+                  month: "long",
+                  year: "numeric",
+                })}
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3">
                 <Link
                   href="/contact?product=mea-triazine-78-h2s-scavenger"
                   className="inline-flex items-center rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-dark"
@@ -156,6 +169,22 @@ export default async function ComparisonDetailPage({
                 ))}
               </tbody>
             </table>
+          </div>
+        </section>
+
+        <section className="mb-16">
+          <div className="max-w-container mx-auto px-6 lg:px-10">
+            <div className="flex flex-col items-center gap-3 rounded-2xl bg-light p-6 text-center sm:flex-row sm:justify-between sm:text-left">
+              <p className="text-sm font-medium text-primary">
+                Get a free sample to test side-by-side with {page.competitorBrand}
+              </p>
+              <Link
+                href="/contact?product=mea-triazine-78-h2s-scavenger&ref=comparison-sample"
+                className="inline-flex items-center rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent-dark whitespace-nowrap"
+              >
+                Request free sample
+              </Link>
+            </div>
           </div>
         </section>
 
@@ -205,6 +234,59 @@ export default async function ComparisonDetailPage({
                     {faq.answer}
                   </div>
                 </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="mb-16">
+          <div className="max-w-container mx-auto px-6 lg:px-10">
+            <div className="flex flex-col items-center gap-4 rounded-3xl bg-primary p-8 text-center text-white sm:p-10">
+              <h2 className="font-heading text-h3">Ready to switch from {page.competitorBrand}?</h2>
+              <p className="max-w-2xl text-white/75">
+                Get transparent manufacturer pricing with no service bundling or
+                long-term contracts. Free samples available for qualification testing.
+              </p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <Link
+                  href="/contact?product=mea-triazine-78-h2s-scavenger"
+                  className="inline-flex items-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-primary transition-colors hover:bg-white/90"
+                >
+                  Request replacement pricing
+                </Link>
+                <Link
+                  href={MEA_TRIAZINE_PRODUCT_PATH}
+                  className="inline-flex items-center rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+                >
+                  View product specs
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="mb-16">
+          <div className="max-w-container mx-auto px-6 lg:px-10">
+            <h2 className="font-heading text-h3 text-primary mb-6">
+              Compare with other alternatives
+            </h2>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {otherComparisons.map((comp) => (
+                <Link
+                  key={comp.slug}
+                  href={buildComparisonPagePath(comp.slug)}
+                  className="rounded-2xl border border-gray-200 bg-white p-4 transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-md"
+                >
+                  <span className="text-[10px] font-semibold uppercase tracking-wide text-accent">
+                    {comp.competitorOrigin}
+                  </span>
+                  <p className="mt-1 text-sm font-medium text-primary">
+                    vs {comp.competitorBrand}
+                  </p>
+                  <p className="mt-0.5 text-xs text-secondary">
+                    {comp.competitorCompany}
+                  </p>
+                </Link>
               ))}
             </div>
           </div>

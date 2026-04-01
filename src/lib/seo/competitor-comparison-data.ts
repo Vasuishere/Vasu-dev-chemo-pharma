@@ -25,6 +25,7 @@ export type CompetitorPageData = {
   advantages: string[];
   markets: string[];
   faqs: CompetitorFAQ[];
+  lastReviewed: string;
 };
 
 export const COMPETITOR_PAGES_DATA: Record<string, CompetitorPageData> = {
@@ -101,6 +102,7 @@ export const COMPETITOR_PAGES_DATA: Record<string, CompetitorPageData> = {
       "Midstream gas gathering and processing companies",
       "Chemical distributors serving the US oilfield market",
     ],
+    lastReviewed: "2026-04-01",
     faqs: [
       {
         question:
@@ -201,6 +203,7 @@ export const COMPETITOR_PAGES_DATA: Record<string, CompetitorPageData> = {
       "Qatar — Ras Laffan, North Field operations",
       "GCC-wide distribution and re-export from Jebel Ali",
     ],
+    lastReviewed: "2026-04-01",
     faqs: [
       {
         question:
@@ -296,6 +299,7 @@ export const COMPETITOR_PAGES_DATA: Record<string, CompetitorPageData> = {
       "India — domestic MWF formulators and paper mills",
       "Global — any market where Grotan BK is specified but cost is a concern",
     ],
+    lastReviewed: "2026-04-01",
     faqs: [
       {
         question:
@@ -396,6 +400,7 @@ export const COMPETITOR_PAGES_DATA: Record<string, CompetitorPageData> = {
       "Global — anywhere SULFA-CLEAR 8411HC or 8411C is used",
       "Operators seeking to reduce H2S scavenger procurement costs",
     ],
+    lastReviewed: "2026-04-01",
     faqs: [
       {
         question:
@@ -490,6 +495,7 @@ export const COMPETITOR_PAGES_DATA: Record<string, CompetitorPageData> = {
       "Central Asia — Kazakhstan, Uzbekistan, Turkmenistan operations",
       "Any market where Russian-origin chemicals face procurement restrictions",
     ],
+    lastReviewed: "2026-04-01",
     faqs: [
       {
         question:
@@ -590,6 +596,7 @@ export const COMPETITOR_PAGES_DATA: Record<string, CompetitorPageData> = {
       "Kuwait — KOC service contract environments",
       "Global — anywhere ChampionX service contracts are in place",
     ],
+    lastReviewed: "2026-04-01",
     faqs: [
       {
         question:
@@ -684,6 +691,7 @@ export const COMPETITOR_PAGES_DATA: Record<string, CompetitorPageData> = {
       "Middle East and Asia — buyers seeking alternatives to US supply",
       "Chemical distributors building import supply chains",
     ],
+    lastReviewed: "2026-04-01",
     faqs: [
       {
         question:
@@ -779,6 +787,7 @@ export const COMPETITOR_PAGES_DATA: Record<string, CompetitorPageData> = {
       "Southeast Asia — paper mills, oilfield operators, industrial users",
       "Any market where Chinese-sourced triazine has underperformed on specification",
     ],
+    lastReviewed: "2026-04-01",
     faqs: [
       {
         question:

@@ -8,7 +8,7 @@ export const WHATSAPP_NUMBER = "919898837713";
 export const WHATSAPP_DISPLAY_NUMBER = "+91 9898837713";
 
 export const WHATSAPP_DEFAULT_MESSAGE =
-  "Hello, I am interested in your chemical products. Please share details and pricing.";
+  "Hello, I am interested in your products. Could you please provide more information?";
 
 export function buildWhatsAppUrl(message = WHATSAPP_DEFAULT_MESSAGE): string {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;

@@ -13,7 +13,6 @@ import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 import FAQSchema from "@/components/seo/FAQSchema";
 import { getProductSeoKeywords } from "@/lib/product-seo-keywords";
 import { PRODUCT_META_OVERRIDES } from "@/lib/seo/product-meta-overrides";
-import { PRODUCT_STATIC_DOCUMENTS } from "@/lib/seo/product-documents";
 import { PRODUCT_FALLBACK_FAQS, PRODUCT_PAGE_FAQS } from "@/lib/seo/product-faqs";
 import {
   MEA_TRIAZINE_SLUG,
@@ -199,7 +198,6 @@ export default async function ProductDetailPage({
     groups: [],
     closingText: "",
   };
-  const staticDocs = PRODUCT_STATIC_DOCUMENTS[slug] ?? [];
   const productPageFaqs = PRODUCT_PAGE_FAQS[slug] ?? PRODUCT_FALLBACK_FAQS[slug] ?? [];
   const faqItems =
     product.faqs.length > 0
@@ -625,7 +623,7 @@ export default async function ProductDetailPage({
                 <p className="text-sm text-primary font-medium">{product.molecularWeight || "To be added"}</p>
               </div>
               <div className="bg-light rounded-2xl p-5">
-                <p className="text-xs font-semibold uppercase tracking-wider text-accent mb-1">HS Code</p>
+                <p className="text-xs font-semibold uppercase tracking-wider text-accent mb-1">HSN Code</p>
                 <p className={`text-sm font-medium ${product.hsCode ? "text-primary" : "text-gray-400 italic"}`}>{product.hsCode || "To be added"}</p>
               </div>
             </div>
@@ -833,9 +831,9 @@ export default async function ProductDetailPage({
             ) : (
               <ContentPlaceholder label="Certifications — ISO 9001:2015, GMP, REACH registration, FSSAI (for food-grade), WHO-GMP (for pharma), Halal, Kosher, etc." />
             )}
-            <div className="mt-6">
+            {/* <div className="mt-6">
               <ContentPlaceholder label="Quality assurance details — QC process description, in-house lab testing capabilities, COA (Certificate of Analysis) provided with each shipment, batch traceability." />
-            </div>
+            </div> */}
           </section>
 
           {/* ─── 9. DOCUMENTS (SDS / COA / TDS) ─────────────────────── */}
@@ -843,26 +841,8 @@ export default async function ProductDetailPage({
             <h2 className="font-heading text-h3 text-primary mb-6">
               Documents & Downloads
             </h2>
-            {staticDocs.length > 0 || safeDocuments.length > 0 || product.documentUrl ? (
+            {safeDocuments.length > 0 || product.documentUrl ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {/* Hardcoded TDS / MSDS from Vercel Blob */}
-                {staticDocs.map((doc) => (
-                  <a
-                    key={doc.url}
-                    href={doc.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="border border-accent/40 bg-accent/5 rounded-2xl p-5 hover:border-accent hover:bg-accent/10 transition-all flex items-center gap-4"
-                  >
-                    <svg className="w-8 h-8 text-accent flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
-                    </svg>
-                    <div>
-                      <p className="text-sm font-semibold text-primary">{doc.label}</p>
-                      <p className="text-xs text-accent font-semibold uppercase">{doc.docType} — Download PDF</p>
-                    </div>
-                  </a>
-                ))}
                 {/* CMS documents */}
                 {product.documentUrl && (
                   <a
@@ -880,23 +860,32 @@ export default async function ProductDetailPage({
                     </div>
                   </a>
                 )}
-                {safeDocuments.map((doc) => (
-                  <a
-                    key={doc.fileName}
-                    href={doc.fileUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="border border-gray-200 rounded-2xl p-5 hover:border-accent/50 hover:bg-accent/5 transition-all flex items-center gap-4"
-                  >
-                    <svg className="w-8 h-8 text-accent flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
-                    </svg>
-                    <div>
-                      <p className="text-sm font-semibold text-primary">{doc.fileName}</p>
-                      <p className="text-xs text-gray-500 uppercase">{doc.docType}</p>
-                    </div>
-                  </a>
-                ))}
+                {safeDocuments.map((doc, idx) => {
+                  const isPrimary = doc.isPrimary;
+                  const containerClass = isPrimary
+                    ? "border border-accent/40 bg-accent/5 rounded-2xl p-5 hover:border-accent hover:bg-accent/10 transition-all flex items-center gap-4"
+                    : "border border-gray-200 rounded-2xl p-5 hover:border-accent/50 hover:bg-accent/5 transition-all flex items-center gap-4";
+                    
+                  return (
+                    <a
+                      key={doc.id || idx}
+                      href={doc.fileUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={containerClass}
+                    >
+                      <svg className="w-8 h-8 text-accent flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                      </svg>
+                      <div>
+                        <p className="text-sm font-semibold text-primary">{doc.fileName}</p>
+                        <p className={`text-xs ${isPrimary ? 'text-accent font-semibold' : 'text-gray-500'} uppercase`}>
+                          {doc.docType} {isPrimary ? '— Download PDF' : ''}
+                        </p>
+                      </div>
+                    </a>
+                  );
+                })}
               </div>
             ) : (
               <ContentPlaceholder label="Downloadable documents — Safety Data Sheet (SDS/MSDS), Certificate of Analysis (COA), Technical Data Sheet (TDS), Product Specification Sheet. Each with file type, access level (public / on-request)." />

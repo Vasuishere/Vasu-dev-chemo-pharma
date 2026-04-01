@@ -21,17 +21,18 @@ const productsDropdown = {
     {
       heading: "Our Products",
       links: [
-        { label: "MEA Triazine 78%", href: "/supply/mea-triazine-78", accent: true },
+        { label: "MEA Triazine 78%", href: "/product/mea-triazine-78-h2s-scavenger", accent: true },
+        { label: "MMA Triazine 40%", href: "/product/mma-triazine-40"},
         { label: "All Products", href: "/product" },
       ],
     },
     {
-      heading: "Compare & Learn",
+      heading: "Surfactant Chemicals",
       links: [
-        { label: "MEA vs MMA Triazine", href: "/mea-triazine-vs-mma-triazine" },
-        { label: "How H2S Scavengers Work", href: "/how-h2s-scavengers-work" },
-        { label: "Product Comparisons", href: "/compare" },
-        { label: "Resources & Datasheets", href: "/resources" },
+        { label: "Sodium Cumene Sulfonate 40%", href: "/product/sodium-cumene-sulfonate-40" },
+        { label: "Sodium Cumene Sulfonate 90%", href: "/product/sodium-cumene-sulfonate-90" },
+        { label: "Sodium Xylene Sulfonate 40%", href: "/product/sodium-xylene-sulfonate-40" },
+        { label: "Sodium Xylene Sulfonate 90%", href: "/product/sodium-xylene-sulfonate-90" },
       ],
     },
   ],
@@ -339,17 +340,20 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Mobile hamburger */}
-        <button
-          className="lg:hidden flex flex-col gap-1.5 p-2"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-          aria-expanded={mobileOpen}
-        >
-          <span className={`w-6 h-0.5 bg-primary transition-transform ${mobileOpen ? "rotate-45 translate-y-2" : ""}`} />
-          <span className={`w-6 h-0.5 bg-primary transition-opacity ${mobileOpen ? "opacity-0" : ""}`} />
-          <span className={`w-6 h-0.5 bg-primary transition-transform ${mobileOpen ? "-rotate-45 -translate-y-2" : ""}`} />
-        </button>
+        {/* Mobile controls */}
+        <div className="lg:hidden flex items-center gap-1">
+          <GoogleTranslate />
+          <button
+            className="flex flex-col gap-1.5 p-2"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
+          >
+            <span className={`w-6 h-0.5 bg-primary transition-transform ${mobileOpen ? "rotate-45 translate-y-2" : ""}`} />
+            <span className={`w-6 h-0.5 bg-primary transition-opacity ${mobileOpen ? "opacity-0" : ""}`} />
+            <span className={`w-6 h-0.5 bg-primary transition-transform ${mobileOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+          </button>
+        </div>
       </div>
 
       {/* Mobile Nav */}
@@ -379,9 +383,6 @@ export default function Navbar() {
           <Link href="/contact" className="block py-3 text-sm font-medium text-primary hover:text-accent" onClick={closeMobile}>
             Contact
           </Link>
-          <div className="mt-2 mb-2">
-            <GoogleTranslate />
-          </div>
           <Link
             href="/contact"
             className="inline-flex items-center gap-2 mt-2 bg-accent text-white text-sm font-medium px-6 py-3 rounded-full"

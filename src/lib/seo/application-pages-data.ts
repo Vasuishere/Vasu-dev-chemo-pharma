@@ -14,7 +14,148 @@ export type ApplicationPageData = {
   faqs: { question: string; answer: string }[];
 };
 
-export const APPLICATION_PAGES_DATA: Record<string, ApplicationPageData> = {
+const COMMON_MEATRIAZINE_CHEMICAL_NAMES = [
+  "1,3,5-Triazine-1,3,5(2H,4H,6H)-triethanol",
+  "1, 3, 5-Tris (2-hydroxyethyl) hexahydro-triazine",
+  "Hexahydro-1,3,5-tris(2-hydroxyethyl)-s-triazine",
+  "HEXAHYDRO-1,3,5-TRIS(HYDROXYETHYL)-5-TRIAZINE",
+  "TRIS(N-HYDROXYETHYL) HEXAHYDROTRIAZINE",
+  "2,2',2''-(1,3,5-triazinane-1,3,5-triyl)triethanol",
+  "2,2',2''-(hexahydro-1,3,5-triazine-1,3,5-triyl)triethanol",
+  "2,2',2''-(hexahydro-1,3,5-triazine-1,3,5-triyl)triethanol (HHT)",
+  "2,2',2''-(Hexahydro-1,3,5-triazine-1,3,5-triyl) Triethanol",
+  "1,3,5-tris(2-hydroxyethyl)hexahydro-1,3,5-triazine",
+  "triazinetriethanol",
+  "Triazinetriethanol",
+  "MEA based Triazine",
+  "MEA Triazine",
+  "1,3,5-Triazine",
+  "J2.219E",
+  "s-Triazine-1,3,5-triethanol",
+];
+
+const COMMON_FUNCTIONAL_TERMS = [
+  "Triazine H2S Scavenger",
+  "Hydrogen Sulfide Scavenger",
+  "Desulfurizer",
+  "Gas Sweetener",
+  "Sweetening Agent",
+  "Mercaptan Scavenger",
+  "Offshore Scavenger",
+  "Onshore Scavenger",
+  "Industrial Preservation (Biocides)",
+  "Formaldehyde-Releasing Biocide",
+  "Industrial Microbiocide",
+  "Microbiostat",
+  "Slimicide",
+  "Bactericide and Algicide",
+  "Cutting Fluid Preservative",
+  "Anti-mildew Agent",
+];
+
+const COMMON_BRAND_REFERENCES = [
+  "Grotan BK",
+  "Nipacide BK",
+  "Acticide GR / HHB",
+  "Bioban GK",
+  "Protectol HT",
+  "Triadine 3 / 174",
+  "Actane",
+  "Onyxide 200",
+  "ETA 75",
+  "Busan 1506",
+  "Mergal KM200 / 174",
+  "Troyshield B2",
+  "Exocide BK",
+  "Cobate C",
+  "Miliden X-2",
+  "Roksol T 1-7",
+  "Surcide D / P",
+  "Permachem OB 2",
+  "Bactraclean",
+  "Ottaform 204",
+  "JadeScan54",
+];
+
+const COMMON_INFORMATIONAL_INTENT = [
+  "MEA Triazine chemical name",
+  "MEA Triazine synonyms and IUPAC names",
+  "what is MEA Triazine 78%",
+  "how MEA Triazine works as an H2S scavenger",
+  "how MEA Triazine is used in field applications",
+  "Hydrogen Sulfide Scavenger application guide",
+  "Gas sweetener application examples",
+  "triazine biocide terminology",
+  "MEA Triazine CAS 4719-04-4 explanation",
+  "what is hexahydro-1,3,5-tris(2-hydroxyethyl)-s-triazine",
+  "MEA Triazine TDS vs SDS",
+  "where to use MEA Triazine 78%",
+];
+
+const COMMON_BUYING_INTENT = [
+  "buy MEA Triazine 78%",
+  "MEA Triazine manufacturer India",
+  "MEA Triazine supplier India",
+  "MEA Triazine exporter India",
+  "bulk MEA Triazine supplier",
+  "MEA Triazine price per ton",
+  "factory direct H2S scavenger supplier",
+  "request MEA Triazine quote",
+  "request MEA Triazine TDS and SDS",
+  "request MEA Triazine sample",
+  "Gas sweetening chemical supplier",
+  "Mercaptan scavenger supplier",
+  "Industrial biocide supplier",
+  "Cutting fluid preservative supplier",
+  "Paper mill slimicide supplier",
+];
+
+function dedupeKeywords(values: string[]): string[] {
+  return Array.from(new Set(values.map((value) => value.trim()).filter(Boolean)));
+}
+
+function buildApplicationSearchLanguageSection(page: ApplicationPageData) {
+  const applicationLabel = page.h1.replace(/\s+with MEA Triazine 78%$/i, "").trim();
+
+  return {
+    heading: "Search Language, Chemical Names, and Buying Terms",
+    id: "search-language-buying-terms",
+    body: `Buyers and technical teams often search ${applicationLabel.toLowerCase()} using a mix of chemical identity, functional terminology, and commercial procurement phrases. Some users ask for MEA Triazine by its full chemistry name, others search for hydrogen sulfide scavenger, gas sweetener, desulfurizer, mercaptan scavenger, or even preservation-oriented terms that overlap with triazine chemistry in other markets.
+
+Common chemical name searches: ${COMMON_MEATRIAZINE_CHEMICAL_NAMES.join("; ")}.
+
+Common functional and application terms: ${COMMON_FUNCTIONAL_TERMS.join("; ")}.
+
+Market and brand reference terms sometimes used in search or comparison: ${COMMON_BRAND_REFERENCES.join("; ")}.
+
+Informational-intent searches: ${COMMON_INFORMATIONAL_INTENT.join("; ")}.
+
+Buying-intent searches: ${COMMON_BUYING_INTENT.join("; ")}.
+
+The key commercial point is that similar search terms do not always mean identical application fit. In oil and gas, MEA Triazine 78% is commonly selected as a direct H2S scavenger and gas sweetening chemical. In other industrial settings, related terms may appear in preservation, slimicide, or cutting-fluid contexts. Matching the chemical name, CAS number, concentration, end use, and required documents is the best way to select the right application and supplier.`,
+  };
+}
+
+function enrichApplicationPage(page: ApplicationPageData): ApplicationPageData {
+  return {
+    ...page,
+    keywords: dedupeKeywords([
+      ...page.keywords,
+      ...COMMON_MEATRIAZINE_CHEMICAL_NAMES,
+      ...COMMON_FUNCTIONAL_TERMS,
+      ...COMMON_BRAND_REFERENCES,
+      ...COMMON_INFORMATIONAL_INTENT,
+      ...COMMON_BUYING_INTENT,
+      `${page.h1} supplier`,
+      `${page.h1} manufacturer`,
+      `${page.h1} quote`,
+      `${page.h1} application guide`,
+    ]),
+    sections: [...page.sections, buildApplicationSearchLanguageSection(page)],
+  };
+}
+
+const RAW_APPLICATION_PAGES_DATA: Record<string, ApplicationPageData> = {
   /* ----------------------------------------------------------------
    * 1. H2S Scavenging in Natural Gas Pipelines
    * -------------------------------------------------------------- */
@@ -1141,5 +1282,13 @@ Monitoring: Regular wellhead H2S measurements (using Draeger tubes, online analy
     ],
   },
 };
+
+export const APPLICATION_PAGES_DATA: Record<string, ApplicationPageData> =
+  Object.fromEntries(
+    Object.entries(RAW_APPLICATION_PAGES_DATA).map(([slug, page]) => [
+      slug,
+      enrichApplicationPage(page),
+    ])
+  );
 
 export const APPLICATION_SLUGS: string[] = Object.keys(APPLICATION_PAGES_DATA);

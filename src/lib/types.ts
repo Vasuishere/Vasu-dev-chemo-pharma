@@ -6,9 +6,11 @@ export type DocumentType = "COA" | "TDS" | "MSDS" | "SDS" | "SPEC" | "OTHER";
 export type DocumentAccess = "public" | "on-request" | "internal";
 
 export interface ProductDocument {
+  id?: string;
   docType: DocumentType;
   fileUrl: string;
   fileName: string;
+  isPrimary?: boolean;
   accessLevel: DocumentAccess;
 }
 

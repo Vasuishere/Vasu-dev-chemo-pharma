@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getAllProductSlugs } from "@/lib/products-payload";
+import { getAllProductSlugsWithDates } from "@/lib/products-payload";
 import { getAllProductSlugs as getStaticProductSlugs } from "@/lib/products";
 import { blogData } from "@/app/(frontend)/blog/[slug]/seo-blog-data";
 import { CASE_STUDY_SLUGS } from "@/lib/case-studies-data";
@@ -17,47 +17,32 @@ import {
 const SITE_URL = "https://www.vasudevchemopharma.com";
 export const dynamic = "force-dynamic";
 
-type ChangeFrequency =
-  | "always"
-  | "hourly"
-  | "daily"
-  | "weekly"
-  | "monthly"
-  | "yearly"
-  | "never";
-
-type RouteConfig = {
-  path: string;
-  changeFrequency: ChangeFrequency;
-  priority: number;
-};
-
 type SitemapEntry = {
   url: string;
   lastModified: string;
-  changeFrequency: ChangeFrequency;
-  priority: number;
 };
 
-const HIGH_PRIORITY_PRODUCTS = new Set([
-  "mea-triazine-78-h2s-scavenger",
-]);
+const PRODUCT_FALLBACK_DATE = "2026-03-15";
 
-const STATIC_ROUTES: RouteConfig[] = [
-  { path: "", changeFrequency: "weekly", priority: 1.0 },
-  { path: "/about", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/product", changeFrequency: "weekly", priority: 0.9 },
-  { path: "/service", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/blog", changeFrequency: "weekly", priority: 0.7 },
-  { path: "/contact", changeFrequency: "yearly", priority: 0.7 },
-  { path: "/case-study", changeFrequency: "monthly", priority: 0.6 },
-  { path: "/how-h2s-scavengers-work", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/mea-triazine-vs-mma-triazine", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/supply/mea-triazine-78", changeFrequency: "weekly", priority: 0.85 },
-  { path: "/compare", changeFrequency: "weekly", priority: 0.8 },
-  { path: "/applications", changeFrequency: "weekly", priority: 0.8 },
-  { path: "/resources", changeFrequency: "weekly", priority: 0.75 },
-  { path: "/legal/privacy-policy", changeFrequency: "yearly", priority: 0.3 },
+/**
+ * Static routes with approximate last-modified dates.
+ * These should be updated when page content actually changes.
+ */
+const STATIC_ROUTES: { path: string; lastmod: string }[] = [
+  { path: "", lastmod: "2026-03-28" },
+  { path: "/about", lastmod: "2026-03-15" },
+  { path: "/product", lastmod: "2026-03-28" },
+  { path: "/service", lastmod: "2026-02-01" },
+  { path: "/blog", lastmod: "2026-03-28" },
+  { path: "/contact", lastmod: "2026-03-01" },
+  { path: "/case-study", lastmod: "2026-02-15" },
+  { path: "/how-h2s-scavengers-work", lastmod: "2026-01-15" },
+  { path: "/mea-triazine-vs-mma-triazine", lastmod: "2026-01-15" },
+  { path: "/supply/mea-triazine-78", lastmod: "2026-03-20" },
+  { path: "/compare", lastmod: "2026-03-01" },
+  { path: "/applications", lastmod: "2026-03-01" },
+  { path: "/resources", lastmod: "2026-02-15" },
+  { path: "/legal/privacy-policy", lastmod: "2025-12-01" },
 ];
 
 const SERVICE_SLUGS = [
@@ -90,8 +75,6 @@ function buildUrlEntry(entry: SitemapEntry): string {
     "  <url>",
     `    <loc>${escapeXml(entry.url)}</loc>`,
     `    <lastmod>${escapeXml(entry.lastModified)}</lastmod>`,
-    `    <changefreq>${escapeXml(entry.changeFrequency)}</changefreq>`,
-    `    <priority>${escapeXml(String(entry.priority))}</priority>`,
     "  </url>",
   ].join("\n");
 }
@@ -100,21 +83,18 @@ function buildAbsoluteUrl(path: string): string {
   return path ? `${SITE_URL}${path}` : SITE_URL;
 }
 
-function buildEntry(
-  path: string,
-  changeFrequency: ChangeFrequency,
-  priority: number,
-  lastModified: string
-): SitemapEntry {
+function buildEntry(path: string, lastModified: string): SitemapEntry {
   return {
     url: buildAbsoluteUrl(path),
     lastModified,
-    changeFrequency,
-    priority,
   };
 }
 
-function toIsoDateString(value: string | undefined): string | null {
+/**
+ * Converts a date string to YYYY-MM-DD format.
+ * Returns null if the value is invalid.
+ */
+function toDateString(value: string | undefined): string | null {
   if (!value) return null;
 
   const timestamp = Date.parse(value);
@@ -122,65 +102,71 @@ function toIsoDateString(value: string | undefined): string | null {
     return null;
   }
 
-  return new Date(timestamp).toISOString();
+  return new Date(timestamp).toISOString().split("T")[0];
 }
 
 export async function GET() {
   const fallbackProductSlugs = getStaticProductSlugs();
-  let productSlugs: string[] = fallbackProductSlugs;
+  let productEntries: { slug: string; updatedAt: string | null }[];
 
   try {
-    productSlugs = await getAllProductSlugs();
-    if (productSlugs.length === 0) {
-      productSlugs = fallbackProductSlugs;
+    productEntries = await getAllProductSlugsWithDates();
+    if (productEntries.length === 0) {
+      productEntries = fallbackProductSlugs.map((slug) => ({ slug, updatedAt: null }));
     }
   } catch (err) {
     console.error("Failed to fetch product slugs for sitemap", { error: err });
-    productSlugs = fallbackProductSlugs;
+    productEntries = fallbackProductSlugs.map((slug) => ({ slug, updatedAt: null }));
   }
 
-  const now = new Date().toISOString();
+  const today = new Date().toISOString().split("T")[0];
 
   const rawEntries: SitemapEntry[] = [
+    // Static routes with meaningful dates
     ...STATIC_ROUTES.map((route) =>
-      buildEntry(route.path, route.changeFrequency, route.priority, now)
+      buildEntry(route.path, route.lastmod)
     ),
-    ...productSlugs.map((slug) =>
+    // Product pages — use real CMS updatedAt when available
+    ...productEntries.map(({ slug, updatedAt }) =>
       buildEntry(
         `/product/${slug}`,
-        "monthly",
-        HIGH_PRIORITY_PRODUCTS.has(slug) ? 0.95 : 0.9,
-        now
+        toDateString(updatedAt ?? undefined) ?? PRODUCT_FALLBACK_DATE
       )
     ),
+    // Service pages
     ...SERVICE_SLUGS.map((slug) =>
-      buildEntry(`/service/${slug}`, "monthly", 0.7, now)
+      buildEntry(`/service/${slug}`, "2026-02-01")
     ),
+    // Blog posts — use real dates from blog data
     ...Object.entries(blogData).map(([slug, blog]) =>
       buildEntry(
         `/blog/${slug}`,
-        "monthly",
-        0.6,
-        toIsoDateString(blog.lastUpdated) ?? toIsoDateString(blog.date) ?? now
+        toDateString(blog.lastUpdated) ?? toDateString(blog.date) ?? today
       )
     ),
+    // Case studies
     ...CASE_STUDY_SLUGS.map((slug) =>
-      buildEntry(`/case-study/${slug}`, "monthly", 0.5, now)
+      buildEntry(`/case-study/${slug}`, "2026-02-15")
     ),
+    // Industry pages
     ...INDUSTRY_SLUGS.map((slug) =>
-      buildEntry(`/industries/${slug}`, "monthly", 0.85, now)
+      buildEntry(`/industries/${slug}`, "2026-03-01")
     ),
+    // Country supply pages
     ...COUNTRY_SLUGS.map((slug) =>
-      buildEntry(buildCountryPagePath(slug), "weekly", 0.85, now)
+      buildEntry(buildCountryPagePath(slug), "2026-03-20")
     ),
+    // Competitor comparison pages
     ...COMPETITOR_SLUGS.map((slug) =>
-      buildEntry(buildComparisonPagePath(slug), "monthly", 0.8, now)
+      buildEntry(buildComparisonPagePath(slug), "2026-03-01")
     ),
+    // Application pages
     ...APPLICATION_SLUGS.map((slug) =>
-      buildEntry(buildApplicationPagePath(slug), "monthly", 0.8, now)
+      buildEntry(buildApplicationPagePath(slug), "2026-03-01")
     ),
+    // Resource articles
     ...RESOURCE_SLUGS.map((slug) =>
-      buildEntry(buildResourceArticlePath(slug), "monthly", 0.75, now)
+      buildEntry(buildResourceArticlePath(slug), "2026-02-15")
     ),
   ];
 

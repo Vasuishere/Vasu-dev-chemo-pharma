@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/claude-seo
 /.pnp
 .pnp.js
 .yarn/install-state.gz
@@ -49,7 +50,7 @@ media/
 
 # vercel
 .vercel
-
+claude-seo
 # typescript
 *.tsbuildinfo
 next-env.d.ts

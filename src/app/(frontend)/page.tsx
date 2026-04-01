@@ -38,6 +38,7 @@ export default function HomePage() {
         logo="https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Vasudev/Vasudev_Chemo_Pharma_LOGO.png"
         description="ISO 9001:2015 certified manufacturer and exporter of MEA Triazine, MMA Triazine H2S Scavengers, and specialty chemicals. Based in Ankleshwar, Gujarat, India."
         email="info@vasudevchemopharma.com"
+        telephone="+918128372559"
         foundingDate="2020"
         sameAs={[...ORGANIZATION_SAME_AS]}
       />

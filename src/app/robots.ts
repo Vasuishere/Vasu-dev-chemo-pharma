@@ -23,6 +23,50 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow: DISALLOW_PATHS,
       },
+      // AI search crawlers — explicitly allowed for GEO
+      {
+        userAgent: "GPTBot",
+        allow: "/",
+        disallow: DISALLOW_PATHS,
+      },
+      {
+        userAgent: "ChatGPT-User",
+        allow: "/",
+        disallow: DISALLOW_PATHS,
+      },
+      {
+        userAgent: "OAI-SearchBot",
+        allow: "/",
+        disallow: DISALLOW_PATHS,
+      },
+      {
+        userAgent: "ClaudeBot",
+        allow: "/",
+        disallow: DISALLOW_PATHS,
+      },
+      {
+        userAgent: "PerplexityBot",
+        allow: "/",
+        disallow: DISALLOW_PATHS,
+      },
+      {
+        userAgent: "Applebot-Extended",
+        allow: "/",
+        disallow: DISALLOW_PATHS,
+      },
+      // Block training-only scrapers (no search benefit)
+      {
+        userAgent: "CCBot",
+        disallow: ["/"],
+      },
+      {
+        userAgent: "anthropic-ai",
+        disallow: ["/"],
+      },
+      {
+        userAgent: "Google-Extended",
+        disallow: ["/"],
+      },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,
   };

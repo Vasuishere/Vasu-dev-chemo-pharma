@@ -51,15 +51,16 @@ export default function TestimonialsSection() {
                 className="mb-4"
               />
               <p className="text-base text-secondary leading-relaxed mb-6">
-                The team&apos;s dedication and innovative approach transformed
-                our ideas into reality. Every stage of the project was handled
-                with care and expertise.
+                Vasudev Chemo Pharma has been our go-to supplier for MEA Triazine 78%
+                across multiple GCC projects. Their consistent product quality, on-time
+                delivery to Jebel Ali, and responsive technical support make them a
+                reliable long-term manufacturing partner.
               </p>
               <div>
                 <h3 className="font-heading text-lg font-semibold text-primary">
-                  Emily Carter
+                  Ahmed Al-Rashidi
                 </h3>
-                <p className="text-sm text-secondary">Product Designer</p>
+                <p className="text-sm text-secondary">Procurement Manager — Oilfield Services, UAE</p>
               </div>
             </div>
           </div>
@@ -71,7 +72,7 @@ export default function TestimonialsSection() {
               <div className="flex items-center justify-between mb-6">
                 <div>
                   <p className="text-sm text-white/60 tracking-widest uppercase">
-                    {"// 2005-2K26 //"}
+                    {"// 2020-2026 //"}
                   </p>
                 </div>
                 <Image

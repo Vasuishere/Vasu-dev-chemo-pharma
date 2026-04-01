@@ -47,7 +47,7 @@ export default async function HeroSection() {
           {/* Right - Description */}
           <div className="flex flex-col justify-end">
             <p className="text-sm font-medium text-black tracking-widest uppercase mb-4">
-              {"// 8+ YEARS OF EXCELLENCE //"}
+              {"// 6+ YEARS OF EXCELLENCE //"}
             </p>
             <p className="text-black text-base leading-relaxed mb-8">
               Vasudev Chemo Pharma is a direct manufacturer of{" "}

@@ -55,7 +55,7 @@ export default function ProductSchema({ product }: ProductSchemaProps) {
     },
     manufacturer: {
       "@type": "Organization",
-      name: "Vasudev Chemo Pharma Chemicals",
+      name: "Vasudev Chemo Pharma",
       url: "https://www.vasudevchemopharma.com",
       address: {
         "@type": "PostalAddress",
@@ -80,7 +80,7 @@ export default function ProductSchema({ product }: ProductSchemaProps) {
       url: `https://www.vasudevchemopharma.com/product/${product.slug}`,
       seller: {
         "@type": "Organization",
-        name: "Vasudev Chemo Pharma Chemicals",
+        name: "Vasudev Chemo Pharma",
       },
     },
   };

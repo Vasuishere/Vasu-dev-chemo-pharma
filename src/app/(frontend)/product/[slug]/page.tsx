@@ -131,7 +131,7 @@ export async function generateMetadata({
         description: openGraphDescription,
         url: canonicalUrl,
         type: "website",
-        siteName: "Vasudev Chemo Pharma Chemicals",
+        siteName: "Vasudev Chemo Pharma",
         locale: isMeaTriazine ? "en_IN" : "en_US",
         alternateLocale: isMeaTriazine ? [...MEA_TRIAZINE_OG_LOCALES] : undefined,
         images: [

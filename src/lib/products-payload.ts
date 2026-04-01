@@ -1,5 +1,11 @@
 import { getPayload } from "./payload";
 import type { Product } from "./types";
+import {
+  getAllProductSlugs as getStaticAllProductSlugs,
+  getProductBySlug as getStaticProductBySlug,
+  getRelatedProducts as getStaticRelatedProducts,
+  products as staticProducts,
+} from "./products";
 
 type ProductCacheEntry<T> = {
   value: T;
@@ -164,54 +170,93 @@ function toProduct(doc: any): Product {
   };
 }
 
-/** Fetch all active products */
+/** Fetch all active products — falls back to static seed data when CMS is unreachable */
 export async function getAllProducts(): Promise<Product[]> {
-  return loadWithCache("all-products", async () => {
-    const payload = await getPayload();
-    const result = await payload.find({
-      collection: "products",
-      where: { status: { equals: "active" } },
-      limit: 200,
-      sort: "name",
-    });
+  try {
+    return await loadWithCache("all-products", async () => {
+      const payload = await getPayload();
+      const result = await payload.find({
+        collection: "products",
+        where: { status: { equals: "active" } },
+        limit: 200,
+        sort: "name",
+      });
 
-    return result.docs.map(toProduct).sort(sortByPriorityThenName);
-  });
+      return result.docs.map(toProduct).sort(sortByPriorityThenName);
+    });
+  } catch (err) {
+    console.error("Payload CMS unavailable for getAllProducts, using static fallback", { error: err });
+    return staticProducts.filter((p) => p.status === "active").sort(sortByPriorityThenName);
+  }
 }
 
-/** Find a product by slug */
+/** Find a product by slug — falls back to static seed data when CMS is unreachable */
 export async function getProductBySlug(slug: string): Promise<Product | undefined> {
   const cacheKey = `product:${slug}`;
 
-  return loadWithCache(cacheKey, async () => {
-    const payload = await getPayload();
-    const result = await payload.find({
-      collection: "products",
-      where: { slug: { equals: slug } },
-      limit: 1,
-    });
+  try {
+    return await loadWithCache(cacheKey, async () => {
+      const payload = await getPayload();
+      const result = await payload.find({
+        collection: "products",
+        where: { slug: { equals: slug } },
+        limit: 1,
+      });
 
-    return result.docs.length > 0 ? toProduct(result.docs[0]) : undefined;
-  });
+      return result.docs.length > 0 ? toProduct(result.docs[0]) : undefined;
+    });
+  } catch (err) {
+    console.error(`Payload CMS unavailable for product "${slug}", using static fallback`, { error: err });
+    return getStaticProductBySlug(slug);
+  }
 }
 
-/** Get all active product slugs for static generation */
+/** Get all active product slugs — falls back to static seed data when CMS is unreachable */
 export async function getAllProductSlugs(): Promise<string[]> {
-  return loadWithCache("all-product-slugs", async () => {
-    const payload = await getPayload();
-    const result = await payload.find({
-      collection: "products",
-      where: { status: { equals: "active" } },
-      limit: 200,
-    });
+  try {
+    return await loadWithCache("all-product-slugs", async () => {
+      const payload = await getPayload();
+      const result = await payload.find({
+        collection: "products",
+        where: { status: { equals: "active" } },
+        limit: 200,
+      });
 
-    return result.docs
-      .map((doc) => doc.slug)
-      .filter((slug): slug is string => typeof slug === "string");
-  });
+      return result.docs
+        .map((doc) => doc.slug)
+        .filter((slug): slug is string => typeof slug === "string");
+    });
+  } catch (err) {
+    console.error("Payload CMS unavailable for getAllProductSlugs, using static fallback", { error: err });
+    return getStaticAllProductSlugs();
+  }
 }
 
-/** Get related products (same category, excluding current) */
+/** Get all active product slugs with their updatedAt dates for sitemap generation */
+export async function getAllProductSlugsWithDates(): Promise<{ slug: string; updatedAt: string | null }[]> {
+  try {
+    return await loadWithCache("all-product-slugs-dates", async () => {
+      const payload = await getPayload();
+      const result = await payload.find({
+        collection: "products",
+        where: { status: { equals: "active" } },
+        limit: 200,
+      });
+
+      return result.docs
+        .filter((doc) => typeof doc.slug === "string")
+        .map((doc) => ({
+          slug: doc.slug as string,
+          updatedAt: typeof doc.updatedAt === "string" ? doc.updatedAt : null,
+        }));
+    });
+  } catch (err) {
+    console.error("Payload CMS unavailable for getAllProductSlugsWithDates, using static fallback", { error: err });
+    return getStaticAllProductSlugs().map((slug) => ({ slug, updatedAt: null }));
+  }
+}
+
+/** Get related products — falls back to static seed data when CMS is unreachable */
 export async function getRelatedProducts(
   currentSlug: string,
   category: string,
@@ -219,20 +264,25 @@ export async function getRelatedProducts(
 ): Promise<Product[]> {
   const cacheKey = `related:${category}:${currentSlug}:${limit}`;
 
-  return loadWithCache(cacheKey, async () => {
-    const payload = await getPayload();
-    const result = await payload.find({
-      collection: "products",
-      where: {
-        and: [
-          { category: { equals: category } },
-          { slug: { not_equals: currentSlug } },
-          { status: { equals: "active" } },
-        ],
-      },
-      limit,
-    });
+  try {
+    return await loadWithCache(cacheKey, async () => {
+      const payload = await getPayload();
+      const result = await payload.find({
+        collection: "products",
+        where: {
+          and: [
+            { category: { equals: category } },
+            { slug: { not_equals: currentSlug } },
+            { status: { equals: "active" } },
+          ],
+        },
+        limit,
+      });
 
-    return result.docs.map(toProduct).sort(sortByPriorityThenName).slice(0, limit);
-  });
+      return result.docs.map(toProduct).sort(sortByPriorityThenName).slice(0, limit);
+    });
+  } catch (err) {
+    console.error("Payload CMS unavailable for getRelatedProducts, using static fallback", { error: err });
+    return getStaticRelatedProducts(currentSlug, category, limit);
+  }
 }

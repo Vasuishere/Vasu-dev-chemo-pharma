@@ -21,7 +21,7 @@ export default function OrganizationSchema({
 }: OrganizationSchemaProps) {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": ["ManufacturingBusiness", "Organization"],
     name,
     url,
     logo: {
@@ -30,6 +30,7 @@ export default function OrganizationSchema({
     },
     description,
     foundingDate: foundingDate || undefined,
+    telephone: telephone || undefined,
     address: {
       "@type": "PostalAddress",
       streetAddress: "F-29, Plot No. 328/329, Near Asian Paint Circle, G.I.D.C",
@@ -38,6 +39,19 @@ export default function OrganizationSchema({
       postalCode: "393002",
       addressCountry: "IN",
     },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 21.6284,
+      longitude: 73.0051,
+    },
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        opens: "09:00",
+        closes: "18:00",
+      },
+    ],
     ...((email || telephone) ? {
       contactPoint: {
         "@type": "ContactPoint",
@@ -49,8 +63,12 @@ export default function OrganizationSchema({
       },
     } : {}),
     hasCredential: {
-      "@type": "EducationalOccupationalCredential",
-      credentialCategory: "ISO 9001:2015",
+      "@type": "Certification",
+      name: "ISO 9001:2015",
+      issuedBy: {
+        "@type": "Organization",
+        name: "ISO",
+      },
     },
     sameAs,
   };

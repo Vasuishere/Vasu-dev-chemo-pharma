@@ -38,7 +38,7 @@ const companyLinks = [
   { label: "Services", href: "/service" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
-  { label: "Privacy Policy", href: "/legal-pages/privacy-policy" },
+  { label: "Privacy Policy", href: "/legal/privacy-policy" },
   { label: "Sitemap", href: "/sitemap.xml" },
 ];
 
@@ -77,7 +77,7 @@ export default async function Footer() {
           >
             <Image
               src="https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Vasudev/Vasudev_Chemo_Pharma_LOGO.png"
-              alt="VCP Logo"
+              alt="Vasudev Chemo Pharma Logo — Chemical Manufacturer India"
               width={250}
               height={450}
               unoptimized

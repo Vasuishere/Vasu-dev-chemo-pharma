@@ -35,5 +35,4 @@ export const SOCIAL_LINKS = [
 export const ORGANIZATION_SAME_AS = [
   LINKEDIN_URL,
   INSTAGRAM_URL,
-  "https://www.indiamart.com/vasudev-chemo-pharma",
 ] as const;

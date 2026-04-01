@@ -55,12 +55,16 @@ export async function generateMetadata({
     keywords: page.keywords,
     alternates: {
       canonical: buildAbsoluteUrl(canonicalPath),
+      languages: {
+        en: buildAbsoluteUrl(canonicalPath),
+        "x-default": buildAbsoluteUrl(canonicalPath),
+      },
     },
     openGraph: {
       title: page.title,
       description: page.description,
       url: buildAbsoluteUrl(canonicalPath),
-      type: "article",
+      type: "website",
       locale: "en_US",
     },
     twitter: {

@@ -4,6 +4,8 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { getCompanyInfo } from "@/lib/company";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
+import OrganizationSchema from "@/components/seo/OrganizationSchema";
+import { ORGANIZATION_SAME_AS } from "@/lib/social-links";
 
 // Lazy-load ContactForm — not part of LCP
 const ContactForm = dynamic(() => import("@/components/contact/ContactForm"), {
@@ -49,6 +51,16 @@ export default async function ContactPage() {
           { name: "Home", url: "https://www.vasudevchemopharma.com" },
           { name: "Contact", url: "https://www.vasudevchemopharma.com/contact" },
         ]}
+      />
+      <OrganizationSchema
+        name="Vasudev Chemo Pharma"
+        url="https://www.vasudevchemopharma.com"
+        logo="https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Vasudev/Vasudev_Chemo_Pharma_LOGO.png"
+        description="ISO 9001:2015 certified manufacturer and exporter of MEA Triazine, MMA Triazine H2S Scavengers, and specialty chemicals. Based in Ankleshwar, Gujarat, India."
+        email="info@vasudevchemopharma.com"
+        telephone="+918128372559"
+        foundingDate="2020"
+        sameAs={[...ORGANIZATION_SAME_AS]}
       />
       <main>
         {/* Hero + Form */}
@@ -147,6 +159,25 @@ export default async function ContactPage() {
                       ) : null}
                     </div>
                   </div>
+
+                  {/* Google Maps Embed */}
+                  <div className="mt-8">
+                    <p className="text-xs text-muted tracking-wider uppercase mb-3">
+                      {"// Our Location //"}
+                    </p>
+                    <div className="rounded-2xl overflow-hidden border border-gray-200">
+                      <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3715.123!2d73.0051!3d21.6284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sVasudev+Chemo+Pharma!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                        width="100%"
+                        height="250"
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title="Vasudev Chemo Pharma Location — Ankleshwar, Gujarat, India"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -197,6 +228,31 @@ export default async function ContactPage() {
                 <h3 className="font-heading text-h5 font-semibold text-primary group-hover:text-accent transition-colors">Industry Blog</h3>
                 <p className="text-sm text-secondary mt-1">Chemical manufacturing insights</p>
               </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Review Solicitation */}
+        <section className="pb-20">
+          <div className="max-w-container mx-auto px-6 lg:px-10">
+            <div className="rounded-3xl bg-accent/5 border border-accent/20 p-8 text-center">
+              <h2 className="font-heading text-h4 font-semibold text-primary mb-3">
+                Already a Vasudev Chemo Pharma Customer?
+              </h2>
+              <p className="text-sm text-secondary max-w-lg mx-auto mb-6">
+                We value your feedback. If you&apos;ve worked with us, please consider leaving a review to help other
+                buyers make informed decisions.
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-3">
+                <a
+                  href="https://g.page/r/vasudev-chemo-pharma/review"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark transition-colors text-white text-sm font-medium px-6 py-3 rounded-full"
+                >
+                  Leave a Google Review
+                </a>
+              </div>
             </div>
           </div>
         </section>

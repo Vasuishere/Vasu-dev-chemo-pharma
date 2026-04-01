@@ -65,6 +65,7 @@ next-env.d.ts
 # playwright
 .playwright-mcp/
 .playwright-cli/
+.claude-seo/
 
 # OS files
 .DS_Store

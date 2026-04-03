@@ -81,3 +81,8 @@ desktop.ini
 
 # content strategy context (docs — not app code)
 /content-strategy-context/
+
+# cloned / generated folders (not app code)
+/claude-seo/
+/manufact-clone/
+

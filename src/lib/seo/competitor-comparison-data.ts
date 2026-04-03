@@ -25,9 +25,7 @@ export type CompetitorPageData = {
   advantages: string[];
   markets: string[];
   faqs: CompetitorFAQ[];
-<<<<<<< HEAD
   lastReviewed: string;
-=======
   searchLanguage?: {
     intro: string;
     chemicalNames: string[];
@@ -37,7 +35,6 @@ export type CompetitorPageData = {
     buyingIntent: string[];
     note: string;
   };
->>>>>>> 20c5d5b6879fce1ad6dbc54588543f3b7f64f53e
 };
 
 const COMMON_MEATRIAZINE_CHEMICAL_NAMES = [

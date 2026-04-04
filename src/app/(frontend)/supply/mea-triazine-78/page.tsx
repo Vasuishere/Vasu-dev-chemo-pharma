@@ -155,6 +155,20 @@ const companyReferenceTerms = [
   "Sai Samarth Chem",
 ];
 
+const frontendHiddenCompanies = [
+  "Jay Dinesh Chemicals",
+  "Imperial Oilfield (ICPL)",
+  "Geocon Products",
+  "K2P Chemical Products",
+  "Venus Ethoxyethers",
+  "Esteem Industries",
+  "Yogi Intermediates",
+  "Melzer Chemicals",
+  "Clariant AG",
+  "Clariant",
+  "Kwantum India"
+];
+
 const informationalIntentKeywords = [
   "MEA Triazine chemical name",
   "MEA Triazine synonyms and IUPAC names",
@@ -530,7 +544,9 @@ export default function MeaTriazineSupplyIndexPage() {
                   requesting pricing, samples, or documentation.
                 </p>
                 <div className="flex flex-wrap gap-2 max-h-[320px] overflow-y-auto">
-                  {companyReferenceTerms.map((term) => (
+                  {companyReferenceTerms
+                    .filter((term) => !frontendHiddenCompanies.includes(term))
+                    .map((term) => (
                     <span
                       key={term}
                       className="rounded-full bg-light px-3 py-2 text-sm text-secondary"

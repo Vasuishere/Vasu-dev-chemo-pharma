@@ -217,7 +217,7 @@ const RAW_COUNTRY_PAGES_DATA: Record<string, CountryPageData> = {
       "BK Biocide (Chinese trade name, widely traded in SEA)",
       "Dayong MEA Triazine (Dongying Dayong, Made-in-China)",
       "IRO MEA Triazine (IRO Group Inc.)",
-      "JDC H2S Scavenger (Jay Dinesh Chemicals)",
+      "Jadescan 54 H2S Scavenger",
       "H2S Scavenger Conc (generic trade description)",
       "MEA-T (Monoethanolamine Triazine abbreviation)",
       "Amine Solution (Q2 Technologies descriptor)",
@@ -294,15 +294,15 @@ const RAW_COUNTRY_PAGES_DATA: Record<string, CountryPageData> = {
       "E-way bill and transport documents where applicable",
     ],
     localBrandNames: [
-      "Jay Dinesh Chemicals / JadeScan 54 / JDC H2S Scavenger",
-      "Imperial Oilfield Chemicals / ICPL Triazine H2S Scavenger",
-      "Geocon Products / HSCAV-70 / HSCAV-80 / Kontin",
-      "K2P Chemical Products / K2P MEA-T",
-      "Venus Ethoxyethers / Venus MEA Triazine",
-      "Esteem Industries / Vendecor",
-      "Yogi Intermediates / SCAV HS",
-      "Melzer Speciality Chemicals / Microtreat MZ TR / Melzer MEA Triazine",
-      "Kwantum India / Kwantum MEA Triazine",
+      "JadeScan 54 / JDC H2S Scavenger",
+      "ICPL Triazine H2S Scavenger",
+      "HSCAV-70 / HSCAV-80 / Kontin",
+      "K2P MEA-T",
+      "Venus MEA Triazine",
+      "Vendecor",
+      "SCAV HS",
+      "Microtreat MZ TR / Melzer MEA Triazine",
+      "Kwantum MEA Triazine",
       "Sarex Chemicals / Sarex HPT Triazine",
     ],
     localLanguageNames: [
@@ -386,7 +386,7 @@ const RAW_COUNTRY_PAGES_DATA: Record<string, CountryPageData> = {
       "Pro3 / Pro3 HT / Pro3 GT / Pro3 NGL (Q2 Technologies)",
       "PureMark M500 / PureMark B800 (Foremark Performance Chemicals)",
       "Enviro-Scrub / Enviro-Scrub Bio (Q2 Technologies)",
-      "HSCAV-80 / Kontin (Geocon Products)",
+      "HSCAV-80 / Kontin",
       "HS-1526-40 (Univar Solutions product code)",
       "Sulfa-Check (oilfield trade name)",
       "Bioban GK (Dow Chemical)",
@@ -413,7 +413,7 @@ const RAW_COUNTRY_PAGES_DATA: Record<string, CountryPageData> = {
         question:
           "What are the equivalent brand names for MEA Triazine in the US market?",
         answer:
-          "In the US market, MEA Triazine 78% (CAS 4719-04-4) is sold under brands including Pro3 and Pro3 HT (Q2 Technologies), PureMark M500 and PureMark B800 (Foremark Performance), HSCAV-80 (Geocon), Bioban GK (Dow), Onyxide 200 (Lonza), Protectol HT (BASF), and Triadine 3 (Arxada). Our product is a direct equivalent to all of these.",
+          "In the US market, MEA Triazine 78% (CAS 4719-04-4) is sold under brands including Pro3 and Pro3 HT (Q2 Technologies), PureMark M500 and PureMark B800 (Foremark Performance), HSCAV-80 brand, Bioban GK (Dow), Onyxide 200 (Lonza), Protectol HT (BASF), and Triadine 3 (Arxada). Our product is a direct equivalent to all of these.",
       },
       {
         question:
@@ -731,7 +731,7 @@ const RAW_COUNTRY_PAGES_DATA: Record<string, CountryPageData> = {
     ],
     localBrandNames: [
       "Global Trend MEA-Triazina 78% (Rio de Janeiro, local supplier)",
-      "SCAVTREAT 1063 (Clariant Oil Services)",
+      "SCAVTREAT 1063 ",
       "ABATE\u2122 S-200 Scavenger (Dow Chemical)",
       "Brenntag MEA / Triazine (Brenntag Qu\u00EDmica Brasil, S\u00E3o Paulo)",
       "SULFA-CLEAR\u2122 8411HC (Lubrizol, 80% MEA Triazine)",
@@ -757,7 +757,7 @@ const RAW_COUNTRY_PAGES_DATA: Record<string, CountryPageData> = {
       {
         question: "What brand names is MEA Triazine known by in Brazil?",
         answer:
-          "In Brazil, MEA Triazine (CAS 4719-04-4, also known as MEA-Triazina) is supplied under brand names including Global Trend MEA-Triazina 78% (Rio de Janeiro), SCAVTREAT 1063 (Clariant Oil Services), ABATE S-200 (Dow Chemical), Brenntag MEA/Triazine, SULFA-CLEAR 8411HC (Lubrizol), BerrySweet 80% (Berryman Chemical), ICS-5780 (ICG), and Nalco/Ecolab H2S Scavenger. Our product is a direct equivalent to all these brands.",
+          "In Brazil, MEA Triazine (CAS 4719-04-4, also known as MEA-Triazina) is supplied under brand names including Global Trend MEA-Triazina 78% (Rio de Janeiro), SCAVTREAT 1063 , ABATE S-200 (Dow Chemical), Brenntag MEA/Triazine, SULFA-CLEAR 8411HC (Lubrizol), BerrySweet 80% (Berryman Chemical), ICS-5780 (ICG), and Nalco/Ecolab H2S Scavenger. Our product is a direct equivalent to all these brands.",
       },
       {
         question:
@@ -1006,8 +1006,8 @@ const RAW_COUNTRY_PAGES_DATA: Record<string, CountryPageData> = {
       "G-SCAV EA77 (77% active, GCC oilfields)",
       "BASOLON SC 78 (IRO Chemical)",
       "ICPL Triazine H2S Scavenger (Imperial Oilfield Chemicals)",
-      "K2P MEA-T (K2P Chemical Products)",
-      "JadeScan54 (Jay Dinesh Chemicals, Indian export)",
+      "K2P MEA-T",
+      "JadeScan54",
     ],
     localLanguageNames: [
       "\u0643\u0627\u0633\u062D \u0643\u0628\u0631\u064A\u062A\u064A\u062F \u0627\u0644\u0647\u064A\u062F\u0631\u0648\u062C\u064A\u0646 \u0642\u0637\u0631 (H2S Scavenger Qatar)",
@@ -1098,8 +1098,8 @@ const RAW_COUNTRY_PAGES_DATA: Record<string, CountryPageData> = {
       "Baker Hughes H2S Scavenger (KOC service contracts)",
       "Dorf Ketal H2S Scavenger (KOC service contracts)",
       "Triasorb\u00AE (Sintez-Oka, Russia)",
-      "ICPL Triazine H2S Scavenger (Imperial Oilfield Chemicals, India)",
-      "K2P MEA-T (K2P Chemical Products)",
+      "ICPL Triazine H2S Scavenger",
+      "K2P MEA-T",
       "G-SCAV EA77 (77% active, GCC oilfields)",
       "Sarex HPT Triazine (Sarex Chemicals, India)",
     ],
@@ -1189,7 +1189,7 @@ const RAW_COUNTRY_PAGES_DATA: Record<string, CountryPageData> = {
       "HS-1526-40 (Univar Solutions)",
       "SULFA-CLEAR\u2122 8411HC (Lubrizol, 80% MEA Triazine)",
       "ChampionX H2S Scavenger (PTTEP service contracts)",
-      "JDC H2S Scavenger (Jay Dinesh Chemicals, India)",
+      "JDC H2S Scavenger",
       "Xipeng MEA Triazine 78% (Xipeng Technology, China export)",
     ],
     localLanguageNames: [
@@ -1286,7 +1286,7 @@ const RAW_COUNTRY_PAGES_DATA: Record<string, CountryPageData> = {
       "SULFA-CLEAR\u2122 8411HC (Lubrizol, 80% MEA Triazine)",
       "ChampionX H2S Scavenger (NIOC service contracts)",
       "Baker Hughes H2S Scavenger (NIOC contractors)",
-      "ICPL Triazine H2S Scavenger (Imperial Oilfield Chemicals, India)",
+      "ICPL Triazine H2S Scavenger",
       "Sarex HPT Triazine (Sarex Chemicals, India export)",
     ],
     localLanguageNames: [
@@ -1374,7 +1374,7 @@ const RAW_COUNTRY_PAGES_DATA: Record<string, CountryPageData> = {
       "RXSOL Triazine Biocide (RX Chemicals / DubiChem)",
       "ChampionX H2S Scavenger (oilfield service contracts)",
       "Baker Hughes SULFA-CLEAR (oilfield service contracts)",
-      "JDC H2S Scavenger (Jay Dinesh Chemicals, India)",
+      "JDC H2S Scavenger",
       "H2S Scavenger Conc (generic trade description)",
     ],
     localLanguageNames: [
@@ -1459,7 +1459,7 @@ const RAW_COUNTRY_PAGES_DATA: Record<string, CountryPageData> = {
       "BASF BASOLON SC 78 (BASF)",
       "RXSOL Triazine Biocide (RX Chemicals / DubiChem)",
       "ChampionX H2S Scavenger (oilfield service contracts)",
-      "JDC H2S Scavenger (Jay Dinesh Chemicals, India)",
+      "JDC H2S Scavenger",
       "H2S Scavenger Conc (generic trade description)",
       "MEA-T (Monoethanolamine Triazine abbreviation)",
     ],

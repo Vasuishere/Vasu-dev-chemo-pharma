@@ -839,6 +839,36 @@ export const PRODUCT_SEO_KEYWORDS: Record<string, ProductKeywordConfig> = {
       "mercaptan scavenger triazine",
       "sour gas treatment chemical",
       "natural gas sweetening chemical",
+
+      // Additional India target keywords from competitor and SERP research
+      "h2s scavenger 78 manufacturer in India",
+      "monoethanolamine-triazine supplier in India",
+      "monoethanolamine triazine India",
+      "H2S Scavengers and Triazine-Based Gas Treatment Chemicals",
+      "MEA Triazine 70%",
+      "MEA Triazine manufacturers in India",
+      "MEA Triazine 78 suppliers in India",
+      "triazine manufacturer in India",
+      "triazine based H2S scavenger manufacturer",
+      "MEA Triazine by Kwantum India",
+      "water based biocide",
+      "biocides for metalworking fluids",
+      "Tacelene Chem 62090",
+      "Tacelene Chem 62087",
+      "Tacelene Chem 62081",
+      "JadeScan 54",
+      "monoethanolamine triazine",
+      "amine base triazine",
+      "CAS no. 4719-04-4",
+      "biocide used as H2S scavenger",
+      "oil drilling fluids",
+      "drilling fluids biocide",
+      "HSCAV-70",
+      "Nipacide BK",
+      "Melzer speciality water treatment",
+      "Melzer water treatment alternative",
+      "Kwantum India triazine alternative",
+      "water treatment biocide India",
     ],
   },
   "mma-triazine-40": {
@@ -1171,7 +1201,12 @@ function buildDefaultKeywords(name: string, casNumber: string): ProductKeywordCo
 
 export function getProductSeoKeywords(slug: string, name: string, casNumber: string): ProductKeywordConfig {
   if (slug === "mea-triazine-78-h2s-scavenger") {
-    return MEA_TRIAZINE_PRODUCT_PAGE_KEYWORDS;
+    return {
+      primaryKeyword: MEA_TRIAZINE_PRODUCT_PAGE_KEYWORDS.primaryKeyword,
+      longTailKeywords: Array.from(
+        new Set(MEA_TRIAZINE_PRODUCT_PAGE_KEYWORDS.longTailKeywords)
+      ),
+    };
   }
 
   return PRODUCT_SEO_KEYWORDS[slug] || buildDefaultKeywords(name, casNumber);

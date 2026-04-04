@@ -102,12 +102,14 @@ export async function generateMetadata({
     return {
       title,
       description: resolvedDescription,
-      keywords: [
-        keywordConfig.primaryKeyword,
-        ...keywordConfig.longTailKeywords,
-        `${product.name} CAS number`.toLowerCase(),
-        `buy ${product.name} industrial grade`.toLowerCase(),
-      ],
+      keywords: Array.from(
+        new Set([
+          keywordConfig.primaryKeyword,
+          ...keywordConfig.longTailKeywords,
+          `${product.name} CAS number`.toLowerCase(),
+          `buy ${product.name} industrial grade`.toLowerCase(),
+        ])
+      ),
       robots: {
         index: true,
         follow: true,

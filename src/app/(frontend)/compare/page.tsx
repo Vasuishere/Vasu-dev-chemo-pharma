@@ -12,17 +12,17 @@ import {
 
 export const revalidate = 3600;
 
+const currentYear = new Date().getFullYear();
+
 export const metadata: Metadata = {
-  title:
-    "MEA Triazine 78% vs Top H2S Scavenger Brands — Direct Comparisons (2026)",
+  title: `MEA Triazine 78% vs Top H2S Scavenger Brands — Direct Comparisons (${currentYear})`,
   description:
     "Compare Vasudev MEA Triazine 78% against major market alternatives, including Pro3, RXSOL, SULFA-CLEAR, Triasorb, ChampionX, and Chinese supplier offers.",
   alternates: {
     canonical: `${SITE_URL}/compare`,
   },
   openGraph: {
-    title:
-      "MEA Triazine 78% vs Top H2S Scavenger Brands — Direct Comparisons",
+    title: "MEA Triazine 78% vs Top H2S Scavenger Brands — Direct Comparisons",
     description:
       "Side-by-side competitor comparison pages for MEA Triazine 78% buyers. Direct manufacturer pricing vs branded alternatives.",
     url: `${SITE_URL}/compare`,

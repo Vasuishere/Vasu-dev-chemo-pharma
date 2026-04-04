@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 
 const SITE_URL = "https://www.vasudevchemopharma.com";
+const ALLOW_PATHS = ["/", "/_next/static/", "/_next/image"];
 
 const DISALLOW_PATHS = [
   "/admin",
@@ -20,38 +21,38 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: "*",
-        allow: "/",
+        allow: ALLOW_PATHS,
         disallow: DISALLOW_PATHS,
       },
       // AI search crawlers — explicitly allowed for GEO
       {
         userAgent: "GPTBot",
-        allow: "/",
+        allow: ALLOW_PATHS,
         disallow: DISALLOW_PATHS,
       },
       {
         userAgent: "ChatGPT-User",
-        allow: "/",
+        allow: ALLOW_PATHS,
         disallow: DISALLOW_PATHS,
       },
       {
         userAgent: "OAI-SearchBot",
-        allow: "/",
+        allow: ALLOW_PATHS,
         disallow: DISALLOW_PATHS,
       },
       {
         userAgent: "ClaudeBot",
-        allow: "/",
+        allow: ALLOW_PATHS,
         disallow: DISALLOW_PATHS,
       },
       {
         userAgent: "PerplexityBot",
-        allow: "/",
+        allow: ALLOW_PATHS,
         disallow: DISALLOW_PATHS,
       },
       {
         userAgent: "Applebot-Extended",
-        allow: "/",
+        allow: ALLOW_PATHS,
         disallow: DISALLOW_PATHS,
       },
       // Block training-only scrapers (no search benefit)

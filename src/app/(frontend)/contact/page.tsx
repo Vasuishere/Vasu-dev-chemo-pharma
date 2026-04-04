@@ -7,7 +7,7 @@ import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 import OrganizationSchema from "@/components/seo/OrganizationSchema";
 import { ORGANIZATION_SAME_AS } from "@/lib/social-links";
 
-// Lazy-load ContactForm — not part of LCP
+// Lazy-load ContactForm; not part of LCP.
 const ContactForm = dynamic(() => import("@/components/contact/ContactForm"), {
   loading: () => <div className="h-96 bg-light rounded-2xl animate-pulse" />,
 });
@@ -15,14 +15,14 @@ const ContactForm = dynamic(() => import("@/components/contact/ContactForm"), {
 export const revalidate = 1800;
 
 export const metadata: Metadata = {
-  title: "Contact Us — Request a Quote",
+  title: "Contact Us - Request a Quote",
   description:
     "Contact Vasudev Chemo Pharma for product inquiries, bulk orders, and export requirements. ISO 9001:2015 certified chemical manufacturer from Gujarat, India. Get a reply within 24 hours.",
   alternates: {
     canonical: "https://www.vasudevchemopharma.com/contact",
   },
   openGraph: {
-    title: "Contact Vasudev Chemo Pharma — Request a Quote",
+    title: "Contact Vasudev Chemo Pharma - Request a Quote",
     description:
       "Contact us for product inquiries, bulk orders, and chemical export requirements. Get a reply within 24 hours.",
     url: "https://www.vasudevchemopharma.com/contact",
@@ -43,6 +43,12 @@ export const metadata: Metadata = {
 export default async function ContactPage() {
   const company = await getCompanyInfo();
   const brochureUrl = company.brochureUrl?.trim();
+  const mapQuery = [company.companyName?.trim(), company.address?.trim()]
+    .filter(Boolean)
+    .join(", ");
+  const mapEmbedSrc = mapQuery
+    ? `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&output=embed`
+    : "";
 
   return (
     <>
@@ -74,7 +80,7 @@ export default async function ContactPage() {
                 </h1>
                 <p className="text-secondary text-lg mt-6 max-w-md">
                   Need a quote for industrial chemicals or specialty chemical products?
-                  Reach out to our team — we respond within 24 hours with pricing,
+                  Reach out to our team - we respond within 24 hours with pricing,
                   specifications, and export documentation support.
                 </p>
                 {brochureUrl ? (
@@ -166,16 +172,33 @@ export default async function ContactPage() {
                       {"// Our Location //"}
                     </p>
                     <div className="rounded-2xl overflow-hidden border border-gray-200">
-                      <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3715.123!2d73.0051!3d21.6284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sVasudev+Chemo+Pharma!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-                        width="100%"
-                        height="250"
-                        style={{ border: 0 }}
-                        allowFullScreen
-                        loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade"
-                        title="Vasudev Chemo Pharma Location — Ankleshwar, Gujarat, India"
-                      />
+                      {mapEmbedSrc ? (
+                        <iframe
+                          src={mapEmbedSrc}
+                          width="100%"
+                          height="250"
+                          style={{ border: 0 }}
+                          allowFullScreen
+                          loading="lazy"
+                          referrerPolicy="no-referrer-when-downgrade"
+                          title="Vasudev Chemo Pharma Location - Ankleshwar, Gujarat, India"
+                        />
+                      ) : company.mapUrl ? (
+                        <div className="flex min-h-[250px] items-center justify-center bg-light p-6 text-center">
+                          <a
+                            href={company.mapUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm font-medium text-primary transition-colors hover:text-accent"
+                          >
+                            Open our location in Google Maps
+                          </a>
+                        </div>
+                      ) : company.address ? (
+                        <div className="flex min-h-[250px] items-center justify-center bg-light p-6 text-center">
+                          <p className="text-sm text-primary">{company.address}</p>
+                        </div>
+                      ) : null}
                     </div>
                   </div>
                 </div>

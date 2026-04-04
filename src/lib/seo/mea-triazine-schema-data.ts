@@ -67,7 +67,7 @@ const MEA_TRIAZINE_TARGET_MARKETS = [
 ] as const;
 
 export const MEA_TRIAZINE_METADATA = {
-  title: "MEA Triazine 78% H2S Scavenger Manufacturer in India | Vasudev Chemo Pharma",
+  title: "MEA Triazine 78% H2S Scavenger Manufacturer India",
   description:
     "MEA Triazine 78% H2S Scavenger (CAS 4719-04-4) for hydrogen sulfide removal in oil & gas, wastewater & biogas. Drum, IBC & bulk supply from India.",
   openGraphDescription:

@@ -100,6 +100,14 @@ export default async function ComparisonDetailPage({
   const otherComparisons = Object.values(COMPETITOR_PAGES_DATA).filter(
     (c) => c.slug !== page.slug
   );
+  const reviewedDate = page.lastReviewed ? new Date(page.lastReviewed) : null;
+  const formattedLastReviewed =
+    reviewedDate && !Number.isNaN(reviewedDate.getTime())
+      ? reviewedDate.toLocaleDateString("en-US", {
+          month: "long",
+          year: "numeric",
+        })
+      : "Not reviewed";
 
   return (
     <>
@@ -125,11 +133,7 @@ export default async function ComparisonDetailPage({
                 {page.intro}
               </p>
               <p className="mt-3 text-xs text-secondary/60">
-                Last reviewed:{" "}
-                {new Date(page.lastReviewed).toLocaleDateString("en-US", {
-                  month: "long",
-                  year: "numeric",
-                })}
+                Last reviewed: {formattedLastReviewed}
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Link
@@ -373,32 +377,34 @@ export default async function ComparisonDetailPage({
           </div>
         </section>
 
-        <section className="mb-16">
-          <div className="max-w-container mx-auto px-6 lg:px-10">
-            <h2 className="font-heading text-h3 text-primary mb-6">
-              Compare with other alternatives
-            </h2>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {otherComparisons.map((comp) => (
-                <Link
-                  key={comp.slug}
-                  href={buildComparisonPagePath(comp.slug)}
-                  className="rounded-2xl border border-gray-200 bg-white p-4 transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-md"
-                >
-                  <span className="text-[10px] font-semibold uppercase tracking-wide text-accent">
-                    {comp.competitorOrigin}
-                  </span>
-                  <p className="mt-1 text-sm font-medium text-primary">
-                    vs {comp.competitorBrand}
-                  </p>
-                  <p className="mt-0.5 text-xs text-secondary">
-                    {comp.competitorCompany}
-                  </p>
-                </Link>
-              ))}
+        {otherComparisons.length > 0 ? (
+          <section className="mb-16">
+            <div className="max-w-container mx-auto px-6 lg:px-10">
+              <h2 className="font-heading text-h3 text-primary mb-6">
+                Compare with other alternatives
+              </h2>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                {otherComparisons.map((comp) => (
+                  <Link
+                    key={comp.slug}
+                    href={buildComparisonPagePath(comp.slug)}
+                    className="rounded-2xl border border-gray-200 bg-white p-4 transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-md"
+                  >
+                    <span className="text-[10px] font-semibold uppercase tracking-wide text-accent">
+                      {comp.competitorOrigin}
+                    </span>
+                    <p className="mt-1 text-sm font-medium text-primary">
+                      vs {comp.competitorBrand}
+                    </p>
+                    <p className="mt-0.5 text-xs text-secondary">
+                      {comp.competitorCompany}
+                    </p>
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        ) : null}
 
         <section>
           <div className="max-w-container mx-auto grid grid-cols-1 gap-8 px-6 lg:grid-cols-3 lg:px-10">

@@ -27,6 +27,12 @@ export const FEATURED_COMPARISON_SLUGS = [
   "rxsol-triazine",
   "sulfa-clear-lubrizol",
   "chinese-suppliers",
+  "jay-dinesh-chemicals",
+  "imperial-oilfield-chemicals",
+  "geocon-products-india",
+  "k2p-chemicals",
+  "tacelene-chem",
+  "nipacide-bk",
 ] as const;
 
 export const FEATURED_APPLICATION_SLUGS = [
@@ -34,6 +40,7 @@ export const FEATURED_APPLICATION_SLUGS = [
   "crude-oil-sweetening",
   "biogas-h2s-removal",
   "water-treatment-biocide",
+  "drilling-fluids-biocide",
 ] as const;
 
 export const FEATURED_RESOURCE_SLUGS = [
@@ -45,6 +52,7 @@ export const FEATURED_RESOURCE_SLUGS = [
   "mea-triazine-safety-data-sheet",
   "h2s-scavenger-dosing-guide",
   "import-compliance-guide",
+  "biocide-h2s-scavenger-dual-function",
 ] as const;
 
 export function buildAbsoluteUrl(path: string): string {

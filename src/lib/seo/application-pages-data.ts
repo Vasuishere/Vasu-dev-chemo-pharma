@@ -75,6 +75,17 @@ const COMMON_BRAND_REFERENCES = [
   "Bactraclean",
   "Ottaform 204",
   "JadeScan54",
+  "HSCAV-70",
+  "Tacelene Chem 62090",
+  "Tacelene Chem 62087",
+  "Tacelene Chem 62081",
+  "ICPL Triazine",
+  "K2P MEA-T",
+  "Kwantum MEA Triazine",
+  "Melzer MEA Triazine",
+  "Microtreat MZ TR",
+  "Vendecor (Esteem)",
+  "SCAV HS (Yogi)",
 ];
 
 const COMMON_INFORMATIONAL_INTENT = [
@@ -90,6 +101,26 @@ const COMMON_INFORMATIONAL_INTENT = [
   "what is hexahydro-1,3,5-tris(2-hydroxyethyl)-s-triazine",
   "MEA Triazine TDS vs SDS",
   "where to use MEA Triazine 78%",
+  "mea triazine manufacturers in india",
+  "triazine manufacturer in india",
+  "monoethanolamine triazine india",
+  "monoethanolamine-triazine supplier in india",
+  "H2S Scavengers & Triazine-Based Gas Treatment Chemicals",
+  "amine base triazine",
+  "cas no. 4719-04-4",
+  "MEA Triazine 70% vs 78% difference",
+  "h2s scavenger types comparison",
+  "triazine based h2s scavenger mechanism",
+  "how triazine removes hydrogen sulfide",
+  "mea triazine concentration grades",
+  "monoethanolamine triazine chemistry",
+  "amine based triazine synthesis",
+  "triazine h2s scavenger dosing calculation",
+  "h2s scavenger environmental impact",
+  "triazine biocide vs oxidizing biocide",
+  "mea triazine shelf life and storage",
+  "h2s scavenger for sour gas fields India",
+  "water based biocide applications",
 ];
 
 const COMMON_BUYING_INTENT = [
@@ -108,6 +139,26 @@ const COMMON_BUYING_INTENT = [
   "Industrial biocide supplier",
   "Cutting fluid preservative supplier",
   "Paper mill slimicide supplier",
+  "h2s scavenger 78 manufacturer in INDIA",
+  "h2s scavenger manufacturer in INDIA",
+  "mea triazine 78 suppliers in india",
+  "Triazine Based H2S scavenger Manufacturer",
+  "mea triazine supplier india bulk",
+  "h2s scavenger quote India",
+  "mea triazine factory price India",
+  "triazine h2s scavenger bulk order India",
+  "mea triazine ISO certified manufacturer",
+  "h2s scavenger direct manufacturer",
+  "mea triazine sample request India",
+  "monoethanolamine triazine bulk supplier",
+  "mea triazine export from India",
+  "h2s scavenger for natural gas India",
+  "h2s scavenger for oil refinery India",
+  "triazine biocide manufacturer Gujarat",
+  "mea triazine Ankleshwar manufacturer",
+  "h2s scavenger CIF price",
+  "MEA Triazine 70% supplier",
+  "water based biocide manufacturer India",
 ];
 
 function dedupeKeywords(values: string[]): string[] {
@@ -498,6 +549,9 @@ Applications served include landfill gas-to-energy facilities, wastewater treatm
       "industrial biocide manufacturer",
       "triazine microbial control",
       "oilfield water treatment chemical",
+      "water based biocide",
+      "water based biocide manufacturer India",
+      "biocide used as h2s scavenger",
     ],
     h1: "MEA Triazine as Industrial Biocide for Water Treatment",
     intro:
@@ -606,6 +660,8 @@ All dosing should comply with applicable EPA registration requirements and local
       "Grotan BK alternative",
       "CNC coolant biocide",
       "grinding fluid preservative",
+      "biocides for metalworking fluids",
+      "metalworking biocide manufacturer India",
     ],
     h1: "MEA Triazine Preservative for Metalworking Fluids",
     intro:
@@ -690,6 +746,106 @@ The product is added directly to the sump or central fluid system and mixes read
         question: "How often should I add MEA Triazine to my metalworking fluid sump?",
         answer:
           "Frequency depends on your operating conditions and microbial challenge level. We recommend weekly dip slide testing and adding maintenance doses of 500-1,000 ppm when bacterial counts exceed 10^4 CFU/mL. In high-contamination environments (warm climates, heavy tramp oil), more frequent dosing may be needed.",
+      },
+    ],
+  },
+
+  /* ----------------------------------------------------------------
+   * 6. Drilling Fluids Biocide
+   * -------------------------------------------------------------- */
+  "drilling-fluids-biocide": {
+    slug: "drilling-fluids-biocide",
+    title: "MEA Triazine Biocide for Oil Drilling Fluids | Vasudev Chemo Pharma",
+    description:
+      "MEA Triazine 78% biocide for oil drilling fluids, drilling mud systems, and water-based drilling fluid preservation. Control SRB, odor, and fluid spoilage with manufacturer supply from India.",
+    keywords: [
+      "oil drilling fluids biocide",
+      "drilling fluid preservative",
+      "drilling mud biocide",
+      "water based drilling fluid biocide",
+      "SRB control drilling fluids",
+      "drilling fluid bacteria control",
+      "mud system biocide supplier",
+      "oilfield drilling biocide manufacturer",
+    ],
+    h1: "MEA Triazine Biocide for Oil Drilling Fluids",
+    intro:
+      "Water-based drilling fluids are vulnerable to bacterial contamination that destroys rheology, generates odor, accelerates corrosion, and contributes to hydrogen sulfide formation in active mud systems. MEA Triazine 78% gives drilling contractors and mud formulators a dual-function chemistry: it works as a formaldehyde-releasing biocide for microbial control while also helping scavenge H2S generated by sulfate-reducing bacteria. Vasudev Chemo Pharma manufactures MEA Triazine 78% in India for direct supply to drilling fluid companies and oilfield service providers.",
+    sections: [
+      {
+        heading: "Microbial Problems in Drilling Fluids",
+        id: "microbial-problems",
+        body: `Water-based mud systems contain starches, polymers, lubricants, and other additives that become nutrient sources for bacteria and fungi. In active drilling operations, warm mud pits, recycled water, storage tanks, and low-flow corners of the circulation system allow microbial populations to multiply quickly.
+
+Sulfate-reducing bacteria (SRB) are especially problematic because they generate H2S in anaerobic zones of the mud system. This creates odor, increases corrosion risk in tanks and tubulars, and can contribute to safety exposure during fluid handling. Aerobic bacteria and fungi also break down viscosifiers and fluid-loss additives, causing unstable mud properties, poor hole cleaning, and higher treatment cost. Effective preservation of drilling fluids is therefore both a fluid-quality issue and a field-safety issue.`,
+      },
+      {
+        heading: "How MEA Triazine Works in Drilling Mud Systems",
+        id: "mechanism",
+        body: `MEA Triazine 78% works through two complementary mechanisms. First, it acts as a formaldehyde-releasing biocide, slowly hydrolysing in the aqueous phase to maintain antimicrobial activity against bacteria, fungi, and slime-forming organisms. This helps preserve the drilling fluid package and reduces biological degradation of starch and polymer components.
+
+Second, where SRB activity or formation contamination introduces hydrogen sulfide into the mud system, the same triazine chemistry reacts irreversibly with H2S to form water-soluble dithiazine. This makes the product particularly useful in drilling environments where microbial control and H2S control overlap. The chemistry is fully water-soluble and easy to meter into pits, mud tanks, dilution water, and recirculating systems using standard dosing pumps.`,
+      },
+      {
+        heading: "Dosing Guidelines for Water-Based Drilling Fluids",
+        id: "dosing",
+        body: `For routine preservation of water-based drilling fluids, MEA Triazine is typically used at 200-1,000 ppm depending on mud composition, recycled water quality, and microbial loading. Initial charge dosing is often applied to fresh make-up water or new mud batches, followed by maintenance dosing based on ATP testing, dip slides, odor development, or visible slime formation.
+
+When SRB activity is confirmed or H2S is detected in the active system, the dosage can be increased based on both microbial challenge and the measured H2S load. The product can be added directly into the active pit, suction pit, dilution water line, or a dedicated side-stream treatment loop. Regular monitoring of bacterial counts, mud properties, and H2S readings is the best way to optimize dose while avoiding unnecessary overtreatment.`,
+      },
+      {
+        heading: "Advantages for Drilling Operations",
+        id: "advantages",
+        body: `MEA Triazine 78% offers several practical advantages for drilling fluid programmes. It supports fluid stability by controlling bacteria that degrade polymers and starches. It reduces odor and microbiologically influenced corrosion associated with SRB contamination. It can also address incidental H2S in the same water-based system, lowering the need for separate treatment chemicals in some operations.
+
+For procurement teams, Vasudev Chemo Pharma adds supply-chain advantages: direct manufacturer pricing, ISO 9001:2015 certified production, batch-specific CoA, export capability to major oil-producing regions, and sample support for mud-system qualification. This makes the product suitable for drilling contractors, mud companies, and oilfield chemical distributors seeking a reliable Indian source for water-based drilling fluid biocide chemistry.`,
+      },
+    ],
+    specs: [
+      { label: "Product", value: "MEA Triazine 78%" },
+      { label: "CAS Number", value: "4719-04-4" },
+      { label: "Function", value: "Drilling fluid biocide and incidental H2S scavenger" },
+      { label: "Typical dosage", value: "200-1,000 ppm for routine preservation" },
+      { label: "Target organisms", value: "SRB, aerobic bacteria, fungi" },
+      { label: "Fluid type", value: "Water-based drilling fluids and drilling mud systems" },
+      { label: "Packaging", value: "220 L drums, IBC 1000 L, bulk tanker" },
+    ],
+    benefits: [
+      "Controls SRB and other bacteria that spoil water-based drilling muds",
+      "Helps reduce H2S generated by microbial activity in active mud systems",
+      "Protects starches, polymers, and other performance-critical mud additives",
+      "Easy liquid dosing into pits, tanks, make-up water, and recirculation loops",
+      "Factory-direct supply from India with CoA, TDS, and MSDS",
+      "Suitable for qualification by drilling contractors and mud formulators",
+    ],
+    relatedCountries: [
+      { name: "India", slug: "india" },
+      { name: "UAE", slug: "uae" },
+      { name: "Saudi Arabia", slug: "saudi-arabia" },
+      { name: "Kuwait", slug: "kuwait" },
+      { name: "Oman", slug: "oman" },
+      { name: "United States", slug: "usa" },
+    ],
+    faqs: [
+      {
+        question: "Can MEA Triazine be used in water-based drilling mud systems as a biocide?",
+        answer:
+          "Yes. MEA Triazine 78% is used in water-based drilling fluids as a formaldehyde-releasing biocide to control bacteria, fungi, and SRB that spoil mud systems and degrade additives. It is especially useful where recycled water and starch-containing muds create persistent biological contamination.",
+      },
+      {
+        question: "Does MEA Triazine help with H2S in drilling fluids?",
+        answer:
+          "Yes. In addition to biocide performance, MEA Triazine reacts with hydrogen sulfide to form water-soluble dithiazine. That makes it valuable in drilling operations where SRB activity or sour formations contribute H2S to the active fluid system.",
+      },
+      {
+        question: "What dosage is typical for drilling fluid preservation?",
+        answer:
+          "Routine preservation typically falls in the 200-1,000 ppm range, but the exact dose depends on the mud formulation, contamination level, recycled water quality, and whether H2S control is also required. We recommend dosing based on microbial monitoring and field observations rather than a fixed blanket rate.",
+      },
+      {
+        question: "Can Vasudev supply drilling fluid biocide to GCC and US operations?",
+        answer:
+          "Yes. Vasudev Chemo Pharma exports to major oil and gas markets including India, the GCC, and the USA. We provide commercial documentation, CoA, TDS, and MSDS with each shipment and can arrange samples for qualification in drilling fluid applications.",
       },
     ],
   },

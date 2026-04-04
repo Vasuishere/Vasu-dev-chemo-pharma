@@ -259,6 +259,93 @@ const RAW_COUNTRY_PAGES_DATA: Record<string, CountryPageData> = {
     oilfields: [],
   },
 
+  india: {
+    slug: "india",
+    countryName: "India",
+    regionLabel: "Domestic India",
+    flag: "\u{1F1EE}\u{1F1F3}",
+    title: "MEA Triazine 78% Manufacturer in India — Direct Factory Supply",
+    description:
+      "Vasudev Chemo Pharma manufactures MEA Triazine 78% in India for domestic oilfield, gas sweetening, water treatment, and industrial biocide applications. Factory-direct supply with CoA, TDS, and MSDS.",
+    keywords: [
+      "MEA Triazine manufacturer India",
+      "h2s scavenger manufacturer in India",
+      "MEA Triazine 78 supplier India",
+      "triazine manufacturer Gujarat",
+      "monoethanolamine triazine India",
+      "water based biocide manufacturer India",
+      "oilfield chemical supplier India",
+    ],
+    h1: "MEA Triazine 78% Manufacturer in India — Direct Factory Supply",
+    intro:
+      "Vasudev Chemo Pharma manufactures MEA Triazine 78% in India for oil and gas operators, drilling fluid companies, water treatment formulators, and industrial biocide buyers who want direct factory supply instead of trader markup. Our production base in Gujarat supports domestic dispatch across India with batch-specific Certificate of Analysis, TDS, MSDS/SDS, and sample support for qualification testing.",
+    logistics: {
+      port: "Ankleshwar factory dispatch, with export support via Mundra and Nhava Sheva",
+      transitDays: "2-5 days domestic dispatch, depending on location",
+      packaging: "220 L drums, 1,000 L IBC totes, bulk tanker",
+      incoterms: "Ex-Works Ankleshwar / FOR India / CIF export on request",
+    },
+    importDocs: [
+      "Certificate of Analysis (CoA)",
+      "Technical Data Sheet (TDS)",
+      "Safety Data Sheet (MSDS/SDS)",
+      "Tax invoice",
+      "Batch traceability documents",
+      "E-way bill and transport documents where applicable",
+    ],
+    localBrandNames: [
+      "Jay Dinesh Chemicals / JadeScan 54 / JDC H2S Scavenger",
+      "Imperial Oilfield Chemicals / ICPL Triazine H2S Scavenger",
+      "Geocon Products / HSCAV-70 / HSCAV-80 / Kontin",
+      "K2P Chemical Products / K2P MEA-T",
+      "Venus Ethoxyethers / Venus MEA Triazine",
+      "Esteem Industries / Vendecor",
+      "Yogi Intermediates / SCAV HS",
+      "Melzer Speciality Chemicals / Microtreat MZ TR / Melzer MEA Triazine",
+      "Kwantum India / Kwantum MEA Triazine",
+      "Sarex Chemicals / Sarex HPT Triazine",
+    ],
+    localLanguageNames: [
+      "एमईए ट्रायज़ीन (MEA Triazine)",
+      "मोनोएथेनोलामाइन ट्रायज़ीन (Monoethanolamine Triazine)",
+      "हाइड्रोजन सल्फाइड स्कैवेंजर (Hydrogen Sulfide Scavenger)",
+      "एच2एस रिमूवर केमिकल (H2S Removal Chemical)",
+      "गैस स्वीटनिंग केमिकल (Gas Sweetening Chemical)",
+      "ट्रायज़ीन बायोसाइड (Triazine Biocide)",
+      "वॉटर बेस्ड बायोसाइड (Water Based Biocide)",
+      "ऑयलफील्ड केमिकल सप्लायर इंडिया (Oilfield Chemical Supplier India)",
+    ],
+    faqs: [
+      {
+        question: "Are you a direct manufacturer of MEA Triazine 78% in India?",
+        answer:
+          "Yes. Vasudev Chemo Pharma manufactures MEA Triazine 78% in India and supplies it directly from Gujarat with batch CoA, TDS, MSDS/SDS, and factory-direct pricing. This helps domestic buyers avoid intermediary markup and improve supply traceability.",
+      },
+      {
+        question: "Which Indian applications do you support for MEA Triazine 78%?",
+        answer:
+          "We support natural gas sweetening, crude oil and produced water H2S scavenging, downhole and drilling applications, water treatment biocide use, metalworking fluid preservation, and other industrial preservation applications where hexahydro-triazine chemistry is specified.",
+      },
+      {
+        question: "What is the domestic lead time for supply within India?",
+        answer:
+          "Domestic dispatch is typically completed within 2-5 days depending on packaging, order quantity, and destination. We can supply 220 L drums, IBCs, and larger bulk volumes for recurring contracts.",
+      },
+      {
+        question: "Can I request samples for qualification in India?",
+        answer:
+          "Yes. We provide free samples for qualification testing so buyers can confirm compatibility, active concentration, and application performance before placing a commercial order.",
+      },
+    ],
+    oilfields: [
+      "Mumbai High offshore operations",
+      "KG Basin gas and offshore production",
+      "Cambay Basin and Gujarat processing facilities",
+      "Assam and northeast oilfield operations",
+      "Domestic refineries, gas plants, and industrial water systems",
+    ],
+  },
+
   /* ── United States ──────────────────────────────────────────────────── */
   "united-states": {
     slug: "united-states",

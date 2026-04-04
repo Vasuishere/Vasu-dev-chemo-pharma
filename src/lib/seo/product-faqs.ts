@@ -73,7 +73,7 @@ export const MEA_TRIAZINE_FALLBACK_FAQS: FAQItem[] = [
   {
     question: "What are the equivalent brand names for MEA Triazine in the US market?",
     answer:
-      "In the US market, MEA Triazine 78% (CAS 4719-04-4) is sold under brands including Pro3 and Pro3 HT (Q2 Technologies), PureMark M500 and PureMark B800 (Foremark Performance), HSCAV-80 (Geocon), Bioban GK (Dow), Onyxide 200 (Lonza), Protectol HT (BASF), and Triadine 3 (Arxada). Our product is a direct equivalent to all of these.",
+      "In the US market, MEA Triazine 78% (CAS 4719-04-4) is sold under brands including Pro3 and Pro3 HT (Q2 Technologies), PureMark M500 and PureMark B800 (Foremark Performance), HSCAV-80 brand, Bioban GK (Dow), Onyxide 200 (Lonza), Protectol HT (BASF), and Triadine 3 (Arxada). Our product is a direct equivalent to all of these.",
   },
   {
     question: "How does your pricing compare to US oilfield service companies?",
@@ -153,7 +153,7 @@ export const MEA_TRIAZINE_FALLBACK_FAQS: FAQItem[] = [
   {
     question: "What brand names is MEA Triazine known by in Brazil?",
     answer:
-      "In Brazil, MEA Triazine (CAS 4719-04-4, also known as MEA-Triazina) is supplied under brand names including Global Trend MEA-Triazina 78% (Rio de Janeiro), SCAVTREAT 1063 (Clariant Oil Services), ABATE S-200 (Dow Chemical), Brenntag MEA/Triazine, SULFA-CLEAR 8411HC (Lubrizol), BerrySweet 80% (Berryman Chemical), ICS-5780 (ICG), and Nalco/Ecolab H2S Scavenger. Our product is a direct equivalent to all these brands.",
+      "In Brazil, MEA Triazine (CAS 4719-04-4, also known as MEA-Triazina) is supplied under brand names including Global Trend MEA-Triazina 78% (Rio de Janeiro), SCAVTREAT 1063 , ABATE S-200 (Dow Chemical), Brenntag MEA/Triazine, SULFA-CLEAR 8411HC (Lubrizol), BerrySweet 80% (Berryman Chemical), ICS-5780 (ICG), and Nalco/Ecolab H2S Scavenger. Our product is a direct equivalent to all these brands.",
   },
   {
     question: "What documents are needed to import MEA Triazine 78% into Brazil?",

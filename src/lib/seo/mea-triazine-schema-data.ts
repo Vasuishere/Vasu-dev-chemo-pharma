@@ -253,7 +253,7 @@ export const MEA_TRIAZINE_SCHEMA_ENRICHMENT = {
     "مورد ترايازين مصر (Triazine Supplier Egypt)",
     /* ── Brazil-market brand names ──────────────────────── */
     "Global Trend MEA-Triazina 78%",
-    "SCAVTREAT 1063 (Clariant)",
+    "SCAVTREAT 1063",
     "ABATE S-200 Scavenger (Dow)",
     "Brenntag MEA / Triazine",
     "BerrySweet 80% (Berryman Chemical)",
@@ -973,15 +973,15 @@ export const MEA_TRIAZINE_COMPETITOR_APPLICATIONS = [
   },
   {
     brand: "HSCAV-80",
-    application: "80% MEA Triazine (Geocon Products)",
+    application: "80% MEA Triazine",
     industry: "Oilfield",
-    meaTriazineRole: "Comparable 78% active MEA Triazine as alternative to Geocon HSCAV-80",
+    meaTriazineRole: "Comparable 78% active MEA Triazine as alternative to HSCAV-80",
   },
   {
     brand: "Kontin",
-    application: "Triazine scavenger (Geocon Products)",
+    application: "Triazine scavenger",
     industry: "Oilfield",
-    meaTriazineRole: "Direct triazine scavenger alternative to Geocon Kontin product",
+    meaTriazineRole: "Direct triazine scavenger alternative to Kontin",
   },
   /* ── High-Purity / Specialty ────────────────────────────── */
   {
@@ -1035,9 +1035,9 @@ export const MEA_TRIAZINE_COMPETITOR_APPLICATIONS = [
   },
   {
     brand: "K2P MEA-T",
-    application: "Monoethanolamine Triazine scavenger (K2P Chemical Products)",
+    application: "Monoethanolamine Triazine scavenger",
     industry: "Oilfield",
-    meaTriazineRole: "Direct manufacturer 78% MEA Triazine as alternative to K2P Chemical MEA-T for gas sweetening and H2S removal",
+    meaTriazineRole: "Direct manufacturer 78% MEA Triazine as alternative to K2P MEA-T for gas sweetening and H2S removal",
   },
   /* ── Kuwait-Market Branded Products ─────────────────────── */
   {

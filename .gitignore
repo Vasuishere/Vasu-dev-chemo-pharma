@@ -1,0 +1,8 @@
+# Keep the app repo independent from this parent repo
+manufact-clone/
+
+# Common local build artifacts
+.next/
+node_modules/
+.playwright-mcp/
+*.tsbuildinfo

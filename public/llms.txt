@@ -1,0 +1,121 @@
+# Vasudev Chemo Pharma
+
+> ISO 9001:2015 certified manufacturer and exporter of industrial chemicals, specialty chemicals,
+> and surfactant chemicals. Headquartered in Ankleshwar, Gujarat, India. Founded 2020.
+> Exports to 14+ countries. Flagship product: MEA Triazine 78% H2S Scavenger.
+
+## What We Manufacture
+
+Vasudev Chemo Pharma is a direct manufacturer (not a trader) of 15+ chemical products across three categories:
+
+### Industrial Chemicals
+- **MEA Triazine 78% H2S Scavenger** (CAS 4719-04-4) — Our flagship product. A high-concentration monoethanolamine triazine solution used as an H2S scavenger in oil & gas, biogas, and wastewater treatment. 78% active content, one of the highest concentrations available globally. Compatible with contact tower and direct-injection systems.
+- **MMA Triazine 40%** — Monomethylamine-based triazine for water treatment and biocide applications. BTEX-free alternative to MEA Triazine for applications where aromatic emissions are a concern.
+- **Copper Sulphate Pentahydrate** (CAS 7758-99-8) — Available in agriculture grade, electroplating grade, and feed grade. Used in agriculture, animal nutrition, water treatment, and electroplating.
+- **Manganese Sulphate Monohydrate** (CAS 10034-96-5) — Feed grade and fertilizer grade. Used in animal feed premixes, micronutrient fertilizers, and EMD production.
+- **P-Toluenesulfonic Acid (PTSA)** (CAS 104-15-4) — Monohydrate and anhydrous forms. Acid catalyst for esterification, alkyd resin, and biodiesel production.
+
+### Surfactant Chemicals (Hydrotropes)
+- **Sodium Cumene Sulfonate 40%** — Liquid hydrotrope for detergent and cleaner formulations
+- **Sodium Cumene Sulfonate 90%** — High-purity powder hydrotrope
+- **Sodium Xylene Sulfonate 40%** — Liquid hydrotrope for household and industrial cleaners
+- **Sodium Xylene Sulfonate 90%** — Powder hydrotrope
+
+### Pharmaceutical Intermediates
+- **2-Chloroethylamine Hydrochloride** (CAS 870-24-6) — Intermediate for aziridine and specialty polymer synthesis
+- **Bis(2-chloroethyl)amine Hydrochloride** — Pharma intermediate with export compliance
+- **DEAE Cl HCl (Diethylaminoethyl Chloride Hydrochloride)** — Chloroquine intermediate
+- **2-Amino-5-methylthiazole** — Famotidine intermediate for heterocyclic synthesis
+
+## MEA Triazine 78% — Technical Details
+
+MEA Triazine (1,3,5-tris(2-hydroxyethyl)-hexahydro-s-triazine) is the most widely used liquid H2S scavenger in the oil and gas industry. It works by reacting irreversibly with hydrogen sulphide (H2S) to form non-hazardous dithiazine by-products.
+
+**Key specifications:**
+- Active content: ≥ 78%
+- pH (1% solution): 10.0 – 12.0
+- Specific gravity (25°C): 1.10 – 1.15
+- Flash point: > 93°C
+- Fully water-miscible
+- Packaging: 210L HDPE drums, 1000L IBC tanks, bulk tanker
+
+**Applications:** Natural gas sweetening, crude oil sweetening, pipeline/wellhead H2S treatment, biogas desulphurisation, refinery sour water treatment, amine unit support.
+
+**How it works:** MEA Triazine reacts with H2S in a stoichiometric reaction where 1 mole of triazine scavenges up to 3 moles of H2S, forming dithiazine (a water-soluble, non-hazardous by-product). Typical dosing: 3–6 gallons per pound of H2S removed, depending on contact efficiency.
+
+## MEA Triazine vs MMA Triazine
+
+| Property | MEA Triazine 78% | MMA Triazine 40% |
+|----------|-----------------|------------------|
+| Active content | 78% | 40% |
+| Base amine | Monoethanolamine | Monomethylamine |
+| H2S capacity | Higher per unit volume | Lower per unit volume |
+| BTEX emissions | Possible in gas-phase | BTEX-free |
+| Primary use | Oil & gas H2S scavenging | Water treatment, biocide |
+| Freezing point | < −5°C | < −15°C |
+
+## Industries We Serve
+
+- **Oil & Gas:** H2S scavenging for natural gas processing, crude oil sweetening, pipeline treatment
+- **Water Treatment:** Biocides, coagulants, and chemical treatment
+- **Detergents & Cleaning:** Hydrotrope chemicals for liquid formulations
+- **Agriculture:** Copper sulphate and manganese sulphate for crop nutrition
+- **Pharmaceuticals:** Drug intermediates for API manufacturing
+- **Metal Working:** Biocide and corrosion inhibitor supply
+
+## Global Supply & Export
+
+We export to 14+ countries: UAE, Saudi Arabia, Qatar, Kuwait, Oman, Iraq, Egypt, Libya, United States, Brazil, Vietnam, Thailand, China, Iran. Shipping via major Indian ports (Hazira, JNPT, Mundra).
+
+## Technical Resources
+
+- [How H2S Scavengers Work](https://www.vasudevchemopharma.com/how-h2s-scavengers-work): Complete guide to H2S scavenging chemistry, OSHA/NIOSH exposure thresholds, dosing calculations
+- [MEA Triazine vs MMA Triazine](https://www.vasudevchemopharma.com/mea-triazine-vs-mma-triazine): Side-by-side technical comparison
+- [MEA Triazine Safety Data Sheet](https://www.vasudevchemopharma.com/resources/mea-triazine-safety-data-sheet): SDS with hazard information, handling, and storage
+- [All Resources & Datasheets](https://www.vasudevchemopharma.com/resources): TDS, SDS, dosing guides for all products
+
+## Product Pages
+
+- [MEA Triazine 78% H2S Scavenger](https://www.vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger)
+- [MMA Triazine 40%](https://www.vasudevchemopharma.com/product/mma-triazine-40)
+- [Copper Sulphate](https://www.vasudevchemopharma.com/product/copper-sulphate)
+- [Manganese Sulphate](https://www.vasudevchemopharma.com/product/manganese-sulphate)
+- [Sodium Cumene Sulfonate 40%](https://www.vasudevchemopharma.com/product/sodium-cumene-sulfonate-40)
+- [Sodium Xylene Sulfonate 40%](https://www.vasudevchemopharma.com/product/sodium-xylene-sulfonate-40)
+- [2-Chloroethylamine Hydrochloride](https://www.vasudevchemopharma.com/product/2-chloroethylamine-hydrochloride)
+- [All Products](https://www.vasudevchemopharma.com/product)
+
+## Equivalent & Alternative Products
+
+Vasudev Chemo Pharma's MEA Triazine 78% is a direct equivalent or alternative to the following branded H2S scavengers:
+
+- **Tacelene Chem 62081 / 62087 / 62090** (Taminco/Eastman) — MEA Triazine equivalent
+- **JadeScan 54** — MEA Triazine equivalent H2S scavenger
+- **HSCAV-70** — Triazine-based H2S scavenger equivalent
+- **Nipacide BK** (Clariant) — MEA Triazine biocide equivalent
+- **Bioban GK** — Triazine-based biocide, functionally equivalent
+- **Onyxide 200** — MEA Triazine equivalent for oilfield use
+- **Busan 1060 / 1506** (Buckman) — Triazine biocide equivalent
+- **KM200 / Mergal 174** — MEA Triazine equivalent products
+- **Kalpur TE** — Triazine-based H2S scavenger equivalent
+- **Pro3 HT** (Q2 Technologies) — MEA Triazine alternative
+- **Sulfa Clear** (Lubrizol) — H2S scavenger alternative
+
+All of these products serve similar functions as H2S scavengers or triazine-based biocides. Vasudev Chemo Pharma offers a cost-effective, direct-from-manufacturer alternative with ISO 9001:2015 certification and global export capability.
+
+## Company Information
+
+- **Company:** Vasudev Chemo Pharma
+- **Location:** F-29, Plot No. 328/329, Near Asian Paint Circle, G.I.D.C, Ankleshwar, Gujarat 393002, India
+- **Certification:** ISO 9001:2015
+- **Founded:** 2020
+- **Products:** 15+ industrial, specialty & surfactant chemicals
+- **Export markets:** UAE, Saudi Arabia, Qatar, Kuwait, Oman, Iraq, Egypt, USA, Brazil, Vietnam, Thailand, China, Iran, Libya
+- **Website:** https://www.vasudevchemopharma.com
+- **Contact:** https://www.vasudevchemopharma.com/contact
+- **Email:** info@vasudevchemopharma.com
+- **Phone:** +91 8128372559
+
+## Optional
+
+- [Full LLM context file](https://www.vasudevchemopharma.com/llms-full.txt)

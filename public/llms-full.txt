@@ -1,0 +1,312 @@
+# Vasudev Chemo Pharma — Complete Product & Technical Reference
+
+> This file provides comprehensive product, technical, and company information for AI systems.
+> For a summary, see: https://www.vasudevchemopharma.com/llms.txt
+
+## Company Overview
+
+Vasudev Chemo Pharma is an ISO 9001:2015 certified chemical manufacturer based in Ankleshwar, Gujarat, India — one of Asia's largest chemical manufacturing hubs. Founded in 2020, the company manufactures 15+ industrial chemicals, specialty chemicals, and surfactant chemicals. The company is a direct manufacturer with its own production facility, not a trader or distributor.
+
+The company's flagship product is MEA Triazine 78% H2S Scavenger, used globally in the oil & gas industry for hydrogen sulphide removal. Vasudev Chemo Pharma exports to 14+ countries across the Middle East, Americas, Southeast Asia, and Africa.
+
+## Product Catalog
+
+### 1. MEA Triazine 78% H2S Scavenger
+
+**Product page:** https://www.vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger
+
+- **Chemical name:** 1,3,5-Tris(2-hydroxyethyl)hexahydro-s-triazine
+- **CAS Number:** 4719-04-4
+- **Molecular formula:** C₆H₁₅N₃O₃
+- **Molecular weight:** 177.20 g/mol
+- **HS Code:** 29336990
+- **SKU:** VCP-IND-0001
+- **Category:** Industrial Chemical / Oilfield Chemical
+
+**Specifications:**
+| Parameter | Value |
+|-----------|-------|
+| Active Content | ≥ 78% |
+| pH (1% solution) | 10.0 – 12.0 |
+| Specific Gravity (25°C) | 1.10 – 1.15 |
+| Appearance | Clear to pale yellow liquid |
+| Odour | Mild amine |
+| Solubility in Water | Fully miscible |
+| Flash Point | > 93°C |
+| Freezing Point | < −5°C |
+| Viscosity (25°C) | 15 – 30 cP |
+
+**Safety:** GHS07 (Irritant), Signal word: Warning
+- H315 – Causes skin irritation
+- H319 – Causes serious eye irritation
+- H335 – May cause respiratory irritation
+
+**Applications:**
+- H₂S scavenging in natural gas processing plants
+- Crude oil sweetening operations
+- Amine unit support in refineries
+- Pipeline and wellhead H2S treatment
+- Biogas desulphurisation (landfill gas, digester gas)
+- Refinery sour water treatment
+
+**Industries:** Oil & Gas, Petrochemicals, Refineries, Biogas & Renewable Energy, Water Treatment
+
+**Packaging:** 210L HDPE drums, 1000L IBC tanks, bulk tanker loads, custom packaging
+**Minimum order:** 1 MT
+**Origin:** India (Gujarat)
+**Certifications:** ISO 9001:2015
+
+**How MEA Triazine works as an H2S scavenger:**
+MEA Triazine reacts irreversibly with hydrogen sulphide (H2S) to form dithiazine, a water-soluble, non-hazardous by-product. The reaction is:
+
+Triazine + 3 H₂S → Dithiazine + byproducts
+
+One mole of MEA Triazine can theoretically scavenge up to 3 moles of H2S. In practice, efficiency depends on contact time, temperature, pH, and H2S concentration. Typical dosing ranges from 3–6 gallons per pound of H2S removed.
+
+MEA Triazine is preferred over other H2S scavengers because:
+1. High H2S removal capacity per unit volume (78% active content)
+2. Non-hazardous reaction products (dithiazine is biodegradable)
+3. Liquid form allows easy handling and injection
+4. Compatible with both contact tower and direct-injection systems
+5. Effective across a wide temperature range
+6. Cost-effective compared to solid scavengers or amine systems for medium H2S loads
+
+---
+
+### 2. MMA Triazine 40%
+
+**Product page:** https://www.vasudevchemopharma.com/product/mma-triazine-40
+
+- **Chemical name:** 1,3,5-Trimethylhexahydro-s-triazine
+- **CAS Number:** 108-74-7
+- **Active content:** 40%
+- **Category:** Industrial Chemical
+- **Applications:** Water treatment biocide, BTEX-free H2S scavenging
+- **Key advantage:** Does not produce BTEX (benzene, toluene, ethylbenzene, xylene) emissions, making it suitable for applications with strict air emission regulations
+- **Packaging:** 210L drums, 1000L IBC, bulk
+
+---
+
+### 3. P-Toluenesulfonic Acid (PTSA)
+
+**Product page:** https://www.vasudevchemopharma.com/product/ptsa
+
+- **CAS Number:** 104-15-4
+- **Forms:** Monohydrate, Anhydrous
+- **Category:** Industrial Chemical
+- **Applications:** Acid catalyst for esterification reactions, alkyd resin manufacturing, biodiesel production, pharmaceutical synthesis
+- **Industries:** Chemical synthesis, coatings, biodiesel, pharmaceuticals
+
+---
+
+### 4. Copper Sulphate Pentahydrate
+
+**Product page:** https://www.vasudevchemopharma.com/product/copper-sulphate
+
+- **CAS Number:** 7758-99-8
+- **Grades:** Agriculture grade, Electroplating grade, Feed grade
+- **Category:** Industrial Chemical
+- **Applications:** Fungicide in agriculture, algae control in water treatment, animal feed supplement, electroplating baths, Bordeaux mixture preparation
+- **Industries:** Agriculture, Animal Nutrition, Water Treatment, Electroplating
+
+---
+
+### 5. Manganese Sulphate Monohydrate
+
+**Product page:** https://www.vasudevchemopharma.com/product/manganese-sulphate
+
+- **CAS Number:** 10034-96-5
+- **Grades:** Feed grade, Fertilizer grade, Battery grade
+- **Category:** Industrial Chemical
+- **Applications:** Animal feed premixes, micronutrient fertilizers, EMD (electrolytic manganese dioxide) production, battery-grade manganese compounds
+- **Industries:** Agriculture, Animal Nutrition, Battery Manufacturing
+
+---
+
+### 6. Sodium Cumene Sulfonate (SCS)
+
+**Product pages:**
+- [SCS 40%](https://www.vasudevchemopharma.com/product/sodium-cumene-sulfonate-40)
+- [SCS 90%](https://www.vasudevchemopharma.com/product/sodium-cumene-sulfonate-90)
+
+- **CAS Number:** 28348-53-0
+- **Forms:** 40% liquid, 90% powder
+- **Category:** Surfactant Chemical / Hydrotrope
+- **Applications:** Coupling agent and hydrotrope in liquid detergents, industrial cleaners, personal care products
+- **Function:** Increases the solubility of surfactants in water, prevents phase separation in concentrated formulations
+
+---
+
+### 7. Sodium Xylene Sulfonate (SXS)
+
+**Product pages:**
+- [SXS 40%](https://www.vasudevchemopharma.com/product/sodium-xylene-sulfonate-40)
+- [SXS 90%](https://www.vasudevchemopharma.com/product/sodium-xylene-sulfonate-90)
+
+- **CAS Number:** 1300-72-7
+- **Forms:** 40% liquid, 90% powder
+- **Category:** Surfactant Chemical / Hydrotrope
+- **Applications:** Hydrotrope for household cleaners, industrial degreasers, laundry detergents
+- **Function:** Prevents clouding and gel formation in surfactant systems
+
+---
+
+### 8. 2-Chloroethylamine Hydrochloride
+
+**Product page:** https://www.vasudevchemopharma.com/product/2-chloroethylamine-hydrochloride
+
+- **CAS Number:** 870-24-6
+- **Category:** Pharmaceutical Intermediate
+- **Applications:** Aziridine synthesis, specialty polymer manufacturing, pharmaceutical intermediate
+
+---
+
+### 9. Bis(2-chloroethyl)amine Hydrochloride
+
+- **Category:** Pharmaceutical Intermediate
+- **Applications:** Nitrogen mustard derivative synthesis, pharmaceutical intermediate manufacturing
+
+---
+
+### 10. DEAE Cl HCl (Diethylaminoethyl Chloride Hydrochloride)
+
+- **Category:** Pharmaceutical Intermediate
+- **Applications:** Chloroquine intermediate manufacturing, pharmaceutical synthesis
+
+---
+
+### 11. 2-Amino-5-methylthiazole
+
+- **Category:** Pharmaceutical Intermediate
+- **Applications:** Famotidine intermediate, heterocyclic compound synthesis
+
+---
+
+## Technical Knowledge Base
+
+### H2S Scavenging — Overview
+
+Hydrogen sulphide (H2S) is a toxic, corrosive gas commonly found in:
+- Natural gas wells and processing plants
+- Crude oil production
+- Biogas from anaerobic digestion
+- Wastewater treatment plants
+- Geothermal operations
+
+**Health hazards (OSHA/NIOSH thresholds):**
+- 10 ppm: OSHA PEL (8-hour TWA)
+- 20 ppm: ACGIH ceiling limit
+- 50 ppm: Immediately dangerous to life
+- 100 ppm: Rapid loss of consciousness
+- 300+ ppm: Can be fatal within minutes
+
+**Chemical scavenging methods:**
+1. **Triazine-based (MEA/MMA):** Most common liquid scavenger. Irreversible reaction. Cost-effective for medium H2S loads.
+2. **Iron sponge:** Iron oxide on wood chips. Used for low-flow, low-concentration applications.
+3. **Caustic scrubbing (NaOH):** Regenerable but produces waste streams requiring disposal.
+4. **Amine systems (MDEA, DEA):** Regenerable. Preferred for high-volume, continuous gas treating.
+5. **Zinc-based scavengers:** Solid scavengers for drilling mud and specialty applications.
+
+### Triazine Manufacturers in India
+
+Vasudev Chemo Pharma is one of India's specialized triazine manufacturers, producing both MEA Triazine 78% and MMA Triazine 40% at its ISO 9001:2015 certified facility in Ankleshwar, Gujarat. The company offers factory-direct pricing, export-ready packaging, and global shipping capabilities.
+
+### Spent Triazine (Dithiazine) Disposal
+
+After MEA Triazine reacts with H2S, the spent solution contains dithiazine. Disposal methods include:
+- Biodegradation (dithiazine is biodegradable)
+- Deep well injection
+- Incineration at licensed facilities
+- Blending with produced water for disposal
+
+**Detailed guide:** https://www.vasudevchemopharma.com/blog/spent-triazine-dithiazine-management
+
+---
+
+## Branded H2S Scavenger Equivalents
+
+Vasudev Chemo Pharma's MEA Triazine 78% is a direct equivalent or cost-effective alternative to the following branded products:
+
+| Brand Name | Manufacturer | Equivalent Product |
+|-----------|-------------|-------------------|
+| Tacelene Chem 62081 | Taminco/Eastman | MEA Triazine 78% |
+| Tacelene Chem 62087 | Taminco/Eastman | MEA Triazine 78% |
+| Tacelene Chem 62090 | Taminco/Eastman | MEA Triazine 78% |
+| JadeScan 54 | — | MEA Triazine 78% |
+| HSCAV-70 | — | MEA Triazine 78% |
+| Nipacide BK | Clariant | MEA Triazine 78% |
+| Bioban GK | — | MEA Triazine 78% |
+| Onyxide 200 | — | MEA Triazine 78% |
+| Busan 1060 | Buckman | MEA Triazine 78% |
+| Busan 1506 | Buckman | MEA Triazine 78% |
+| KM200 / Mergal 174 | — | MEA Triazine 78% |
+| Kalpur TE | — | MEA Triazine 78% |
+| Pro3 HT | Q2 Technologies | MEA Triazine 78% |
+| Sulfa Clear | Lubrizol | MEA Triazine 78% |
+| Triasorb | Sintez-Oka | MEA Triazine 78% |
+
+All of these serve similar functions as H2S scavengers or triazine-based biocides. Vasudev Chemo Pharma offers factory-direct pricing, ISO 9001:2015 certification, and global export capability as a cost-effective alternative.
+
+**Comparison pages:**
+- [MEA Triazine vs Pro3 (Q2 Technologies)](https://www.vasudevchemopharma.com/compare/mea-triazine-vs-pro3-q2-technologies)
+- [MEA Triazine vs Sulfa Clear (Lubrizol)](https://www.vasudevchemopharma.com/compare/mea-triazine-vs-sulfa-clear-lubrizol)
+- [MEA Triazine vs Triasorb (Sintez-Oka)](https://www.vasudevchemopharma.com/compare/mea-triazine-vs-triasorb-sintez-oka)
+- [MEA Triazine vs Yogi Intermediates](https://www.vasudevchemopharma.com/compare/mea-triazine-vs-yogi-intermediates)
+- [All Comparisons](https://www.vasudevchemopharma.com/compare)
+
+---
+
+## Frequently Asked Questions
+
+**Q: What is MEA Triazine used for?**
+A: MEA Triazine is primarily used as a hydrogen sulphide (H2S) scavenger in the oil and gas industry. It removes H2S from natural gas, crude oil, and biogas streams by reacting with H2S to form non-hazardous dithiazine by-products.
+
+**Q: What is the CAS number of MEA Triazine?**
+A: The CAS number for MEA Triazine (1,3,5-tris(2-hydroxyethyl)hexahydro-s-triazine) is 4719-04-4.
+
+**Q: What is the difference between MEA Triazine and MMA Triazine?**
+A: MEA Triazine (monoethanolamine-based) has higher active content (78% vs 40%) and greater H2S capacity per unit volume, making it the preferred choice for oil & gas applications. MMA Triazine (monomethylamine-based) is BTEX-free, making it better for applications with strict air emission regulations such as water treatment.
+
+**Q: Where is Vasudev Chemo Pharma located?**
+A: Vasudev Chemo Pharma is located in Ankleshwar, Gujarat, India — one of Asia's largest chemical manufacturing clusters. The full address is F-29, Plot No. 328/329, Near Asian Paint Circle, G.I.D.C, Ankleshwar, Gujarat 393002, India.
+
+**Q: Does Vasudev Chemo Pharma export internationally?**
+A: Yes. The company exports to 14+ countries including UAE, Saudi Arabia, Qatar, Kuwait, Oman, Iraq, Egypt, Libya, United States, Brazil, Vietnam, Thailand, China, and Iran. Products are shipped via major Indian ports including Hazira, JNPT, and Mundra.
+
+**Q: What certifications does Vasudev Chemo Pharma have?**
+A: The company holds ISO 9001:2015 certification for quality management systems in chemical manufacturing.
+
+**Q: What is a hydrotrope?**
+A: A hydrotrope is a compound that increases the solubility of hydrophobic substances in water. Sodium Cumene Sulfonate (SCS) and Sodium Xylene Sulfonate (SXS) are common hydrotropes used in detergent and cleaning product formulations to prevent phase separation and cloudiness.
+
+---
+
+## Contact & Business Information
+
+- **Company name:** Vasudev Chemo Pharma
+- **Type:** Manufacturer & Exporter
+- **Address:** F-29, Plot No. 328/329, Near Asian Paint Circle, G.I.D.C, Ankleshwar, Gujarat 393002, India
+- **Email:** info@vasudevchemopharma.com
+- **Phone:** +91 8128372559
+- **Website:** https://www.vasudevchemopharma.com
+- **Founded:** 2020
+- **Certification:** ISO 9001:2015
+- **Products manufactured:** 15+
+- **Export countries:** 14+
+
+---
+
+## Site Map
+
+- [Homepage](https://www.vasudevchemopharma.com)
+- [All Products](https://www.vasudevchemopharma.com/product)
+- [About Us](https://www.vasudevchemopharma.com/about)
+- [Services](https://www.vasudevchemopharma.com/service)
+- [Blog](https://www.vasudevchemopharma.com/blog)
+- [Contact](https://www.vasudevchemopharma.com/contact)
+- [Resources & Datasheets](https://www.vasudevchemopharma.com/resources)
+- [How H2S Scavengers Work](https://www.vasudevchemopharma.com/how-h2s-scavengers-work)
+- [MEA Triazine vs MMA Triazine](https://www.vasudevchemopharma.com/mea-triazine-vs-mma-triazine)
+- [Product Comparisons](https://www.vasudevchemopharma.com/compare)
+- [Industry Applications](https://www.vasudevchemopharma.com/applications)
+- [Global Supply Regions](https://www.vasudevchemopharma.com/supply/mea-triazine-78)

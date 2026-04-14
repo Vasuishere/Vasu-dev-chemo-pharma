@@ -1,5 +1,0 @@
-[  128798ms] [ERROR] Failed to load resource: the server responded with a status of 500 () @ https://vasu-dev-chemo-pharma.vercel.app/api/users/me:0
-[  131923ms] [ERROR] Failed to load resource: the server responded with a status of 500 () @ https://vasu-dev-chemo-pharma.vercel.app/api/users/me:0
-[  132401ms] An error occurred in the Server Components render. The specific message is omitted in production builds to avoid leaking sensitive details. A digest property is included on this error instance which may provide additional details about the nature of the error.
-[  154871ms] [ERROR] Failed to load resource: the server responded with a status of 500 () @ https://vasu-dev-chemo-pharma.vercel.app/admin/login:0
-[  155212ms] An error occurred in the Server Components render. The specific message is omitted in production builds to avoid leaking sensitive details. A digest property is included on this error instance which may provide additional details about the nature of the error.

@@ -6,3 +6,4 @@ manufact-clone/
 node_modules/
 .playwright-mcp/
 *.tsbuildinfo
+claude-seo/

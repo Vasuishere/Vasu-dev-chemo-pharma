@@ -72,7 +72,32 @@ export const products: Product[] = [
     originCountry: "India",
     certifications: ["ISO 9001:2015"],
     supplier: "Vasudev Chemo Pharma",
-    images: [],
+    imageUrl: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/MEA%20Triazine/MEA-triazine-78%25-VasudevChemoPharma1.jpeg",
+    images: [
+      {
+        src: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/MEA%20Triazine/MEA-triazine-78%25-VasudevChemoPharma1.jpeg",
+        alt: "MEA Triazine 78% H2S Scavenger — Vasudev Chemo Pharma",
+        width: 1200,
+        height: 900,
+        isPrimary: true,
+      },
+      {
+        src: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/MEA%20Triazine/MEA-triazine-78%25-VasudevChemoPharma2.jpeg",
+        alt: "MEA Triazine 78% H2S Scavenger packaging — Vasudev Chemo Pharma",
+        width: 1200,
+        height: 900,
+        isPrimary: false,
+      },
+    ],
+    videos: [
+      {
+        src: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/MEA%20Triazine/MEA-triazine-78%25-VasudevChemoPharma.mp4",
+        title: "MEA Triazine 78% H2S Scavenger — Product Overview",
+        description: "Product demonstration video for MEA Triazine 78% H2S Scavenger by Vasudev Chemo Pharma.",
+        thumbnail: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/MEA%20Triazine/MEA-triazine-78%25-VasudevChemoPharma1.jpeg",
+        isPrimary: true,
+      },
+    ],
     status: "active",
     faqs: [],
   },

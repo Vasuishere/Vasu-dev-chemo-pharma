@@ -135,6 +135,32 @@ const seedProducts = [
     grades: ["Industrial Grade", "Oilfield Grade"],
     packaging: ["210 L HDPE drums", "1000 L IBC tanks", "Bulk tanker loads", "Custom packaging on request"],
     minOrderQuantity: "1 MT",
+    imageUrl: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/MEA%20Triazine/MEA-triazine-78%25-VasudevChemoPharma1.jpeg",
+    images: [
+      {
+        src: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/MEA%20Triazine/MEA-triazine-78%25-VasudevChemoPharma1.jpeg",
+        alt: "MEA Triazine 78% H2S Scavenger — Vasudev Chemo Pharma",
+        width: 1200,
+        height: 900,
+        isPrimary: true,
+      },
+      {
+        src: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/MEA%20Triazine/MEA-triazine-78%25-VasudevChemoPharma2.jpeg",
+        alt: "MEA Triazine 78% H2S Scavenger packaging — Vasudev Chemo Pharma",
+        width: 1200,
+        height: 900,
+        isPrimary: false,
+      },
+    ],
+    videos: [
+      {
+        src: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/MEA%20Triazine/MEA-triazine-78%25-VasudevChemoPharma.mp4",
+        title: "MEA Triazine 78% H2S Scavenger — Product Overview",
+        description: "Product demonstration video for MEA Triazine 78% H2S Scavenger by Vasudev Chemo Pharma.",
+        thumbnail: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/MEA%20Triazine/MEA-triazine-78%25-VasudevChemoPharma1.jpeg",
+        isPrimary: true,
+      },
+    ],
   },
   {
     name: "MMA Triazine 40%",
@@ -681,7 +707,8 @@ export async function POST(req: Request) {
           priceUnit: product.sku.startsWith("VCP-IND") ? "/MT" : "/kg",
           unitOfMeasure: product.sku.startsWith("VCP-IND") ? "MT" : "kg",
           originCountry: "India",
-          images: [],
+          images: (product as { images?: unknown[] }).images ?? [],
+          videos: (product as { videos?: unknown[] }).videos ?? [],
           documents: [],
           faqs: buildCommonProductFaqs(product),
           status: "active",

@@ -8,6 +8,7 @@ import {
 import { CATEGORY_LABELS } from "@/lib/types";
 import SectionLabel from "@/components/SectionLabel";
 import StickyAnchorNav from "@/components/StickyAnchorNav";
+import ProductImageGallery from "@/components/ProductImageGallery";
 import ProductSchema from "@/components/seo/ProductSchema";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 import FAQSchema from "@/components/seo/FAQSchema";
@@ -210,6 +211,15 @@ export default async function ProductDetailPage({
     3
   );
   const safeImages = Array.isArray(product.images) ? product.images : [];
+  const safeVideos = Array.isArray((product as { videos?: unknown }).videos)
+    ? ((product as { videos: unknown[] }).videos as Array<{
+        src: string;
+        title?: string;
+        description?: string;
+        thumbnail?: string;
+        isPrimary?: boolean;
+      }>)
+    : [];
   const safeDocuments = Array.isArray(product.documents) ? product.documents : [];
   const sdsDocument = safeDocuments.find((doc) => {
     const docType = (doc.docType || "").toUpperCase();
@@ -377,41 +387,14 @@ export default async function ProductDetailPage({
           <section className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-16">
 
             {/* Left — Product Image */}
-            <div className="bg-light rounded-3xl p-8 flex items-center justify-center min-h-[360px]">
-              {product.imageUrl ? (
-                <div className="w-full space-y-4">
-                  <img
-                    src={product.imageUrl}
-                    alt={product.name}
-                    width={800}
-                    height={600}
-                    className="w-full rounded-2xl object-contain max-h-[400px]"
-                  />
-                  {safeImages.length > 0 &&
-                    safeImages.map((img, i) => (
-                      <img
-                        key={i}
-                        src={img.src}
-                        alt={img.alt}
-                        width={img.width || 800}
-                        height={img.height || 600}
-                        className="w-full rounded-2xl object-contain max-h-[400px]"
-                      />
-                    ))}
-                </div>
-              ) : safeImages.length > 0 ? (
-                <div className="w-full space-y-4">
-                  {safeImages.map((img, i) => (
-                    <img
-                      key={i}
-                      src={img.src}
-                      alt={img.alt}
-                      width={img.width || 800}
-                      height={img.height || 600}
-                      className="w-full rounded-2xl object-contain max-h-[400px]"
-                    />
-                  ))}
-                </div>
+            <div className="bg-light rounded-3xl p-8 self-start min-h-[360px]">
+              {product.imageUrl || safeImages.length > 0 || safeVideos.length > 0 ? (
+                <ProductImageGallery
+                  productName={product.name}
+                  primaryImageUrl={product.imageUrl}
+                  images={safeImages}
+                  videos={safeVideos}
+                />
               ) : (
                 <div className="text-center">
                   <div className="w-24 h-24 mx-auto mb-4 rounded-2xl bg-gray-200 flex items-center justify-center">

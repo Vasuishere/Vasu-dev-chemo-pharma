@@ -23,6 +23,14 @@ export interface ProductImage {
   caption?: string;
 }
 
+export interface ProductVideo {
+  src: string;
+  title?: string;
+  description?: string;
+  thumbnail?: string;
+  isPrimary?: boolean;
+}
+
 export interface ProductFAQ {
   question: string;
   answer: string;
@@ -83,6 +91,7 @@ export interface Product {
   imageUrl?: string;
   documentUrl?: string;
   images: ProductImage[];
+  videos?: ProductVideo[];
 
   // Status
   status: ProductStatus;

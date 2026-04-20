@@ -35,6 +35,9 @@ type SeedProduct = {
   grades: string[];
   packaging: string[];
   minOrderQuantity: string;
+  imageUrl?: string;
+  images?: { src: string; alt: string; width?: number; height?: number; isPrimary?: boolean; caption?: string }[];
+  videos?: { src: string; title: string; description?: string; thumbnail?: string; isPrimary?: boolean }[];
 };
 
 /* ─── Product-specific FAQ overrides for Google "People Also Ask" ─── */
@@ -348,6 +351,29 @@ const seedProducts: SeedProduct[] = [
       "Custom packaging on request",
     ],
     minOrderQuantity: "1 MT",
+    images: [
+      {
+        src: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/MEA%20Triazine/MEA-triazine-78%25-VasudevChemoPharma1.jpeg",
+        alt: "MEA Triazine 78% H2S Scavenger product image 1",
+        width: 800,
+        height: 600,
+        caption: "MEA Triazine 78% H2S Scavenger - Product Image 1",
+      },
+      {
+        src: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/MEA%20Triazine/MEA-triazine-78%25-VasudevChemoPharma2.jpeg",
+        alt: "MEA Triazine 78% H2S Scavenger product image 2",
+        width: 800,
+        height: 600,
+        caption: "MEA Triazine 78% H2S Scavenger - Product Image 2",
+      },
+    ],
+    videos: [
+      {
+        src: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/MEA%20Triazine/MEA-triazine-78%25-VasudevChemoPharma.mp4",
+        title: "MEA Triazine 78% Product Video",
+        description: "Product demonstration and usage information for MEA Triazine 78% H2S Scavenger",
+      },
+    ],
   },
   {
     name: "MMA Triazine 40%",

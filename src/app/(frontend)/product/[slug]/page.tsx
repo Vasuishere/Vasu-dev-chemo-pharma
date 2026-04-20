@@ -14,6 +14,7 @@ import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 import FAQSchema from "@/components/seo/FAQSchema";
 import { getProductSeoKeywords } from "@/lib/product-seo-keywords";
 import { PRODUCT_META_OVERRIDES } from "@/lib/seo/product-meta-overrides";
+import { getProductVideos } from "@/lib/seo/product-media-overrides";
 import { PRODUCT_FALLBACK_FAQS, PRODUCT_PAGE_FAQS } from "@/lib/seo/product-faqs";
 import {
   MEA_TRIAZINE_SLUG,
@@ -211,15 +212,7 @@ export default async function ProductDetailPage({
     3
   );
   const safeImages = Array.isArray(product.images) ? product.images : [];
-  const safeVideos = Array.isArray((product as { videos?: unknown }).videos)
-    ? ((product as { videos: unknown[] }).videos as Array<{
-        src: string;
-        title?: string;
-        description?: string;
-        thumbnail?: string;
-        isPrimary?: boolean;
-      }>)
-    : [];
+  const safeVideos = getProductVideos(slug);
   const safeDocuments = Array.isArray(product.documents) ? product.documents : [];
   const sdsDocument = safeDocuments.find((doc) => {
     const docType = (doc.docType || "").toUpperCase();

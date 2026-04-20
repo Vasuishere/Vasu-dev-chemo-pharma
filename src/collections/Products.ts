@@ -282,18 +282,9 @@ export const Products: CollectionConfig = {
         { name: "caption", type: "text" },
       ],
     },
-    {
-      name: "videos",
-      type: "array",
-      admin: { description: "Product videos (optional). Videos will be displayed in the media gallery." },
-      fields: [
-        { name: "src", type: "text", required: true, admin: { description: "Direct video URL" } },
-        { name: "title", type: "text", required: true },
-        { name: "description", type: "textarea" },
-        { name: "thumbnail", type: "text", admin: { description: "Optional thumbnail image URL" } },
-        { name: "isPrimary", type: "checkbox", defaultValue: false },
-      ],
-    },
+    // NOTE: Product videos live in src/lib/seo/product-media-overrides.ts
+    // (static map). We intentionally avoid a Payload array field here so the
+    // production Postgres schema does not require a migration.
 
     // ─── Status ────────────────────────────────────────────────
     {

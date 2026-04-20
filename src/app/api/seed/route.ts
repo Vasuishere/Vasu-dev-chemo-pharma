@@ -708,7 +708,6 @@ export async function POST(req: Request) {
           unitOfMeasure: product.sku.startsWith("VCP-IND") ? "MT" : "kg",
           originCountry: "India",
           images: (product as { images?: unknown[] }).images ?? [],
-          videos: (product as { videos?: unknown[] }).videos ?? [],
           documents: [],
           faqs: buildCommonProductFaqs(product),
           status: "active",

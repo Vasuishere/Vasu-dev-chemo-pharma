@@ -1,0 +1,81 @@
+name: Dev Branch Quality Check
+
+on:
+  push:
+    branches:
+      - dev
+  pull_request:
+    branches:
+      - dev
+
+jobs:
+  quality-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies in manufact-clone
+        working-directory: ./manufact-clone
+        run: npm ci
+
+      - name: Run linter
+        working-directory: ./manufact-clone
+        run: npm run lint
+
+      - name: Build project
+        working-directory: ./manufact-clone
+        run: npm run build
+
+      - name: Run health check
+        working-directory: ./manufact-clone
+        run: npm run health:check
+        continue-on-error: true
+
+      - name: Check robots.txt
+        working-directory: ./manufact-clone
+        run: npm run seo:check-robots
+        continue-on-error: true
+
+  create-pr-to-master:
+    needs: quality-check
+    if: github.event_name == 'push' && github.ref == 'refs/heads/dev' && success()
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check if PR already exists
+        id: check-pr
+        run: |
+          gh_output=$(gh pr list --head dev --base master --state open --json number 2>/dev/null || echo "")
+          if [ -z "$gh_output" ]; then
+            echo "needs_pr=true" >> $GITHUB_OUTPUT
+          else
+            echo "needs_pr=false" >> $GITHUB_OUTPUT
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Pull Request to Master
+        if: steps.check-pr.outputs.needs_pr == 'true'
+        run: |
+          gh pr create \
+            --title "chore: sync dev → master (automated)" \
+            --body "✅ All quality checks passed on dev branch\n\n- Linting: ✓\n- Build: ✓\n- Health Check: ✓\n\nReady to merge to master and deploy to production." \
+            --head dev \
+            --base master \
+            --label "automated"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

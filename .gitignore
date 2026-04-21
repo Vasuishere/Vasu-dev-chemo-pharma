@@ -79,3 +79,16 @@ desktop.ini
 
 # content strategy context (docs — not app code)
 /content-strategy-context/
+
+# local SEO workspace (not app code)
+claude-seo/
+
+# claude code local harness config
+.claude/
+
+# ad-hoc test scripts (often contain plaintext credentials)
+test-db.js
+test-payload.ts
+test_out.txt
+all-site-urls.txt
+localhost_*.report.html

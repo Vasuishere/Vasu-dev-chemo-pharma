@@ -75,6 +75,7 @@ function buildContentSecurityPolicy(): string {
     scriptSrc,
     "style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://translate.google.com https://translate.googleapis.com https://www.gstatic.com fonts.googleapis.com",
     "img-src 'self' data: blob: https://flagcdn.com https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com https://framerusercontent.com https://www.gravatar.com https://secure.gravatar.com https://www.google.com https://translate.google.com https://translate.googleapis.com https://www.gstatic.com https://fonts.gstatic.com",
+    "media-src 'self' blob: https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com",
     "font-src 'self' data: https://fonts.gstatic.com",
     "connect-src 'self' https://challenges.cloudflare.com https://www.google.com https://translate.google.com https://translate.googleapis.com https://translate-pa.googleapis.com",
     "worker-src 'self' blob:",

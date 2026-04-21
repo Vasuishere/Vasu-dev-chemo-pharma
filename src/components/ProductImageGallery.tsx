@@ -171,11 +171,16 @@ export default function ProductImageGallery({
           />
         ) : (
           <video
+            key={active.src}
             ref={videoRef}
             src={active.src}
             poster={active.thumbnail || undefined}
             controls
+            autoPlay
+            muted
+            loop
             playsInline
+            preload="metadata"
             className="max-h-[420px] w-auto max-w-full rounded-2xl bg-black"
           >
             Your browser does not support the video tag.

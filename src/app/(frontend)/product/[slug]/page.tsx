@@ -380,7 +380,7 @@ export default async function ProductDetailPage({
           <section className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-16">
 
             {/* Left — Product Image */}
-            <div className="bg-light rounded-3xl p-8 self-start min-h-[360px]">
+            <div className="bg-light rounded-3xl p-4 sm:p-8 self-start min-h-[360px]">
               {product.imageUrl || safeImages.length > 0 || safeVideos.length > 0 ? (
                 <ProductImageGallery
                   productName={product.name}

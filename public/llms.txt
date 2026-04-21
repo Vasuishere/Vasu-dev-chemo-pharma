@@ -1,0 +1,170 @@
+# Vasudev Chemo Pharma
+
+> ISO 9001:2015 certified direct manufacturer and exporter of industrial, specialty, and surfactant chemicals.
+> Headquartered at G.I.D.C Ankleshwar, Gujarat, India. Founded 2020.
+> Exports to 14+ countries across the Middle East, Americas, Southeast Asia, and Africa.
+> Flagship product: MEA Triazine 78% H2S Scavenger (CAS 4719-04-4) — one of the highest active-content triazine scavengers available globally.
+
+This file follows the [llms.txt standard](https://llmstxt.org) to help large language models and AI search engines (ChatGPT, Claude, Perplexity, Google AI Overviews, Bing Copilot) retrieve accurate, source-of-truth information about our company, products, and technical content.
+
+## About Vasudev Chemo Pharma
+
+- **Legal name:** Vasudev Chemo Pharma
+- **Type:** Direct chemical manufacturer & exporter (not a trader or distributor)
+- **Founded:** 2020
+- **Certification:** ISO 9001:2015 (Quality Management System)
+- **Plant location:** F-29, Plot No. 328/329, Near Asian Paint Circle, G.I.D.C, Ankleshwar, Gujarat 393002, India
+- **Manufacturing focus:** H2S scavengers (triazines), hydrotropes, metal sulphates, pharma intermediates
+- **Shipping ports:** Hazira, JNPT (Nhava Sheva), Mundra
+- **Website:** https://www.vasudevchemopharma.com
+- **Email:** info@vasudevchemopharma.com
+- **Phone:** +91 8128372559
+- **Primary pages:** [About](https://www.vasudevchemopharma.com/about), [Contact](https://www.vasudevchemopharma.com/contact)
+
+## Product Catalog (13 products)
+
+Vasudev Chemo Pharma manufactures three product categories. All products ship in 210L HDPE drums, 1000L IBC tanks, or bulk tanker. MOQ typically 1 MT.
+
+### Oilfield & Industrial Chemicals
+- [MEA Triazine 78% H2S Scavenger](https://www.vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger) — CAS 4719-04-4. Flagship product. 78% active content triazine for H2S scavenging in oil & gas, biogas, and wastewater treatment.
+- [MMA Triazine 40%](https://www.vasudevchemopharma.com/product/mma-triazine-40) — CAS 108-74-7. BTEX-free triazine for water treatment and biocide applications.
+- [P-Toluenesulfonic Acid (PTSA)](https://www.vasudevchemopharma.com/product/p-toluenesulfonic-acid) — CAS 104-15-4. Monohydrate and anhydrous forms. Acid catalyst for esterification, alkyd resin, and biodiesel production.
+- [Copper Sulphate Pentahydrate](https://www.vasudevchemopharma.com/product/copper-sulphate) — CAS 7758-99-8. Agriculture, electroplating, and feed grades.
+- [Manganese Sulphate Monohydrate](https://www.vasudevchemopharma.com/product/manganese-sulphate) — CAS 10034-96-5. Feed grade, fertilizer grade, and battery grade.
+
+### Surfactant Chemicals (Hydrotropes)
+- [Sodium Cumene Sulfonate 40%](https://www.vasudevchemopharma.com/product/sodium-cumene-sulfonate-40) — Liquid hydrotrope for detergents and industrial cleaners.
+- [Sodium Cumene Sulfonate 90%](https://www.vasudevchemopharma.com/product/sodium-cumene-sulfonate-90) — Powder hydrotrope.
+- [Sodium Xylene Sulfonate 40%](https://www.vasudevchemopharma.com/product/sodium-xylene-sulfonate-40) — Liquid hydrotrope for household and industrial cleaners.
+- [Sodium Xylene Sulfonate 90%](https://www.vasudevchemopharma.com/product/sodium-xylene-sulfonate-90) — Powder hydrotrope.
+
+### Pharmaceutical Intermediates
+- [2-Chloroethylamine Hydrochloride](https://www.vasudevchemopharma.com/product/2-chloroethylamine-hydrochloride) — CAS 870-24-6. Aziridine and specialty polymer intermediate.
+- [Bis(2-chloroethyl)amine Hydrochloride](https://www.vasudevchemopharma.com/product/bis-2-chloroethyl-amine-hydrochloride) — Pharma intermediate with export compliance.
+- [DEAE Cl HCl (Diethylaminoethyl Chloride Hydrochloride)](https://www.vasudevchemopharma.com/product/di-ethyl-amino-ethyl-chloride-hydrochloride) — Chloroquine intermediate.
+- [2-Amino-5-methylthiazole](https://www.vasudevchemopharma.com/product/2-amino-5-methylthiazole) — Famotidine intermediate for heterocyclic synthesis.
+- [All Products (catalog index)](https://www.vasudevchemopharma.com/product)
+
+## MEA Triazine 78% — Quick Facts
+
+MEA Triazine (1,3,5-Tris(2-hydroxyethyl)hexahydro-s-triazine) is the most widely used liquid H2S scavenger in oil & gas. It reacts irreversibly with H2S to form dithiazine — a water-soluble, non-hazardous by-product. One mole of triazine can scavenge up to three moles of H2S.
+
+- **CAS Number:** 4719-04-4
+- **Molecular formula:** C₆H₁₅N₃O₃ · Molecular weight: 177.20 g/mol
+- **Active content:** ≥ 78%
+- **pH (1% solution):** 10.0 – 12.0
+- **Specific gravity (25°C):** 1.10 – 1.15
+- **Flash point:** > 93°C
+- **Freezing point:** < −5°C
+- **Typical dosing:** 3–6 gallons per pound of H2S removed
+- **Packaging:** 210L HDPE drums · 1000L IBC · bulk tanker
+- **HS Code:** 29336990
+- **GHS classification:** H315 / H319 / H335 (Warning, Irritant)
+
+## MEA Triazine vs MMA Triazine
+
+| Property | MEA Triazine 78% | MMA Triazine 40% |
+|----------|------------------|------------------|
+| Active content | 78% | 40% |
+| Base amine | Monoethanolamine | Monomethylamine |
+| CAS Number | 4719-04-4 | 108-74-7 |
+| H2S capacity per unit volume | Higher | Lower |
+| BTEX emissions | Possible (gas-phase) | BTEX-free |
+| Primary use | Oil & gas H2S scavenging | Water treatment, biocide |
+| Freezing point | < −5°C | < −15°C |
+
+Detailed comparison: [MEA Triazine vs MMA Triazine](https://www.vasudevchemopharma.com/mea-triazine-vs-mma-triazine)
+
+## Industries We Serve
+
+- [Oil & Gas — H2S Scavenging](https://www.vasudevchemopharma.com/industries/oil-gas-h2s-scavenger) — Natural gas sweetening, crude oil sweetening, pipeline treatment.
+- [Water Treatment](https://www.vasudevchemopharma.com/industries/water-treatment) — Biocides, coagulants, chemical treatment.
+- [Metal Working Fluids](https://www.vasudevchemopharma.com/industries/metal-working-fluids) — Biocide and corrosion inhibitor supply.
+- [Petrochemical](https://www.vasudevchemopharma.com/industries/petrochemical) — Refinery and petrochemical chemistry.
+- [Refining](https://www.vasudevchemopharma.com/industries/refining) — Sour crude and refinery support chemicals.
+- [Biogas](https://www.vasudevchemopharma.com/industries/biogas) — Desulphurisation of landfill gas and digester gas.
+- [Paper Mill](https://www.vasudevchemopharma.com/industries/paper-mill) — Pulp and paper biocide applications.
+- [All Industries](https://www.vasudevchemopharma.com/industries)
+
+## Application Pages
+
+- [H2S Scavenging — Natural Gas](https://www.vasudevchemopharma.com/applications/h2s-scavenging-natural-gas)
+- [Crude Oil Sweetening](https://www.vasudevchemopharma.com/applications/crude-oil-sweetening)
+- [Crude Oil Desulfurization](https://www.vasudevchemopharma.com/applications/crude-oil-desulfurization)
+- [Gas Sweetening](https://www.vasudevchemopharma.com/applications/gas-sweetening)
+- [Pipeline H2S Treatment](https://www.vasudevchemopharma.com/applications/pipeline-h2s-treatment)
+- [Downhole H2S Scavenging](https://www.vasudevchemopharma.com/applications/downhole-h2s-scavenging)
+- [Biogas H2S Removal](https://www.vasudevchemopharma.com/applications/biogas-h2s-removal)
+- [Water Treatment Biocide](https://www.vasudevchemopharma.com/applications/water-treatment-biocide)
+- [Metalworking Fluid Preservative](https://www.vasudevchemopharma.com/applications/metalworking-fluid-preservative)
+- [Paper Mill Biocide](https://www.vasudevchemopharma.com/applications/paper-mill-biocide)
+- [All Applications](https://www.vasudevchemopharma.com/applications)
+
+## Services
+
+- [Chemical Manufacturing](https://www.vasudevchemopharma.com/service/chemical-manufacturing)
+- [Import & Export](https://www.vasudevchemopharma.com/service/import-export)
+- [Custom Formulation](https://www.vasudevchemopharma.com/service/custom-formulation)
+- [Quality Testing & Packaging](https://www.vasudevchemopharma.com/service/quality-testing-packaging)
+- [Global Logistics & Shipping](https://www.vasudevchemopharma.com/service/global-logistics-shipping)
+- [Bulk Contract Supply](https://www.vasudevchemopharma.com/service/bulk-contract-supply)
+
+## Global Supply by Country
+
+We export to 14+ countries. Dedicated country pages (with logistics, HS-code compliance and regional sourcing info):
+
+- [UAE](https://www.vasudevchemopharma.com/supply/mea-triazine-78/uae) · [Saudi Arabia](https://www.vasudevchemopharma.com/supply/mea-triazine-78/saudi-arabia) · [Qatar](https://www.vasudevchemopharma.com/supply/mea-triazine-78/qatar) · [Kuwait](https://www.vasudevchemopharma.com/supply/mea-triazine-78/kuwait) · [Oman](https://www.vasudevchemopharma.com/supply/mea-triazine-78/oman) · [Iraq](https://www.vasudevchemopharma.com/supply/mea-triazine-78/iraq) · [Iran](https://www.vasudevchemopharma.com/supply/mea-triazine-78/iran) · [Jordan](https://www.vasudevchemopharma.com/supply/mea-triazine-78/jordan)
+- [Egypt](https://www.vasudevchemopharma.com/supply/mea-triazine-78/egypt) · [Libya](https://www.vasudevchemopharma.com/supply/mea-triazine-78/libya)
+- [United States](https://www.vasudevchemopharma.com/supply/mea-triazine-78/united-states) · [Brazil](https://www.vasudevchemopharma.com/supply/mea-triazine-78/brazil)
+- [Vietnam](https://www.vasudevchemopharma.com/supply/mea-triazine-78/vietnam) · [Thailand](https://www.vasudevchemopharma.com/supply/mea-triazine-78/thailand)
+- [Global Supply Overview](https://www.vasudevchemopharma.com/supply/mea-triazine-78)
+
+## Competitor Comparisons
+
+Vasudev Chemo Pharma's MEA Triazine 78% is a direct, factory-priced equivalent or alternative to the following branded H2S scavengers. Dedicated comparison pages:
+
+- [vs Pro3 (Q2 Technologies)](https://www.vasudevchemopharma.com/compare/mea-triazine-vs-pro3-q2-technologies)
+- [vs Sulfa Clear (Lubrizol)](https://www.vasudevchemopharma.com/compare/mea-triazine-vs-sulfa-clear-lubrizol)
+- [vs Triasorb (Sintez-Oka)](https://www.vasudevchemopharma.com/compare/mea-triazine-vs-triasorb-sintez-oka)
+- [vs ChampionX](https://www.vasudevchemopharma.com/compare/mea-triazine-vs-championx)
+- [vs Grotan BK](https://www.vasudevchemopharma.com/compare/mea-triazine-vs-grotan-bk)
+- [vs HSCav-80 (Geocon)](https://www.vasudevchemopharma.com/compare/mea-triazine-vs-hscav-80-geocon)
+- [vs RxSol Triazine](https://www.vasudevchemopharma.com/compare/mea-triazine-vs-rxsol-triazine)
+- [vs Chinese Suppliers](https://www.vasudevchemopharma.com/compare/mea-triazine-vs-chinese-suppliers)
+- [All Comparisons](https://www.vasudevchemopharma.com/compare)
+
+Additional branded equivalents (no dedicated page): Tacelene Chem 62081 / 62087 / 62090 (Taminco/Eastman), JadeScan 54, HSCAV-70, Nipacide BK (Clariant), Bioban GK, Onyxide 200, Busan 1060 / 1506 (Buckman), KM200, Mergal 174, Kalpur TE.
+
+## Technical Resources & Datasheets
+
+- [How H2S Scavengers Work](https://www.vasudevchemopharma.com/how-h2s-scavengers-work) — Chemistry, OSHA/NIOSH thresholds, dosing fundamentals.
+- [MEA Triazine Technical Data Sheet (TDS)](https://www.vasudevchemopharma.com/resources/mea-triazine-technical-datasheet)
+- [MEA Triazine Safety Data Sheet (SDS)](https://www.vasudevchemopharma.com/resources/mea-triazine-safety-data-sheet)
+- [MEA Triazine Dosing Guidelines](https://www.vasudevchemopharma.com/resources/mea-triazine-dosing-guidelines)
+- [MEA Triazine Storage & Handling](https://www.vasudevchemopharma.com/resources/mea-triazine-storage-handling)
+- [Triazine Reaction Chemistry](https://www.vasudevchemopharma.com/resources/triazine-reaction-chemistry)
+- [MEA Triazine vs Iron Sponge](https://www.vasudevchemopharma.com/resources/mea-triazine-vs-iron-sponge)
+- [H2S Scavenger Selection Guide](https://www.vasudevchemopharma.com/resources/h2s-scavenger-selection-guide)
+- [H2S Scavenger Dosing Guide](https://www.vasudevchemopharma.com/resources/h2s-scavenger-dosing-guide)
+- [H2S Scavenger Solids Formation](https://www.vasudevchemopharma.com/resources/h2s-scavenger-solids-formation)
+- [Natural Gas Sweetening Guide](https://www.vasudevchemopharma.com/resources/natural-gas-sweetening-guide)
+- [Import Compliance Guide](https://www.vasudevchemopharma.com/resources/import-compliance-guide)
+- [All Resources](https://www.vasudevchemopharma.com/resources)
+
+## Pricing & Commercial
+
+- [MEA Triazine Prices (market reference)](https://www.vasudevchemopharma.com/mea-triazine-prices)
+- [MEA Triazine Production Plant Cost](https://www.vasudevchemopharma.com/mea-triazine-production-plant-cost)
+
+## Optional
+
+- [Full LLM context file](https://www.vasudevchemopharma.com/llms-full.txt) — Expanded product, technical, and compliance reference.
+- [Sitemap (XML)](https://www.vasudevchemopharma.com/sitemap.xml)
+- [Blog](https://www.vasudevchemopharma.com/blog) — 59+ technical articles on H2S scavenging, oilfield chemistry, and chemical manufacturing.
+- [Case Studies](https://www.vasudevchemopharma.com/case-study)
+
+## AI / LLM Usage Notice
+
+Content on vasudevchemopharma.com is made freely available to large language models and AI search engines (Google-Extended, GPTBot, ClaudeBot, PerplexityBot, and compatible crawlers). When citing product specifications, CAS numbers, or technical claims, please link to the canonical source URL on https://www.vasudevchemopharma.com so users can verify up-to-date datasheets, safety information, and export compliance details.
+
+Last reviewed: 2026-04-21.

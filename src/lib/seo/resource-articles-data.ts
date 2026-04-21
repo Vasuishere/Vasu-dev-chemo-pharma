@@ -1071,6 +1071,152 @@ Both countries benefit from reduced duty rates under regional trade agreements. 
       { text: "Contact Export Team", href: "/contact" },
     ],
   },
+
+  /* ────────────────────────────────────────────────────────────── */
+  /* Natural Gas Sweetening Guide                                  */
+  /* ────────────────────────────────────────────────────────────── */
+  "natural-gas-sweetening-guide": {
+    slug: "natural-gas-sweetening-guide",
+    title: "Natural Gas Sweetening: Process, Methods & Equipment Guide",
+    description:
+      "Complete guide to natural gas sweetening — amine treating, triazine scavengers, membrane separation, and solid bed methods. Learn when to choose each technology, typical equipment, and how H2S scavengers fit sour gas treatment.",
+    keywords: [
+      "natural gas sweetening",
+      "sweetening sour gas",
+      "sweetening process of natural gas",
+      "gas sweetening process",
+      "natural gas sweetening methods",
+      "gas sweetening equipment",
+      "amine gas treating",
+      "h2s removal natural gas",
+      "sour gas treatment",
+      "sweetening unit",
+    ],
+    category: "Technical Guide",
+    h1: "Natural Gas Sweetening: A Complete Guide to Process, Methods & Equipment",
+    intro:
+      "Natural gas sweetening is the removal of hydrogen sulfide (H2S) and other acid gases from sour gas so it meets pipeline, sales-gas, and environmental specifications. This guide explains how gas sweetening works, compares the major technologies — amine treating, triazine-based scavengers, membranes, and solid bed systems — and shows how to choose the right method for your H2S load, gas volume, and site constraints.",
+    publishedDate: "2026-04-21",
+    sections: [
+      {
+        heading: "What Is Natural Gas Sweetening?",
+        id: "what-is-sweetening",
+        body: `Natural gas sweetening is the industrial process of removing hydrogen sulfide (H2S) and carbon dioxide (CO2) from raw natural gas. Gas that contains significant H2S — typically above 4 ppmv for pipeline sales — is called "sour gas." Once the acid gases are removed and the H2S concentration is reduced below the contract specification, the gas is called "sweet gas."
+
+Sweetening is required for three core reasons. First, safety: H2S is lethal at concentrations above 100 ppm and highly corrosive to carbon-steel pipelines and process equipment. Second, specification compliance: most pipeline tariffs and LNG off-take contracts require H2S below 4 ppmv (0.25 grains per 100 scf) and CO2 below 2–3 mol%. Third, product quality: residual H2S poisons downstream catalysts in gas processing, LNG liquefaction, and petrochemical units.
+
+A typical gas sweetening unit (GSU) sits immediately downstream of inlet separation and upstream of dehydration, NGL recovery, and sales-gas metering. In biogas and landfill-gas applications, sweetening is performed before upgrading to renewable natural gas (RNG) or vehicle fuel.`,
+      },
+      {
+        heading: "Natural Gas Sweetening Methods Compared",
+        id: "sweetening-methods",
+        body: `Four families of technology dominate natural gas sweetening today. Each is best suited to a specific range of H2S loading, gas flow rate, and operating economics.
+
+1. Amine treating (MEA, DEA, MDEA, formulated amines): The workhorse of large gas-processing and refinery off-gas sweetening. An aqueous amine solution absorbs H2S and CO2 in a contact tower, then releases them in a regeneration column. Best for continuous streams above ~5 MMscfd with H2S above ~100 ppmv. High capital cost but low per-unit operating cost at scale.
+
+2. Non-regenerable H2S scavengers (MEA Triazine, MMA Triazine): Chemicals that react irreversibly with H2S and are disposed of once spent. Best for low-to-moderate H2S loads (under ~200 kg H2S/day) where the capital cost of amine plant is not justified — wellhead treatment, gas gathering, storage tanks, small gas-processing plants, and as polishing downstream of amine units.
+
+3. Membrane separation: Polymeric membranes that preferentially permeate CO2 (and to a lesser extent H2S). Best for high-CO2 gas (>10 mol%) and remote or offshore installations where minimal footprint and utilities are required. Often combined with amine treating in hybrid configurations.
+
+4. Solid bed systems (iron sponge, zinc oxide, SulfaTreat, SulfaCheck): Packed vessels where H2S reacts with a solid reactant. Best for small, low-flow applications — wellhead polishing, landfill gas, gas compressor fuel-gas conditioning. Simple and reliable but labour-intensive bed changeouts.
+
+The practical decision usually comes down to H2S mass load. Below ~200 kg H2S/day, scavengers are almost always the lowest total-cost option. Above ~1 tonne H2S/day, amine treating wins on operating cost. Between those numbers, the choice depends on site constraints, existing infrastructure, and project life.`,
+      },
+      {
+        heading: "How Amine Gas Treating Works",
+        id: "amine-treating",
+        body: `In an amine sweetening unit, sour gas enters the bottom of a contact tower (absorber) and flows upward through trays or structured packing. A lean amine solution enters the top of the tower and flows downward. The amine chemically absorbs H2S and CO2, leaving sweet gas at the top and a rich amine stream at the bottom.
+
+The rich amine is pumped to a regenerator column where steam stripping at 115–125 degrees Celsius releases the absorbed acid gases as an overhead stream. The acid gas is typically sent to a sulfur recovery unit (SRU) — most commonly a Claus plant — where H2S is converted to elemental sulfur. The regenerated lean amine is cooled and returned to the absorber.
+
+Amine choice matters. Primary amines (MEA) remove H2S and CO2 aggressively but have higher regeneration energy. Tertiary amines (MDEA) selectively remove H2S over CO2, which is valuable when CO2 slip is acceptable or desired. Formulated amines blend MDEA with promoters such as piperazine to tune selectivity and capacity.
+
+Typical amine-plant footprint is large: absorber, flash drum, rich/lean exchanger, regenerator, reboiler, reflux drum, air cooler, amine storage, and SRU. Capex for a small amine-plus-SRU package starts around USD 3–5 million and scales to USD 50 million-plus for large gas-processing facilities.`,
+      },
+      {
+        heading: "Triazine Scavengers for Sour Gas Treatment",
+        id: "triazine-scavengers",
+        body: `Triazine-based H2S scavengers react irreversibly with H2S to form a stable thiazine adduct that remains in solution. MEA Triazine (monoethanolamine triazine, 78% active) is the industry standard for oil, gas, and biogas. MMA Triazine (methylamine triazine, 40% active) is used where BTEX or water-treatment constraints favour the lighter product.
+
+The reaction is straightforward: one mole of triazine reacts with up to three moles of H2S, displacing ethanolamine (or methylamine) and forming dithiazine and thiadiazine reaction products. The spent scavenger is a dense, non-volatile liquid that can be disposed of through licensed waste handlers, blended with produced water, or injected into disposal wells where regulations permit.
+
+Triazine is dosed through a chemical metering pump into a contact tower, packed vessel, static mixer, or direct pipeline. Typical field consumption is 3.2–5 litres of MEA Triazine 78% per kilogram of H2S removed, depending on contact efficiency. Well-designed contact towers approach the 2.6 L/kg stoichiometric minimum; direct pipeline injection sits at the higher end.
+
+Triazine scavenging is preferred when capital is constrained, H2S loading is below ~200 kg/day, the installation is remote, or the gas stream is intermittent. It is also the standard for well-testing, storage tank blanketing, and as a polishing step downstream of amine units to meet tight pipeline specs.`,
+      },
+      {
+        heading: "Gas Sweetening Equipment: Contact Towers, Static Mixers & Injection Skids",
+        id: "equipment",
+        body: `Contact towers (also called bubble towers or scrubbers) are the most common piece of dedicated sweetening equipment for scavenger service. Sour gas enters the bottom and bubbles up through a scavenger liquid column typically 3–10 metres tall. Residence time of 30–90 seconds is sufficient for most H2S loadings. Contact towers maximise chemical utilisation and are a near-must for continuous streams above ~50 kg H2S/day.
+
+Static mixers are inline devices installed in a pipeline that create turbulent mixing between injected scavenger and flowing gas or liquid. They are the lowest-cost option for small continuous streams and retrofits. Chemical utilisation is lower than a contact tower (5–6 L/kg of H2S is typical) but capex is minimal.
+
+Chemical injection skids package a dosing pump, tank, piping, instrumentation, and controls in a self-contained unit. Sizes range from 200-litre day-tank skids for small wellheads up to 10,000-litre skids for gas-gathering manifolds. Proportional pacing (injection rate follows gas flow or H2S signal) is standard for most modern skids.
+
+For amine plants, the core equipment list adds an absorber tower (typically 20–40 trays or structured packing), flash drum, lean/rich exchanger, regenerator tower, reboiler (steam or hot-oil heated), reflux drum, solvent filters, and amine-reclaimer. Footprint is significantly larger — a small amine skid is the size of a shipping container; a large plant covers several thousand square metres.`,
+      },
+      {
+        heading: "Choosing the Right Natural Gas Sweetening Method",
+        id: "choosing-method",
+        body: `The decision framework comes down to three variables: H2S mass load, gas flow rate, and project duration.
+
+H2S mass load is the single biggest driver. Below ~50 kg H2S/day, solid-bed or scavenger systems are almost always the lowest total-cost option. At 50–500 kg H2S/day, triazine scavengers dominate because the operating cost of amine regeneration and a dedicated SRU is not justified. Above ~1 tonne H2S/day, amine treating takes over because the per-kilogram chemical cost of scavengers exceeds the amortised capex of an amine plant.
+
+Gas flow rate and H2S concentration interact with mass load. Low-concentration, high-flow gas (e.g. 50 ppm in 10 MMscfd) can have the same H2S mass load as high-concentration, low-flow gas — but the contact efficiency and equipment selection differ.
+
+Project duration changes the economics. A 5-year well-test or early-production facility rarely justifies amine-plant capex — scavengers win even at higher H2S loads. A 20-year gas-processing contract reverses the calculation; amine wins even at modest H2S loads.
+
+Other factors: offshore or remote sites favour compact scavenger skids. Strict sales-gas specs (e.g. pipeline quality, LNG feed) often require a hybrid — amine for bulk H2S removal, scavenger polishing to guarantee the last few ppm. Water-cut in produced gas affects scavenger contact (more water improves performance). Temperature below 15 degrees Celsius reduces triazine kinetics and may favour amine alternatives.
+
+If you are evaluating a new or revamped sweetening project, our technical team can benchmark scavenger vs. amine economics for your specific H2S load, gas rate, and project duration.`,
+      },
+    ],
+    faqs: [
+      {
+        question: "What is natural gas sweetening?",
+        answer:
+          "Natural gas sweetening is the removal of hydrogen sulfide (H2S) and carbon dioxide (CO2) from raw natural gas so that it meets pipeline, sales-gas, and environmental specifications. Once these acid gases are removed, the product is called sweet gas — typically with less than 4 ppmv H2S and less than 2–3 mol% CO2.",
+      },
+      {
+        question: "What are the main natural gas sweetening methods?",
+        answer:
+          "The four main methods are amine treating (MEA, DEA, MDEA, formulated amines), non-regenerable triazine scavengers (MEA Triazine, MMA Triazine), membrane separation, and solid-bed systems (iron sponge, zinc oxide). Amine treating dominates large-scale gas processing; triazine scavengers dominate small-to-moderate H2S loads; membranes are common for CO2-heavy gas and offshore installations.",
+      },
+      {
+        question: "When should I use a triazine scavenger instead of an amine plant?",
+        answer:
+          "Triazine scavengers are the lower-total-cost choice when H2S mass load is below ~200 kg/day, the site is remote or space-constrained, the project has a short life (under 5–7 years), or you need a polishing step downstream of an amine unit to meet tight pipeline specifications. Above ~1 tonne H2S/day on long-life projects, amine treating is usually more economical.",
+      },
+      {
+        question: "How much MEA Triazine 78% is needed to sweeten sour gas?",
+        answer:
+          "Theoretical minimum consumption is 2.6 litres of MEA Triazine 78% per kilogram of H2S removed. In well-designed contact towers, field consumption is 3.2–4 L/kg. For direct pipeline injection without a contact vessel, expect 5–6 L/kg. Our MEA Triazine dosing guide walks through the calculation for specific gas flows and H2S concentrations.",
+      },
+      {
+        question: "What equipment is needed for gas sweetening with triazine?",
+        answer:
+          "At minimum: a chemical storage tank (200 L to 10,000 L), a metering pump, and an injection point. For better chemical utilisation, add a static mixer inline or a dedicated contact tower. A full scavenger skid packages these components with instrumentation and controls into a self-contained, CE- or ATEX-rated unit.",
+      },
+      {
+        question: "Can natural gas sweetening remove CO2 as well as H2S?",
+        answer:
+          "Yes, but the technology choice matters. Amine treating removes both H2S and CO2 — the split depends on the amine (MEA removes both; MDEA is selective for H2S). Triazine scavengers remove H2S selectively and have minimal reactivity with CO2. Membrane separation preferentially removes CO2. For streams that need deep removal of both, a hybrid amine + polishing scavenger configuration is common.",
+      },
+      {
+        question: "Is natural gas sweetening the same as gas dehydration?",
+        answer:
+          "No. Sweetening removes acid gases (H2S, CO2); dehydration removes water. They are separate unit operations that usually sit in series — sweetening first, dehydration second — because some sweetening processes introduce water into the gas stream. Both are required for most pipeline-quality natural gas.",
+      },
+    ],
+    relatedLinks: [
+      { text: "MEA Triazine 78% H2S Scavenger", href: "/product/mea-triazine-78-h2s-scavenger" },
+      { text: "MEA Triazine Dosing Calculator", href: "/resources/mea-triazine-dosing-guidelines" },
+      { text: "How H2S Scavengers Work", href: "/how-h2s-scavengers-work" },
+      { text: "Oil & Gas H2S Scavenger Applications", href: "/industries/oil-gas-h2s-scavenger" },
+      { text: "MEA vs MMA Triazine Comparison", href: "/mea-triazine-vs-mma-triazine" },
+      { text: "MEA Triazine Prices", href: "/mea-triazine-prices" },
+    ],
+  },
 };
 
 export const RESOURCE_SLUGS: string[] = Object.keys(RESOURCE_ARTICLES_DATA);

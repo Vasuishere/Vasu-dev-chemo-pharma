@@ -5,6 +5,12 @@ import SectionLabel from "@/components/SectionLabel";
 import Button from "@/components/Button";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 import FAQSchema from "@/components/seo/FAQSchema";
+import {
+  SULFIDE_SCAVENGER_KEYWORDS,
+  H2S_SCAVENGER_CORE,
+  OILFIELD_H2S_KEYWORDS,
+  mergeKeywordClusters,
+} from "@/lib/seo/keyword-clusters";
 
 const SITE_URL = "https://www.vasudevchemopharma.com";
 
@@ -12,7 +18,11 @@ export const metadata: Metadata = {
   title: "How H2S Scavengers Work — A Complete Technical Guide | Vasudev Chemo Pharma",
   description:
     "Learn how H2S scavengers work, including triazine reaction chemistry, dosage guidelines, MEA vs MMA comparison, and application methods. Technical guide by Vasudev Chemo Pharma.",
-  keywords: [
+  keywords: mergeKeywordClusters(
+    SULFIDE_SCAVENGER_KEYWORDS,
+    H2S_SCAVENGER_CORE,
+    OILFIELD_H2S_KEYWORDS,
+    [
     "how H2S scavengers work",
     "H2S removal chemistry",
     "triazine H2S reaction mechanism",
@@ -82,7 +92,8 @@ export const metadata: Metadata = {
     "best H2S scavenger for natural gas",
     "H2S scavenger product manufacturer",
     "triazine based H2S scavenger manufacturer",
-  ],
+    ]
+  ),
   alternates: {
     canonical: `${SITE_URL}/how-h2s-scavengers-work`,
   },

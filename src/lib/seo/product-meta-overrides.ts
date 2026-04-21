@@ -12,63 +12,63 @@ type ProductMetaOverride = {
  */
 export const PRODUCT_META_OVERRIDES: Record<string, ProductMetaOverride> = {
   "mma-triazine-40": {
-    title: "MMA Triazine 40% | H2S Scavenger Manufacturer India | Vasudev Chemo Pharma",
+    title: "MMA Triazine 40% – H2S Scavenger (Methylamine Triazine)",
     description:
-      "MMA Triazine 40% for oil & gas, water treatment, and paper mill applications. ISO certified manufacturer in Ankleshwar, Gujarat. MOQ 1MT for export.",
+      "MMA Triazine 40% — methylamine-based H2S scavenger for oil, gas, water treatment & paper mill. ISO 9001 Gujarat manufacturer. MOQ 1 MT. Request a quote.",
   },
   "copper-sulphate": {
-    title: "Copper Sulphate | Agriculture & Industrial Grade Manufacturer | Vasudev Chemo Pharma",
+    title: "Copper Sulphate – Agri & Industrial Grade Manufacturer",
     description:
-      "Agriculture and industrial grade Copper Sulphate manufacturer in Gujarat, India. Bulk supply. ISO 9001:2015 certified. Domestic & export supply available.",
+      "Copper Sulphate (CAS 7758-98-7) — agri & industrial grade from ISO 9001 Gujarat manufacturer. Bulk domestic & export supply. Get competitive pricing today.",
   },
   "manganese-sulphate": {
-    title: "Manganese Sulphate | Agriculture & Industrial Grade | Vasudev Chemo Pharma India",
+    title: "Manganese Sulphate – Agri & Industrial Grade Manufacturer",
     description:
-      "Agriculture and industrial grade Manganese Sulphate from ISO certified manufacturer in Ankleshwar, Gujarat. Bulk orders for domestic and international buyers.",
+      "Manganese Sulphate (CAS 10034-96-5) — agri & industrial grade from ISO 9001 India manufacturer in Ankleshwar. Bulk export supply. Request pricing today.",
   },
   "p-toluenesulfonic-acid": {
-    title: "P-Toluenesulfonic Acid Supplier India | Vasudev Chemo Pharma",
+    title: "P-Toluenesulfonic Acid – Industrial Grade Supplier India",
     description:
-      "P-Toluenesulfonic Acid manufacturer in Gujarat, India. High purity, industrial grade. Bulk supply for domestic and export. ISO 9001:2015 certified.",
+      "P-Toluenesulfonic Acid (PTSA) — high-purity industrial grade from ISO 9001 Gujarat manufacturer. Bulk domestic & export supply. Request a quote today.",
   },
   "2-amino-5-methylthiazole": {
-    title: "2-Amino-5-methylthiazole Manufacturer India | Vasudev Chemo Pharma",
+    title: "2-Amino-5-methylthiazole – Pharma & Industrial Grade",
     description:
-      "2-Amino-5-methylthiazole supplier in Ankleshwar, Gujarat. Pharmaceutical and industrial grade. Bulk orders, export ready. ISO 9001:2015 certified manufacturer.",
+      "2-Amino-5-methylthiazole — pharma & industrial grade from ISO 9001 Ankleshwar manufacturer. Export-ready bulk supply. Request COA & pricing today.",
   },
   "2-chloroethylamine-hydrochloride": {
-    title: "2-Chloroethylamine Hydrochloride Supplier | Vasudev Chemo Pharma India",
+    title: "2-Chloroethylamine Hydrochloride – Pharma Grade Supplier",
     description:
-      "2-Chloroethylamine Hydrochloride manufacturer in Gujarat, India. High purity, pharma and industrial grade. ISO 9001:2015 certified. Export available.",
+      "2-Chloroethylamine Hydrochloride — high-purity pharma & industrial grade from ISO 9001 Gujarat manufacturer. Export-ready supply. Request COA & quote.",
   },
   "bis-2-chloroethyl-amine-hydrochloride": {
-    title: "Bis(2-chloroethyl)amine Hydrochloride Manufacturer India | Vasudev Chemo Pharma",
+    title: "Bis(2-chloroethyl)amine HCl – Manufacturer India",
     description:
-      "Bis(2-chloroethyl)amine Hydrochloride supplier from ISO 9001:2015 certified manufacturer in Ankleshwar, Gujarat, India. Bulk supply and export.",
+      "Bis(2-chloroethyl)amine Hydrochloride — ISO 9001 Ankleshwar manufacturer. Bulk pharma-grade supply for domestic & export. Request COA & pricing today.",
   },
   "di-ethyl-amino-ethyl-chloride-hydrochloride": {
-    title: "Di Ethyl Amino Ethyl Chloride HCl Manufacturer | Vasudev Chemo Pharma India",
+    title: "Di Ethyl Amino Ethyl Chloride HCl – Manufacturer India",
     description:
-      "Di Ethyl Amino Ethyl Chloride Hydrochloride manufacturer in Gujarat, India. ISO 9001:2015 certified. Pharmaceutical and industrial grade. Export available.",
+      "Di Ethyl Amino Ethyl Chloride HCl — pharma & industrial grade from ISO 9001 Gujarat manufacturer. Bulk export supply. Request COA & pricing today.",
   },
   "sodium-cumene-sulfonate-40": {
-    title: "Sodium Cumene Sulfonate 40% (SCS-40) Manufacturer & Exporter India | Vasudev Chemo Pharma",
+    title: "Sodium Cumene Sulfonate 40% (SCS-40) – Liquid Hydrotrope",
     description:
-      "Sodium Cumene Sulfonate 40% liquid (CAS 28348-53-0) — leading manufacturer & bulk exporter from Gujarat, India. ISO 9001:2015 certified hydrotrope & coupling agent for detergent, personal care, oilfield & industrial cleaner formulations. Get competitive pricing.",
+      "Sodium Cumene Sulfonate 40% liquid (CAS 28348-53-0) — hydrotrope & coupling agent for detergent, personal care & oilfield cleaners. ISO 9001 India manufacturer.",
   },
   "sodium-cumene-sulfonate-90": {
-    title: "Sodium Cumene Sulfonate 90% Powder (SCS-90) Manufacturer India | Vasudev Chemo Pharma",
+    title: "Sodium Cumene Sulfonate 90% Powder (SCS-90) – Hydrotrope",
     description:
-      "Sodium Cumene Sulfonate 90% powder (CAS 28348-53-0) — top manufacturer & exporter from Gujarat, India. ISO 9001:2015 certified. High-purity hydrotrope for powder detergent, industrial cleaners, personal care & oilfield chemicals. Bulk & export supply available.",
+      "Sodium Cumene Sulfonate 90% powder (CAS 28348-53-0) — high-purity hydrotrope for detergent, industrial cleaners & oilfield chemicals. ISO 9001 India export supply.",
   },
   "sodium-xylene-sulfonate-90": {
-    title: "Sodium Xylene Sulfonate 90% Manufacturer India | Vasudev Chemo Pharma",
+    title: "Sodium Xylene Sulfonate 90% – Hydrotrope Manufacturer",
     description:
-      "Sodium Xylene Sulfonate 90% (CAS 1300-72-7) manufacturer in Gujarat, India. ISO 9001:2015 certified. Hydrotrope for cleaning and industrial formulations. Bulk supply available.",
+      "Sodium Xylene Sulfonate 90% (CAS 1300-72-7) — powder hydrotrope for industrial cleaners & formulations. ISO 9001 Gujarat manufacturer. Bulk export supply.",
   },
   "sodium-xylene-sulfonate-40": {
-    title: "Sodium Xylene Sulfonate 40% Manufacturer India | Vasudev Chemo Pharma",
+    title: "Sodium Xylene Sulfonate 40% – Liquid Hydrotrope Supplier",
     description:
-      "Sodium Xylene Sulfonate 40% (CAS 1300-72-7) manufacturer in Gujarat, India. ISO 9001:2015 certified. Liquid hydrotrope for detergent and cleaning formulations. Bulk export available.",
+      "Sodium Xylene Sulfonate 40% liquid (CAS 1300-72-7) — hydrotrope for detergent & cleaning formulations. ISO 9001 Gujarat manufacturer. Bulk export supply.",
   },
 };

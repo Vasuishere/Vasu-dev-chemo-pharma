@@ -187,7 +187,12 @@ export async function getProductBySlug(slug: string): Promise<Product | undefine
     const payload = await getPayload();
     const result = await payload.find({
       collection: "products",
-      where: { slug: { equals: slug } },
+      where: {
+        and: [
+          { slug: { equals: slug } },
+          { status: { equals: "active" } },
+        ],
+      },
       limit: 1,
     });
 
@@ -230,9 +235,13 @@ export async function getRelatedProducts(
           { status: { equals: "active" } },
         ],
       },
-      limit,
+      limit: 100,
+      sort: "name",
     });
 
-    return result.docs.map(toProduct).sort(sortByPriorityThenName).slice(0, limit);
+    return result.docs
+      .map(toProduct)
+      .sort(sortByPriorityThenName)
+      .slice(0, limit);
   });
 }

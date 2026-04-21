@@ -5,6 +5,11 @@ import SectionLabel from "@/components/SectionLabel";
 import Button from "@/components/Button";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 import FAQSchema from "@/components/seo/FAQSchema";
+import {
+  MEA_VS_MMA_KEYWORDS,
+  MEA_TRIAZINE_KEYWORDS,
+  mergeKeywordClusters,
+} from "@/lib/seo/keyword-clusters";
 
 const SITE_URL = "https://www.vasudevchemopharma.com";
 
@@ -120,22 +125,25 @@ export const metadata: Metadata = {
     "MEA Triazine vs MMA Triazine — Which H2S Scavenger Should You Choose? | Vasudev Chemo Pharma",
   description:
     "Compare MEA Triazine 78% and MMA Triazine 40% — active content, applications, dosage, and pricing. Find out which triazine H2S scavenger is right for your industry.",
-  keywords: [
-    "MEA Triazine vs MMA Triazine",
-    "difference between MEA and MMA triazine",
-    "which triazine to use",
-    "MEA Triazine 78 vs MMA Triazine 40",
-    "triazine comparison H2S scavenger",
-    "MEA Triazine",
-    "MMA Triazine",
-    "1,3,5-Triazine",
-    "Hydrogen Sulfide Scavenger",
-    ...meaChemicalNames,
-    ...functionalTerms,
-    ...marketTradeTerms,
-    ...informationalIntentKeywords,
-    ...buyingIntentKeywords,
-  ],
+  keywords: mergeKeywordClusters(
+    MEA_VS_MMA_KEYWORDS,
+    MEA_TRIAZINE_KEYWORDS,
+    [
+      "MEA Triazine vs MMA Triazine",
+      "difference between MEA and MMA triazine",
+      "which triazine to use",
+      "MEA Triazine 78 vs MMA Triazine 40",
+      "triazine comparison H2S scavenger",
+      "MMA Triazine",
+      "1,3,5-Triazine",
+      "Hydrogen Sulfide Scavenger",
+      ...meaChemicalNames,
+      ...functionalTerms,
+      ...marketTradeTerms,
+      ...informationalIntentKeywords,
+      ...buyingIntentKeywords,
+    ]
+  ),
   alternates: {
     canonical: `${SITE_URL}/mea-triazine-vs-mma-triazine`,
   },

@@ -255,7 +255,7 @@ export default function Navbar() {
         <Link href="/" className="flex-shrink-0 flex items-center gap-2">
           <Image
             src="https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Vasudev/Vasudev_Chemo_Pharma_LOGO.png"
-            alt="VCP Logo"
+            alt=""
             width={50}
             height={50}
             unoptimized

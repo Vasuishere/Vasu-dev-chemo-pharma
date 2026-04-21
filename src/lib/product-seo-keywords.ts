@@ -1,3 +1,11 @@
+import {
+  H2S_SCAVENGER_CORE,
+  MEA_TRIAZINE_KEYWORDS,
+  SULFIDE_SCAVENGER_KEYWORDS,
+  OILFIELD_H2S_KEYWORDS,
+  mergeKeywordClusters,
+} from "@/lib/seo/keyword-clusters";
+
 type ProductKeywordConfig = {
   primaryKeyword: string;
   longTailKeywords: string[];
@@ -5,16 +13,18 @@ type ProductKeywordConfig = {
 
 const MEA_TRIAZINE_PRODUCT_PAGE_KEYWORDS: ProductKeywordConfig = {
   primaryKeyword: "MEA triazine 78% H2S scavenger",
-  longTailKeywords: [
-    "MEA triazine H2S scavenger supplier",
-    "MEA triazine 78 manufacturer",
-    "monoethanolamine triazine CAS 4719-04-4",
-    "H2S scavenger for sour gas",
-    "MEA triazine exporter India",
-    "MEA triazine drum IBC bulk supply",
-    "oilfield H2S scavenger manufacturer",
-    "MEA triazine technical data sheet",
-  ],
+  longTailKeywords: mergeKeywordClusters(
+    MEA_TRIAZINE_KEYWORDS,
+    H2S_SCAVENGER_CORE,
+    SULFIDE_SCAVENGER_KEYWORDS,
+    OILFIELD_H2S_KEYWORDS,
+    [
+      "MEA triazine drum IBC bulk supply",
+      "MEA triazine technical data sheet",
+      "MEA triazine safety data sheet",
+      "MEA triazine exporter India",
+    ]
+  ),
 };
 
 export const PRODUCT_SEO_KEYWORDS: Record<string, ProductKeywordConfig> = {

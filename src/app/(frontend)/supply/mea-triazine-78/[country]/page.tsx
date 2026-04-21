@@ -24,6 +24,12 @@ import { APPLICATION_PAGES_DATA } from "@/lib/seo/application-pages-data";
 import { COMPETITOR_PAGES_DATA } from "@/lib/seo/competitor-comparison-data";
 import { RESOURCE_ARTICLES_DATA } from "@/lib/seo/resource-articles-data";
 import { COUNTRY_CLUSTER_MAP } from "@/lib/seo/country-clusters";
+import {
+  SUPPLY_HUB_KEYWORDS,
+  MEA_TRIAZINE_KEYWORDS,
+  H2S_SCAVENGER_CORE,
+  mergeKeywordClusters,
+} from "@/lib/seo/keyword-clusters";
 
 export const revalidate = 3600;
 
@@ -52,7 +58,12 @@ export async function generateMetadata({
   return {
     title: page.title,
     description: page.description,
-    keywords: page.keywords,
+    keywords: mergeKeywordClusters(
+      SUPPLY_HUB_KEYWORDS,
+      MEA_TRIAZINE_KEYWORDS,
+      H2S_SCAVENGER_CORE,
+      page.keywords
+    ),
     alternates: {
       canonical: buildAbsoluteUrl(canonicalPath),
     },

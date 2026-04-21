@@ -20,6 +20,7 @@ type MediaItem =
 
 type ProductImageGalleryProps = {
   productName: string;
+  productLabel?: string;
   primaryImageUrl?: string;
   images: ProductImage[];
   videos?: ProductVideo[];
@@ -27,57 +28,71 @@ type ProductImageGalleryProps = {
 
 export default function ProductImageGallery({
   productName,
+  productLabel,
   primaryImageUrl,
   images,
   videos = [],
 }: ProductImageGalleryProps) {
+  const altBase = (productLabel || productName || "Product").trim();
+
   const mediaItems = useMemo<MediaItem[]>(() => {
     const items: MediaItem[] = [];
     const seenImages = new Set<string>();
 
     const addImage = (
       src: string,
-      alt: string,
+      alt: string | undefined,
       width?: number,
-      height?: number
+      height?: number,
+      positionLabel?: string
     ) => {
       const trimmed = (src || "").trim();
       if (!trimmed || seenImages.has(trimmed)) return;
       seenImages.add(trimmed);
+      const trimmedAlt = (alt || "").trim();
+      const fallbackAlt = positionLabel
+        ? `${altBase} — ${positionLabel}`
+        : altBase;
       items.push({
         kind: "image",
         src: trimmed,
-        alt: (alt || productName || "Product image").trim(),
+        alt: trimmedAlt || fallbackAlt,
         width: width || 800,
         height: height || 600,
       });
     };
 
     if (primaryImageUrl) {
-      addImage(primaryImageUrl, productName, 800, 600);
+      addImage(primaryImageUrl, altBase, 800, 600);
     }
-    for (const img of images) {
-      addImage(img.src, img.alt || productName, img.width, img.height);
-    }
+    images.forEach((img, idx) => {
+      addImage(img.src, img.alt, img.width, img.height, `view ${idx + 1}`);
+    });
 
     const seenVideos = new Set<string>();
-    for (const v of videos) {
+    videos.forEach((v, idx) => {
       const src = (v.src || "").trim();
-      if (!src || seenVideos.has(src)) continue;
+      if (!src || seenVideos.has(src)) return;
       seenVideos.add(src);
+      const title = (v.title || "").trim();
       items.push({
         kind: "video",
         src,
-        alt: v.title || `${productName} video`,
+        alt: title || `${altBase} product video ${videos.length > 1 ? idx + 1 : ""}`.trim(),
         thumbnail: v.thumbnail || primaryImageUrl || images[0]?.src || "",
       });
-    }
+    });
 
     return items;
-  }, [images, videos, primaryImageUrl, productName]);
+  }, [images, videos, primaryImageUrl, altBase]);
 
   const videoCount = useMemo(
     () => mediaItems.filter((m) => m.kind === "video").length,
+    [mediaItems]
+  );
+
+  const imageCount = useMemo(
+    () => mediaItems.filter((m) => m.kind === "image").length,
     [mediaItems]
   );
 
@@ -103,6 +118,11 @@ export default function ProductImageGallery({
             item.kind === "video" &&
             mediaItems.findIndex((m) => m.kind === "video") === index;
 
+          // Compute image-only count and index for accurate aria-label
+          const imagesOnly = mediaItems.filter((m) => m.kind === "image");
+          const imageIndex = imagesOnly.findIndex((img) => img === item);
+          const itemImageCount = imagesOnly.length;
+
           return (
             <div key={`${item.src}-${index}`} className="flex flex-col items-center">
               <button
@@ -117,7 +137,7 @@ export default function ProductImageGallery({
                 aria-label={
                   item.kind === "video"
                     ? `Play video ${item.alt}`
-                    : `View image ${index + 1} of ${mediaItems.length}`
+                    : `View image ${imageIndex + 1} of ${itemImageCount}`
                 }
                 aria-current={isActive}
               >

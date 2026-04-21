@@ -7,24 +7,33 @@ import IndustriesSection from "@/components/home/IndustriesSection";
 import WhyChooseSection from "@/components/home/WhyChooseSection";
 import GlobalSupplySection from "@/components/home/GlobalSupplySection";
 import BlogSection from "@/components/home/BlogSection";
-import OrganizationSchema from "@/components/seo/OrganizationSchema";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
-import { ORGANIZATION_SAME_AS } from "@/lib/social-links";
 import QuickEnquiryModal from "@/components/home/QuickEnquiryModal";
+import {
+  H2S_SCAVENGER_CORE,
+  MEA_TRIAZINE_KEYWORDS,
+  TRIAZINE_MANUFACTURER_KEYWORDS,
+  mergeKeywordClusters,
+} from "@/lib/seo/keyword-clusters";
 
 export const metadata: Metadata = {
   title:
     "Vasudev Chemo Pharma — India's Leading MEA Triazine 78% Manufacturer",
   description:
-    "Direct manufacturer of MEA Triazine 78% H2S scavenger. ISO 9001:2015 certified. Factory pricing. Supplying oil & gas, petrochemical & water treatment industries in 10+ countries from Gujarat, India.",
+    "Direct manufacturer of MEA Triazine 78% H2S scavenger (CAS 4719-04-4) for oil & gas, biogas, and water treatment. Triazine-based H2S scavenging chemical, ISO 9001:2015 certified, factory pricing, bulk drum/IBC export from Gujarat, India to USA, UAE, Saudi Arabia, Qatar, Oman.",
+  keywords: mergeKeywordClusters(
+    H2S_SCAVENGER_CORE,
+    MEA_TRIAZINE_KEYWORDS,
+    TRIAZINE_MANUFACTURER_KEYWORDS
+  ),
   alternates: {
     canonical: "https://www.vasudevchemopharma.com",
   },
   openGraph: {
     title:
-      "Vasudev Chemo Pharma — India's Leading MEA Triazine 78% Manufacturer",
+      "H2S Scavenger & MEA Triazine 78% Manufacturer — Vasudev Chemo Pharma",
     description:
-      "Direct manufacturer of MEA Triazine 78% H2S scavenger. ISO 9001:2015 certified. Factory pricing. Supplying 10+ countries from Gujarat, India.",
+      "ISO 9001:2015 manufacturer & exporter of MEA Triazine 78% H2S scavenger. Direct factory pricing, bulk drum/IBC supply to 10+ countries from Gujarat, India.",
     url: "https://www.vasudevchemopharma.com",
   },
 };
@@ -32,15 +41,6 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      <OrganizationSchema
-        name="Vasudev Chemo Pharma"
-        url="https://www.vasudevchemopharma.com"
-        logo="https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Vasudev/Vasudev_Chemo_Pharma_LOGO.png"
-        description="ISO 9001:2015 certified manufacturer and exporter of MEA Triazine, MMA Triazine H2S Scavengers, and specialty chemicals. Based in Ankleshwar, Gujarat, India."
-        email="info@vasudevchemopharma.com"
-        foundingDate="2020"
-        sameAs={[...ORGANIZATION_SAME_AS]}
-      />
       <BreadcrumbSchema
         items={[
           {

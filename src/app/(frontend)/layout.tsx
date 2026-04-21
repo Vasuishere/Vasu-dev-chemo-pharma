@@ -5,8 +5,15 @@ import "../globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import SiteJsonLd from "@/components/seo/SiteJsonLd";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import {
+  H2S_SCAVENGER_CORE,
+  MEA_TRIAZINE_KEYWORDS,
+  TRIAZINE_MANUFACTURER_KEYWORDS,
+  mergeKeywordClusters,
+} from "@/lib/seo/keyword-clusters";
 
 const monaSans = localFont({
   src: "../fonts/MonaSans.woff2",
@@ -25,11 +32,15 @@ export const metadata: Metadata = {
   },
   description:
     "Vasudev Chemo Pharma is an ISO 9001:2015 certified manufacturer and exporter of industrial chemicals, specialty chemicals, and surfactant chemicals from Gujarat, India. Global shipping.",
-  keywords: [
-    "chemical manufacturer India",
-    "industrial chemicals exporter",
-    "specialty chemicals supplier Gujarat",
-    "surfactant chemicals manufacturer",
+  keywords: mergeKeywordClusters(
+    H2S_SCAVENGER_CORE,
+    MEA_TRIAZINE_KEYWORDS,
+    TRIAZINE_MANUFACTURER_KEYWORDS,
+    [
+      "chemical manufacturer India",
+      "industrial chemicals exporter",
+      "specialty chemicals supplier Gujarat",
+      "surfactant chemicals manufacturer",
     "chemical exporter Gujarat India",
     "industrial chemical manufacturer Gujarat",
     "specialty chemical exporter India",
@@ -37,37 +48,37 @@ export const metadata: Metadata = {
     "organic intermediate manufacturer India",
     "hydrotrope manufacturer India",
     "bulk chemical supplier India",
-    "ISO 9001:2015 chemical manufacturer",
+      "ISO 9001:2015 chemical manufacturer",
     "custom chemical manufacturer India",
-    "MEA Triazine 78% H2S scavenger",
+      "MEA Triazine 78% H2S scavenger",
     "MEA Triazine 78 manufacturer",
-    "MMA Triazine 40 supplier",
+      "MMA Triazine 40 supplier",
     "MMA Triazine 40 manufacturer India",
-    "P-Toluenesulfonic Acid manufacturer",
-    "PTSA manufacturer India",
+      "P-Toluenesulfonic Acid manufacturer",
+      "PTSA manufacturer India",
     "PTSA monohydrate supplier",
     "PTSA anhydrous supplier",
     "Copper Sulphate manufacturer",
-    "Copper Sulphate Pentahydrate exporter",
+      "Copper Sulphate Pentahydrate exporter",
     "feed grade copper sulphate supplier",
     "electroplating grade copper sulphate manufacturer",
     "Manganese Sulphate manufacturer",
-    "Manganese Sulphate Monohydrate supplier",
+      "Manganese Sulphate Monohydrate supplier",
     "feed grade manganese sulphate supplier",
     "battery grade manganese sulphate manufacturer",
-    "Sodium Cumene Sulfonate 40 manufacturer",
+      "Sodium Cumene Sulfonate 40 manufacturer",
     "Sodium Cumene Sulfonate 90 manufacturer",
     "Sodium Xylene Sulfonate 40 manufacturer",
     "Sodium Xylene Sulfonate 90 manufacturer",
     "sodium cumene sulfonate supplier India",
     "sodium xylene sulfonate supplier India",
     "Bis(2-chloroethyl)amine Hydrochloride supplier",
-    "Bis(2-chloroethyl)amine HCl manufacturer",
+      "Bis(2-chloroethyl)amine HCl manufacturer",
     "Di Ethyl Amino Ethyl Chloride Hydrochloride supplier",
-    "DEAE Cl HCl manufacturer",
+      "DEAE Cl HCl manufacturer",
     "2-Amino-5-methylthiazole supplier",
-    "2-Amino-5-methylthiazole manufacturer India",
-    "2-Chloroethylamine Hydrochloride supplier",
+      "2-Amino-5-methylthiazole manufacturer India",
+      "2-Chloroethylamine Hydrochloride supplier",
     "2-Chloroethylamine Hydrochloride manufacturer",
     "MEA Triazine 78% manufacturer for oil and gas H2S scavenging",
     "MEA Triazine 78% supplier for natural gas sweetening",
@@ -100,12 +111,12 @@ export const metadata: Metadata = {
     "industrial chemical exporter from Gujarat for global markets",
     "specialty chemical manufacturer for pharmaceutical intermediates",
     "surfactant chemical manufacturer for detergent industry",
-    "oilfield chemical supplier for sour gas treatment",
+      "oilfield chemical supplier for sour gas treatment",
     "Indian manufacturer of H2S scavenger chemicals",
     "Indian manufacturer of surfactant hydrotropes",
-    "chemical manufacturer for pharma agrochemical and oilfield applications",
-    "export quality chemical supplier from India",
-  ],
+      "chemical manufacturer for pharma agrochemical and oilfield applications",
+    ]
+  ),
   authors: [{ name: "Vasudev Chemo Pharma" }],
   creator: "Vasudev Chemo Pharma",
   openGraph: {
@@ -169,6 +180,7 @@ export default function FrontendLayout({
       <body
         className={`${monaSans.variable} ${GeistSans.variable} antialiased`}
       >
+        <SiteJsonLd />
         <Navbar />
         {children}
         <Footer />

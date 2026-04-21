@@ -8,6 +8,12 @@ import {
   MEA_TRIAZINE_PRODUCT_PATH,
   SITE_URL,
 } from "@/lib/seo/seo-route-helpers";
+import {
+  SCAVENGER_CORROSION_KEYWORDS,
+  MEA_TRIAZINE_KEYWORDS,
+  MEA_VS_MMA_KEYWORDS,
+  mergeKeywordClusters,
+} from "@/lib/seo/keyword-clusters";
 
 export const revalidate = 3600;
 
@@ -15,6 +21,11 @@ export const metadata: Metadata = {
   title: "MEA Triazine 78% Comparison Pages",
   description:
     "Compare Vasudev MEA Triazine 78% against major market alternatives, including Pro3, RXSOL, SULFA-CLEAR, Triasorb, and Chinese supplier offers.",
+  keywords: mergeKeywordClusters(
+    SCAVENGER_CORROSION_KEYWORDS,
+    MEA_TRIAZINE_KEYWORDS,
+    MEA_VS_MMA_KEYWORDS
+  ),
   alternates: {
     canonical: `${SITE_URL}/compare`,
   },

@@ -83,6 +83,7 @@ export async function generateMetadata({
 
     const canonicalUrl = `https://www.vasudevchemopharma.com/product/${product.slug}`;
     const ogImageUrl = product.imageUrl || "https://www.vasudevchemopharma.com/images/og-default.webp";
+    const ogImageAlt = `${product.name}${product.casNumber ? ` (CAS ${product.casNumber})` : ""} — ${CATEGORY_LABELS[product.category]} from Vasudev Chemo Pharma`;
     const resolvedDescription = isMeaTriazine
       ? MEA_TRIAZINE_METADATA.description
       : description;
@@ -140,7 +141,7 @@ export async function generateMetadata({
             url: ogImageUrl,
             width: 1200,
             height: 630,
-            alt: product.name,
+            alt: ogImageAlt,
           },
         ],
       },
@@ -212,7 +213,8 @@ export default async function ProductDetailPage({
     3
   );
   const safeImages = Array.isArray(product.images) ? product.images : [];
-  const safeVideos = getProductVideos(slug);
+  const videosResult = getProductVideos(slug);
+  const safeVideos = Array.isArray(videosResult) ? videosResult : [];
   const safeDocuments = Array.isArray(product.documents) ? product.documents : [];
   const sdsDocument = safeDocuments.find((doc) => {
     const docType = (doc.docType || "").toUpperCase();
@@ -384,6 +386,7 @@ export default async function ProductDetailPage({
               {product.imageUrl || safeImages.length > 0 || safeVideos.length > 0 ? (
                 <ProductImageGallery
                   productName={product.name}
+                  productLabel={`${product.name}${product.casNumber ? ` (CAS ${product.casNumber})` : ""}`}
                   primaryImageUrl={product.imageUrl}
                   images={safeImages}
                   videos={safeVideos}

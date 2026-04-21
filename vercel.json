@@ -1,3 +1,16 @@
 {
-  "regions": ["bom1"]
+  "regions": ["bom1"],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "vasudevchemopharma.com"
+        }
+      ],
+      "destination": "https://www.vasudevchemopharma.com/:path*",
+      "permanent": true
+    }
+  ]
 }

@@ -8,6 +8,13 @@ import {
   MEA_TRIAZINE_PRODUCT_PATH,
   SITE_URL,
 } from "@/lib/seo/seo-route-helpers";
+import {
+  SUPPLY_HUB_KEYWORDS,
+  MEA_TRIAZINE_KEYWORDS,
+  H2S_SCAVENGER_CORE,
+  TRIAZINE_MANUFACTURER_KEYWORDS,
+  mergeKeywordClusters,
+} from "@/lib/seo/keyword-clusters";
 
 export const revalidate = 3600;
 
@@ -203,23 +210,29 @@ export const metadata: Metadata = {
     "MEA Triazine 78% Manufacturer — Direct Factory Supply | Vasudev Chemo Pharma",
   description:
     "Vasudev Chemo Pharma is a direct manufacturer of MEA Triazine 78% (CAS 4719-04-4) H2S scavenger. ISO 9001:2015 certified. Factory pricing. 200L drums, 1000L IBC, bulk. Supply to 10+ countries.",
-  keywords: [
-    "MEA Triazine 78%",
-    "MEA Triazine manufacturer",
-    "H2S scavenger manufacturer",
-    "MEA Triazine 78 supplier",
-    "CAS 4719-04-4",
-    "Hexahydro-1,3,5-tris(hydroxyethyl)-s-triazine",
-    "H2S scavenger manufacturer India",
-    "Vasudev Chemo Pharma",
-    "1,3,5-Triazine-1,3,5(2H,4H,6H)-triethanol",
-    ...meaChemicalNames,
-    ...functionalTerms,
-    ...brandReferenceTerms,
-    ...companyReferenceTerms,
-    ...informationalIntentKeywords,
-    ...buyingIntentKeywords,
-  ],
+  keywords: mergeKeywordClusters(
+    SUPPLY_HUB_KEYWORDS,
+    MEA_TRIAZINE_KEYWORDS,
+    H2S_SCAVENGER_CORE,
+    TRIAZINE_MANUFACTURER_KEYWORDS,
+    [
+      "MEA Triazine 78%",
+      "MEA Triazine manufacturer",
+      "H2S scavenger manufacturer",
+      "MEA Triazine 78 supplier",
+      "CAS 4719-04-4",
+      "Hexahydro-1,3,5-tris(hydroxyethyl)-s-triazine",
+      "H2S scavenger manufacturer India",
+      "Vasudev Chemo Pharma",
+      "1,3,5-Triazine-1,3,5(2H,4H,6H)-triethanol",
+      ...meaChemicalNames,
+      ...functionalTerms,
+      ...brandReferenceTerms,
+      ...companyReferenceTerms,
+      ...informationalIntentKeywords,
+      ...buyingIntentKeywords,
+    ]
+  ),
   alternates: {
     canonical: `${SITE_URL}/supply/mea-triazine-78`,
   },

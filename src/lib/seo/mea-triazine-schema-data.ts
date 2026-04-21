@@ -67,13 +67,16 @@ const MEA_TRIAZINE_TARGET_MARKETS = [
 ] as const;
 
 export const MEA_TRIAZINE_METADATA = {
-  title: "MEA Triazine 78% H2S Scavenger | Industrial Grade Manufacturer",
+  // Title: lead with bare "MEA Triazine" query, include synonym for the
+  // "monoethanolamine triazine" long-tail, keep commercial qualifier.
+  // Kept at 52 chars to avoid desktop SERP truncation (~60 char limit).
+  title: "MEA Triazine – 78% H2S Scavenger (Monoethanolamine)",
   description:
-    "MEA Triazine 78% H2S Scavenger (CAS 4719-04-4) for hydrogen sulfide removal in oil & gas, wastewater & biogas. Drum, IBC & bulk supply from India.",
+    "MEA Triazine 78% (Monoethanolamine Triazine, CAS 4719-04-4) — industrial H2S scavenger for oil, gas & biogas. ISO 9001 Indian manufacturer. Request a quote.",
   openGraphDescription:
-    "Industrial-grade MEA Triazine 78% for H2S removal in oil and gas, wastewater, and biogas applications. Gujarat, India manufacturer with export-ready supply.",
+    "MEA Triazine 78% (Monoethanolamine Triazine) — H2S scavenger for oil, gas, biogas & wastewater. ISO 9001 India manufacturer, drum/IBC/bulk export supply.",
   twitterDescription:
-    "MEA Triazine 78% H2S scavenger manufacturer in India with drum, IBC, and bulk export supply for oil and gas applications.",
+    "MEA Triazine 78% (Monoethanolamine Triazine, CAS 4719-04-4) — H2S scavenger from ISO 9001 India manufacturer. Drum, IBC & bulk export supply.",
 } as const;
 
 export const MEA_TRIAZINE_SCHEMA_ENRICHMENT = {

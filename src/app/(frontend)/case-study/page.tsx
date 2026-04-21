@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Case Studies | Vasudev Chemo Pharma",
     description:
-      "Chemical-industry case studies covering H2S treatment, specialty chemical scale-up, pharma intermediates, and process debottlenecking.",
+      "Chemical-industry case studies covering H2S treatment, specialty chemicals scale-up, pharma intermediates, and process debottlenecking.",
     url: CASE_STUDY_URL,
   },
 };

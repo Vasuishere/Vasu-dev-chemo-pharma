@@ -12,10 +12,15 @@ import {
   buildComparisonPagePath,
   buildCountryPagePath,
   buildResourceArticlePath,
+  normalizeCountrySlug,
 } from "@/lib/seo/seo-route-helpers";
 
 const SITE_URL = "https://www.vasudevchemopharma.com";
-export const dynamic = "force-dynamic";
+
+// Cache sitemap for 1 hour; regenerate in background via ISR.
+// force-dynamic was causing every crawl request to rebuild from DB,
+// which hurt crawl budget on slow cold starts.
+export const revalidate = 3600;
 
 type ChangeFrequency =
   | "always"
@@ -48,11 +53,14 @@ const STATIC_ROUTES: RouteConfig[] = [
   { path: "/about", changeFrequency: "monthly", priority: 0.8 },
   { path: "/product", changeFrequency: "weekly", priority: 0.9 },
   { path: "/service", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/industries", changeFrequency: "monthly", priority: 0.8 },
   { path: "/blog", changeFrequency: "weekly", priority: 0.7 },
   { path: "/contact", changeFrequency: "yearly", priority: 0.7 },
   { path: "/case-study", changeFrequency: "monthly", priority: 0.6 },
   { path: "/how-h2s-scavengers-work", changeFrequency: "monthly", priority: 0.8 },
   { path: "/mea-triazine-vs-mma-triazine", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/mea-triazine-prices", changeFrequency: "weekly", priority: 0.9 },
+  { path: "/mea-triazine-production-plant-cost", changeFrequency: "monthly", priority: 0.8 },
   { path: "/supply/mea-triazine-78", changeFrequency: "weekly", priority: 0.85 },
   { path: "/compare", changeFrequency: "weekly", priority: 0.8 },
   { path: "/applications", changeFrequency: "weekly", priority: 0.8 },
@@ -69,10 +77,14 @@ const SERVICE_SLUGS = [
   "bulk-contract-supply",
 ];
 
+// Must mirror keys in src/app/(frontend)/industries/[slug]/page.tsx
 const INDUSTRY_SLUGS = [
   "oil-gas-h2s-scavenger",
   "water-treatment",
   "metal-working-fluids",
+  "petrochemical",
+  "refining",
+  "biogas",
   "paper-mill",
 ];
 
@@ -91,7 +103,7 @@ function buildUrlEntry(entry: SitemapEntry): string {
     `    <loc>${escapeXml(entry.url)}</loc>`,
     `    <lastmod>${escapeXml(entry.lastModified)}</lastmod>`,
     `    <changefreq>${escapeXml(entry.changeFrequency)}</changefreq>`,
-    `    <priority>${escapeXml(String(entry.priority))}</priority>`,
+    `    <priority>${escapeXml(entry.priority.toFixed(2))}</priority>`,
     "  </url>",
   ].join("\n");
 }
@@ -125,14 +137,29 @@ function toIsoDateString(value: string | undefined): string | null {
   return new Date(timestamp).toISOString();
 }
 
+// De-dup country slugs through the canonical normalizer so aliases
+// like `usa` collapse to `united-states` and never appear twice.
+function canonicalCountrySlugs(): string[] {
+  const seen = new Set<string>();
+  const result: string[] = [];
+  for (const slug of COUNTRY_SLUGS) {
+    const canonical = normalizeCountrySlug(slug);
+    if (!seen.has(canonical)) {
+      seen.add(canonical);
+      result.push(canonical);
+    }
+  }
+  return result;
+}
+
 export async function GET() {
   const fallbackProductSlugs = getStaticProductSlugs();
   let productSlugs: string[] = fallbackProductSlugs;
 
   try {
-    productSlugs = await getAllProductSlugs();
-    if (productSlugs.length === 0) {
-      productSlugs = fallbackProductSlugs;
+    const liveSlugs = await getAllProductSlugs();
+    if (liveSlugs.length > 0) {
+      productSlugs = liveSlugs;
     }
   } catch (err) {
     console.error("Failed to fetch product slugs for sitemap", { error: err });
@@ -170,7 +197,7 @@ export async function GET() {
     ...INDUSTRY_SLUGS.map((slug) =>
       buildEntry(`/industries/${slug}`, "monthly", 0.85, now)
     ),
-    ...COUNTRY_SLUGS.map((slug) =>
+    ...canonicalCountrySlugs().map((slug) =>
       buildEntry(buildCountryPagePath(slug), "weekly", 0.85, now)
     ),
     ...COMPETITOR_SLUGS.map((slug) =>
@@ -184,6 +211,7 @@ export async function GET() {
     ),
   ];
 
+  // Dedupe by URL so overlapping slug sources can't emit the same <loc> twice.
   const entries = Array.from(
     new Map(rawEntries.map((entry) => [entry.url, entry])).values()
   );
@@ -200,6 +228,7 @@ export async function GET() {
     headers: {
       "Content-Type": "application/xml; charset=utf-8",
       "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
+      "X-Robots-Tag": "noindex",
     },
   });
 }

@@ -19,6 +19,12 @@ import {
   SITE_URL,
 } from "@/lib/seo/seo-route-helpers";
 import { APPLICATION_PAGES_DATA } from "@/lib/seo/application-pages-data";
+import {
+  SULFIDE_SCAVENGER_KEYWORDS,
+  H2S_SCAVENGER_CORE,
+  MEA_TRIAZINE_KEYWORDS,
+  mergeKeywordClusters,
+} from "@/lib/seo/keyword-clusters";
 
 export const revalidate = 3600;
 
@@ -57,7 +63,12 @@ export async function generateMetadata({
   return {
     title: article.title,
     description: article.description,
-    keywords: article.keywords,
+    keywords: mergeKeywordClusters(
+      SULFIDE_SCAVENGER_KEYWORDS,
+      H2S_SCAVENGER_CORE,
+      MEA_TRIAZINE_KEYWORDS,
+      article.keywords
+    ),
     alternates: {
       canonical: buildAbsoluteUrl(canonicalPath),
     },

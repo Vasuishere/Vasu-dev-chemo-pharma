@@ -11,6 +11,24 @@ import {
   FEATURED_COUNTRY_SLUGS,
 } from "@/lib/seo/seo-route-helpers";
 import { COUNTRY_PAGES_DATA } from "@/lib/seo/country-pages-data";
+import {
+  OILFIELD_H2S_KEYWORDS,
+  WATER_SOLUBLE_SCAVENGER_KEYWORDS,
+  TRIAZINE_BIOCIDE_KEYWORDS,
+  H2S_SCAVENGER_CORE,
+  MEA_TRIAZINE_KEYWORDS,
+  mergeKeywordClusters,
+} from "@/lib/seo/keyword-clusters";
+
+const INDUSTRY_CLUSTER_MAP: Record<string, readonly string[][]> = {
+  "oil-gas-h2s-scavenger": [OILFIELD_H2S_KEYWORDS, H2S_SCAVENGER_CORE, MEA_TRIAZINE_KEYWORDS],
+  "water-treatment": [WATER_SOLUBLE_SCAVENGER_KEYWORDS, TRIAZINE_BIOCIDE_KEYWORDS, H2S_SCAVENGER_CORE],
+  "metal-working-fluids": [TRIAZINE_BIOCIDE_KEYWORDS],
+  "petrochemical": [OILFIELD_H2S_KEYWORDS, H2S_SCAVENGER_CORE, MEA_TRIAZINE_KEYWORDS],
+  "refining": [OILFIELD_H2S_KEYWORDS, H2S_SCAVENGER_CORE, MEA_TRIAZINE_KEYWORDS],
+  "biogas": [H2S_SCAVENGER_CORE, MEA_TRIAZINE_KEYWORDS],
+  "paper-mill": [TRIAZINE_BIOCIDE_KEYWORDS],
+};
 
 /* ── Industry data ────────────────────────────────────────────── */
 
@@ -686,7 +704,10 @@ export async function generateMetadata({
   return {
     title: `${page.title} | Vasudev Chemo Pharma`,
     description: page.description,
-    keywords: page.keywords,
+    keywords: mergeKeywordClusters(
+      ...(INDUSTRY_CLUSTER_MAP[slug] ?? []),
+      page.keywords
+    ),
     alternates: {
       canonical: `${SITE_URL}/industries/${slug}`,
     },

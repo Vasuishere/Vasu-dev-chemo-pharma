@@ -1148,8 +1148,6 @@ async function seed() {
         certifications: ["ISO 9001:2015"],
         currency: "USD",
         price: 0,
-        images: [],
-        documents: [],
         faqs: buildProductFaqs(product),
       },
     });

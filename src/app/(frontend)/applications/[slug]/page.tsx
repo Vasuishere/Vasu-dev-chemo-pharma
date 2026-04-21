@@ -22,6 +22,12 @@ import {
   SITE_URL,
 } from "@/lib/seo/seo-route-helpers";
 import { RESOURCE_ARTICLES_DATA } from "@/lib/seo/resource-articles-data";
+import {
+  H2S_SCAVENGER_CORE,
+  MEA_TRIAZINE_KEYWORDS,
+  OILFIELD_H2S_KEYWORDS,
+  mergeKeywordClusters,
+} from "@/lib/seo/keyword-clusters";
 
 export const revalidate = 3600;
 
@@ -55,7 +61,12 @@ export async function generateMetadata({
   return {
     title: page.title,
     description: page.description,
-    keywords: page.keywords,
+    keywords: mergeKeywordClusters(
+      H2S_SCAVENGER_CORE,
+      MEA_TRIAZINE_KEYWORDS,
+      OILFIELD_H2S_KEYWORDS,
+      page.keywords
+    ),
     alternates: {
       canonical: buildAbsoluteUrl(canonicalPath),
     },

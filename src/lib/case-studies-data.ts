@@ -17,7 +17,7 @@ export type CaseStudy = {
   serviceLink: { href: string; label: string };
 };
 
-export const CASE_STUDIES: CaseStudy[] = [
+const CASE_STUDY_CATALOG: CaseStudy[] = [
   {
     slug: "sour-gas-gathering-h2s-scavenger-optimization",
     category: "Oil and gas treatment",
@@ -183,6 +183,10 @@ export const CASE_STUDIES: CaseStudy[] = [
     },
   },
 ];
+
+export const CASE_STUDIES: CaseStudy[] = CASE_STUDY_CATALOG.filter(
+  (study) => study.slug !== "copper-sulphate-process-debottlenecking"
+);
 
 export const CASE_STUDY_DATA: Record<string, CaseStudy> = Object.fromEntries(
   CASE_STUDIES.map((study) => [study.slug, study])

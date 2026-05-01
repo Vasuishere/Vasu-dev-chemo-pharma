@@ -11,6 +11,7 @@ import {
 
 const KNOWN_GOOD_BOTS = [
   'googlebot',
+  'google-inspectiontool',
   'bingbot',
   'duckduckbot',
   'baiduspider',
@@ -104,6 +105,15 @@ function buildSecurityUnavailableResponse(nonce: string): NextResponse {
 
 function isKnownGoodBot(userAgent: string): boolean {
   return KNOWN_GOOD_BOTS.some((bot) => userAgent.includes(bot));
+}
+
+function isPublicCrawlRequest(request: NextRequest): boolean {
+  const { pathname } = request.nextUrl;
+  return (
+    (request.method === 'GET' || request.method === 'HEAD') &&
+    !pathname.startsWith('/api/') &&
+    !isAdminPath(pathname)
+  );
 }
 
 function isSuspiciousAgent(userAgent: string): boolean {
@@ -243,6 +253,13 @@ export async function middleware(request: NextRequest) {
   const ip = getClientIp(request);
   const country = getEdgeCountry(request);
   const allowlisted = ALLOWLIST_IPS.has(ip);
+  const knownGoodBot = isKnownGoodBot(userAgent);
+
+  // Keep public content crawlable for search crawlers, including GSC's URL
+  // inspection user agent, even when geo/IP/rate protections are enabled.
+  if (knownGoodBot && isPublicCrawlRequest(request)) {
+    return passThroughResponse;
+  }
 
   if (!allowlisted) {
     if (BLOCKED_IPS.has(ip)) {
@@ -254,7 +271,7 @@ export async function middleware(request: NextRequest) {
     }
   }
 
-  const suspiciousAgent = Boolean(userAgent && !isKnownGoodBot(userAgent) && isSuspiciousAgent(userAgent));
+  const suspiciousAgent = Boolean(userAgent && !knownGoodBot && isSuspiciousAgent(userAgent));
 
   const rateLimit = checkRateLimit({
     key: `edge:${pathname}:${ip}`,

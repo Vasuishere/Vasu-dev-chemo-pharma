@@ -123,61 +123,116 @@ Theoretical capacity: 1 mole of MEA Triazine scavenges **up to 3 moles of H₂S*
 
 ---
 
-### 4. Copper Sulphate Pentahydrate
+### 4. Sodium Cumene Sulfonate 40% Liquid (SCS-40)
 
-**Canonical URL:** https://www.vasudevchemopharma.com/product/copper-sulphate
+**Canonical URL:** https://www.vasudevchemopharma.com/product/sodium-cumene-sulfonate-40
 
-- **CAS Number:** 7758-99-8
-- **Molecular formula:** CuSO₄·5H₂O
-- **Grades:** Agriculture grade · Electroplating grade · Feed grade
-- **Category:** Industrial Chemical / Agrochemical / Animal Nutrition
-- **Applications:** Fungicide in agriculture (Bordeaux mixture), algae control in water treatment, animal-feed trace-element supplement, copper plating baths, PCB manufacturing.
-- **Industries:** Agriculture, Animal Nutrition, Water Treatment, Electroplating.
-
----
-
-### 5. Manganese Sulphate Monohydrate
-
-**Canonical URL:** https://www.vasudevchemopharma.com/product/manganese-sulphate
-
-- **CAS Number:** 10034-96-5
-- **Molecular formula:** MnSO₄·H₂O
-- **Grades:** Feed grade · Fertilizer grade · Battery grade
-- **Category:** Industrial Chemical / Micronutrient
-- **Applications:** Animal feed premixes, micronutrient fertilizers, EMD (electrolytic manganese dioxide) production, battery-grade manganese compounds for Li-ion cathode precursors.
-- **Industries:** Agriculture, Animal Nutrition, Battery Manufacturing.
-
----
-
-### 6. Sodium Cumene Sulfonate (SCS)
-
-**Canonical URLs:**
-- 40% liquid: https://www.vasudevchemopharma.com/product/sodium-cumene-sulfonate-40
-- 90% powder: https://www.vasudevchemopharma.com/product/sodium-cumene-sulfonate-90
+**Direct answer:** Sodium Cumene Sulfonate 40% (SCS-40) is a clear, aqueous hydrotrope solution (CAS 28348-53-0) containing 40 ± 1% active matter. It improves the solubility of non-polar surfactants in water-based formulations, reduces cloud point, lowers viscosity, and stabilises clear liquid detergents, dish wash concentrates, agrochemical EC/SL formulations, and industrial cleaners.
 
 - **CAS Number:** 28348-53-0
-- **Forms:** 40% aqueous liquid, 90% powder
-- **Category:** Surfactant / Hydrotrope
-- **Function:** Increases solubility of surfactants and organics in water, prevents phase separation in concentrated detergent formulations, reduces cloud point.
-- **Applications:** Liquid detergents, industrial cleaners, degreasers, hand soaps, I&I (industrial & institutional) cleaning products, personal-care products.
+- **Synonyms:** Cumenesulfonic acid sodium salt · Isopropylbenzenesulfonic acid sodium salt · SCS liquid
+- **Molecular formula / weight:** C9H11NaO3S · 222.24 g/mol
+- **Form:** Clear to pale-yellow aqueous solution
+- **Active matter:** 40 ± 1%
+- **pH (1% aqueous):** 7.0 – 9.0
+- **Specific gravity (25 °C):** 1.13 – 1.17
+- **Sodium sulfate:** ≤ 2.0% · Sodium chloride: ≤ 0.3% · Iron: ≤ 10 ppm
+- **Solubility:** Miscible with water in all proportions
+- **Storage:** 10–40 °C in sealed HDPE drum · 24-month shelf life
+- **Packaging:** 250 kg HDPE drums · 1,000 kg IBC totes · 22 MT ISO tanks
+- **MOQ:** 1 MT export · 220 kg domestic
+- **HS Code:** 29041000
+- **Applications:** Clear liquid laundry detergent · hand dish wash · HI&I hard-surface cleaners · industrial degreasers · agrochemical EC/SL concentrates · oilfield acid-coupling additives · textile scouring / wetting auxiliaries
+- **Typical dosage:** 1–8% on product weight (3% starter for 20% active laundry liquid; 5–8% for >30% active concentrates)
+- **Safety:** GHS Category 2A eye irritant only · readily biodegradable · REACH pre-registered · IMDG/ADR non-hazardous
+- **Certifications available:** ISO 9001:2015 · REACH · Kosher · Halal · GMP
+- **Positioning vs SCS-90 powder:** liquid grade for cold-blend processes, regional distribution within ~2,500 km, and formulators who want to avoid dust / dissolution handling.
+- **Positioning vs SXS-40:** SCS delivers stronger cloud-point depression per gram of active in nonionic-dominated systems; SXS is preferred in high-electrolyte alkaline cleaners.
 
 ---
 
-### 7. Sodium Xylene Sulfonate (SXS)
+### 7. Sodium Cumene Sulfonate 90% Powder (SCS-90)
 
-**Canonical URLs:**
-- 40% liquid: https://www.vasudevchemopharma.com/product/sodium-xylene-sulfonate-40
-- 90% powder: https://www.vasudevchemopharma.com/product/sodium-xylene-sulfonate-90
+**Canonical URL:** https://www.vasudevchemopharma.com/product/sodium-cumene-sulfonate-90
+
+**Direct answer:** Sodium Cumene Sulfonate 90% (SCS-90) is a free-flowing powder hydrotrope (CAS 28348-53-0) supplied at 90 ± 1% active matter. It delivers the same coupling action as SCS-40 liquid with ~60% lower freight cost per kg active, making it the preferred grade for long-haul export buyers formulating concentrated laundry powders, dish wash powders, and industrial cleaner concentrates.
+
+- **CAS Number:** 28348-53-0
+- **Synonyms:** Cumenesulfonic acid sodium salt (powder) · Isopropylbenzenesulfonic acid sodium salt · SCS-90 · SCS powder
+- **Molecular formula / weight:** C9H11NaO3S · 222.24 g/mol
+- **Form:** Free-flowing off-white to pale-yellow powder
+- **Active matter:** 90 ± 1%
+- **pH (1% aqueous):** 7.0 – 9.0
+- **Bulk density:** 0.50 – 0.70 g/cm³
+- **Moisture:** ≤ 5%
+- **Solubility:** Fully soluble in water at any practical concentration; warm water (40–50 °C) accelerates dissolution
+- **Storage:** 10–35 °C in sealed bag · 24-month shelf life · mildly hygroscopic — reseal partial packs
+- **Packaging:** 25 kg HDPE-lined paper bags · 500 kg big bags · 1,000 kg jumbo bags
+- **MOQ:** 1 MT export · 220 kg domestic
+- **HS Code:** 29041000
+- **Applications:** Spray-dried laundry powders · dish wash powders · alkaline cleaner concentrates · agrochemical water-dispersible granules · dry-blended industrial cleaners
+- **Typical dosage:** 1–4% active on finished product (≈ 1.1–4.5% SCS-90 powder on total weight)
+- **Freight advantage:** Ships at 2.25× the active matter per kg versus SCS-40 liquid — cuts CIF cost per kg active by roughly 60% on long-haul export lanes.
+- **Safety:** GHS Category 2A eye irritant only · not a dust-explosion hazard · readily biodegradable · REACH pre-registered · IMDG/ADR non-hazardous
+- **Certifications available:** ISO 9001:2015 · REACH · Kosher · Halal · GMP
+
+---
+
+### 8. Sodium Xylene Sulfonate 40% Liquid (SXS-40)
+
+**Canonical URL:** https://www.vasudevchemopharma.com/product/sodium-xylene-sulfonate-40
+
+**Direct answer:** Sodium Xylene Sulfonate 40% (SXS-40) is a pale-yellow aqueous hydrotrope solution (CAS 1300-72-7) at 40 ± 1% active matter. It prevents gel-phase separation in surfactant-rich liquid detergents, improves electrolyte tolerance in alkaline cleaners, and stabilises dish wash, laundry liquids, and agrochemical concentrates at high active matter loadings.
 
 - **CAS Number:** 1300-72-7
-- **Forms:** 40% aqueous liquid, 90% powder
-- **Category:** Surfactant / Hydrotrope
-- **Function:** Prevents clouding and gel formation in surfactant systems; stabilises high-electrolyte cleaning formulations.
-- **Applications:** Household cleaners, industrial degreasers, laundry detergents, dishwash liquids, alkaline cleaners.
+- **Synonyms:** Xylenesulfonic acid sodium salt · Dimethylbenzenesulfonic acid sodium salt · SXS liquid
+- **Molecular formula / weight:** C8H9NaO3S · 208.21 g/mol
+- **Form:** Clear pale-yellow aqueous solution
+- **Active matter:** 40 ± 1%
+- **pH (1% aqueous):** 7.0 – 9.0
+- **Specific gravity (25 °C):** 1.14 – 1.18
+- **Sodium sulfate:** ≤ 2.0% · Sodium chloride: ≤ 0.3%
+- **Solubility:** Fully miscible with water
+- **Storage:** 10–40 °C in sealed HDPE drum · 24-month shelf life
+- **Packaging:** 250 kg HDPE drums · 1,000 kg IBC totes · 22 MT ISO tanks
+- **MOQ:** 1 MT export · 220 kg domestic
+- **HS Code:** 29041000
+- **Applications:** Laundry liquid · hand dish wash · HI&I alkaline hard-surface cleaners · vehicle wash concentrates · industrial degreasers · agrochemical SL concentrates · textile and paper-mill auxiliaries
+- **Typical dosage:** 2–6% on product weight (3% starter for 15–25% active laundry liquid; 5–6% for highly built or cold-climate concentrates)
+- **Safety:** GHS Category 2A eye irritant only · readily biodegradable · REACH pre-registered · IMDG/ADR non-hazardous
+- **Certifications available:** ISO 9001:2015 · REACH · Kosher · Halal · GMP
+- **Positioning vs SCS-40:** SXS offers stronger electrolyte tolerance in alkaline and salt-rich cleaners; SCS gives better cloud-point depression in nonionic-heavy systems.
 
 ---
 
-### 8. 2-Chloroethylamine Hydrochloride
+### 9. Sodium Xylene Sulfonate 90% Powder (SXS-90)
+
+**Canonical URL:** https://www.vasudevchemopharma.com/product/sodium-xylene-sulfonate-90
+
+**Direct answer:** Sodium Xylene Sulfonate 90% (SXS-90) is a free-flowing powder hydrotrope (CAS 1300-72-7) at 90 ± 1% active matter. It is used as a coupling agent in spray-dried detergent powders, alkaline cleaner concentrates, and agrochemical water-dispersible granules, delivering strong cloud-point depression and low freight cost per kg active for global export.
+
+- **CAS Number:** 1300-72-7
+- **Synonyms:** Xylenesulfonic acid sodium salt (powder) · Dimethylbenzenesulfonic acid sodium salt · SXS-90 · SXS powder
+- **Molecular formula / weight:** C8H9NaO3S · 208.21 g/mol
+- **Form:** Free-flowing off-white to pale-yellow powder
+- **Active matter:** 90 ± 1%
+- **pH (1% aqueous):** 7.0 – 9.0
+- **Bulk density:** 0.55 – 0.75 g/cm³
+- **Moisture:** ≤ 5%
+- **Solubility:** Fully soluble in water
+- **Storage:** 10–35 °C in sealed bag · 24-month shelf life · mildly hygroscopic — reseal partial packs
+- **Packaging:** 25 kg HDPE-lined paper bags · 500 kg big bags · 1,000 kg jumbo bags
+- **MOQ:** 1 MT export · 220 kg domestic
+- **HS Code:** 29041000
+- **Applications:** Spray-dried laundry powders · dish wash powders · built alkaline detergent concentrates · agrochemical water-dispersible granules (WDG) · industrial dry-blend cleaner concentrates
+- **Typical dosage:** 1–4% active on finished product (≈ 1.1–4.5% SXS-90 powder on total weight)
+- **Freight advantage:** 2.25× active matter per kg versus SXS-40 liquid — roughly 60% lower CIF cost per kg active on long-haul lanes.
+- **Safety:** GHS Category 2A eye irritant only · not a dust-explosion hazard · readily biodegradable · REACH pre-registered · IMDG/ADR non-hazardous
+- **Certifications available:** ISO 9001:2015 · REACH · Kosher · Halal · GMP
+
+---
+
+### 10. 2-Chloroethylamine Hydrochloride
 
 **Canonical URL:** https://www.vasudevchemopharma.com/product/2-chloroethylamine-hydrochloride
 
@@ -187,7 +242,7 @@ Theoretical capacity: 1 mole of MEA Triazine scavenges **up to 3 moles of H₂S*
 
 ---
 
-### 9. Bis(2-chloroethyl)amine Hydrochloride
+### 11. Bis(2-chloroethyl)amine Hydrochloride
 
 **Canonical URL:** https://www.vasudevchemopharma.com/product/bis-2-chloroethyl-amine-hydrochloride
 
@@ -196,7 +251,7 @@ Theoretical capacity: 1 mole of MEA Triazine scavenges **up to 3 moles of H₂S*
 
 ---
 
-### 10. DEAE Cl HCl (Diethylaminoethyl Chloride Hydrochloride)
+### 12. DEAE Cl HCl (Diethylaminoethyl Chloride Hydrochloride)
 
 **Canonical URL:** https://www.vasudevchemopharma.com/product/di-ethyl-amino-ethyl-chloride-hydrochloride
 
@@ -205,7 +260,7 @@ Theoretical capacity: 1 mole of MEA Triazine scavenges **up to 3 moles of H₂S*
 
 ---
 
-### 11. 2-Amino-5-methylthiazole
+### 13. 2-Amino-5-methylthiazole
 
 **Canonical URL:** https://www.vasudevchemopharma.com/product/2-amino-5-methylthiazole
 

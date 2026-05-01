@@ -1,5 +1,6 @@
 import { getPayload } from "./payload";
 import type { Product } from "./types";
+import { isRemovedProductSlug } from "./removed-products";
 
 type ProductCacheEntry<T> = {
   value: T;
@@ -175,12 +176,17 @@ export async function getAllProducts(): Promise<Product[]> {
       sort: "name",
     });
 
-    return result.docs.map(toProduct).sort(sortByPriorityThenName);
+    return result.docs
+      .map(toProduct)
+      .filter((product) => !isRemovedProductSlug(product.slug))
+      .sort(sortByPriorityThenName);
   });
 }
 
 /** Find a product by slug */
 export async function getProductBySlug(slug: string): Promise<Product | undefined> {
+  if (isRemovedProductSlug(slug)) return undefined;
+
   const cacheKey = `product:${slug}`;
 
   return loadWithCache(cacheKey, async () => {
@@ -212,7 +218,10 @@ export async function getAllProductSlugs(): Promise<string[]> {
 
     return result.docs
       .map((doc) => doc.slug)
-      .filter((slug): slug is string => typeof slug === "string");
+      .filter(
+        (slug): slug is string =>
+          typeof slug === "string" && !isRemovedProductSlug(slug)
+      );
   });
 }
 
@@ -241,6 +250,7 @@ export async function getRelatedProducts(
 
     return result.docs
       .map(toProduct)
+      .filter((product) => !isRemovedProductSlug(product.slug))
       .sort(sortByPriorityThenName)
       .slice(0, limit);
   });

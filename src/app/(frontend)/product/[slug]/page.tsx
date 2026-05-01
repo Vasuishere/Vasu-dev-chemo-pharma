@@ -16,6 +16,7 @@ import { getProductSeoKeywords } from "@/lib/product-seo-keywords";
 import { PRODUCT_META_OVERRIDES } from "@/lib/seo/product-meta-overrides";
 import { getProductVideos } from "@/lib/seo/product-media-overrides";
 import { PRODUCT_FALLBACK_FAQS, PRODUCT_PAGE_FAQS } from "@/lib/seo/product-faqs";
+import { PRODUCT_DIRECT_ANSWERS } from "@/lib/seo/product-direct-answers";
 import {
   MEA_TRIAZINE_SLUG,
   MEA_TRIAZINE_COMPARISON,
@@ -37,6 +38,7 @@ import {
   FEATURED_COUNTRY_SLUGS,
   FEATURED_RESOURCE_SLUGS,
 } from "@/lib/seo/seo-route-helpers";
+import { hydrotropeProductArticleLinks } from "@/app/(frontend)/blog/[slug]/hydrotrope-articles-data";
 
 /* ─── ISR: revalidate product pages every hour ──────────────── */
 export const revalidate = 3600;
@@ -202,6 +204,7 @@ export default async function ProductDetailPage({
     closingText: "",
   };
   const productPageFaqs = PRODUCT_PAGE_FAQS[slug] ?? PRODUCT_FALLBACK_FAQS[slug] ?? [];
+  const directAnswer = PRODUCT_DIRECT_ANSWERS[slug];
   const faqItems =
     product.faqs.length > 0
       ? product.faqs.slice(0, 6)
@@ -242,6 +245,72 @@ export default async function ProductDetailPage({
       links: { href: string; label: string; title: string; description: string }[];
     }
   > = {
+    "sodium-cumene-sulfonate-40": {
+      quoteHref: "/contact?product=sodium-cumene-sulfonate-40",
+      links: [
+        {
+          href: "/product/sodium-cumene-sulfonate-90",
+          label: "Alternate concentration",
+          title: "Sodium Cumene Sulfonate 90%",
+          description:
+            "Review the high-active powder grade when freight cost per kg active and compact storage matter.",
+        },
+        {
+          href: "/product/sodium-xylene-sulfonate-40",
+          label: "Related hydrotrope",
+          title: "Sodium Xylene Sulfonate 40%",
+          description:
+            "Compare another liquid hydrotrope for detergent, cleaner, and agrochemical formulation work.",
+        },
+        {
+          href: "/hydrotropes",
+          label: "Pillar guide",
+          title: "Hydrotropes: SCS and SXS Guide",
+          description:
+            "Understand hydrotrope chemistry, 40% vs 90% grade selection, applications, and buyer FAQs.",
+        },
+        {
+          href: "/blog/sodium-cumene-sulfonate-40-manufacturer-india-bulk-supply",
+          label: "Buying guide",
+          title: "Sodium Cumene Sulfonate 40% Manufacturer in India",
+          description:
+            "Read the purchase checklist for bulk SCS 40% supply, COA, packaging, MOQ, and quotation terms.",
+        },
+      ],
+    },
+    "sodium-cumene-sulfonate-90": {
+      quoteHref: "/contact?product=sodium-cumene-sulfonate-90",
+      links: [
+        {
+          href: "/product/sodium-cumene-sulfonate-40",
+          label: "Alternate concentration",
+          title: "Sodium Cumene Sulfonate 40%",
+          description:
+            "Compare the ready-to-use liquid grade for cold-blend detergent and cleaner production.",
+        },
+        {
+          href: "/product/sodium-xylene-sulfonate-90",
+          label: "Related hydrotrope",
+          title: "Sodium Xylene Sulfonate 90%",
+          description:
+            "Review another powder hydrotrope used in detergent powders and alkaline cleaner concentrates.",
+        },
+        {
+          href: "/hydrotropes",
+          label: "Pillar guide",
+          title: "Hydrotropes: SCS and SXS Guide",
+          description:
+            "See how liquid and powder hydrotrope grades compare across logistics and formulation use cases.",
+        },
+        {
+          href: "/blog/sodium-cumene-sulfonate-90-price-quote-moq-packaging",
+          label: "Buying guide",
+          title: "Sodium Cumene Sulfonate 90% Price, MOQ and Packaging",
+          description:
+            "Evaluate SCS 90% quotation factors, packaging, export supply, and landed-cost logic.",
+        },
+      ],
+    },
     "sodium-xylene-sulfonate-90": {
       quoteHref: "/contact?product=sodium-xylene-sulfonate-90",
       links: [
@@ -310,6 +379,7 @@ export default async function ProductDetailPage({
     },
   };
   const hydrotropeContext = hydrotropeContextConfig[slug];
+  const hydrotropeArticleLinks = hydrotropeProductArticleLinks[slug];
   const anchorLinks = isMeaTriazine
     ? [
         { id: "description", label: "Overview" },
@@ -496,6 +566,24 @@ export default async function ProductDetailPage({
 
           {/* ─── ANCHOR NAV (jump links for long page) ──────────────── */}
           <StickyAnchorNav links={anchorLinks} />
+
+          {/* ─── 2b. DIRECT-ANSWER SNIPPET (AI-citation optimised) ───── */}
+          {directAnswer && (
+            <section
+              id="direct-answer"
+              aria-label={`Direct answer: what is ${product.name}`}
+              className="mb-12"
+            >
+              <div className="border-l-4 border-accent bg-light rounded-r-2xl px-6 py-5">
+                <p className="text-xs font-semibold uppercase tracking-wider text-accent mb-2">
+                  Quick answer
+                </p>
+                <p className="text-base md:text-lg text-primary leading-relaxed">
+                  {directAnswer}
+                </p>
+              </div>
+            </section>
+          )}
 
           {/* ─── 3. PRODUCT DESCRIPTION / OVERVIEW ──────────────────── */}
           <section id="description" className="mb-16">
@@ -967,6 +1055,44 @@ export default async function ProductDetailPage({
                   Request pricing
                 </Link>
               </div>
+              {hydrotropeArticleLinks && (
+                <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
+                  <div className="rounded-2xl border border-gray-200 bg-white p-5">
+                    <h3 className="font-heading text-h5 text-primary mb-3">
+                      Buying intent articles
+                    </h3>
+                    <ul className="space-y-2">
+                      {hydrotropeArticleLinks.buying.map((article) => (
+                        <li key={article.href}>
+                          <Link
+                            href={article.href}
+                            className="text-sm font-medium text-accent hover:text-accent-dark"
+                          >
+                            {article.text}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="rounded-2xl border border-gray-200 bg-white p-5">
+                    <h3 className="font-heading text-h5 text-primary mb-3">
+                      Research intent articles
+                    </h3>
+                    <ul className="space-y-2">
+                      {hydrotropeArticleLinks.research.map((article) => (
+                        <li key={article.href}>
+                          <Link
+                            href={article.href}
+                            className="text-sm font-medium text-accent hover:text-accent-dark"
+                          >
+                            {article.text}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              )}
             </section>
           )}
 

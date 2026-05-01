@@ -77,8 +77,6 @@ const PRODUCTS = [
   { value: "mea-triazine-50", label: "MEA Triazine 50%" },
   { value: "mea-triazine-40", label: "MEA Triazine 40%" },
   { value: "mma-triazine-40", label: "MMA Triazine 40%" },
-  { value: "copper-sulphate", label: "Copper Sulphate" },
-  { value: "manganese-sulphate", label: "Manganese Sulphate" },
   { value: "sodium-cumene-sulfonate-40", label: "Sodium Cumene Sulfonate 40%" },
   { value: "sodium-cumene-sulfonate-90", label: "Sodium Cumene Sulfonate 90%" },
   { value: "sodium-xylene-sulfonate-90", label: "Sodium Xylene Sulfonate 90%" },

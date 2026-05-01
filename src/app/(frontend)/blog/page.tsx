@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useMemo } from "react";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
+import { hydrotropeBlogListItems } from "./[slug]/hydrotrope-articles-data";
 
 /* ------------------------------------------------------------------ */
 /*  Blog listing data                                                  */
@@ -20,6 +21,7 @@ type BlogListItem = {
 };
 
 const blogs: BlogListItem[] = [
+  ...hydrotropeBlogListItems,
   {
     slug: "what-is-mea-triazine-best-h2s-scavenger-oil-gas",
     title: "What is MEA Triazine and Why is it the Best H2S Scavenger for Oil & Gas?",

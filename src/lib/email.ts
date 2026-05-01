@@ -50,8 +50,6 @@ const PRODUCT_LABELS: Record<string, string> = {
   "mea-triazine-50": "MEA Triazine 50%",
   "mea-triazine-40": "MEA Triazine 40%",
   "mma-triazine-40": "MMA Triazine 40%",
-  "copper-sulphate": "Copper Sulphate",
-  "manganese-sulphate": "Manganese Sulphate",
   "sodium-cumene-sulfonate-40": "Sodium Cumene Sulfonate 40%",
   "sodium-cumene-sulfonate-90": "Sodium Cumene Sulfonate 90%",
   "sodium-xylene-sulfonate-90": "Sodium Xylene Sulfonate 90%",

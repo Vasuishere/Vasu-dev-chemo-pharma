@@ -21,7 +21,7 @@ This file follows the [llms.txt standard](https://llmstxt.org) to help large lan
 - **Phone:** +91 8128372559
 - **Primary pages:** [About](https://www.vasudevchemopharma.com/about), [Contact](https://www.vasudevchemopharma.com/contact)
 
-## Product Catalog (13 products)
+## Product Catalog (11 products)
 
 Vasudev Chemo Pharma manufactures three product categories. All products ship in 210L HDPE drums, 1000L IBC tanks, or bulk tanker. MOQ typically 1 MT.
 
@@ -29,8 +29,6 @@ Vasudev Chemo Pharma manufactures three product categories. All products ship in
 - [MEA Triazine 78% H2S Scavenger](https://www.vasudevchemopharma.com/product/mea-triazine-78-h2s-scavenger) — CAS 4719-04-4. Flagship product. 78% active content triazine for H2S scavenging in oil & gas, biogas, and wastewater treatment.
 - [MMA Triazine 40%](https://www.vasudevchemopharma.com/product/mma-triazine-40) — CAS 108-74-7. BTEX-free triazine for water treatment and biocide applications.
 - [P-Toluenesulfonic Acid (PTSA)](https://www.vasudevchemopharma.com/product/p-toluenesulfonic-acid) — CAS 104-15-4. Monohydrate and anhydrous forms. Acid catalyst for esterification, alkyd resin, and biodiesel production.
-- [Copper Sulphate Pentahydrate](https://www.vasudevchemopharma.com/product/copper-sulphate) — CAS 7758-99-8. Agriculture, electroplating, and feed grades.
-- [Manganese Sulphate Monohydrate](https://www.vasudevchemopharma.com/product/manganese-sulphate) — CAS 10034-96-5. Feed grade, fertilizer grade, and battery grade.
 
 ### Surfactant Chemicals (Hydrotropes)
 - [Sodium Cumene Sulfonate 40%](https://www.vasudevchemopharma.com/product/sodium-cumene-sulfonate-40) — Liquid hydrotrope for detergents and industrial cleaners.
@@ -74,6 +72,28 @@ MEA Triazine (1,3,5-Tris(2-hydroxyethyl)hexahydro-s-triazine) is the most widely
 | Freezing point | < −5°C | < −15°C |
 
 Detailed comparison: [MEA Triazine vs MMA Triazine](https://www.vasudevchemopharma.com/mea-triazine-vs-mma-triazine)
+
+## Hydrotropes — Quick Facts
+
+Hydrotropes are short-chain aromatic sulfonate salts that increase the solubility of hydrophobic surfactants and organic compounds in water. Vasudev Chemo Pharma manufactures two hydrotrope families — Sodium Cumene Sulfonate (SCS) and Sodium Xylene Sulfonate (SXS) — each in a 40% aqueous liquid and a 90% free-flowing powder grade.
+
+### Sodium Cumene Sulfonate (SCS) — CAS 28348-53-0
+
+- **Chemistry:** Sodium salt of cumenesulfonic acid (isopropylbenzenesulfonic acid sodium salt). Molecular formula C9H11NaO3S, MW 222.24 g/mol.
+- **SCS-40 (liquid):** 40 ± 1% active matter · pH 7–9 · clear to pale-yellow liquid · ships in 250 kg HDPE drums / 1000 L IBC / 22 MT ISO tank · 24-month shelf life · preferred for cold-blend processes and regional supply.
+- **SCS-90 (powder):** 90 ± 1% active matter · free-flowing powder · ships in 25 kg bags / 500 kg or 1000 kg jumbo bags · ~60% lower freight cost per kg active than the 40% liquid · preferred for long-haul export and spray-dried / dry-blended formulations.
+- **Primary applications:** clear liquid detergents, hand dish wash concentrates, HI&I hard-surface cleaners, agrochemical EC/SL concentrates, oilfield acid-coupling additives, textile wetting auxiliaries.
+- **Typical dosage:** 1–8% on finished product weight depending on surfactant loading and target cloud point.
+- **Safety:** GHS Category 2A eye irritant only · readily biodegradable · REACH pre-registered · non-hazardous for transport under IMDG/ADR.
+
+### Sodium Xylene Sulfonate (SXS) — CAS 1300-72-7
+
+- **Chemistry:** Sodium salt of dimethylbenzenesulfonic acid (mixed xylene isomers). Molecular formula C8H9NaO3S, MW 208.21 g/mol.
+- **SXS-40 (liquid):** 40 ± 1% active matter · pH 7–9 · pale-yellow liquid · ships in 250 kg HDPE drums / 1000 L IBC / 22 MT ISO tank · preferred for high-electrolyte alkaline cleaners and laundry liquids.
+- **SXS-90 (powder):** 90 ± 1% active matter · free-flowing powder · preferred for spray-dried laundry powders, built alkaline concentrates, and agrochemical water-dispersible granules.
+- **Primary applications:** household and HI&I alkaline cleaners, laundry liquids and powders, hand dish wash, vehicle wash concentrates, industrial degreasers, textile and paper-mill auxiliaries.
+- **SCS vs SXS guidance:** SCS out-performs SXS per gram of active in nonionic-dominated systems. SXS delivers stronger electrolyte tolerance in alkaline or salt-rich cleaners. For most mainstream household dish wash and laundry concentrates, SXS-40 is the default; switch to SCS-40 when nonionic loading or cold-storage clarity is the binding constraint.
+- **40% vs 90% decision:** Choose 40% liquid when regional freight distance is short (<2500 km) or cold-blend processing is preferred. Choose 90% powder for long-haul CIF export and spray-dried / dry-blend formulations.
 
 ## Industries We Serve
 

@@ -10,6 +10,7 @@ import {
   withCorsHeaders,
 } from "@/lib/api-security";
 import { logApiError, logApiEvent } from '@/lib/observability';
+import { isRemovedProductSlug } from "@/lib/removed-products";
 
 // Only allow seeding in development
 export const dynamic = 'force-dynamic';
@@ -695,7 +696,11 @@ export async function POST(req: Request) {
 
     // Insert all products
     const results = [];
-    for (const product of seedProducts) {
+    const activeSeedProducts = seedProducts.filter(
+      (product) => !isRemovedProductSlug(product.slug)
+    );
+
+    for (const product of activeSeedProducts) {
       const created = await payload.create({
         collection: "products",
         data: {

@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: "*",
-        allow: "/",
+        allow: ["/", "/_next/static/", "/_next/image"],
         disallow: [
           "/admin",
           "/admin/*",
@@ -16,12 +16,12 @@ export default function robots(): MetadataRoute.Robots {
           "/api/",
           "/tmp",
           "/tmp/*",
-          "/*?*",
         ],
       },
       {
         userAgent: [
           "Googlebot",
+          "Google-InspectionTool",
           "Bingbot",
           "DuckDuckBot",
           "Slurp",
@@ -32,7 +32,7 @@ export default function robots(): MetadataRoute.Robots {
           "ClaudeBot",
           "Google-Extended",
         ],
-        allow: "/",
+        allow: ["/", "/_next/static/", "/_next/image"],
         disallow: [
           "/admin",
           "/admin/*",

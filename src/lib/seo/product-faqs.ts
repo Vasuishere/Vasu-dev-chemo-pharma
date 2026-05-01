@@ -358,8 +358,144 @@ export const MEA_TRIAZINE_PRODUCT_PAGE_FAQS: FAQItem[] = [
   },
 ];
 
+export const SODIUM_CUMENE_SULFONATE_40_FAQS: FAQItem[] = [
+  {
+    question: "What is Sodium Cumene Sulfonate 40% (SCS-40)?",
+    answer:
+      "Sodium Cumene Sulfonate 40% is an aqueous hydrotrope solution (CAS 28348-53-0) containing 40 ± 1% active matter. It is used as a coupling agent and viscosity modifier in liquid detergents, dish wash, agrochemical concentrates, and industrial cleaners to keep anionic and nonionic surfactants soluble at high active loadings.",
+  },
+  {
+    question: "What is the CAS number and molecular formula of Sodium Cumene Sulfonate?",
+    answer:
+      "The CAS number of Sodium Cumene Sulfonate is 28348-53-0, also known as cumenesulfonic acid sodium salt or isopropylbenzenesulfonic acid sodium salt. The molecular formula is C9H11NaO3S and the molecular weight is 222.24 g/mol.",
+  },
+  {
+    question: "Sodium Cumene Sulfonate 40% liquid vs 90% powder — which should I buy?",
+    answer:
+      "The 40% liquid blends cold and ships best for regional buyers within ~2,500 km of the plant. The 90% powder cuts freight cost per kg active by roughly 60%, making it preferred for long-haul export. Chemistry and CAS are identical — only form factor, handling, and logistics differ.",
+  },
+  {
+    question: "What is the typical dosage of SCS-40 in liquid detergent?",
+    answer:
+      "Typical dosage of SCS-40 in liquid detergent is 1–8% on product weight depending on surfactant loading and target clarity temperature. A starting point of 3% is common for a 20% active-matter laundry liquid; increase to 5–8% for concentrated formulations above 30% active matter that require a low cloud point.",
+  },
+  {
+    question: "Is Sodium Cumene Sulfonate 40% safe and biodegradable?",
+    answer:
+      "SCS-40 is classified under GHS only as a mild eye irritant (Category 2A). It is readily biodegradable, REACH pre-registered, and non-hazardous for transport under IMDG/ADR. PPE requirements are limited to safety goggles and nitrile gloves during handling. The full SDS is available on request.",
+  },
+  {
+    question: "What packaging and minimum order quantity do you supply for SCS-40?",
+    answer:
+      "Vasudev Chemo Pharma supplies SCS-40 in 250 kg HDPE drums, 1,000 kg IBC totes, and 22 MT ISO tank loads for export. Export MOQ is 1 MT; domestic MOQ is 220 kg. Shipments include a batch Certificate of Analysis, GHS-compliant SDS, and Kosher/Halal certification on request.",
+  },
+];
+
+export const SODIUM_CUMENE_SULFONATE_90_FAQS: FAQItem[] = [
+  {
+    question: "What is Sodium Cumene Sulfonate 90% (SCS-90)?",
+    answer:
+      "Sodium Cumene Sulfonate 90% is a free-flowing hydrotrope powder (CAS 28348-53-0) with 90 ± 1% active matter. It is used as a coupling agent in spray-dried laundry powders, dish wash powders, alkaline cleaner concentrates, and agrochemical water-dispersible formulations where maximum active per kg and minimum water are required.",
+  },
+  {
+    question: "Why choose SCS-90 powder over SCS-40 liquid?",
+    answer:
+      "SCS-90 powder delivers the same hydrotrope chemistry as SCS-40 at 2.25× the active matter per kg, cutting freight cost per kg active by roughly 60%. It is the preferred grade for long-haul CIF export to Europe, the Americas, and Africa, and for dry-blend processes where water addition is undesirable.",
+  },
+  {
+    question: "How should Sodium Cumene Sulfonate 90% powder be stored?",
+    answer:
+      "Store SCS-90 powder in sealed bags or drums at 10–35 °C in a dry, shaded warehouse. The powder is mildly hygroscopic; reseal partially used packs promptly. Shelf life is 24 months in original packaging. Avoid contact with strong oxidisers and keep away from prolonged high-humidity conditions to prevent caking.",
+  },
+  {
+    question: "How do I dissolve SCS-90 powder into a formulation?",
+    answer:
+      "SCS-90 dissolves in water at any concentration. For cold blends, add the powder slowly to water under agitation; for hot blends, warm water to 40–50 °C to accelerate dissolution. Typical dosage in finished detergent is 1–4% active, equivalent to ~1.1–4.5% SCS-90 powder on total formulation weight.",
+  },
+  {
+    question: "Is SCS-90 REACH-registered and export-ready?",
+    answer:
+      "Yes. Vasudev Chemo Pharma's SCS-90 powder is REACH pre-registered, ships with a GHS-compliant Safety Data Sheet, and qualifies for Kosher and Halal certification on request. The product is non-hazardous under IMDG/ADR and exports in 25 kg HDPE-lined paper bags, 500 kg big bags, or 1,000 kg jumbo bags.",
+  },
+  {
+    question: "What is the CAS number of SCS-90 and how does it differ from SXS-90?",
+    answer:
+      "SCS-90 has CAS 28348-53-0 (sodium cumene sulfonate). SXS-90 is sodium xylene sulfonate, CAS 1300-72-7 — a chemically distinct hydrotrope with slightly different hydrotroping efficiency. SCS typically out-performs SXS per gram of active in nonionic-dominated systems; SXS is often preferred in high-electrolyte alkaline cleaners.",
+  },
+];
+
+export const SODIUM_XYLENE_SULFONATE_40_FAQS: FAQItem[] = [
+  {
+    question: "What is Sodium Xylene Sulfonate 40% (SXS-40)?",
+    answer:
+      "Sodium Xylene Sulfonate 40% is a pale-yellow aqueous hydrotrope solution (CAS 1300-72-7) with 40 ± 1% active matter. It is used as a coupling agent in surfactant-rich liquid detergents, alkaline hard-surface cleaners, dish wash, laundry liquids, and agrochemical concentrates to prevent gel-phase separation and stabilise high-electrolyte systems.",
+  },
+  {
+    question: "What is the CAS number and molecular formula of Sodium Xylene Sulfonate?",
+    answer:
+      "The CAS number of Sodium Xylene Sulfonate is 1300-72-7. It is the sodium salt of dimethylbenzenesulfonic acid (mixed xylene isomers) with molecular formula C8H9NaO3S and a molecular weight of 208.21 g/mol. Common synonyms include xylenesulfonic acid sodium salt and SXS.",
+  },
+  {
+    question: "SXS vs SCS — which hydrotrope should I use?",
+    answer:
+      "SXS offers stronger electrolyte tolerance and is preferred in high-alkaline or high-salt cleaners. SCS usually gives better cloud-point depression per gram of active in nonionic-dominated liquid detergents. For most household dish wash and laundry concentrates, SXS-40 is the default; switch to SCS-40 when nonionic loading is high.",
+  },
+  {
+    question: "What is the typical dosage of SXS-40 in liquid laundry detergent?",
+    answer:
+      "Typical dosage of SXS-40 in liquid laundry detergent is 2–6% on product weight. For a 15–25% active-matter laundry liquid, start at 3%; increase to 5–6% for highly built concentrates or where the cloud point must stay below 0 °C to survive winter warehousing. Always confirm with bench cloud-point trials.",
+  },
+  {
+    question: "Is Sodium Xylene Sulfonate 40% safe to handle?",
+    answer:
+      "SXS-40 is classified under GHS only as a mild eye irritant (Category 2A) and is non-hazardous for transport under IMDG/ADR. It is readily biodegradable and REACH pre-registered. PPE: safety goggles and nitrile gloves during decanting. Store at 10–40 °C; prolonged exposure below 5 °C can cause reversible crystallisation.",
+  },
+  {
+    question: "What packaging and minimum order quantity do you supply for SXS-40?",
+    answer:
+      "Vasudev Chemo Pharma supplies SXS-40 in 250 kg HDPE drums, 1,000 kg IBC totes, and 22 MT ISO tank loads. Export MOQ is 1 MT; domestic MOQ is 220 kg. Every shipment includes a batch Certificate of Analysis and GHS-compliant SDS. Kosher and Halal certification is available on request for food-contact cleaner applications.",
+  },
+];
+
+export const SODIUM_XYLENE_SULFONATE_90_FAQS: FAQItem[] = [
+  {
+    question: "What is Sodium Xylene Sulfonate 90% (SXS-90)?",
+    answer:
+      "Sodium Xylene Sulfonate 90% is a free-flowing hydrotrope powder (CAS 1300-72-7) at 90 ± 1% active matter. It is used as a coupling agent in spray-dried detergent powders, alkaline cleaner concentrates, agrochemical water-dispersible granules, and industrial cleaners where low-water, high-active formulations are required.",
+  },
+  {
+    question: "Why use SXS-90 powder instead of SXS-40 liquid?",
+    answer:
+      "SXS-90 powder concentrates 2.25× more active matter per kg than SXS-40 liquid, cutting freight cost per kg active by approximately 60%. It is the preferred grade for long-haul export and for spray-dried detergent powder, built laundry powder, and dry-blended alkaline cleaner concentrates where added water is undesirable.",
+  },
+  {
+    question: "How should SXS-90 powder be stored and handled?",
+    answer:
+      "Store SXS-90 in sealed bags at 10–35 °C in a dry warehouse. The powder is mildly hygroscopic; reseal partial packs promptly to avoid caking. Shelf life is 24 months in original packaging. Use dust-suppression PPE (goggles, nitrile gloves, dust mask) when handling large volumes; the product is not a dust-explosion hazard.",
+  },
+  {
+    question: "What is the typical dosage of SXS-90 in a spray-dried laundry powder?",
+    answer:
+      "Typical dosage of SXS-90 in spray-dried laundry powder is 1–4% active on finished product, equivalent to ~1.1–4.5% SXS-90 powder on total weight. It improves slurry flow-ability during spray-drying, reduces stickiness in the tower, and helps maintain a low cloud point in the rehydrated wash liquor.",
+  },
+  {
+    question: "Is SXS-90 powder REACH-registered and export-ready?",
+    answer:
+      "Yes. Vasudev Chemo Pharma's SXS-90 powder is REACH pre-registered, ships with a GHS-compliant SDS, and qualifies for Kosher and Halal certification on request. It is non-hazardous under IMDG/ADR and ships in 25 kg HDPE-lined paper bags, 500 kg big bags, or 1,000 kg jumbo bags with batch COA.",
+  },
+  {
+    question: "How does SXS-90 compare to SCS-90 in formulation?",
+    answer:
+      "SXS-90 (CAS 1300-72-7) and SCS-90 (CAS 28348-53-0) are chemically distinct hydrotropes. SXS-90 delivers stronger electrolyte tolerance in alkaline or salt-rich cleaners; SCS-90 typically gives better cloud-point depression in nonionic-dominated systems. Formulators often dual-spec both grades and choose based on cost per kg active and target performance.",
+  },
+];
+
 export const PRODUCT_PAGE_FAQS: Record<string, FAQItem[]> = {
   "mea-triazine-78-h2s-scavenger": MEA_TRIAZINE_PRODUCT_PAGE_FAQS,
+  "sodium-cumene-sulfonate-40": SODIUM_CUMENE_SULFONATE_40_FAQS,
+  "sodium-cumene-sulfonate-90": SODIUM_CUMENE_SULFONATE_90_FAQS,
+  "sodium-xylene-sulfonate-40": SODIUM_XYLENE_SULFONATE_40_FAQS,
+  "sodium-xylene-sulfonate-90": SODIUM_XYLENE_SULFONATE_90_FAQS,
 };
 
 export const PRODUCT_FALLBACK_FAQS: Record<string, FAQItem[]> = {

@@ -1,10 +1,11 @@
 import { Product } from "./types";
+import { isRemovedProductSlug } from "./removed-products";
 
 /**
  * Product seed data — 12 chemical products (Vasudev Chemo Pharma catalog).
  * Used as a static fallback when the database is unavailable.
  */
-export const products: Product[] = [
+const productCatalog: Product[] = [
   // ─── INDUSTRIAL CHEMICALS ───────────────────────────────────────
   {
     id: 1,
@@ -949,8 +950,13 @@ export const products: Product[] = [
   },
 ];
 
+export const products: Product[] = productCatalog.filter(
+  (product) => !isRemovedProductSlug(product.slug)
+);
+
 /** Find a product by slug */
 export function getProductBySlug(slug: string): Product | undefined {
+  if (isRemovedProductSlug(slug)) return undefined;
   return products.find((p) => p.slug === slug);
 }
 

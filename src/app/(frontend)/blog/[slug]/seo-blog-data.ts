@@ -1,4 +1,5 @@
 import { brandArticlesData } from "./brand-articles-data";
+import { hydrotropeArticlesData } from "./hydrotrope-articles-data";
 
 /* ------------------------------------------------------------------ */
 /*  Blog data type (SEO-enriched)                                     */
@@ -30,6 +31,7 @@ export type BlogEntry = {
 
 export const blogData: Record<string, BlogEntry> = {
   ...brandArticlesData,
+  ...hydrotropeArticlesData,
 
   /* ================================================================== */
   /*  Month 2 — SEO Content Blog Posts                                  */
@@ -238,7 +240,7 @@ export const blogData: Record<string, BlogEntry> = {
       {
         heading: "Waste Minimisation and Circular Economy Practices",
         id: "waste-minimisation-circular-economy",
-        body: "Traditional chemical manufacturing generates significant by-products and waste streams. Sustainable manufacturers are closing the loop by recovering solvents for reuse, converting by-products into saleable co-products, and implementing zero-liquid-discharge (ZLD) systems. These circular economy practices not only reduce disposal costs and environmental liability but also create new revenue streams. For instance, the production of Copper Sulphate and Manganese Sulphate can be integrated with other process streams to maximise atom economy — ensuring that the maximum proportion of raw materials ends up in the final product rather than waste. Water recycling and treatment systems further reduce freshwater consumption, a critical concern in water-stressed regions.",
+        body: "Traditional chemical manufacturing generates significant by-products and waste streams. Sustainable manufacturers are closing the loop by recovering solvents for reuse, converting by-products into saleable co-products, and implementing zero-liquid-discharge (ZLD) systems. These circular economy practices not only reduce disposal costs and environmental liability but also create new revenue streams. Process integration, by-product recovery, and water recycling can help maximise atom economy, ensuring that more raw material ends up in saleable product rather than waste. Water recycling and treatment systems further reduce freshwater consumption, a critical concern in water-stressed regions.",
       },
       {
         heading: "Regulatory Compliance and ISO Certification",
@@ -267,8 +269,8 @@ export const blogData: Record<string, BlogEntry> = {
         href: "/product/mea-triazine-78-h2s-scavenger",
       },
       {
-        text: "Copper Sulphate",
-        href: "/product/copper-sulphate",
+        text: "industrial chemical products",
+        href: "/product",
       },
       {
         text: "our chemical manufacturing services",
@@ -312,7 +314,7 @@ export const blogData: Record<string, BlogEntry> = {
       {
         heading: "Robotic Process Automation in Chemical Handling",
         id: "robotic-process-automation",
-        body: "Robotic systems are increasingly handling tasks that are dangerous, repetitive, or require extreme precision in chemical plants. Automated material handling systems transport raw materials from storage to reactors, eliminating manual lifting of heavy drums and reducing chemical exposure risks. Robotic packaging lines precisely fill, seal, and label containers — from 25 kg bags of Copper Sulphate to 200-litre drums of liquid chemicals — with consistent accuracy that minimises product giveaway and ensures correct labelling for international shipments. Collaborative robots (cobots) work alongside human operators in quality control laboratories, handling sample preparation and routine analytical procedures while skilled chemists focus on interpretation and decision-making.",
+        body: "Robotic systems are increasingly handling tasks that are dangerous, repetitive, or require extreme precision in chemical plants. Automated material handling systems transport raw materials from storage to reactors, eliminating manual lifting of heavy drums and reducing chemical exposure risks. Robotic packaging lines precisely fill, seal, and label containers — from 25 kg bags to 200-litre drums of liquid chemicals — with consistent accuracy that minimises product giveaway and ensures correct labelling for international shipments. Collaborative robots (cobots) work alongside human operators in quality control laboratories, handling sample preparation and routine analytical procedures while skilled chemists focus on interpretation and decision-making.",
       },
       {
         heading: "Safety Automation and Emergency Response",
@@ -341,8 +343,8 @@ export const blogData: Record<string, BlogEntry> = {
         href: "/product/bis-2-chloroethyl-amine-hydrochloride",
       },
       {
-        text: "Copper Sulphate industrial grade",
-        href: "/product/copper-sulphate",
+        text: "industrial chemical catalog",
+        href: "/product",
       },
       {
         text: "custom formulation solutions",
@@ -393,9 +395,9 @@ export const blogData: Record<string, BlogEntry> = {
       },
       {
         heading:
-          "4. Copper Sulphate — Multi-Industry Workhouse",
-        id: "copper-sulphate-applications",
-        body: "Copper Sulphate (CuSO₄·5H₂O, CAS 7758-99-8) is one of the most versatile inorganic chemicals, with applications spanning agriculture, mining, water treatment, and chemical synthesis. In agriculture, it is the active ingredient in Bordeaux mixture for fungicide applications on crops. In mining, copper sulphate serves as a flotation reagent for separating valuable minerals from ore. In water treatment, it controls algae growth in reservoirs and swimming pools. Its role as a precursor in electroplating, pigment manufacturing, and animal feed supplementation further underscores its industrial importance. India exports over 50,000 tonnes of copper sulphate annually, with Vasudev Chemo Pharma among the leading manufacturers and exporters.",
+          "4. MMA Triazine 40% - BTEX-Free H2S Scavenger",
+        id: "mma-triazine-h2s-scavenger",
+        body: "MMA Triazine 40% is a methylamine-based H2S scavenger used where BTEX-free treatment chemistry is preferred. It supports odour control, water-treatment service, and sour-stream management while giving buyers another triazine option alongside high-active MEA Triazine grades. Its handling profile, liquid format, and compatibility with common dosing systems make it useful for operations that need reliable hydrogen sulphide control without aromatic solvent concerns.",
       },
       {
         heading:
@@ -408,7 +410,7 @@ export const blogData: Record<string, BlogEntry> = {
       "MEA Triazine for critical H2S scavenging in oil & gas",
       "P-Toluenesulfonic Acid as a versatile industrial catalyst",
       "Sodium Cumene Sulfonate as a versatile hydrotrope",
-      "Copper Sulphate for agriculture, mining, and water treatment",
+      "MMA Triazine 40% for BTEX-free H2S scavenging",
     ],
     quote:
       '"Specialty chemicals are the silent enablers of modern industry. Behind every fuel that burns cleanly, every medicine that heals, and every crop that thrives, there are specialty chemicals performing invisible but indispensable functions."',

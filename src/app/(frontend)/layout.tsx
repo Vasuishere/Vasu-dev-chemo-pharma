@@ -5,6 +5,7 @@ import "../globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import CopyProtection from "@/components/CopyProtection";
 import SiteJsonLd from "@/components/seo/SiteJsonLd";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -167,6 +168,7 @@ export default function FrontendLayout({
         className={`${monaSans.variable} ${GeistSans.variable} antialiased`}
       >
         <SiteJsonLd />
+        <CopyProtection />
         <Navbar />
         {children}
         <Footer />

@@ -209,10 +209,10 @@ Theoretical capacity: 1 mole of MEA Triazine scavenges **up to 3 moles of H₂S*
 
 **Canonical URL:** https://www.vasudevchemopharma.com/product/sodium-xylene-sulfonate-90
 
-**Direct answer:** Sodium Xylene Sulfonate 90% (SXS-90) is a free-flowing powder hydrotrope (CAS 1300-72-7) at 90 ± 1% active matter. It is used as a coupling agent in spray-dried detergent powders, alkaline cleaner concentrates, and agrochemical water-dispersible granules, delivering strong cloud-point depression and low freight cost per kg active for global export.
+**Direct answer:** Sodium Xylene Sulfonate 90% (SXS-90) is a high-active, free-flowing powder hydrotrope (CAS 1300-72-7, EC 215-090-9) supplied at 90 ± 1% active matter. It is the dry, export-efficient SXS grade for detergent powders, alkaline cleaner concentrates, industrial degreasers, agrochemical water-dispersible granules, textile auxiliaries, paper-processing additives, and personal-care surfactant bases where formulators need solubilization, coupling, viscosity reduction, cloud-point control, electrolyte tolerance, compact storage, and lower freight cost per kg active.
 
 - **CAS Number:** 1300-72-7
-- **Synonyms:** Xylenesulfonic acid sodium salt (powder) · Dimethylbenzenesulfonic acid sodium salt · SXS-90 · SXS powder
+- **Synonyms:** Xylenesulfonic acid sodium salt (powder) · Dimethylbenzenesulfonic acid sodium salt · Sodium Xylene Sulphonate 90% · Sodium Xylenesulfonate · SXS-90 · SXS powder
 - **Molecular formula / weight:** C8H9NaO3S · 208.21 g/mol
 - **Form:** Free-flowing off-white to pale-yellow powder
 - **Active matter:** 90 ± 1%
@@ -221,12 +221,13 @@ Theoretical capacity: 1 mole of MEA Triazine scavenges **up to 3 moles of H₂S*
 - **Moisture:** ≤ 5%
 - **Solubility:** Fully soluble in water
 - **Storage:** 10–35 °C in sealed bag · 24-month shelf life · mildly hygroscopic — reseal partial packs
-- **Packaging:** 25 kg HDPE-lined paper bags · 500 kg big bags · 1,000 kg jumbo bags
+- **Packaging:** 15 kg HDPE-lined bags · 25 kg HDPE-lined paper bags · 500 kg big bags · 1,000 kg jumbo bags
 - **MOQ:** 1 MT export · 220 kg domestic
 - **HS Code:** 29041000
-- **Applications:** Spray-dried laundry powders · dish wash powders · built alkaline detergent concentrates · agrochemical water-dispersible granules (WDG) · industrial dry-blend cleaner concentrates
+- **Applications:** Spray-dried laundry powders · dish wash powders · built alkaline detergent concentrates · industrial degreasers · agrochemical water-dispersible granules (WDG) and soluble liquids · textile and dye auxiliaries · paper industry pentosan/lignin extraction aids · leather glue/additive systems · personal-care surfactant bases
 - **Typical dosage:** 1–4% active on finished product (≈ 1.1–4.5% SXS-90 powder on total weight)
 - **Freight advantage:** 2.25× active matter per kg versus SXS-40 liquid — roughly 60% lower CIF cost per kg active on long-haul lanes.
+- **Buyer checklist:** Request COA, SDS, TDS, active matter, pH, moisture, sulfate content, bag size, shelf life, sample terms, MOQ, and Incoterms before approving bulk supply.
 - **Safety:** GHS Category 2A eye irritant only · not a dust-explosion hazard · readily biodegradable · REACH pre-registered · IMDG/ADR non-hazardous
 - **Certifications available:** ISO 9001:2015 · REACH · Kosher · Halal · GMP
 

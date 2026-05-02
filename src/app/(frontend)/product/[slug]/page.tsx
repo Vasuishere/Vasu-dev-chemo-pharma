@@ -14,7 +14,7 @@ import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 import FAQSchema from "@/components/seo/FAQSchema";
 import { getProductSeoKeywords } from "@/lib/product-seo-keywords";
 import { PRODUCT_META_OVERRIDES } from "@/lib/seo/product-meta-overrides";
-import { getProductVideos } from "@/lib/seo/product-media-overrides";
+import { getProductMediaOverride } from "@/lib/seo/product-media-overrides";
 import { PRODUCT_FALLBACK_FAQS, PRODUCT_PAGE_FAQS } from "@/lib/seo/product-faqs";
 import { PRODUCT_DIRECT_ANSWERS } from "@/lib/seo/product-direct-answers";
 import {
@@ -84,7 +84,10 @@ export async function generateMetadata({
     );
 
     const canonicalUrl = `https://www.vasudevchemopharma.com/product/${product.slug}`;
-    const ogImageUrl = product.imageUrl || "https://www.vasudevchemopharma.com/images/og-default.webp";
+    const mediaOverride = getProductMediaOverride(slug);
+    const resolvedPrimaryImageUrl =
+      product.imageUrl || mediaOverride.primaryImageUrl || "";
+    const ogImageUrl = resolvedPrimaryImageUrl || "https://www.vasudevchemopharma.com/images/og-default.webp";
     const ogImageAlt = `${product.name}${product.casNumber ? ` (CAS ${product.casNumber})` : ""} — ${CATEGORY_LABELS[product.category]} from Vasudev Chemo Pharma`;
     const resolvedDescription = isMeaTriazine
       ? MEA_TRIAZINE_METADATA.description
@@ -180,6 +183,38 @@ function ContentPlaceholder({
   );
 }
 
+const SXS_90_INTENT_GUIDE = {
+  purchaseSignals: [
+    "90% active powder grade for buyers comparing sodium xylene sulfonate 90% manufacturer, supplier, exporter, bulk price, MOQ, and sample terms.",
+    "CAS 1300-72-7, EC 215-090-9, molecular formula C8H9NaO3S, also searched as sodium xylenesulfonate, sodium xylene sulphonate, SXS powder, and xylenesulfonic acid sodium salt.",
+    "Best fit for detergent powder, alkaline cleaner, degreaser, agrochemical, textile, paper, leather, and personal-care surfactant systems that need a dry hydrotrope or on-site dilution.",
+    "Request COA, SDS, TDS, active matter, pH, moisture, sulfate content, bag size, shelf life, and Incoterms before approving a bulk order.",
+  ],
+  gradeComparison: [
+    {
+      label: "SXS 90% powder",
+      value:
+        "Lower shipped water, compact storage, lower freight per kg active, and useful for dry blends or plants that can dissolve powder before production.",
+    },
+    {
+      label: "SXS 40% liquid",
+      value:
+        "Ready-to-use liquid handling, faster cold blending, and simpler dosing when the plant wants to avoid powder make-down.",
+    },
+    {
+      label: "SCS 90% powder",
+      value:
+        "A related hydrotrope to compare when nonionic surfactant cloud-point depression is the main formulation target.",
+    },
+  ],
+  formulationChecks: [
+    "Dissolve slowly into water under agitation before adding high-electrolyte builders or concentrated surfactants.",
+    "Run a dosage ladder on active basis; common trials start around 1-4% active in detergent and cleaner systems.",
+    "Check clarity, cloud point, viscosity, fragrance solubilization, phase separation, and cold-storage stability in the actual formula.",
+    "Keep bags sealed in a dry warehouse because powder hydrotropes can cake after long humidity exposure.",
+  ],
+};
+
 /* ═══════════════════════════════════════════════════════════════════
    PRODUCT DETAIL PAGE
    ═══════════════════════════════════════════════════════════════════ */
@@ -215,9 +250,23 @@ export default async function ProductDetailPage({
     product.category,
     3
   );
-  const safeImages = Array.isArray(product.images) ? product.images : [];
-  const videosResult = getProductVideos(slug);
-  const safeVideos = Array.isArray(videosResult) ? videosResult : [];
+  const mediaOverride = getProductMediaOverride(slug);
+  const resolvedPrimaryImageUrl =
+    product.imageUrl || mediaOverride.primaryImageUrl || "";
+  const productImages = Array.isArray(product.images) ? product.images : [];
+  const overrideImages = Array.isArray(mediaOverride.images)
+    ? mediaOverride.images
+    : [];
+  const safeImages =
+    productImages.length > 0 || product.imageUrl
+      ? productImages
+      : overrideImages;
+  const overrideVideos = Array.isArray(mediaOverride.videos)
+    ? mediaOverride.videos
+    : [];
+  const safeVideos = Array.isArray(product.videos) && product.videos.length > 0
+    ? product.videos
+    : overrideVideos;
   const safeDocuments = Array.isArray(product.documents) ? product.documents : [];
   const sdsDocument = safeDocuments.find((doc) => {
     const docType = (doc.docType || "").toUpperCase();
@@ -336,11 +385,18 @@ export default async function ProductDetailPage({
             "See the liquid cumene sulfonate grade for coupling and solubilizing performance in aqueous systems.",
         },
         {
-          href: "/blog/top-5-specialty-chemicals-revolutionizing-industrial-applications",
-          label: "Industry article",
-          title: "Top 5 Specialty Chemicals Revolutionizing Industrial Applications",
+          href: "/blog/sodium-xylene-sulfonate-90-manufacturer-india-bulk-supply",
+          label: "Buying guide",
+          title: "Sodium Xylene Sulfonate 90% Manufacturer in India",
           description:
-            "Read broader specialty-chemical context, including hydrotrope demand across cleaning and industrial uses.",
+            "Use the bulk supply checklist for SXS 90% samples, COA, packaging, MOQ, and quote comparison.",
+        },
+        {
+          href: "/blog/sodium-xylene-sulfonate-90-vs-other-hydrotropes",
+          label: "Research guide",
+          title: "SXS 90% vs SCS, STS and Urea Hydrotropes",
+          description:
+            "Compare SXS 90% with common hydrotrope alternatives for electrolyte tolerance and formulation stability.",
         },
       ],
     },
@@ -453,11 +509,12 @@ export default async function ProductDetailPage({
 
             {/* Left — Product Image */}
             <div className="bg-light rounded-3xl p-4 sm:p-8 self-start min-h-[360px]">
-              {product.imageUrl || safeImages.length > 0 || safeVideos.length > 0 ? (
+              {resolvedPrimaryImageUrl || safeImages.length > 0 || safeVideos.length > 0 ? (
                 <ProductImageGallery
                   productName={product.name}
                   productLabel={`${product.name}${product.casNumber ? ` (CAS ${product.casNumber})` : ""}`}
-                  primaryImageUrl={product.imageUrl}
+                  primaryImageUrl={resolvedPrimaryImageUrl}
+                  fallbackImageUrl={mediaOverride.primaryImageUrl}
                   images={safeImages}
                   videos={safeVideos}
                 />
@@ -600,6 +657,95 @@ export default async function ProductDetailPage({
           </section>
 
           {/* ─── 3b. ALSO KNOWN AS / SYNONYMS (MEA + MMA Triazine) ───── */}
+          {slug === "sodium-xylene-sulfonate-90" && (
+            <section id="sxs-90-buying-guide" className="mb-16">
+              <div className="mb-6">
+                <p className="text-xs font-semibold uppercase tracking-wider text-accent mb-2">
+                  Buyer and formulation guide
+                </p>
+                <h2 className="font-heading text-h3 text-primary">
+                  Sodium Xylene Sulfonate 90% Powder Selection Guide
+                </h2>
+                <p className="mt-4 max-w-3xl text-sm leading-relaxed text-gray-600">
+                  Use this section to qualify SXS 90% against supplier listings,
+                  marketplace pages, and technical datasheets. It is written for
+                  procurement teams, formulators, and AI search systems that need
+                  a concise source-of-truth summary.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+                <div className="border border-gray-200 rounded-2xl p-6">
+                  <h3 className="font-heading text-h5 text-primary mb-4">
+                    Procurement checkpoints
+                  </h3>
+                  <ul className="space-y-3">
+                    {SXS_90_INTENT_GUIDE.purchaseSignals.map((item) => (
+                      <li key={item} className="flex items-start gap-3 text-sm leading-relaxed text-gray-700">
+                        <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="border border-gray-200 rounded-2xl p-6">
+                  <h3 className="font-heading text-h5 text-primary mb-4">
+                    Formulation trial checks
+                  </h3>
+                  <ul className="space-y-3">
+                    {SXS_90_INTENT_GUIDE.formulationChecks.map((item) => (
+                      <li key={item} className="flex items-start gap-3 text-sm leading-relaxed text-gray-700">
+                        <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="mt-6 border border-gray-200 rounded-2xl overflow-hidden">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="bg-primary text-white">
+                      <th className="px-5 py-3 text-left font-semibold">Grade</th>
+                      <th className="px-5 py-3 text-left font-semibold">When to choose it</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {SXS_90_INTENT_GUIDE.gradeComparison.map((row, i) => (
+                      <tr key={row.label} className={i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}>
+                        <td className="px-5 py-3 font-semibold text-primary">{row.label}</td>
+                        <td className="px-5 py-3 leading-relaxed text-gray-700">{row.value}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Link
+                  href="/blog/sodium-xylene-sulfonate-90-manufacturer-india-bulk-supply"
+                  className="inline-flex items-center rounded-full border border-accent px-5 py-3 text-sm font-semibold text-accent transition-colors hover:bg-accent/10"
+                >
+                  Read bulk supply guide
+                </Link>
+                <Link
+                  href="/blog/sodium-xylene-sulfonate-90-price-quote-moq-packaging"
+                  className="inline-flex items-center rounded-full border border-accent px-5 py-3 text-sm font-semibold text-accent transition-colors hover:bg-accent/10"
+                >
+                  Compare price, MOQ and packaging
+                </Link>
+                <Link
+                  href="/hydrotropes"
+                  className="inline-flex items-center rounded-full border border-accent px-5 py-3 text-sm font-semibold text-accent transition-colors hover:bg-accent/10"
+                >
+                  Hydrotropes pillar guide
+                </Link>
+              </div>
+            </section>
+          )}
+
           {false && (
             <section id="synonyms" className="mb-16">
               <h2 className="font-heading text-h3 text-primary mb-4">

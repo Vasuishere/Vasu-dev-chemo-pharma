@@ -90,8 +90,9 @@ Hydrotropes are short-chain aromatic sulfonate salts that increase the solubilit
 
 - **Chemistry:** Sodium salt of dimethylbenzenesulfonic acid (mixed xylene isomers). Molecular formula C8H9NaO3S, MW 208.21 g/mol.
 - **SXS-40 (liquid):** 40 ± 1% active matter · pH 7–9 · pale-yellow liquid · ships in 250 kg HDPE drums / 1000 L IBC / 22 MT ISO tank · preferred for high-electrolyte alkaline cleaners and laundry liquids.
-- **SXS-90 (powder):** 90 ± 1% active matter · free-flowing powder · preferred for spray-dried laundry powders, built alkaline concentrates, and agrochemical water-dispersible granules.
-- **Primary applications:** household and HI&I alkaline cleaners, laundry liquids and powders, hand dish wash, vehicle wash concentrates, industrial degreasers, textile and paper-mill auxiliaries.
+- **SXS-90 (powder):** 90 ± 1% active matter · free-flowing powder · preferred for spray-dried laundry powders, built alkaline concentrates, industrial degreasers, dry blends, and agrochemical water-dispersible granules.
+- **Primary applications:** household and HI&I alkaline cleaners, laundry liquids and powders, hand dish wash, vehicle wash concentrates, industrial degreasers, agrochemical WDG/SL systems, textile auxiliaries, paper-processing aids, leather glue/additives, and personal-care surfactant bases.
+- **SXS-90 buyer checklist:** Confirm COA, SDS, TDS, active matter, pH, moisture, sulfate content, bag size, shelf life, sample terms, MOQ, and Incoterms before approving a bulk order.
 - **SCS vs SXS guidance:** SCS out-performs SXS per gram of active in nonionic-dominated systems. SXS delivers stronger electrolyte tolerance in alkaline or salt-rich cleaners. For most mainstream household dish wash and laundry concentrates, SXS-40 is the default; switch to SCS-40 when nonionic loading or cold-storage clarity is the binding constraint.
 - **40% vs 90% decision:** Choose 40% liquid when regional freight distance is short (<2500 km) or cold-blend processing is preferred. Choose 90% powder for long-haul CIF export and spray-dried / dry-blend formulations.
 

@@ -22,14 +22,18 @@ type ProductImageGalleryProps = {
   productName: string;
   productLabel?: string;
   primaryImageUrl?: string;
+  fallbackImageUrl?: string;
   images: ProductImage[];
   videos?: ProductVideo[];
 };
+
+const VIDEO_FILE_PATTERN = /\.(mp4|webm|mov|m4v)(?:[?#].*)?$/i;
 
 export default function ProductImageGallery({
   productName,
   productLabel,
   primaryImageUrl,
+  fallbackImageUrl,
   images,
   videos = [],
 }: ProductImageGalleryProps) {
@@ -47,7 +51,7 @@ export default function ProductImageGallery({
       positionLabel?: string
     ) => {
       const trimmed = (src || "").trim();
-      if (!trimmed || seenImages.has(trimmed)) return;
+      if (!trimmed || seenImages.has(trimmed) || VIDEO_FILE_PATTERN.test(trimmed)) return;
       seenImages.add(trimmed);
       const trimmedAlt = (alt || "").trim();
       const fallbackAlt = positionLabel
@@ -99,6 +103,12 @@ export default function ProductImageGallery({
   const [activeIndex, setActiveIndex] = useState(0);
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
+  const applyImageFallback = (image: HTMLImageElement) => {
+    const fallback = (fallbackImageUrl || "").trim();
+    if (!fallback || image.src === fallback) return;
+    image.src = fallback;
+  };
+
   if (mediaItems.length === 0) return null;
 
   const active = mediaItems[activeIndex] || mediaItems[0];
@@ -146,6 +156,7 @@ export default function ProductImageGallery({
                     src={thumbSrc}
                     alt={item.alt}
                     className="h-full w-full object-cover bg-white"
+                    onError={(event) => applyImageFallback(event.currentTarget)}
                   />
                 ) : (
                   <div className="h-full w-full bg-gray-100" />
@@ -188,6 +199,7 @@ export default function ProductImageGallery({
             width={active.width}
             height={active.height}
             className="max-h-[420px] w-auto max-w-full object-contain rounded-2xl"
+            onError={(event) => applyImageFallback(event.currentTarget)}
           />
         ) : (
           <video

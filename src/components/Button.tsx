@@ -5,6 +5,7 @@ interface ButtonProps {
   href: string;
   children: React.ReactNode;
   variant?: "primary" | "secondary" | "outline" | "dark";
+  size?: "sm" | "md" | "lg";
   className?: string;
 }
 
@@ -12,10 +13,17 @@ export default function Button({
   href,
   children,
   variant = "primary",
+  size = "md",
   className = "",
 }: ButtonProps) {
+  const sizeStyles = {
+    sm: "px-4 py-2 text-xs",
+    md: "px-6 py-3 text-sm",
+    lg: "px-8 py-4 text-base",
+  };
+
   const base =
-    "inline-flex items-center gap-2 text-sm font-medium px-6 py-3 rounded-full transition-all group";
+    `inline-flex items-center gap-2 font-medium rounded-full transition-all group ${sizeStyles[size]}`;
   const variants = {
     primary: "bg-accent hover:bg-accent-dark text-white",
     secondary: "bg-dark hover:bg-primary text-white",

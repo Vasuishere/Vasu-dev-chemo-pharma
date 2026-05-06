@@ -45,6 +45,7 @@ const industriesDropdown = {
     {
       heading: "Industries We Serve",
       links: [
+        { label: "H2S Scavenger Oil & Gas", href: "/h2s-scavenger-oil-gas", accent: true },
         { label: "Oil & Gas", href: "/industries/oil-gas-h2s-scavenger" },
         { label: "Water Treatment", href: "/industries/water-treatment" },
         { label: "Metal Working Fluids", href: "/industries/metal-working-fluids" },
@@ -86,6 +87,12 @@ const supplyDropdown = {
         { label: "Thailand", href: "/supply/mea-triazine-78/thailand" },
         { label: "Brazil", href: "/supply/mea-triazine-78/brazil" },
         { label: "View All Countries", href: "/supply/mea-triazine-78", accent: true },
+      ],
+    },
+    {
+      heading: "Specialty Export",
+      links: [
+        { label: "Global Hydrotropes Export", href: "/hydrotropes-global-export", accent: true },
       ],
     },
   ],

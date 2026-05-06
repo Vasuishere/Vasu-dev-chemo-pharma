@@ -59,6 +59,8 @@ const STATIC_ROUTES: RouteConfig[] = [
   { path: "/case-study", changeFrequency: "monthly", priority: 0.6 },
   { path: "/how-h2s-scavengers-work", changeFrequency: "monthly", priority: 0.8 },
   { path: "/mea-triazine-vs-mma-triazine", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/h2s-scavenger-oil-gas", changeFrequency: "weekly", priority: 0.9 },
+  { path: "/hydrotropes-global-export", changeFrequency: "weekly", priority: 0.9 },
   { path: "/mea-triazine-prices", changeFrequency: "weekly", priority: 0.9 },
   { path: "/mea-triazine-production-plant-cost", changeFrequency: "monthly", priority: 0.8 },
   { path: "/supply/mea-triazine-78", changeFrequency: "weekly", priority: 0.85 },

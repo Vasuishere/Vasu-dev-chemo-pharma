@@ -1,4 +1,4 @@
-type ProductMetaOverride = {
+﻿type ProductMetaOverride = {
   title: string;
   description: string;
 };
@@ -10,9 +10,9 @@ type ProductMetaOverride = {
  */
 export const PRODUCT_META_OVERRIDES: Record<string, ProductMetaOverride> = {
   "mma-triazine-40": {
-    title: "MMA Triazine 40% - H2S Scavenger (Methylamine Triazine)",
+    title: "MMA Triazine 40% &ndash; H2S Scavenger (Mono Methylamine Triazine 40%) Manufacturer India",
     description:
-      "MMA Triazine 40% - methylamine-based H2S scavenger for oil, gas, water treatment & paper mill. ISO 9001 Gujarat manufacturer. MOQ 1 MT. Request a quote.",
+      "MMA Triazine 40% &ndash; H2S Scavenger for oil, gas, water treatment & paper mill. ISO 9001 Gujarat manufacturer. MOQ 1 MT. Request a quote.",
   },
   "p-toluenesulfonic-acid": {
     title: "P-Toluenesulfonic Acid - Industrial Grade Supplier India",
@@ -55,8 +55,11 @@ export const PRODUCT_META_OVERRIDES: Record<string, ProductMetaOverride> = {
       "Sodium Xylene Sulfonate 90% powder (SXS 90%, CAS 1300-72-7) hydrotrope manufacturer in India for detergent powders, alkaline cleaners & exports. Request quote.",
   },
   "sodium-xylene-sulfonate-40": {
-    title: "Sodium Xylene Sulfonate 40% Manufacturer | SXS 40% Liquid",
+    title: "Sodium Xylene Sulfonate 40% (SXS 40 Liquid) Manufacturer India",
     description:
       "Sodium Xylene Sulfonate 40% liquid (SXS 40%, CAS 1300-72-7) hydrotrope for detergents, cleaners & agrochemicals from ISO 9001 India manufacturer. Request COA.",
   },
 };
+
+
+

@@ -69,8 +69,8 @@ const MEA_TRIAZINE_TARGET_MARKETS = [
 export const MEA_TRIAZINE_METADATA = {
   // Title: lead with bare "MEA Triazine" query, include synonym for the
   // "monoethanolamine triazine" long-tail, keep commercial qualifier.
-  // Kept at 52 chars to avoid desktop SERP truncation (~60 char limit).
-  title: "MEA Triazine – 78% H2S Scavenger (Monoethanolamine)",
+  // Uses the requested manufacturer-focused title for the product page.
+  title: "MEA Triazine – 78% Triazine Based H2S Scavenger (Monoethanolamine Triazine) Manufacturer India",
   description:
     "MEA Triazine 78% (Monoethanolamine Triazine, CAS 4719-04-4) — industrial H2S scavenger for oil, gas & biogas. ISO 9001 Indian manufacturer. Request a quote.",
   openGraphDescription:

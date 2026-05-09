@@ -49,6 +49,7 @@ const HIGH_PRIORITY_PRODUCTS = new Set([
 ]);
 
 const STATIC_ROUTES: RouteConfig[] = [
+  { path: "/hydrotropes", changeFrequency: "weekly", priority: 0.9 },
   { path: "", changeFrequency: "weekly", priority: 1.0 },
   { path: "/about", changeFrequency: "monthly", priority: 0.8 },
   { path: "/product", changeFrequency: "weekly", priority: 0.9 },

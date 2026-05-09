@@ -2651,6 +2651,59 @@ export const PRODUCT_SEO_KEYWORDS: Record<string, ProductKeywordConfig> = {
       "buy 2 chloroethylamine hydrochloride bulk",
     ],
   },
+  "triazine-h2s-scavenger-general": {
+    primaryKeyword: "triazine based h2s scavenger manufacturer india",
+    longTailKeywords: [
+      "triazine h2s scavenger supplier",
+      "h2s removal triazine chemicals",
+      "oilfield h2s scavenger manufacturer",
+      "gas sweetening triazine supplier",
+      "biogas desulphurization triization",
+      "triazine based scavenger price india",
+    ],
+  },
+  "metal-working-fluids": {
+    primaryKeyword: "metal working fluid biocide manufacturer india",
+    longTailKeywords: [
+      "metal working fluid preservative supplier",
+      "cnc coolant biocide manufacturer",
+      "triazine biocide for mwf",
+      "cutting fluid odor control chemicals",
+      "synthetic coolant biocide supplier",
+      "metal working fluid additive manufacturer",
+    ],
+  },
+  "biocide-oil-gas": {
+    primaryKeyword: "oil and gas biocide manufacturer india",
+    longTailKeywords: [
+      "oilfield water injection biocide",
+      "srb control chemicals oilfield",
+      "pipeline biocide supplier india",
+      "microbial influenced corrosion inhibitor",
+      "hydrostatic test biocide supplier",
+      "produced water biocide manufacturer",
+    ],
+  },
+  "mea-triazine-78-high-concentration": {
+    primaryKeyword: "high concentration mea triazine 78 manufacturer",
+    longTailKeywords: [
+      "mea triazine 78 export india",
+      "bulk mea triazine 78 supplier",
+      "offshore h2s scavenger 78 percent",
+      "high active mea triazine manufacturer",
+      "mea triazine 78 iso tank supply",
+    ],
+  },
+  "mma-triazine-40-btx-free": {
+    primaryKeyword: "btx free mma triazine 40 manufacturer india",
+    longTailKeywords: [
+      "btx free h2s scavenger supplier",
+      "mma triazine 40 environmental grade",
+      "refinery h2s scavenger btx free",
+      "safe mma triazine 40 supplier",
+      "btx free gas processing chemicals",
+    ],
+  },
 };
 
 function buildDefaultKeywords(name: string, casNumber: string): ProductKeywordConfig {

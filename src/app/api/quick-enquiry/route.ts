@@ -62,9 +62,11 @@ export async function POST(req: Request) {
     const phone = normalize(payload.phone);
     const requirement = normalize(payload.requirement);
 
-    if (!name || !email || !phone || !requirement) {
+    const requirementWordCount = requirement.split(/\s+/).filter(Boolean).length;
+
+    if (!name || !email || !phone || !requirement || requirementWordCount < 10) {
       return json(
-        { error: 'Name, email, phone, and requirement are required' },
+        { error: 'All fields are required and requirement must be at least 10 words' },
         { status: 400 },
         req
       );

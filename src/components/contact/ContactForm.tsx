@@ -107,9 +107,45 @@ export default function ContactForm({ nonce }: { nonce?: string }) {
   const [captchaToken, setCaptchaToken] = useState("");
   const [formStartedAt] = useState<number>(() => Date.now());
 
-  // Pre-fill product and inquiry type from URL params (?product=slug&type=sample)
-  const [defaultProduct, setDefaultProduct] = useState("");
-  const [defaultInquiryType, setDefaultInquiryType] = useState("quote");
+  // Form State
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    companyName: "",
+    country: "",
+    industry: "",
+    product: "",
+    quantity: "",
+    inquiryType: "quote",
+    message: "",
+    website: "", // honeypot
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const isFormValid = useMemo(() => {
+    const wordCount = formData.message.trim().split(/\s+/).filter(Boolean).length;
+    return (
+      formData.firstName.trim() !== "" &&
+      formData.lastName.trim() !== "" &&
+      formData.email.trim() !== "" &&
+      formData.phone.trim() !== "" &&
+      formData.companyName.trim() !== "" &&
+      formData.country.trim() !== "" &&
+      formData.industry.trim() !== "" &&
+      formData.product.trim() !== "" &&
+      formData.quantity.trim() !== "" &&
+      formData.inquiryType.trim() !== "" &&
+      wordCount >= 10
+    );
+  }, [formData]);
 
   useEffect(() => {
     // Old slug → current slug aliases (preserves existing URLs/submissions)
@@ -123,13 +159,17 @@ export default function ContactForm({ nonce }: { nonce?: string }) {
     const params = new URLSearchParams(window.location.search);
     let productParam = params.get("product") || "";
     const typeParam = params.get("type") || "";
-    if (productParam) {
-      productParam = SLUG_ALIASES[productParam] || productParam;
-      setDefaultProduct(productParam);
-    }
-    if (typeParam && INQUIRY_TYPES.some((t) => t.value === typeParam)) {
-      setDefaultInquiryType(typeParam);
-    }
+    
+    setFormData(prev => {
+      const updates: any = {};
+      if (productParam) {
+        updates.product = SLUG_ALIASES[productParam] || productParam;
+      }
+      if (typeParam && INQUIRY_TYPES.some((t) => t.value === typeParam)) {
+        updates.inquiryType = typeParam;
+      }
+      return { ...prev, ...updates };
+    });
   }, []);
 
   const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "";
@@ -156,11 +196,10 @@ export default function ContactForm({ nonce }: { nonce?: string }) {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (!isFormValid) return;
+
     setError(null);
     setSubmitting(true);
-
-    const form = e.currentTarget;
-    const formData = new FormData(form);
 
     try {
       if (captchaMode === "turnstile" && !captchaToken) {
@@ -171,18 +210,7 @@ export default function ContactForm({ nonce }: { nonce?: string }) {
         captchaMode === "turnstile" ? captchaToken : await getRecaptchaToken();
 
       const payload = {
-        firstName:    String(formData.get("firstName")   || "").trim(),
-        lastName:     String(formData.get("lastName")    || "").trim(),
-        email:        String(formData.get("email")       || "").trim(),
-        phone:        String(formData.get("phone")       || "").trim(),
-        companyName:  String(formData.get("companyName") || "").trim(),
-        country:      String(formData.get("country")     || "").trim(),
-        industry:     String(formData.get("industry")    || "").trim(),
-        product:      String(formData.get("product")     || "").trim(),
-        quantity:     String(formData.get("quantity")    || "").trim(),
-        inquiryType:  String(formData.get("inquiryType") || "").trim(),
-        message:      String(formData.get("message")     || "").trim(),
-        website:      String(formData.get("website")     || "").trim(), // honeypot
+        ...formData,
         captchaToken: providerToken,
         formStartedAt,
       };
@@ -199,7 +227,6 @@ export default function ContactForm({ nonce }: { nonce?: string }) {
       }
 
       setSubmitted(true);
-      form.reset();
       setCaptchaToken("");
     } catch (submitError: unknown) {
       if (captchaMode === "turnstile") window.turnstile?.reset();
@@ -261,6 +288,8 @@ export default function ContactForm({ nonce }: { nonce?: string }) {
           <input
             type="text"
             name="website"
+            value={formData.website}
+            onChange={handleChange}
             tabIndex={-1}
             autoComplete="off"
             aria-hidden="true"
@@ -273,11 +302,13 @@ export default function ContactForm({ nonce }: { nonce?: string }) {
             <div>
               <label htmlFor="firstName" className={labelClass}>First Name*</label>
               <input id="firstName" name="firstName" type="text" required
+                value={formData.firstName} onChange={handleChange}
                 placeholder="First name" className={inputClass} />
             </div>
             <div>
               <label htmlFor="lastName" className={labelClass}>Last Name*</label>
               <input id="lastName" name="lastName" type="text" required
+                value={formData.lastName} onChange={handleChange}
                 placeholder="Last name" className={inputClass} />
             </div>
           </div>
@@ -287,11 +318,13 @@ export default function ContactForm({ nonce }: { nonce?: string }) {
             <div>
               <label htmlFor="companyName" className={labelClass}>Company Name*</label>
               <input id="companyName" name="companyName" type="text" required
+                value={formData.companyName} onChange={handleChange}
                 placeholder="Your company name" className={inputClass} />
             </div>
             <div>
               <label htmlFor="country" className={labelClass}>Country*</label>
-              <select id="country" name="country" required defaultValue=""
+              <select id="country" name="country" required 
+                value={formData.country} onChange={handleChange}
                 className={inputClass}>
                 <option value="" disabled>Select your country</option>
                 {COUNTRIES.map((c) =>
@@ -310,11 +343,13 @@ export default function ContactForm({ nonce }: { nonce?: string }) {
             <div>
               <label htmlFor="email" className={labelClass}>Work Email*</label>
               <input id="email" name="email" type="email" required
+                value={formData.email} onChange={handleChange}
                 placeholder="you@company.com" className={inputClass} />
             </div>
             <div>
               <label htmlFor="phone" className={labelClass}>Phone / WhatsApp*</label>
               <input id="phone" name="phone" type="tel" required
+                value={formData.phone} onChange={handleChange}
                 placeholder="+1 555 000 0000" className={inputClass} />
             </div>
           </div>
@@ -324,8 +359,7 @@ export default function ContactForm({ nonce }: { nonce?: string }) {
             <div>
               <label htmlFor="product" className={labelClass}>Product Interested In*</label>
               <select id="product" name="product" required
-                key={defaultProduct}
-                defaultValue={defaultProduct}
+                value={formData.product} onChange={handleChange}
                 className={inputClass}>
                 <option value="" disabled>Select a product</option>
                 {PRODUCTS.map((p) => (
@@ -334,17 +368,20 @@ export default function ContactForm({ nonce }: { nonce?: string }) {
               </select>
             </div>
             <div>
-              <label htmlFor="quantity" className={labelClass}>Quantity Needed</label>
-              <input id="quantity" name="quantity" type="text"
+              <label htmlFor="quantity" className={labelClass}>Quantity Needed*</label>
+              <input id="quantity" name="quantity" type="text" required
+                value={formData.quantity} onChange={handleChange}
                 placeholder="e.g. 1 MT, 5000 Kg" className={inputClass} />
             </div>
           </div>
 
           {/* ── Row 5: Industry ─────────────────────────────── */}
           <div>
-            <label htmlFor="industry" className={labelClass}>Your Industry</label>
-            <select id="industry" name="industry" defaultValue="" className={inputClass}>
-              <option value="">Select your industry (optional)</option>
+            <label htmlFor="industry" className={labelClass}>Your Industry*</label>
+            <select id="industry" name="industry" required 
+              value={formData.industry} onChange={handleChange}
+              className={inputClass}>
+              <option value="" disabled>Select your industry</option>
               {INDUSTRIES.map((i) => (
                 <option key={i.value} value={i.value}>{i.label}</option>
               ))}
@@ -362,9 +399,10 @@ export default function ContactForm({ nonce }: { nonce?: string }) {
                     type="radio"
                     name="inquiryType"
                     value={t.value}
-                    key={`${t.value}-${defaultInquiryType}`}
-                    defaultChecked={t.value === defaultInquiryType}
+                    checked={formData.inquiryType === t.value}
+                    onChange={handleChange}
                     className="accent-accent"
+                    required
                   />
                   {t.label}
                 </label>
@@ -374,8 +412,9 @@ export default function ContactForm({ nonce }: { nonce?: string }) {
 
           {/* ── Row 7: Message ───────────────────────────────── */}
           <div>
-            <label htmlFor="message" className={labelClass}>Message</label>
-            <textarea id="message" name="message" rows={4}
+            <label htmlFor="message" className={labelClass}>Message*</label>
+            <textarea id="message" name="message" rows={4} required
+              value={formData.message} onChange={handleChange}
               placeholder="Tell us more about your requirement — grade, purity, delivery port, application..."
               className={`${inputClass} resize-none`} />
           </div>
@@ -387,8 +426,8 @@ export default function ContactForm({ nonce }: { nonce?: string }) {
               data-callback="onTurnstileSuccess" />
           )}
 
-          <button type="submit" disabled={submitting}
-            className="w-full bg-accent hover:bg-accent-dark transition-colors text-white py-3.5 rounded-xl font-medium text-sm disabled:opacity-60">
+          <button type="submit" disabled={submitting || !isFormValid}
+            className="w-full bg-accent hover:bg-accent-dark transition-colors text-white py-3.5 rounded-xl font-medium text-sm disabled:opacity-50 disabled:cursor-not-allowed">
             {submitting ? "Sending..." : "Send Inquiry →"}
           </button>
 

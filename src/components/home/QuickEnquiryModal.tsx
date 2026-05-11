@@ -31,8 +31,16 @@ export default function QuickEnquiryModal() {
     }));
   };
 
+  const isFormValid = 
+    formData.name.trim() !== "" && 
+    formData.email.trim() !== "" && 
+    formData.phone.trim() !== "" && 
+    formData.requirement.trim().split(/\s+/).filter(Boolean).length >= 10;
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!isFormValid) return;
+    
     setIsSubmitting(true);
     setError("");
 
@@ -90,7 +98,7 @@ export default function QuickEnquiryModal() {
           <div className="mb-6">
             <h2 className="font-heading text-2xl font-bold text-primary mb-2">Quick Enquiry</h2>
             <p className="text-secondary text-sm pr-8">
-              Please fill out the form below for a fast response.
+              Please fill out all fields below for a fast response.
             </p>
           </div>
 
@@ -164,7 +172,7 @@ export default function QuickEnquiryModal() {
 
               <div>
                 <label htmlFor="requirement" className={labelClass}>
-                  Requirement*
+                  Requirement* <span className="text-gray-400 font-normal text-xs">(minimum 10 words)</span>
                 </label>
                 <textarea
                   id="requirement"
@@ -173,15 +181,33 @@ export default function QuickEnquiryModal() {
                   rows={3}
                   value={formData.requirement}
                   onChange={handleChange}
-                  className={`${inputClass} resize-none`}
+                  className={`${inputClass} resize-none ${
+                    formData.requirement.trim().length > 0 && formData.requirement.trim().split(/\\s+/).filter(Boolean).length < 10
+                      ? "border-red-300 focus:border-red-400 bg-red-50/30"
+                      : ""
+                  }`}
                   placeholder="Tell us what you are looking for..."
                 />
+                <div className="mt-1.5 flex justify-between items-center">
+                  <span className={`text-xs ${
+                    formData.requirement.trim().length > 0 && formData.requirement.trim().split(/\\s+/).filter(Boolean).length < 10
+                      ? "text-red-500"
+                      : "text-gray-400"
+                  }`}>
+                    Word count: {formData.requirement.trim().split(/\\s+/).filter(Boolean).length}
+                  </span>
+                  {formData.requirement.trim().length > 0 && formData.requirement.trim().split(/\\s+/).filter(Boolean).length < 10 && (
+                    <span className="text-[10px] text-red-500 font-medium px-2 py-0.5 bg-red-50 rounded-full border border-red-100">
+                      Need {10 - formData.requirement.trim().split(/\\s+/).filter(Boolean).length} more
+                    </span>
+                  )}
+                </div>
               </div>
 
               <button
                 type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-accent hover:bg-accent-dark transition-colors text-white py-3.5 rounded-xl font-medium text-sm disabled:opacity-60 mt-4 flex items-center justify-center shrink-0"
+                disabled={isSubmitting || !isFormValid}
+                className="w-full bg-accent hover:bg-accent-dark transition-colors text-white py-3.5 rounded-xl font-medium text-sm disabled:opacity-50 disabled:cursor-not-allowed mt-4 flex items-center justify-center shrink-0"
               >
                 {isSubmitting ? (
                   <>
@@ -200,5 +226,6 @@ export default function QuickEnquiryModal() {
         </div>
       </div>
     </div>
+
   );
 }

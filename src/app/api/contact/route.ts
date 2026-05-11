@@ -104,10 +104,12 @@ export async function POST(req: Request) {
   const captchaToken = normalize(payload.captchaToken);
   const formStartedAt = Number(payload.formStartedAt);
 
+  const messageWordCount = message.split(/\s+/).filter(Boolean).length;
+
   // ── Required field validation ──────────────────────────────────────────────
-  if (!firstName || !lastName || !email || !phone || !companyName || !country) {
+  if (!firstName || !lastName || !email || !phone || !companyName || !country || !industry || !product || !quantity || !message || messageWordCount < 10) {
     return json(
-      { error: 'firstName, lastName, email, phone, companyName, and country are required' },
+      { error: 'All fields are required and message must be at least 10 words' },
       { status: 400 },
       req
     );

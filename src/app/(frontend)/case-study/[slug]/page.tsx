@@ -7,7 +7,9 @@ import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 import { CASE_STUDIES, CASE_STUDY_DATA } from "@/lib/case-studies-data";
 
 export function generateStaticParams() {
-  return Object.keys(CASE_STUDY_DATA).map((slug) => ({ slug }));
+  // Return empty array to reduce build time.
+  // Case study pages will be generated on-demand via ISR.
+  return [];
 }
 
 export async function generateMetadata({

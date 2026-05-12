@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useMemo, useRef, useState } from "react";
 import type { ProductImage, ProductVideo } from "@/lib/types";
@@ -29,6 +29,13 @@ type ProductImageGalleryProps = {
 
 const VIDEO_FILE_PATTERN = /\.(mp4|webm|mov|m4v)(?:[?#].*)?$/i;
 
+function isValidImageUrl(src: string): boolean {
+  if (!src) return false;
+  const lower = src.toLowerCase();
+  if (lower.startsWith('blob:') || lower.startsWith('data:')) return true;
+  return !VIDEO_FILE_PATTERN.test(src);
+}
+
 export default function ProductImageGallery({
   productName,
   productLabel,
@@ -51,11 +58,11 @@ export default function ProductImageGallery({
       positionLabel?: string
     ) => {
       const trimmed = (src || "").trim();
-      if (!trimmed || seenImages.has(trimmed) || VIDEO_FILE_PATTERN.test(trimmed)) return;
+      if (!trimmed || seenImages.has(trimmed) || !isValidImageUrl(trimmed)) return;
       seenImages.add(trimmed);
       const trimmedAlt = (alt || "").trim();
       const fallbackAlt = positionLabel
-        ? `${altBase} — ${positionLabel}`
+        ? `${altBase} â€” ${positionLabel}`
         : altBase;
       items.push({
         kind: "image",
@@ -92,11 +99,6 @@ export default function ProductImageGallery({
 
   const videoCount = useMemo(
     () => mediaItems.filter((m) => m.kind === "video").length,
-    [mediaItems]
-  );
-
-  const imageCount = useMemo(
-    () => mediaItems.filter((m) => m.kind === "image").length,
     [mediaItems]
   );
 
@@ -152,6 +154,7 @@ export default function ProductImageGallery({
                 aria-current={isActive}
               >
                 {thumbSrc ? (
+                  // eslint-disable-next-line @next/next/no-img-element
                   <img
                     src={thumbSrc}
                     alt={item.alt}
@@ -193,6 +196,7 @@ export default function ProductImageGallery({
       {/* Main preview */}
       <div className="flex-1 min-w-0 flex items-center justify-center bg-white rounded-2xl min-h-[320px]">
         {active.kind === "image" ? (
+          // eslint-disable-next-line @next/next/no-img-element
           <img
             src={active.src}
             alt={active.alt}
@@ -222,3 +226,4 @@ export default function ProductImageGallery({
     </div>
   );
 }
+

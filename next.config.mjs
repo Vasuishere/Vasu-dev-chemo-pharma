@@ -44,9 +44,8 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: false,
   },
-  // Skip ESLint during build (run separately in CI)
   eslint: {
-    ignoreDuringBuilds: true,
+    ignoreDuringBuilds: false,
   },
   staticPageGenerationTimeout: 1000,
   async headers() {

@@ -18,7 +18,6 @@ import {
   FEATURED_RESOURCE_SLUGS,
   MEA_TRIAZINE_PRODUCT_PATH,
   normalizeCountrySlug,
-  resolveSeoHref,
   SITE_URL,
 } from "@/lib/seo/seo-route-helpers";
 import { RESOURCE_ARTICLES_DATA } from "@/lib/seo/resource-articles-data";
@@ -32,7 +31,9 @@ import {
 export const revalidate = 3600;
 
 export async function generateStaticParams() {
-  return Object.keys(APPLICATION_PAGES_DATA).map((slug) => ({ slug }));
+  // Return empty array to reduce build time.
+  // Application pages will be generated on-demand via ISR.
+  return [];
 }
 
 function getApplicationData(slug: string): ApplicationPageData | null {

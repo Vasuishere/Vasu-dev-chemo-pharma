@@ -29,7 +29,9 @@ import {
 export const revalidate = 3600;
 
 export async function generateStaticParams() {
-  return Object.keys(RESOURCE_ARTICLES_DATA).map((slug) => ({ slug }));
+  // Return empty array to reduce build time.
+  // Resource pages will be generated on-demand via ISR.
+  return [];
 }
 
 function getResourceArticle(slug: string): ResourceArticle | null {
@@ -112,7 +114,7 @@ export default async function ResourceArticlePage({
         url={buildAbsoluteUrl(canonicalPath)}
         image="https://www.vasudevchemopharma.com/images/vcp-logo.png"
         datePublished={article.publishedDate}
-        dateModified="2026-03-25"
+        dateModified={article.publishedDate}
         authorName="Vasudev Chemo Pharma Technical Team"
         authorCredentials="Technical Content"
         wordCount={getWordCount(article)}

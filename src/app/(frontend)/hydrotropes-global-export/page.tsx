@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import SectionLabel from "@/components/SectionLabel";
 import Button from "@/components/Button";
@@ -124,8 +123,8 @@ export default function HydrotropesGlobalExportPage() {
               </p>
               <div className="bg-accent/10 border border-accent/20 rounded-2xl p-6 mt-10">
                 <p className="text-accent font-semibold text-lg italic">
-                  "We export to any corner of the world, ensuring that Vasudev Chemo Pharma is your single, 
-                  reliable source for high-purity hydrotropes globally."
+                  &ldquo;We export to any corner of the world, ensuring that Vasudev Chemo Pharma is your single, 
+                  reliable source for high-purity hydrotropes globally.&rdquo;
                 </p>
               </div>
               <div className="flex flex-wrap gap-4 mt-10">

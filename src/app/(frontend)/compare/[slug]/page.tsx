@@ -34,9 +34,8 @@ import {
 export const revalidate = 3600;
 
 export async function generateStaticParams() {
-  return Object.keys(COMPETITOR_PAGES_DATA).map((slug) => ({
-    slug: `mea-triazine-vs-${slug}`,
-  }));
+  // Pre-render all known competitor comparison pages to ensure immediate availability and crawling.
+  return Object.keys(COMPETITOR_PAGES_DATA).map(slug => ({ slug }));
 }
 
 function getComparisonPageData(routeSlug: string): CompetitorPageData | null {

@@ -7,6 +7,7 @@ import { fileURLToPath } from "url";
 
 import { Products } from "@/collections/Products";
 import { Users } from "@/collections/Users";
+import { Blogs } from "@/collections/Blogs";
 
 import { CompanyInfo } from "@/globals/CompanyInfo";
 import { ProductSequencing } from "@/globals/ProductSequencing";
@@ -14,11 +15,14 @@ import { SiteImages } from "@/globals/SiteImages";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
-const shouldPushSchema = process.env.NODE_ENV !== "production" && process.env.PAYLOAD_PUSH !== "false";
+// Push schema by default outside of production, unless explicitly disabled.
+const shouldPushSchema = process.env.PAYLOAD_PUSH 
+  ? process.env.PAYLOAD_PUSH === "true" 
+  : process.env.NODE_ENV !== "production";
 
 export default buildConfig({
   editor: lexicalEditor(),
-  collections: [Users, Products],
+  collections: [Users, Products, Blogs],
   globals: [CompanyInfo, ProductSequencing, SiteImages],
   secret: process.env.PAYLOAD_SECRET!,
   email: ({ payload }) => ({
@@ -42,16 +46,12 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URI,
       max: (() => {
-        const size = parseInt(process.env.DATABASE_POOL_SIZE || "3", 10);
-        return Number.isNaN(size) || size < 1 ? 3 : size;
+        const val = parseInt(process.env.DATABASE_POOL_SIZE || "3", 10);
+        return (!isNaN(val) && val >= 1) ? Math.min(val, 50) : 3;
       })(),
-      connectionTimeoutMillis: 30000,
-      idleTimeoutMillis: 30000,
       ssl: { rejectUnauthorized: false },
     },
-    // Use migrations in production instead of applying schema changes automatically.
     push: shouldPushSchema,
-    disableCreateDatabase: true,
   }),
   sharp,
   admin: {

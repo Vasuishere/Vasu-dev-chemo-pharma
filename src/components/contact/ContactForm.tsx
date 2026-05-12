@@ -157,11 +157,11 @@ export default function ContactForm({ nonce }: { nonce?: string }) {
     };
 
     const params = new URLSearchParams(window.location.search);
-    let productParam = params.get("product") || "";
+    const productParam = params.get("product") || "";
     const typeParam = params.get("type") || "";
     
     setFormData(prev => {
-      const updates: any = {};
+      const updates: Partial<typeof prev> = {};
       if (productParam) {
         updates.product = SLUG_ALIASES[productParam] || productParam;
       }

@@ -490,7 +490,6 @@ function makeSlug(product: HydrotropeProduct, topic: HydrotropeTopic) {
 }
 
 function makeArticle(product: HydrotropeProduct, topic: HydrotropeTopic): BlogEntry {
-  const slug = makeSlug(product, topic);
   const image = topic.category === "Buying Guides" ? IMG_BUYING : IMG_RESEARCH;
   return {
     title: topic.title(product),
@@ -531,7 +530,7 @@ export const hydrotropeBlogListItems: HydrotropeBlogListItem[] = products.flatMa
     const slug = makeSlug(product, topic);
     const article = hydrotropeArticlesData[slug];
     return {
-      slug,
+    slug: makeSlug(product, topic),
       title: article.title,
       category: article.category,
       date: article.date,

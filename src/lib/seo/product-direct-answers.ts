@@ -19,4 +19,7 @@ export const PRODUCT_DIRECT_ANSWERS: Record<string, string> = {
 
   "sodium-xylene-sulfonate-90":
     "Sodium Xylene Sulfonate 90% (SXS-90) is a free-flowing powder hydrotrope (CAS 1300-72-7) at 90 ± 1% active matter. It is used as a coupling agent in spray-dried detergent powders, alkaline cleaner concentrates, and agrochemical water-dispersible granules, delivering strong cloud-point depression and low freight cost per kg active for global export.",
+
+  "mea-triazine-78-h2s-scavenger":
+    "MEA Triazine 78% is a high-concentration monoethanolamine-based H2S scavenger (CAS 4719-04-4) used to remove hydrogen sulfide from natural gas, crude oil, and biogas. It reacts irreversibly with H2S to form stable thiadiazine byproducts, preventing equipment corrosion and ensuring personnel safety in oilfield, refinery, and wastewater treatment operations.",
 };

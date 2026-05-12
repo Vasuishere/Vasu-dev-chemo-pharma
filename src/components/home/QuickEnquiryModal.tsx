@@ -65,8 +65,8 @@ export default function QuickEnquiryModal() {
         setIsSuccess(false);
         setFormData({ name: "", email: "", phone: "", requirement: "" });
       }, 4000);
-    } catch (err: any) {
-      setError(err.message || "Something went wrong. Please try again.");
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
     }

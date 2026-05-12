@@ -1,4 +1,4 @@
-type FAQItem = {
+﻿type FAQItem = {
   question: string;
   answer: string;
 };
@@ -13,7 +13,22 @@ export const MEA_TRIAZINE_FALLBACK_FAQS: FAQItem[] = [
   {
     question: "What is MEA Triazine used for?",
     answer:
-      "MEA Triazine 78% is primarily used as an H2S Scavenger in oil and gas pipelines, gas processing plants, and refineries. It is also used as a biocide in water treatment, paper mills, and metal working fluids.",
+      "MEA Triazine (Monoethanolamine Triazine) is primarily used as an H2S scavenger to remove toxic and corrosive hydrogen sulfide from natural gas, crude oil, biogas, and wastewater. It is essential for protecting infrastructure from corrosion and ensuring safety in oil & gas drilling and refining.",
+  },
+  {
+    question: "How does MEA Triazine work as an H2S scavenger?",
+    answer:
+      "MEA Triazine reacts quickly and irreversibly with H2S to form stable, non-corrosive, and non-toxic byproducts like thiadiazine. This process effectively removes H2S from drilling and completion fluids, preventing the formation of corrosive acids and improving safety for personnel.",
+  },
+  {
+    question: "What are the primary applications of MEA Triazine?",
+    answer:
+      "Primary applications include Natural Gas Processing (meeting pipeline specs), Crude Oil Refining (protecting infrastructure), Wastewater Treatment (odor and corrosion control), and Biogas Purification (enhancing gas quality for energy production).",
+  },
+  {
+    question: "What concentrations of MEA Triazine are available?",
+    answer:
+      "Vasudev Chemo Pharma offers MEA Triazine in 50%, 60%, and 78% concentrations. The 78% grade is the most common for high-efficiency H2S scavenging in oilfield operations.",
   },
   {
     question: "What is the CAS number for MEA Triazine?",
@@ -30,20 +45,16 @@ export const MEA_TRIAZINE_FALLBACK_FAQS: FAQItem[] = [
     answer:
       "Yes, Vasudev Chemo Pharma offers free samples to qualified buyers. Contact us via our website or WhatsApp to request a sample along with our TDS and MSDS.",
   },
-  {
-    question: "What concentrations of MEA Triazine do you supply?",
-    answer:
-      "We manufacture and supply MEA Triazine in 78%, 60%, 50%, and 40% concentrations. The 78% concentration is the most commonly used for H2S scavenging in oil and gas applications.",
-  },
+  
   {
     question: "What countries do you export MEA Triazine to?",
     answer:
-      "We currently export to UAE, Saudi Arabia, Oman, Qatar, Kuwait, Iraq, Egypt, Brazil, USA, Vietnam, Thailand, Türkiye, and Russia. We can supply to any country with appropriate export documentation.",
+      "We currently export to UAE, Saudi Arabia, Oman, Qatar, Kuwait, Iraq, Egypt, Brazil, USA, Vietnam, Thailand, TÃ¼rkiye, and Russia. We can supply to any country with appropriate export documentation.",
   },
   {
     question: "Can you supply MEA Triazine 78% to Vietnam with CIF delivery?",
     answer:
-      "Yes. Vasudev Chemo Pharma ships MEA Triazine 78% CIF to Cat Lai port (Ho Chi Minh City) and Hai Phong port. Typical transit from India is 8–12 days by sea freight. We provide all required import documentation including Certificate of Analysis, GHS-compliant SDS, and packing list.",
+      "Yes. Vasudev Chemo Pharma ships MEA Triazine 78% CIF to Cat Lai port (Ho Chi Minh City) and Hai Phong port. Typical transit from India is 8â€“12 days by sea freight. We provide all required import documentation including Certificate of Analysis, GHS-compliant SDS, and packing list.",
   },
   {
     question: "What documents are needed to import MEA Triazine 78% into Vietnam?",
@@ -53,12 +64,12 @@ export const MEA_TRIAZINE_FALLBACK_FAQS: FAQItem[] = [
   {
     question: "How does your MEA Triazine 78% compare to Chinese-sourced triazine?",
     answer:
-      "Most Chinese suppliers offer 70–75% active concentration, while our product guarantees ≥78% active content verified by batch Certificate of Analysis. Higher concentration means lower dosing rates and reduced logistics cost per unit of H2S removed. We also provide consistent quality with full GHS-compliant documentation.",
+      "Most Chinese suppliers offer 70â€“75% active concentration, while our product guarantees â‰¥78% active content verified by batch Certificate of Analysis. Higher concentration means lower dosing rates and reduced logistics cost per unit of H2S removed. We also provide consistent quality with full GHS-compliant documentation.",
   },
   {
     question: "What brand names is MEA Triazine known by in Vietnam?",
     answer:
-      "MEA Triazine (CAS 4719-04-4) is recognized in Vietnam under several names including BK Biocide, H2S Scavenger Conc, MEA-T, Grotan BK (equivalent), and Vietnamese terms such as chất hấp thụ H2S and hóa chất xử lý khí chua. Our product matches all specifications under these names.",
+      "MEA Triazine (CAS 4719-04-4) is recognized in Vietnam under several names including BK Biocide, H2S Scavenger Conc, MEA-T, Grotan BK (equivalent), and Vietnamese terms such as cháº¥t háº¥p thá»¥ H2S and hÃ³a cháº¥t xá»­ lÃ½ khÃ­ chua. Our product matches all specifications under these names.",
   },
   {
     question: "Can you supply MEA Triazine 78% to the United States?",
@@ -78,12 +89,12 @@ export const MEA_TRIAZINE_FALLBACK_FAQS: FAQItem[] = [
   {
     question: "How does your pricing compare to US oilfield service companies?",
     answer:
-      "Major US competitors like ChampionX, Baker Hughes, and SLB bundle triazine chemistry with field services at premium pricing. As a direct manufacturer, Vasudev Chemo Pharma offers equivalent 78% active MEA Triazine at significantly lower cost — ideal for independent E&P operators, midstream companies, and chemical distributors seeking transparent, unbundled pricing.",
+      "Major US competitors like ChampionX, Baker Hughes, and SLB bundle triazine chemistry with field services at premium pricing. As a direct manufacturer, Vasudev Chemo Pharma offers equivalent 78% active MEA Triazine at significantly lower cost â€” ideal for independent E&P operators, midstream companies, and chemical distributors seeking transparent, unbundled pricing.",
   },
   {
     question: "Can you supply MEA Triazine 78% to the UAE and GCC countries?",
     answer:
-      "Yes. Vasudev Chemo Pharma ships MEA Triazine 78% CIF to Jebel Ali Port (Dubai) and Khalifa Port (Abu Dhabi) with transit times of just 3–5 days from India. We also support re-export from Jebel Ali Free Trade Zone for distribution across Saudi Arabia, Oman, Qatar, and Kuwait.",
+      "Yes. Vasudev Chemo Pharma ships MEA Triazine 78% CIF to Jebel Ali Port (Dubai) and Khalifa Port (Abu Dhabi) with transit times of just 3â€“5 days from India. We also support re-export from Jebel Ali Free Trade Zone for distribution across Saudi Arabia, Oman, Qatar, and Kuwait.",
   },
   {
     question: "Can MEA Triazine 78% handle the high H2S concentrations in UAE sour gas fields?",
@@ -103,7 +114,7 @@ export const MEA_TRIAZINE_FALLBACK_FAQS: FAQItem[] = [
   {
     question: "Can you supply MEA Triazine 78% to Oman?",
     answer:
-      "Yes. Vasudev Chemo Pharma ships MEA Triazine 78% directly to Oman via Sohar Port with transit times of just 2–4 days from India. We supply in 200-litre drums and 1,000-litre IBC totes, accompanied by batch Certificates of Analysis and GHS-compliant Safety Data Sheets. We also support PDO vendor pre-qualification documentation.",
+      "Yes. Vasudev Chemo Pharma ships MEA Triazine 78% directly to Oman via Sohar Port with transit times of just 2â€“4 days from India. We supply in 200-litre drums and 1,000-litre IBC totes, accompanied by batch Certificates of Analysis and GHS-compliant Safety Data Sheets. We also support PDO vendor pre-qualification documentation.",
   },
   {
     question: "Can MEA Triazine 78% be used in PDO-operated wells in Oman?",
@@ -123,7 +134,7 @@ export const MEA_TRIAZINE_FALLBACK_FAQS: FAQItem[] = [
   {
     question: "Can you supply MEA Triazine 78% to Egypt?",
     answer:
-      "Yes. Vasudev Chemo Pharma ships MEA Triazine 78% to Egypt via Alexandria Port and Damietta Port with transit times of 10–14 days from India via the Suez route. We supply in 200-litre drums and 1,000-litre IBC totes, accompanied by batch Certificates of Analysis and GHS-compliant Safety Data Sheets formatted for Egyptian customs and GOEIC import procedures.",
+      "Yes. Vasudev Chemo Pharma ships MEA Triazine 78% to Egypt via Alexandria Port and Damietta Port with transit times of 10â€“14 days from India via the Suez route. We supply in 200-litre drums and 1,000-litre IBC totes, accompanied by batch Certificates of Analysis and GHS-compliant Safety Data Sheets formatted for Egyptian customs and GOEIC import procedures.",
   },
   {
     question: "Can MEA Triazine 78% be used in the Zohr gas processing facility in Egypt?",
@@ -143,7 +154,7 @@ export const MEA_TRIAZINE_FALLBACK_FAQS: FAQItem[] = [
   {
     question: "Can you supply MEA Triazine 78% to Brazil?",
     answer:
-      "Yes. Vasudev Chemo Pharma ships MEA Triazine 78% to Brazil via Santos Port and Paranaguá with transit times of 20–25 days from India. We supply in 200-litre drums and 1,000-litre IBC totes with CIF Santos pricing available. Each shipment includes a Certificate of Analysis in Portuguese and English, a GHS-compliant SDS meeting ABNT-NBR standards, and documentation formatted for Receita Federal customs clearance.",
+      "Yes. Vasudev Chemo Pharma ships MEA Triazine 78% to Brazil via Santos Port and ParanaguÃ¡ with transit times of 20â€“25 days from India. We supply in 200-litre drums and 1,000-litre IBC totes with CIF Santos pricing available. Each shipment includes a Certificate of Analysis in Portuguese and English, a GHS-compliant SDS meeting ABNT-NBR standards, and documentation formatted for Receita Federal customs clearance.",
   },
   {
     question: "Can MEA Triazine 78% be used in Brazilian pre-salt operations?",
@@ -163,7 +174,7 @@ export const MEA_TRIAZINE_FALLBACK_FAQS: FAQItem[] = [
   {
     question: "Can you supply MEA Triazine 78% to Saudi Arabia?",
     answer:
-      "Yes. Vasudev Chemo Pharma ships MEA Triazine 78% to the Kingdom of Saudi Arabia via King Abdulaziz Port (Dammam) and Jeddah Islamic Port with transit times of just 4–7 days from India. We supply in 200-litre drums and 1,000-litre IBC totes with SASO-compliant documentation, batch Certificate of Analysis, and GHS-aligned Safety Data Sheet in both English and Arabic.",
+      "Yes. Vasudev Chemo Pharma ships MEA Triazine 78% to the Kingdom of Saudi Arabia via King Abdulaziz Port (Dammam) and Jeddah Islamic Port with transit times of just 4â€“7 days from India. We supply in 200-litre drums and 1,000-litre IBC totes with SASO-compliant documentation, batch Certificate of Analysis, and GHS-aligned Safety Data Sheet in both English and Arabic.",
   },
   {
     question: "Can MEA Triazine 78% be used in Saudi Aramco operations?",
@@ -183,7 +194,7 @@ export const MEA_TRIAZINE_FALLBACK_FAQS: FAQItem[] = [
   {
     question: "Can you supply MEA Triazine 78% to Iraq?",
     answer:
-      "Yes. Vasudev Chemo Pharma ships MEA Triazine 78% to Iraq via Umm Qasr Port (Basra) with transit times of 8–12 days from India. For Kurdistan Region operators, supply is also available via land routes through Turkey to Erbil. We supply in 200-litre drums and 1,000-litre IBC totes with full export documentation including Certificate of Analysis and GHS-compliant SDS.",
+      "Yes. Vasudev Chemo Pharma ships MEA Triazine 78% to Iraq via Umm Qasr Port (Basra) with transit times of 8â€“12 days from India. For Kurdistan Region operators, supply is also available via land routes through Turkey to Erbil. We supply in 200-litre drums and 1,000-litre IBC totes with full export documentation including Certificate of Analysis and GHS-compliant SDS.",
   },
   {
     question: "Can MEA Triazine 78% be used in Iraqi oilfield operations?",
@@ -203,7 +214,7 @@ export const MEA_TRIAZINE_FALLBACK_FAQS: FAQItem[] = [
   {
     question: "Can you supply MEA Triazine 78% to Qatar?",
     answer:
-      "Yes. Vasudev Chemo Pharma ships MEA Triazine 78% to Qatar via Hamad Port with transit times of just 3–5 days from India. We supply in 200-litre drums and 1,000-litre IBC totes with batch Certificate of Analysis and GHS-compliant Safety Data Sheet. We also support QatarEnergy vendor pre-qualification documentation for supply into Ras Laffan and North Field operations.",
+      "Yes. Vasudev Chemo Pharma ships MEA Triazine 78% to Qatar via Hamad Port with transit times of just 3â€“5 days from India. We supply in 200-litre drums and 1,000-litre IBC totes with batch Certificate of Analysis and GHS-compliant Safety Data Sheet. We also support QatarEnergy vendor pre-qualification documentation for supply into Ras Laffan and North Field operations.",
   },
   {
     question: "Can MEA Triazine 78% be used at QatarEnergy's Ras Laffan and North Field facilities?",
@@ -223,12 +234,12 @@ export const MEA_TRIAZINE_FALLBACK_FAQS: FAQItem[] = [
   {
     question: "What is the difference between raw MEA (Monoethanolamine) and MEA Triazine 78%?",
     answer:
-      "Raw Monoethanolamine (MEA, CAS 141-43-5) is a basic alkanolamine used for CO₂ and H₂S absorption in gas sweetening. MEA Triazine 78% (CAS 4719-04-4) is the finished product — a hexahydrotriazine synthesised from MEA and formaldehyde — specifically formulated as a non-regenerable H₂S scavenger for oil and gas operations. MEA Triazine 78% delivers higher H₂S removal efficiency per unit dose than raw MEA and does not require regeneration equipment. Suppliers like Deluxe Chemical and Chemway sell raw MEA; Vasudev Chemo Pharma supplies the finished MEA Triazine 78% scavenger.",
+      "Raw Monoethanolamine (MEA, CAS 141-43-5) is a basic alkanolamine used for COâ‚‚ and Hâ‚‚S absorption in gas sweetening. MEA Triazine 78% (CAS 4719-04-4) is the finished product â€” a hexahydrotriazine synthesised from MEA and formaldehyde â€” specifically formulated as a non-regenerable Hâ‚‚S scavenger for oil and gas operations. MEA Triazine 78% delivers higher Hâ‚‚S removal efficiency per unit dose than raw MEA and does not require regeneration equipment. Suppliers like Deluxe Chemical and Chemway sell raw MEA; Vasudev Chemo Pharma supplies the finished MEA Triazine 78% scavenger.",
   },
   {
     question: "Can you supply MEA Triazine 78% to Kuwait?",
     answer:
-      "Yes. Vasudev Chemo Pharma ships MEA Triazine 78% to Kuwait via Shuwaikh Port and Shuaiba Port with transit times of just 4–6 days from India. We supply in 200-litre drums and 1,000-litre IBC totes with batch Certificate of Analysis and GHS-compliant Safety Data Sheet. We support KOC (Kuwait Oil Company) vendor pre-qualification documentation.",
+      "Yes. Vasudev Chemo Pharma ships MEA Triazine 78% to Kuwait via Shuwaikh Port and Shuaiba Port with transit times of just 4â€“6 days from India. We supply in 200-litre drums and 1,000-litre IBC totes with batch Certificate of Analysis and GHS-compliant Safety Data Sheet. We support KOC (Kuwait Oil Company) vendor pre-qualification documentation.",
   },
   {
     question: "Can MEA Triazine 78% be used in KOC and KNPC operations in Kuwait?",
@@ -238,7 +249,7 @@ export const MEA_TRIAZINE_FALLBACK_FAQS: FAQItem[] = [
   {
     question: "What brand names is MEA Triazine known by in Kuwait?",
     answer:
-      "In Kuwait, MEA Triazine (CAS 4719-04-4) is available through Bait Al Aseel Trading (H₂S Scavenger – Triazine Based, Shuwaikh), and DK Petrochemicals supplies raw MEA. International brands include RXSOL Triazine Based Biocide (DubiChem), HME-FILM MEA Triazine (MED Drilling Fluids), HS-1526-40 (Univar), SULFA-CLEAR 8411HC (Lubrizol), and Triasorb (Sintez-Oka). KOC service contractors use ChampionX, Baker Hughes, and Dorf Ketal brands. Our product is a direct equivalent to all these.",
+      "In Kuwait, MEA Triazine (CAS 4719-04-4) is available through Bait Al Aseel Trading (Hâ‚‚S Scavenger â€“ Triazine Based, Shuwaikh), and DK Petrochemicals supplies raw MEA. International brands include RXSOL Triazine Based Biocide (DubiChem), HME-FILM MEA Triazine (MED Drilling Fluids), HS-1526-40 (Univar), SULFA-CLEAR 8411HC (Lubrizol), and Triasorb (Sintez-Oka). KOC service contractors use ChampionX, Baker Hughes, and Dorf Ketal brands. Our product is a direct equivalent to all these.",
   },
   {
     question: "What documents are needed to import MEA Triazine 78% into Kuwait?",
@@ -248,12 +259,12 @@ export const MEA_TRIAZINE_FALLBACK_FAQS: FAQItem[] = [
   {
     question: "How does MEA Triazine 78% compare to Triasorb (Sintez-Oka)?",
     answer:
-      "Triasorb, manufactured by Sintez-Oka (Russia), is an aqueous solution of hexahydro-1,3,5-tris(hydroxyethyl)-s-triazine — the same active compound as MEA Triazine 78% (CAS 4719-04-4). Both products irreversibly bind hydrogen sulfide and light mercaptans in natural gas, gas condensate, and liquid hydrocarbon streams. Vasudev Chemo Pharma's MEA Triazine 78% offers a cost-effective alternative with direct manufacturer pricing and faster India-to-Kuwait delivery (4–6 days vs. longer lead times from Russia).",
+      "Triasorb, manufactured by Sintez-Oka (Russia), is an aqueous solution of hexahydro-1,3,5-tris(hydroxyethyl)-s-triazine â€” the same active compound as MEA Triazine 78% (CAS 4719-04-4). Both products irreversibly bind hydrogen sulfide and light mercaptans in natural gas, gas condensate, and liquid hydrocarbon streams. Vasudev Chemo Pharma's MEA Triazine 78% offers a cost-effective alternative with direct manufacturer pricing and faster India-to-Kuwait delivery (4â€“6 days vs. longer lead times from Russia).",
   },
   {
     question: "Can you supply MEA Triazine 78% to Thailand?",
     answer:
-      "Yes. Vasudev Chemo Pharma ships MEA Triazine 78% to Thailand via Laem Chabang Port and Bangkok Port with transit times of 7–10 days from India. We supply in 200-litre drums and 1,000-litre IBC totes with batch Certificate of Analysis and GHS-compliant Safety Data Sheet formatted for Thai DIW (Department of Industrial Works) import requirements.",
+      "Yes. Vasudev Chemo Pharma ships MEA Triazine 78% to Thailand via Laem Chabang Port and Bangkok Port with transit times of 7â€“10 days from India. We supply in 200-litre drums and 1,000-litre IBC totes with batch Certificate of Analysis and GHS-compliant Safety Data Sheet formatted for Thai DIW (Department of Industrial Works) import requirements.",
   },
   {
     question: "Can MEA Triazine 78% be used in PTTEP offshore operations and the Gulf of Thailand?",
@@ -268,22 +279,22 @@ export const MEA_TRIAZINE_FALLBACK_FAQS: FAQItem[] = [
   {
     question: "Can MEA Triazine 78% be used for biogas H2S removal in Thailand?",
     answer:
-      "Yes. Thailand's growing biogas sector — particularly from palm oil mill effluent (POME) and cassava processing — produces biogas with significant H2S content. MEA Triazine 78% is an effective non-regenerable H2S scavenger for biogas purification, landfill gas treatment, and agricultural biogas applications across Thailand. It offers higher removal efficiency per dose than lower-concentration Chinese alternatives.",
+      "Yes. Thailand's growing biogas sector â€” particularly from palm oil mill effluent (POME) and cassava processing â€” produces biogas with significant H2S content. MEA Triazine 78% is an effective non-regenerable H2S scavenger for biogas purification, landfill gas treatment, and agricultural biogas applications across Thailand. It offers higher removal efficiency per dose than lower-concentration Chinese alternatives.",
   },
   {
     question: "How does your MEA Triazine 78% compare to Chinese-sourced triazine sold in Thailand?",
     answer:
-      "Most Chinese suppliers (BK Biocide, Dayong, IRO Group, ECHEMI) offer triazine at 70–75% active concentration, while our product guarantees ≥78% active content verified by batch Certificate of Analysis. Higher concentration means lower dosing rates and reduced logistics cost per unit of H2S removed. We also provide full English and Thai documentation, GHS-compliant SDS, and consistent batch quality — often lacking from Chinese marketplace suppliers.",
+      "Most Chinese suppliers (BK Biocide, Dayong, IRO Group, ECHEMI) offer triazine at 70â€“75% active concentration, while our product guarantees â‰¥78% active content verified by batch Certificate of Analysis. Higher concentration means lower dosing rates and reduced logistics cost per unit of H2S removed. We also provide full English and Thai documentation, GHS-compliant SDS, and consistent batch quality â€” often lacking from Chinese marketplace suppliers.",
   },
   {
     question: "Can you supply MEA Triazine 78% to Iran?",
     answer:
-      "Vasudev Chemo Pharma can ship MEA Triazine 78% to Iran via Bandar Abbas (Shahid Rajaee Port) with transit times of just 3–5 days from India. Supply is available in 200-litre drums and 1,000-litre IBC totes with batch Certificate of Analysis and MSDS/SDS documentation. All transactions are conducted in full compliance with applicable international trade regulations.",
+      "Vasudev Chemo Pharma can ship MEA Triazine 78% to Iran via Bandar Abbas (Shahid Rajaee Port) with transit times of just 3â€“5 days from India. Supply is available in 200-litre drums and 1,000-litre IBC totes with batch Certificate of Analysis and MSDS/SDS documentation. All transactions are conducted in full compliance with applicable international trade regulations.",
   },
   {
     question: "Can MEA Triazine 78% be used in NIOC/NIGC operations and South Pars?",
     answer:
-      "Yes. MEA Triazine 78% is suitable for H2S scavenging across NIOC (National Iranian Oil Company) upstream operations, NIGC (National Iranian Gas Company) gas processing, and the South Pars/Assaluyeh gas complex — one of the world's largest gas processing operations. It is also applicable at Iranian refineries including Isfahan, Abadan, and Bandar Abbas for sour crude desulfurization and gas sweetening.",
+      "Yes. MEA Triazine 78% is suitable for H2S scavenging across NIOC (National Iranian Oil Company) upstream operations, NIGC (National Iranian Gas Company) gas processing, and the South Pars/Assaluyeh gas complex â€” one of the world's largest gas processing operations. It is also applicable at Iranian refineries including Isfahan, Abadan, and Bandar Abbas for sour crude desulfurization and gas sweetening.",
   },
   {
     question: "What brand names is MEA Triazine known by in Iran?",
@@ -293,12 +304,12 @@ export const MEA_TRIAZINE_FALLBACK_FAQS: FAQItem[] = [
   {
     question: "How does MEA Triazine 78% compare to Tsorb3400 (Tasfyeh Group)?",
     answer:
-      "Tsorb3400, manufactured by Iran's Tasfyeh Group, is available in 50%, 60%, and 80% concentrations. Vasudev's MEA Triazine 78% offers a competitive import alternative with consistent guaranteed concentration, batch Certificate of Analysis, and competitive India-sourced pricing with 3–5 day transit to Bandar Abbas. Both products use the same MEA-formaldehyde triazine chemistry (CAS 4719-04-4) for irreversible H2S binding.",
+      "Tsorb3400, manufactured by Iran's Tasfyeh Group, is available in 50%, 60%, and 80% concentrations. Vasudev's MEA Triazine 78% offers a competitive import alternative with consistent guaranteed concentration, batch Certificate of Analysis, and competitive India-sourced pricing with 3â€“5 day transit to Bandar Abbas. Both products use the same MEA-formaldehyde triazine chemistry (CAS 4719-04-4) for irreversible H2S binding.",
   },
   {
     question: "Does Chemical Iran sell MEA Triazine or raw MEA?",
     answer:
-      "Chemical Iran (Tehran) and IranChemicalMine sell raw Monoethanolamine (MEA, CAS 141-43-5) — the base amine used for gas sweetening and CO2/H2S absorption. This is different from MEA Triazine 78% (CAS 4719-04-4), which is the finished hexahydrotriazine H2S scavenger product. Raw MEA requires regeneration systems; MEA Triazine 78% is a non-regenerable, ready-to-use scavenger with higher efficiency per dose.",
+      "Chemical Iran (Tehran) and IranChemicalMine sell raw Monoethanolamine (MEA, CAS 141-43-5) â€” the base amine used for gas sweetening and CO2/H2S absorption. This is different from MEA Triazine 78% (CAS 4719-04-4), which is the finished hexahydrotriazine H2S scavenger product. Raw MEA requires regeneration systems; MEA Triazine 78% is a non-regenerable, ready-to-use scavenger with higher efficiency per dose.",
   },
 ];
 
@@ -336,11 +347,7 @@ export const MEA_TRIAZINE_PRODUCT_PAGE_FAQS: FAQItem[] = [
     answer:
       "The CAS number for MEA Triazine, also known as hexahydro-1,3,5-tris(2-hydroxyethyl)-s-triazine, is 4719-04-4.",
   },
-  {
-    question: "What concentrations of MEA Triazine do you supply?",
-    answer:
-      "We manufacture and supply MEA Triazine in 78%, 60%, 50%, and 40% concentrations. The 78% grade is the standard export concentration for H2S scavenging.",
-  },
+  
   {
     question: "What is the minimum order quantity for MEA Triazine?",
     answer:
@@ -362,7 +369,7 @@ export const SODIUM_CUMENE_SULFONATE_40_FAQS: FAQItem[] = [
   {
     question: "What is Sodium Cumene Sulfonate 40% (SCS-40)?",
     answer:
-      "Sodium Cumene Sulfonate 40% is an aqueous hydrotrope solution (CAS 28348-53-0) containing 40 ± 1% active matter. It is used as a coupling agent and viscosity modifier in liquid detergents, dish wash, agrochemical concentrates, and industrial cleaners to keep anionic and nonionic surfactants soluble at high active loadings.",
+      "Sodium Cumene Sulfonate 40% is an aqueous hydrotrope solution (CAS 28348-53-0) containing 40 Â± 1% active matter. It is used as a coupling agent and viscosity modifier in liquid detergents, dish wash, agrochemical concentrates, and industrial cleaners to keep anionic and nonionic surfactants soluble at high active loadings.",
   },
   {
     question: "What is the CAS number and molecular formula of Sodium Cumene Sulfonate?",
@@ -370,14 +377,14 @@ export const SODIUM_CUMENE_SULFONATE_40_FAQS: FAQItem[] = [
       "The CAS number of Sodium Cumene Sulfonate is 28348-53-0, also known as cumenesulfonic acid sodium salt or isopropylbenzenesulfonic acid sodium salt. The molecular formula is C9H11NaO3S and the molecular weight is 222.24 g/mol.",
   },
   {
-    question: "Sodium Cumene Sulfonate 40% liquid vs 90% powder — which should I buy?",
+    question: "Sodium Cumene Sulfonate 40% liquid vs 90% powder â€” which should I buy?",
     answer:
-      "The 40% liquid blends cold and ships best for regional buyers within ~2,500 km of the plant. The 90% powder cuts freight cost per kg active by roughly 60%, making it preferred for long-haul export. Chemistry and CAS are identical — only form factor, handling, and logistics differ.",
+      "The 40% liquid blends cold and ships best for regional buyers within ~2,500 km of the plant. The 90% powder cuts freight cost per kg active by roughly 60%, making it preferred for long-haul export. Chemistry and CAS are identical â€” only form factor, handling, and logistics differ.",
   },
   {
     question: "What is the typical dosage of SCS-40 in liquid detergent?",
     answer:
-      "Typical dosage of SCS-40 in liquid detergent is 1–8% on product weight depending on surfactant loading and target clarity temperature. A starting point of 3% is common for a 20% active-matter laundry liquid; increase to 5–8% for concentrated formulations above 30% active matter that require a low cloud point.",
+      "Typical dosage of SCS-40 in liquid detergent is 1â€“8% on product weight depending on surfactant loading and target clarity temperature. A starting point of 3% is common for a 20% active-matter laundry liquid; increase to 5â€“8% for concentrated formulations above 30% active matter that require a low cloud point.",
   },
   {
     question: "Is Sodium Cumene Sulfonate 40% safe and biodegradable?",
@@ -395,22 +402,22 @@ export const SODIUM_CUMENE_SULFONATE_90_FAQS: FAQItem[] = [
   {
     question: "What is Sodium Cumene Sulfonate 90% (SCS-90)?",
     answer:
-      "Sodium Cumene Sulfonate 90% is a free-flowing hydrotrope powder (CAS 28348-53-0) with 90 ± 1% active matter. It is used as a coupling agent in spray-dried laundry powders, dish wash powders, alkaline cleaner concentrates, and agrochemical water-dispersible formulations where maximum active per kg and minimum water are required.",
+      "Sodium Cumene Sulfonate 90% is a free-flowing hydrotrope powder (CAS 28348-53-0) with 90 Â± 1% active matter. It is used as a coupling agent in spray-dried laundry powders, dish wash powders, alkaline cleaner concentrates, and agrochemical water-dispersible formulations where maximum active per kg and minimum water are required.",
   },
   {
     question: "Why choose SCS-90 powder over SCS-40 liquid?",
     answer:
-      "SCS-90 powder delivers the same hydrotrope chemistry as SCS-40 at 2.25× the active matter per kg, cutting freight cost per kg active by roughly 60%. It is the preferred grade for long-haul CIF export to Europe, the Americas, and Africa, and for dry-blend processes where water addition is undesirable.",
+      "SCS-90 powder delivers the same hydrotrope chemistry as SCS-40 at 2.25Ã— the active matter per kg, cutting freight cost per kg active by roughly 60%. It is the preferred grade for long-haul CIF export to Europe, the Americas, and Africa, and for dry-blend processes where water addition is undesirable.",
   },
   {
     question: "How should Sodium Cumene Sulfonate 90% powder be stored?",
     answer:
-      "Store SCS-90 powder in sealed bags or drums at 10–35 °C in a dry, shaded warehouse. The powder is mildly hygroscopic; reseal partially used packs promptly. Shelf life is 24 months in original packaging. Avoid contact with strong oxidisers and keep away from prolonged high-humidity conditions to prevent caking.",
+      "Store SCS-90 powder in sealed bags or drums at 10â€“35 Â°C in a dry, shaded warehouse. The powder is mildly hygroscopic; reseal partially used packs promptly. Shelf life is 24 months in original packaging. Avoid contact with strong oxidisers and keep away from prolonged high-humidity conditions to prevent caking.",
   },
   {
     question: "How do I dissolve SCS-90 powder into a formulation?",
     answer:
-      "SCS-90 dissolves in water at any concentration. For cold blends, add the powder slowly to water under agitation; for hot blends, warm water to 40–50 °C to accelerate dissolution. Typical dosage in finished detergent is 1–4% active, equivalent to ~1.1–4.5% SCS-90 powder on total formulation weight.",
+      "SCS-90 dissolves in water at any concentration. For cold blends, add the powder slowly to water under agitation; for hot blends, warm water to 40â€“50 Â°C to accelerate dissolution. Typical dosage in finished detergent is 1â€“4% active, equivalent to ~1.1â€“4.5% SCS-90 powder on total formulation weight.",
   },
   {
     question: "Is SCS-90 REACH-registered and export-ready?",
@@ -420,7 +427,7 @@ export const SODIUM_CUMENE_SULFONATE_90_FAQS: FAQItem[] = [
   {
     question: "What is the CAS number of SCS-90 and how does it differ from SXS-90?",
     answer:
-      "SCS-90 has CAS 28348-53-0 (sodium cumene sulfonate). SXS-90 is sodium xylene sulfonate, CAS 1300-72-7 — a chemically distinct hydrotrope with slightly different hydrotroping efficiency. SCS typically out-performs SXS per gram of active in nonionic-dominated systems; SXS is often preferred in high-electrolyte alkaline cleaners.",
+      "SCS-90 has CAS 28348-53-0 (sodium cumene sulfonate). SXS-90 is sodium xylene sulfonate, CAS 1300-72-7 â€” a chemically distinct hydrotrope with slightly different hydrotroping efficiency. SCS typically out-performs SXS per gram of active in nonionic-dominated systems; SXS is often preferred in high-electrolyte alkaline cleaners.",
   },
 ];
 
@@ -428,7 +435,7 @@ export const SODIUM_XYLENE_SULFONATE_40_FAQS: FAQItem[] = [
   {
     question: "What is Sodium Xylene Sulfonate 40% (SXS-40)?",
     answer:
-      "Sodium Xylene Sulfonate 40% is a pale-yellow aqueous hydrotrope solution (CAS 1300-72-7) with 40 ± 1% active matter. It is used as a coupling agent in surfactant-rich liquid detergents, alkaline hard-surface cleaners, dish wash, laundry liquids, and agrochemical concentrates to prevent gel-phase separation and stabilise high-electrolyte systems.",
+      "Sodium Xylene Sulfonate 40% is a pale-yellow aqueous hydrotrope solution (CAS 1300-72-7) with 40 Â± 1% active matter. It is used as a coupling agent in surfactant-rich liquid detergents, alkaline hard-surface cleaners, dish wash, laundry liquids, and agrochemical concentrates to prevent gel-phase separation and stabilise high-electrolyte systems.",
   },
   {
     question: "What is the CAS number and molecular formula of Sodium Xylene Sulfonate?",
@@ -436,19 +443,19 @@ export const SODIUM_XYLENE_SULFONATE_40_FAQS: FAQItem[] = [
       "The CAS number of Sodium Xylene Sulfonate is 1300-72-7. It is the sodium salt of dimethylbenzenesulfonic acid (mixed xylene isomers) with molecular formula C8H9NaO3S and a molecular weight of 208.21 g/mol. Common synonyms include xylenesulfonic acid sodium salt and SXS.",
   },
   {
-    question: "SXS vs SCS — which hydrotrope should I use?",
+    question: "SXS vs SCS â€” which hydrotrope should I use?",
     answer:
       "SXS offers stronger electrolyte tolerance and is preferred in high-alkaline or high-salt cleaners. SCS usually gives better cloud-point depression per gram of active in nonionic-dominated liquid detergents. For most household dish wash and laundry concentrates, SXS-40 is the default; switch to SCS-40 when nonionic loading is high.",
   },
   {
     question: "What is the typical dosage of SXS-40 in liquid laundry detergent?",
     answer:
-      "Typical dosage of SXS-40 in liquid laundry detergent is 2–6% on product weight. For a 15–25% active-matter laundry liquid, start at 3%; increase to 5–6% for highly built concentrates or where the cloud point must stay below 0 °C to survive winter warehousing. Always confirm with bench cloud-point trials.",
+      "Typical dosage of SXS-40 in liquid laundry detergent is 2â€“6% on product weight. For a 15â€“25% active-matter laundry liquid, start at 3%; increase to 5â€“6% for highly built concentrates or where the cloud point must stay below 0 Â°C to survive winter warehousing. Always confirm with bench cloud-point trials.",
   },
   {
     question: "Is Sodium Xylene Sulfonate 40% safe to handle?",
     answer:
-      "SXS-40 is classified under GHS only as a mild eye irritant (Category 2A) and is non-hazardous for transport under IMDG/ADR. It is readily biodegradable and REACH pre-registered. PPE: safety goggles and nitrile gloves during decanting. Store at 10–40 °C; prolonged exposure below 5 °C can cause reversible crystallisation.",
+      "SXS-40 is classified under GHS only as a mild eye irritant (Category 2A) and is non-hazardous for transport under IMDG/ADR. It is readily biodegradable and REACH pre-registered. PPE: safety goggles and nitrile gloves during decanting. Store at 10â€“40 Â°C; prolonged exposure below 5 Â°C can cause reversible crystallisation.",
   },
   {
     question: "What packaging and minimum order quantity do you supply for SXS-40?",
@@ -461,22 +468,22 @@ export const SODIUM_XYLENE_SULFONATE_90_FAQS: FAQItem[] = [
   {
     question: "What is Sodium Xylene Sulfonate 90% (SXS-90)?",
     answer:
-      "Sodium Xylene Sulfonate 90% is a free-flowing hydrotrope powder (CAS 1300-72-7) at 90 ± 1% active matter. It is used as a coupling agent in spray-dried detergent powders, alkaline cleaner concentrates, agrochemical water-dispersible granules, and industrial cleaners where low-water, high-active formulations are required.",
+      "Sodium Xylene Sulfonate 90% is a free-flowing hydrotrope powder (CAS 1300-72-7) at 90 Â± 1% active matter. It is used as a coupling agent in spray-dried detergent powders, alkaline cleaner concentrates, agrochemical water-dispersible granules, and industrial cleaners where low-water, high-active formulations are required.",
   },
   {
     question: "Why use SXS-90 powder instead of SXS-40 liquid?",
     answer:
-      "SXS-90 powder concentrates 2.25× more active matter per kg than SXS-40 liquid, cutting freight cost per kg active by approximately 60%. It is the preferred grade for long-haul export and for spray-dried detergent powder, built laundry powder, and dry-blended alkaline cleaner concentrates where added water is undesirable.",
+      "SXS-90 powder concentrates 2.25Ã— more active matter per kg than SXS-40 liquid, cutting freight cost per kg active by approximately 60%. It is the preferred grade for long-haul export and for spray-dried detergent powder, built laundry powder, and dry-blended alkaline cleaner concentrates where added water is undesirable.",
   },
   {
     question: "How should SXS-90 powder be stored and handled?",
     answer:
-      "Store SXS-90 in sealed bags at 10–35 °C in a dry warehouse. The powder is mildly hygroscopic; reseal partial packs promptly to avoid caking. Shelf life is 24 months in original packaging. Use dust-suppression PPE (goggles, nitrile gloves, dust mask) when handling large volumes; the product is not a dust-explosion hazard.",
+      "Store SXS-90 in sealed bags at 10â€“35 Â°C in a dry warehouse. The powder is mildly hygroscopic; reseal partial packs promptly to avoid caking. Shelf life is 24 months in original packaging. Use dust-suppression PPE (goggles, nitrile gloves, dust mask) when handling large volumes; the product is not a dust-explosion hazard.",
   },
   {
     question: "What is the typical dosage of SXS-90 in a spray-dried laundry powder?",
     answer:
-      "Typical dosage of SXS-90 in spray-dried laundry powder is 1–4% active on finished product, equivalent to ~1.1–4.5% SXS-90 powder on total weight. It improves slurry flow-ability during spray-drying, reduces stickiness in the tower, and helps maintain a low cloud point in the rehydrated wash liquor.",
+      "Typical dosage of SXS-90 in spray-dried laundry powder is 1â€“4% active on finished product, equivalent to ~1.1â€“4.5% SXS-90 powder on total weight. It improves slurry flow-ability during spray-drying, reduces stickiness in the tower, and helps maintain a low cloud point in the rehydrated wash liquor.",
   },
   {
     question: "Is SXS-90 powder REACH-registered and export-ready?",
@@ -502,3 +509,5 @@ export const PRODUCT_FALLBACK_FAQS: Record<string, FAQItem[]> = {
   "mea-triazine-78-h2s-scavenger": MEA_TRIAZINE_FALLBACK_FAQS,
   "mma-triazine-40": MMA_TRIAZINE_FALLBACK_FAQS,
 };
+
+

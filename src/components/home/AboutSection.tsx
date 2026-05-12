@@ -4,19 +4,10 @@ import SectionLabel from "@/components/SectionLabel";
 import { getCompanyInfo } from "@/lib/company";
 import { getSiteImages } from "@/lib/siteImages";
 
-const defaultAvatars = [
-  "https://framerusercontent.com/images/4joakeBMa5GHrq9uyQPg0bnmko.png",
-  "https://framerusercontent.com/images/HfRFaPjzU8WCChxWa4MmTB1BWg.png",
-  "https://framerusercontent.com/images/atqhDfm1Q5VKmWwNHnp8Cl7GHo.png",
-  "https://framerusercontent.com/images/crOykN7l4AlMK9acNXCVRzJmcg.png",
-];
-
 export default async function AboutSection() {
   const company = await getCompanyInfo();
   const siteImagesData = await getSiteImages();
   const siteImages = siteImagesData.homePage?.aboutSection || {};
-
-  const activeAvatars = siteImages.avatars?.length ? siteImages.avatars : defaultAvatars;
 
   const companyName = company.companyName || "Our company";
   const companyAddress = company.address || "";

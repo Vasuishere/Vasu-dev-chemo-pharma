@@ -34,7 +34,8 @@ import {
 export const revalidate = 3600;
 
 export async function generateStaticParams() {
-  return Object.keys(COUNTRY_PAGES_DATA).map((country) => ({ country }));
+  // Pre-render all known country pages to ensure immediate availability and crawling.
+  return Object.keys(COUNTRY_PAGES_DATA).map(country => ({ country }));
 }
 
 function getCountryPageData(countrySlug: string): CountryPageData | null {

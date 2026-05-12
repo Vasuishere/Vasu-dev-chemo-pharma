@@ -1,14 +1,8 @@
 import Link from "next/link";
 import SectionLabel from "@/components/SectionLabel";
 import Button from "@/components/Button";
-import SocialLinksRow from "@/components/SocialLinksRow";
 
 import { getSiteImages } from "@/lib/siteImages";
-import {
-  INSTAGRAM_URL,
-  LINKEDIN_URL,
-  buildWhatsAppUrl,
-} from "@/lib/social-links";
 
 const VIDEO_OPACITY = 0.75; // Adjust this value (0 to 1) to control video opacity
 

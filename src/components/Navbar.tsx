@@ -6,14 +6,6 @@ import { useState, useEffect, useRef } from "react";
 import GoogleTranslate from "./GoogleTranslate";
 
 /* ── Static nav links (no dropdown) ──────────────────────────────────── */
-const simpleLinks = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Services", href: "/service" },
-  { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/contact" },
-];
-
 /* ── Dropdown: Products ──────────────────────────────────────────────── */
 const productsDropdown = {
   label: "Products",

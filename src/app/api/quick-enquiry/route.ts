@@ -112,7 +112,7 @@ export async function POST(req: Request) {
     });
 
     return json({ success: true }, { status: 202 }, req);
-  } catch (error: any) {
+  } catch (error: unknown) {
     logApiError('quick_enquiry.failed', error, { route: '/api/quick-enquiry' });
     if (error instanceof SyntaxError) {
         return json({ error: 'Invalid JSON payload' }, { status: 400 }, req);

@@ -7,7 +7,24 @@ import { useEffect, useState, useRef } from "react";
 declare global {
   interface Window {
     googleTranslateElementInit?: () => void;
-    google?: any;
+    google?: {
+      translate?: {
+        TranslateElement?: {
+          new (
+            options: {
+              pageLanguage: string;
+              includedLanguages: string;
+              layout: string | number;
+              autoDisplay: boolean;
+            },
+            element: string
+          ): unknown;
+          InlineLayout: {
+            SIMPLE: string | number;
+          };
+        };
+      };
+    };
   }
 }
 
@@ -156,6 +173,7 @@ export default function GoogleTranslate() {
         onClick={() => setOpen(!open)}
         className="flex items-center gap-2 text-sm font-medium text-primary hover:text-accent transition-colors py-2 px-3 rounded-full hover:bg-gray-50 border border-transparent hover:border-gray-100"
       >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img 
           src={`https://flagcdn.com/w20/${currentLang.countryCode}.png`} 
           srcSet={`https://flagcdn.com/w40/${currentLang.countryCode}.png 2x`}
@@ -186,6 +204,7 @@ export default function GoogleTranslate() {
                 }`}
               >
                 <span className="text-base leading-none flex items-center">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img 
                     src={`https://flagcdn.com/w20/${lang.countryCode}.png`} 
                     srcSet={`https://flagcdn.com/w40/${lang.countryCode}.png 2x`}

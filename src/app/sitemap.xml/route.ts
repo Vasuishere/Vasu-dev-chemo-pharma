@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { getAllProductSlugs } from "@/lib/products-payload";
 import { getAllProductSlugs as getStaticProductSlugs } from "@/lib/products";
 import { blogData } from "@/app/(frontend)/blog/[slug]/seo-blog-data";
+import { getAllBlogSlugs } from "@/lib/blogs-payload";
 import { CASE_STUDY_SLUGS } from "@/lib/case-studies-data";
 import { COUNTRY_SLUGS } from "@/lib/seo/country-pages-data";
 import { COMPETITOR_SLUGS } from "@/lib/seo/competitor-comparison-data";
@@ -42,6 +43,11 @@ type SitemapEntry = {
   lastModified: string;
   changeFrequency: ChangeFrequency;
   priority: number;
+};
+
+type LiveBlogSlug = {
+  slug: string;
+  updatedAt: string;
 };
 
 const HIGH_PRIORITY_PRODUCTS = new Set([
@@ -158,6 +164,7 @@ function canonicalCountrySlugs(): string[] {
 export async function GET() {
   const fallbackProductSlugs = getStaticProductSlugs();
   let productSlugs: string[] = fallbackProductSlugs;
+  let liveBlogs: LiveBlogSlug[] = [];
 
   try {
     const liveSlugs = await getAllProductSlugs();
@@ -167,6 +174,12 @@ export async function GET() {
   } catch (err) {
     console.error("Failed to fetch product slugs for sitemap", { error: err });
     productSlugs = fallbackProductSlugs;
+  }
+
+  try {
+    liveBlogs = await getAllBlogSlugs();
+  } catch (err) {
+    console.error("Failed to fetch blog slugs for sitemap", { error: err });
   }
 
   const now = new Date().toISOString();
@@ -192,6 +205,14 @@ export async function GET() {
         "monthly",
         0.6,
         toIsoDateString(blog.lastUpdated) ?? toIsoDateString(blog.date) ?? now
+      )
+    ),
+    ...liveBlogs.map((blog) =>
+      buildEntry(
+        `/blog/${blog.slug}`,
+        "monthly",
+        0.6,
+        toIsoDateString(blog.updatedAt) ?? now
       )
     ),
     ...CASE_STUDY_SLUGS.map((slug) =>

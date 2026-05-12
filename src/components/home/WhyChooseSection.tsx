@@ -18,13 +18,6 @@ const features = [
   "Near major Gujarat ports (Kandla, Mundra, Hazira)",
 ];
 
-const avatars = [
-  "https://framerusercontent.com/images/4joakeBMa5GHrq9uyQPg0bnmko.png",
-  "https://framerusercontent.com/images/HfRFaPjzU8WCChxWa4MmTB1BWg.png",
-  "https://framerusercontent.com/images/atqhDfm1Q5VKmWwNHnp8Cl7GHo.png",
-  "https://framerusercontent.com/images/crOykN7l4AlMK9acNXCVRzJmcg.png",
-];
-
 export default function WhyChooseSection() {
   return (
     <section className="py-20 lg:py-32 bg-light">

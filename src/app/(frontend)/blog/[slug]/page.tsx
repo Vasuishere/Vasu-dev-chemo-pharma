@@ -8,6 +8,7 @@ import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 import AuthorByline from "@/components/blog/AuthorByline";
 import TableOfContents from "@/components/blog/TableOfContents";
 import { blogData, type BlogEntry } from "./seo-blog-data";
+import { getBlogImageOverride } from "@/lib/blogs-payload";
 
 export const revalidate = 3600;
 
@@ -42,8 +43,9 @@ function countWords(blog: BlogEntry): number {
 /* ------------------------------------------------------------------ */
 
 export function generateStaticParams() {
-  // Pre-render all known blog posts at build time; unknown slugs use ISR on first request
-  return Object.keys(blogData).map((slug) => ({ slug }));
+  // Pre-render all known static blog posts to improve initial load speed.
+  // Dynamic posts added via CMS will still use on-demand ISR.
+  return allBlogs.map((b) => ({ slug: b.slug }));
 }
 
 export async function generateMetadata({
@@ -56,6 +58,15 @@ export async function generateMetadata({
   if (!blog) return {};
   const publishedTime = toIsoDateString(blog.date);
   const modifiedTime = toIsoDateString(blog.lastUpdated);
+
+  let imageOverride;
+  try {
+    imageOverride = await getBlogImageOverride(slug);
+  } catch (err) {
+    imageOverride = undefined;
+    console.error("Failed to fetch blog image override for metadata:", err);
+  }
+  const imageUrl = imageOverride || blog.image;
 
   return {
     title: blog.title,
@@ -71,7 +82,7 @@ export async function generateMetadata({
       publishedTime,
       modifiedTime,
       authors: [blog.author],
-      images: [{ url: blog.image, alt: blog.imageAlt }],
+      images: [{ url: imageUrl, alt: blog.imageAlt }],
     },
   };
 }
@@ -94,6 +105,15 @@ export default async function BlogDetailPage({
   const wordCount = countWords(blog);
   const isPillar = wordCount >= 1500;
 
+  let imageOverride;
+  try {
+    imageOverride = await getBlogImageOverride(slug);
+  } catch (err) {
+    imageOverride = undefined;
+    console.error("Failed to fetch blog image override for page:", err);
+  }
+  const imageUrl = imageOverride || blog.image;
+
   const relatedBlogs = allBlogs.filter((b) => b.slug !== slug).slice(0, 3);
 
   const tocItems = blog.sections.map((s) => ({
@@ -109,7 +129,7 @@ export default async function BlogDetailPage({
         description={blog.excerpt}
         datePublished={publishedDateIso}
         dateModified={modifiedDateIso}
-        image={blog.image}
+        image={imageUrl}
         url={`https://www.vasudevchemopharma.com/blog/${slug}`}
         authorName={blog.author}
         authorCredentials={blog.authorCredentials}
@@ -148,7 +168,7 @@ export default async function BlogDetailPage({
             {/* Hero image with keyword-rich alt text */}
             <div className="relative mt-12 rounded-3xl overflow-hidden aspect-[16/9] max-w-4xl mx-auto">
               <Image
-                src={blog.image}
+                src={imageUrl}
                 alt={blog.imageAlt}
                 fill
                 priority

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -30,7 +30,7 @@ const INDUSTRY_CLUSTER_MAP: Record<string, readonly string[][]> = {
   "paper-mill": [TRIAZINE_BIOCIDE_KEYWORDS],
 };
 
-/* ── Industry data ────────────────────────────────────────────── */
+/* â”€â”€ Industry data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
 type IndustryPage = {
   title: string;
@@ -54,7 +54,7 @@ type IndustryPage = {
 const industryData: Record<string, IndustryPage> = {
   "oil-gas-h2s-scavenger": {
     title: "MEA Triazine H2S Scavenger for Oil & Gas",
-    h1: "MEA Triazine H2S Scavenger for Oil & Gas — Manufacturer Direct from India",
+    h1: "MEA Triazine H2S Scavenger for Oil & Gas â€” Manufacturer Direct from India",
     description:
       "Vasudev Chemo Pharma manufactures MEA Triazine 78% H2S scavenger for oil & gas. Direct supply from India with ISO 9001:2015 certification. Request a free sample.",
     keywords: [
@@ -81,9 +81,9 @@ const industryData: Record<string, IndustryPage> = {
     sections: [
       {
         heading: "The H2S Problem in Oil & Gas",
-        body: `Hydrogen sulfide (H2S) is one of the most dangerous gases encountered in oil and gas operations. Even at low concentrations, H2S is acutely toxic — the OSHA permissible exposure limit (PEL) is just 20 ppm, and concentrations above 100 ppm are immediately life-threatening. Beyond personnel safety, H2S causes severe corrosion in pipelines, wellhead equipment, and processing facilities, leading to costly unplanned shutdowns and regulatory penalties.
+        body: `Hydrogen sulfide (H2S) is one of the most dangerous gases encountered in oil and gas operations. Even at low concentrations, H2S is acutely toxic â€” the OSHA permissible exposure limit (PEL) is just 20 ppm, and concentrations above 100 ppm are immediately life-threatening. Beyond personnel safety, H2S causes severe corrosion in pipelines, wellhead equipment, and processing facilities, leading to costly unplanned shutdowns and regulatory penalties.
 
-In upstream production, H2S occurs naturally in sour crude oil and natural gas reservoirs. Midstream and downstream operations face H2S in gas processing, refining, and pipeline transport. Left untreated, H2S corrodes carbon steel infrastructure, contaminates products, and creates compliance failures with API and NACE standards. The cost of inaction — equipment replacement, safety incidents, and environmental fines — far exceeds the cost of effective chemical scavenging.`,
+In upstream production, H2S occurs naturally in sour crude oil and natural gas reservoirs. Midstream and downstream operations face H2S in gas processing, refining, and pipeline transport. Left untreated, H2S corrodes carbon steel infrastructure, contaminates products, and creates compliance failures with API and NACE standards. The cost of inaction â€” equipment replacement, safety incidents, and environmental fines â€” far exceeds the cost of effective chemical scavenging.`,
       },
       {
         heading: "How MEA Triazine 78% Solves It",
@@ -102,13 +102,13 @@ MEA Triazine is the industry-standard liquid H2S scavenger for good reason: it i
       { label: "Packaging", value: "220 L drums, IBC 1000 L, bulk tanker" },
       { label: "MOQ (Export)", value: "1 MT" },
       { label: "MOQ (Domestic)", value: "220 Kg" },
-      { label: "Lead time (Export)", value: "10–15 days" },
-      { label: "Lead time (Domestic)", value: "4–5 days" },
+      { label: "Lead time (Export)", value: "10â€“15 days" },
+      { label: "Lead time (Domestic)", value: "4â€“5 days" },
     ],
     benefits: [
       "ISO 9001:2015 certified manufacturer",
-      "Direct from manufacturer — no middlemen",
-      "Near Kandla, Mundra, Hazira ports — fast export",
+      "Direct from manufacturer â€” no middlemen",
+      "Near Kandla, Mundra, Hazira ports â€” fast export",
       "COA, TDS, MSDS available on every order",
       "Free samples available for qualification testing",
       "Technical support for dosage optimisation",
@@ -177,7 +177,7 @@ MEA Triazine is the industry-standard liquid H2S scavenger for good reason: it i
     sections: [
       {
         heading: "H2S in Water Treatment Systems",
-        body: `Hydrogen sulfide is a common problem in wastewater collection systems, treatment plants, and industrial water circuits. It forms when sulphate-reducing bacteria thrive in anaerobic conditions — inside sewer lines, lift stations, digesters, and stagnant holding tanks. The result is foul odour complaints, concrete and metal corrosion, and health risks for maintenance workers.
+        body: `Hydrogen sulfide is a common problem in wastewater collection systems, treatment plants, and industrial water circuits. It forms when sulphate-reducing bacteria thrive in anaerobic conditions â€” inside sewer lines, lift stations, digesters, and stagnant holding tanks. The result is foul odour complaints, concrete and metal corrosion, and health risks for maintenance workers.
 
 Municipal authorities and industrial operators face increasing pressure to control H2S emissions at the source. Chemical scavenging with triazine-based products offers an effective, easy-to-deploy solution that works in both batch treatment and continuous dosing scenarios.`,
       },
@@ -185,7 +185,7 @@ Municipal authorities and industrial operators face increasing pressure to contr
         heading: "MMA Triazine 40% for Wastewater",
         body: `MMA Triazine (mono-methylamine triazine) at 40% active concentration is specifically formulated for water and wastewater applications. It reacts with dissolved H2S to form a stable, water-soluble by-product that does not re-release hydrogen sulfide.
 
-MMA Triazine 40% is safe for use in municipal wastewater systems and does not introduce harmful residues. Typical dosage ranges from 10–20 ppm depending on H2S levels and system pH. The product can be injected at lift stations, headworks, or directly into collection lines using standard chemical dosing equipment.
+MMA Triazine 40% is safe for use in municipal wastewater systems and does not introduce harmful residues. Typical dosage ranges from 10â€“20 ppm depending on H2S levels and system pH. The product can be injected at lift stations, headworks, or directly into collection lines using standard chemical dosing equipment.
 
 Compared to iron-based and oxidiser alternatives, MMA Triazine offers consistent performance across varying pH and temperature conditions, with lower equipment maintenance requirements.`,
       },
@@ -197,13 +197,13 @@ Compared to iron-based and oxidiser alternatives, MMA Triazine offers consistent
       { label: "Packaging", value: "220 L drums, IBC 1000 L" },
       { label: "MOQ (Export)", value: "1 MT" },
       { label: "MOQ (Domestic)", value: "220 Kg" },
-      { label: "Lead time (Export)", value: "10–15 days" },
-      { label: "Lead time (Domestic)", value: "4–5 days" },
+      { label: "Lead time (Export)", value: "10â€“15 days" },
+      { label: "Lead time (Domestic)", value: "4â€“5 days" },
     ],
     benefits: [
       "ISO 9001:2015 certified manufacturer",
       "Safe for municipal wastewater systems",
-      "Direct from manufacturer — competitive pricing",
+      "Direct from manufacturer â€” competitive pricing",
       "COA, TDS, MSDS with every shipment",
       "Free samples for pilot testing",
       "Technical dosage guidance available",
@@ -223,7 +223,7 @@ Compared to iron-based and oxidiser alternatives, MMA Triazine offers consistent
       {
         question: "What dosage of MMA Triazine is needed for wastewater?",
         answer:
-          "Typical dosage ranges from 10–20 ppm based on H2S concentration and system conditions. Our technical team can help you optimise dosage based on your specific water chemistry and treatment targets.",
+          "Typical dosage ranges from 10â€“20 ppm based on H2S concentration and system conditions. Our technical team can help you optimise dosage based on your specific water chemistry and treatment targets.",
       },
       {
         question: "Can MMA Triazine be used alongside other treatment chemicals?",
@@ -235,7 +235,7 @@ Compared to iron-based and oxidiser alternatives, MMA Triazine offers consistent
 
   "metal-working-fluids": {
     title: "Triazine Biocide for Metal Working Fluids",
-    h1: "Triazine Biocide for Metal Working Fluids — MMA & MEA Triazine Supplier",
+    h1: "Triazine Biocide for Metal Working Fluids â€” MMA & MEA Triazine Supplier",
     description:
       "Triazine biocide for metalworking fluid preservation. Formaldehyde-releasing biocide effective against bacteria, fungi, and algae. Manufactured in India.",
     keywords: [
@@ -262,7 +262,7 @@ Compared to iron-based and oxidiser alternatives, MMA Triazine offers consistent
     sections: [
       {
         heading: "Microbial Contamination in Cutting Fluids",
-        body: `Metalworking fluids (MWFs) provide an ideal environment for microbial growth. Water-miscible cutting fluids, grinding fluids, and coolants contain organic nutrients and operate at warm temperatures — conditions that promote rapid proliferation of bacteria, fungi, and algae. Uncontrolled microbial contamination leads to foul odours, reduced fluid performance, shortened sump life, skin irritation for operators, and increased disposal costs.
+        body: `Metalworking fluids (MWFs) provide an ideal environment for microbial growth. Water-miscible cutting fluids, grinding fluids, and coolants contain organic nutrients and operate at warm temperatures â€” conditions that promote rapid proliferation of bacteria, fungi, and algae. Uncontrolled microbial contamination leads to foul odours, reduced fluid performance, shortened sump life, skin irritation for operators, and increased disposal costs.
 
 Regular biocide treatment is essential to maintain fluid quality, extend sump life, and protect worker health. Triazine-based biocides offer a proven, cost-effective solution used across the metalworking industry globally.`,
       },
@@ -272,24 +272,24 @@ Regular biocide treatment is essential to maintain fluid quality, extend sump li
 
 Our triazine biocides are functionally equivalent to Grotan BK and other established formaldehyde-releasing preservatives. They are compatible with most water-miscible metalworking fluid formulations and can be used both as an initial charge biocide and for ongoing maintenance dosing.
 
-Recommended dosage is typically 0.1–0.3% by volume for initial charge, with maintenance additions of 0.05–0.1% as needed based on microbiological monitoring. The product is easy to handle, mixes readily with metalworking fluids, and does not adversely affect fluid performance or surface finish quality.`,
+Recommended dosage is typically 0.1â€“0.3% by volume for initial charge, with maintenance additions of 0.05â€“0.1% as needed based on microbiological monitoring. The product is easy to handle, mixes readily with metalworking fluids, and does not adversely affect fluid performance or surface finish quality.`,
       },
     ],
     specs: [
       { label: "Products available", value: "MMA Triazine 40%, MEA Triazine 78%" },
       { label: "Function", value: "Formaldehyde-releasing biocide" },
       { label: "Application", value: "Metalworking fluids, cutting oils, coolants" },
-      { label: "Typical dosage", value: "0.1–0.3% (initial), 0.05–0.1% (maintenance)" },
+      { label: "Typical dosage", value: "0.1â€“0.3% (initial), 0.05â€“0.1% (maintenance)" },
       { label: "Packaging", value: "220 L drums, IBC 1000 L" },
       { label: "MOQ (Export)", value: "1 MT" },
-      { label: "Lead time (Export)", value: "10–15 days" },
+      { label: "Lead time (Export)", value: "10â€“15 days" },
     ],
     benefits: [
-      "Grotan BK equivalent — proven performance",
+      "Grotan BK equivalent â€” proven performance",
       "Broad-spectrum: bacteria, fungi, and algae",
-      "Controlled formaldehyde release — safer handling",
+      "Controlled formaldehyde release â€” safer handling",
       "Compatible with most MWF formulations",
-      "Competitive pricing — direct from Indian manufacturer",
+      "Competitive pricing â€” direct from Indian manufacturer",
       "COA, TDS, MSDS documentation included",
     ],
     servedIndustries: [
@@ -307,19 +307,19 @@ Recommended dosage is typically 0.1–0.3% by volume for initial charge, with ma
       {
         question: "What dosage is recommended for cutting fluids?",
         answer:
-          "For initial charge, we recommend 0.1–0.3% by volume. Maintenance dosing of 0.05–0.1% should be applied based on regular microbiological monitoring (dip slides or plate counts). Our technical team can help you establish a monitoring and dosing programme.",
+          "For initial charge, we recommend 0.1â€“0.3% by volume. Maintenance dosing of 0.05â€“0.1% should be applied based on regular microbiological monitoring (dip slides or plate counts). Our technical team can help you establish a monitoring and dosing programme.",
       },
       {
         question: "Is triazine biocide safe for operators?",
         answer:
-          "Triazine biocides release formaldehyde at controlled, low concentrations — well below levels that would cause workplace exposure concerns when used at recommended dosages. Standard chemical handling precautions (gloves, eye protection) should be observed when adding the concentrate.",
+          "Triazine biocides release formaldehyde at controlled, low concentrations â€” well below levels that would cause workplace exposure concerns when used at recommended dosages. Standard chemical handling precautions (gloves, eye protection) should be observed when adding the concentrate.",
       },
     ],
   },
 
   "petrochemical": {
     title: "MEA Triazine H2S Scavenger for Petrochemical Plants",
-    h1: "MEA Triazine H2S Scavenger for Petrochemical Operations — Direct from Manufacturer",
+    h1: "MEA Triazine H2S Scavenger for Petrochemical Operations â€” Direct from Manufacturer",
     description:
       "MEA Triazine 78% H2S scavenger for petrochemical plants. Protects crackers, reformers, and downstream units from sulfide corrosion. Manufactured by Vasudev Chemo Pharma, India.",
     keywords: [
@@ -355,9 +355,9 @@ The scale of petrochemical operations amplifies the cost of corrosion-related fa
         heading: "MEA Triazine 78% in Petrochemical Applications",
         body: `MEA Triazine (1,3,5-tri(2-hydroxyethyl)-hexahydro-s-triazine) is deployed across multiple points in petrochemical facilities for H2S control. It is injected into process streams, amine system overheads, sour water strippers, and flare gas headers to reduce H2S concentrations below safety and compliance thresholds.
 
-At 78% active concentration, MEA Triazine delivers high scavenging capacity with minimal dilution of process streams. The irreversible reaction with H2S produces water-soluble dithiazine — a stable, non-toxic by-product that does not re-release hydrogen sulfide under process conditions. This makes MEA Triazine suitable for both continuous injection and batch treatment scenarios common in petrochemical plants.
+At 78% active concentration, MEA Triazine delivers high scavenging capacity with minimal dilution of process streams. The irreversible reaction with H2S produces water-soluble dithiazine â€” a stable, non-toxic by-product that does not re-release hydrogen sulfide under process conditions. This makes MEA Triazine suitable for both continuous injection and batch treatment scenarios common in petrochemical plants.
 
-Unlike regenerable amine systems that require dedicated stripping columns and reboilers, MEA Triazine is a simple liquid injection that can be deployed at any point in the process where H2S control is needed — including locations where installing a full amine unit is impractical or uneconomical.`,
+Unlike regenerable amine systems that require dedicated stripping columns and reboilers, MEA Triazine is a simple liquid injection that can be deployed at any point in the process where H2S control is needed â€” including locations where installing a full amine unit is impractical or uneconomical.`,
       },
     ],
     specs: [
@@ -368,13 +368,13 @@ Unlike regenerable amine systems that require dedicated stripping columns and re
       { label: "Application points", value: "Amine overheads, sour water strippers, flare headers" },
       { label: "Packaging", value: "220 L drums, IBC 1000 L, bulk tanker" },
       { label: "MOQ (Export)", value: "1 MT" },
-      { label: "Lead time (Export)", value: "10–15 days" },
-      { label: "Lead time (Domestic)", value: "4–5 days" },
+      { label: "Lead time (Export)", value: "10â€“15 days" },
+      { label: "Lead time (Domestic)", value: "4â€“5 days" },
     ],
     benefits: [
       "ISO 9001:2015 certified manufacturer",
-      "High 78% concentration — maximum scavenging per litre",
-      "Direct from manufacturer — competitive bulk pricing",
+      "High 78% concentration â€” maximum scavenging per litre",
+      "Direct from manufacturer â€” competitive bulk pricing",
       "Effective across cracker, reformer, and amine system applications",
       "COA, TDS, MSDS documentation with every shipment",
       "Technical support for process-specific dosing optimisation",
@@ -389,12 +389,12 @@ Unlike regenerable amine systems that require dedicated stripping columns and re
       {
         question: "Where is MEA Triazine injected in a petrochemical plant?",
         answer:
-          "MEA Triazine 78% is typically injected at amine system overheads, sour water stripper outlets, flare gas headers, and any process stream where H2S concentrations exceed safety or specification limits. The exact injection points depend on your facility configuration — our technical team can help you identify optimal locations.",
+          "MEA Triazine 78% is typically injected at amine system overheads, sour water stripper outlets, flare gas headers, and any process stream where H2S concentrations exceed safety or specification limits. The exact injection points depend on your facility configuration â€” our technical team can help you identify optimal locations.",
       },
       {
         question: "Can MEA Triazine replace amine systems in petrochemical operations?",
         answer:
-          "MEA Triazine is used as a complement to amine systems — not a replacement for large-scale amine treating. It is ideal for polishing residual H2S after amine treatment, treating low-volume streams where a full amine unit is uneconomical, and providing backup scavenging during amine system upsets or turnarounds.",
+          "MEA Triazine is used as a complement to amine systems â€” not a replacement for large-scale amine treating. It is ideal for polishing residual H2S after amine treatment, treating low-volume streams where a full amine unit is uneconomical, and providing backup scavenging during amine system upsets or turnarounds.",
       },
       {
         question: "What is the scavenging capacity of MEA Triazine 78% in petrochemical service?",
@@ -410,8 +410,8 @@ Unlike regenerable amine systems that require dedicated stripping columns and re
   },
 
   "refining": {
-    title: "H2S Scavenger for Refinery Operations — MEA Triazine 78%",
-    h1: "H2S Scavenger for Refinery Operations — MEA Triazine 78% Manufacturer",
+    title: "H2S Scavenger for Refinery Operations â€” MEA Triazine 78%",
+    h1: "H2S Scavenger for Refinery Operations â€” MEA Triazine 78% Manufacturer",
     description:
       "MEA Triazine 78% H2S scavenger for petroleum refineries. Crude unit overheads, FCC off-gas, and tank vapour treatment. Manufactured by Vasudev Chemo Pharma, India.",
     keywords: [
@@ -441,7 +441,7 @@ Unlike regenerable amine systems that require dedicated stripping columns and re
         heading: "H2S Corrosion Risks in Refineries",
         body: `Petroleum refineries process crude oil containing varying levels of sulfur compounds that decompose into hydrogen sulfide during thermal and catalytic processing. The crude distillation unit (CDU) overhead system, fluid catalytic cracker (FCC) off-gas, hydrocracker effluent, and coker unit are all significant H2S generation points. Storage tanks receiving sour intermediates also accumulate H2S in the vapour space.
 
-H2S-induced corrosion in refinery equipment is a leading cause of unplanned shutdowns and safety incidents. Overhead condenser systems are particularly vulnerable — wet H2S combined with chlorides creates aggressive corrosion environments that can perforate heat exchanger tubes and overhead piping within months. API 571 classifies wet H2S damage as one of the most common damage mechanisms in refining service. Beyond equipment integrity, refineries must comply with SOx emission limits and sulfur content specifications in finished products.`,
+H2S-induced corrosion in refinery equipment is a leading cause of unplanned shutdowns and safety incidents. Overhead condenser systems are particularly vulnerable â€” wet H2S combined with chlorides creates aggressive corrosion environments that can perforate heat exchanger tubes and overhead piping within months. API 571 classifies wet H2S damage as one of the most common damage mechanisms in refining service. Beyond equipment integrity, refineries must comply with SOx emission limits and sulfur content specifications in finished products.`,
       },
       {
         heading: "MEA Triazine 78% for Refinery H2S Control",
@@ -453,7 +453,7 @@ FCC off-gas treatment: The FCC wet gas compressor discharge and downstream absor
 
 Tank vapour treatment: Crude and intermediate storage tanks accumulate H2S in the vapour space. MEA Triazine-based scrubbing systems or direct vapour-space injection reduce H2S to safe levels for tank maintenance and reduce emissions from tank vents.
 
-The 78% active concentration provides maximum chemical efficiency, reducing the volume of scavenger required per unit of H2S removed — an important consideration in refineries where chemical storage and handling space is often constrained.`,
+The 78% active concentration provides maximum chemical efficiency, reducing the volume of scavenger required per unit of H2S removed â€” an important consideration in refineries where chemical storage and handling space is often constrained.`,
       },
     ],
     specs: [
@@ -464,14 +464,14 @@ The 78% active concentration provides maximum chemical efficiency, reducing the 
       { label: "Refinery applications", value: "CDU overheads, FCC off-gas, tank vapour, sour water" },
       { label: "Packaging", value: "220 L drums, IBC 1000 L, bulk tanker" },
       { label: "MOQ (Export)", value: "1 MT" },
-      { label: "Lead time (Export)", value: "10–15 days" },
-      { label: "Lead time (Domestic)", value: "4–5 days" },
+      { label: "Lead time (Export)", value: "10â€“15 days" },
+      { label: "Lead time (Domestic)", value: "4â€“5 days" },
     ],
     benefits: [
       "ISO 9001:2015 certified manufacturer",
-      "78% concentration — high efficiency in constrained spaces",
+      "78% concentration â€” high efficiency in constrained spaces",
       "Effective at CDU overheads, FCC off-gas, and tank vapour service",
-      "Direct from manufacturer — no middlemen, competitive pricing",
+      "Direct from manufacturer â€” no middlemen, competitive pricing",
       "COA, TDS, MSDS included with every shipment",
       "Technical support for refinery-specific dosing programmes",
     ],
@@ -485,7 +485,7 @@ The 78% active concentration provides maximum chemical efficiency, reducing the 
       {
         question: "How is MEA Triazine used in refinery overhead systems?",
         answer:
-          "MEA Triazine 78% is injected into the crude unit overhead system — typically at the overhead accumulator or reflux drum — to scavenge H2S before it can cause corrosion in condenser tubes and piping. It works alongside neutralising amines and filming corrosion inhibitors as part of a comprehensive overhead treatment programme.",
+          "MEA Triazine 78% is injected into the crude unit overhead system â€” typically at the overhead accumulator or reflux drum â€” to scavenge H2S before it can cause corrosion in condenser tubes and piping. It works alongside neutralising amines and filming corrosion inhibitors as part of a comprehensive overhead treatment programme.",
       },
       {
         question: "Can MEA Triazine treat FCC off-gas?",
@@ -500,7 +500,7 @@ The 78% active concentration provides maximum chemical efficiency, reducing the 
       {
         question: "What quantity of MEA Triazine does a typical refinery consume?",
         answer:
-          "Consumption depends on crude sulfur content, throughput, and the number of injection points. A mid-size refinery processing sour crude may consume 5–20 MT per month of MEA Triazine 78%. We offer bulk supply arrangements with scheduled deliveries for continuous operations.",
+          "Consumption depends on crude sulfur content, throughput, and the number of injection points. A mid-size refinery processing sour crude may consume 5â€“20 MT per month of MEA Triazine 78%. We offer bulk supply arrangements with scheduled deliveries for continuous operations.",
       },
     ],
   },
@@ -538,15 +538,15 @@ The 78% active concentration provides maximum chemical efficiency, reducing the 
         heading: "The H2S Problem in Biogas",
         body: `Biogas produced from anaerobic digestion of organic waste, wastewater sludge, agricultural residues, and landfill decomposition typically contains hydrogen sulfide at concentrations ranging from 100 to over 10,000 ppm. This H2S originates from the bacterial reduction of sulfate and the decomposition of sulfur-containing proteins in the feedstock.
 
-Untreated H2S in biogas causes rapid corrosion of engines, turbines, piping, and biogas upgrading equipment. It also poses a direct safety hazard to plant operators and produces sulfur dioxide (SO2) emissions when combusted — a regulated air pollutant. For biogas upgrading to biomethane or renewable natural gas (RNG), pipeline injection specifications typically require H2S below 4 ppm, demanding effective and reliable removal technology.`,
+Untreated H2S in biogas causes rapid corrosion of engines, turbines, piping, and biogas upgrading equipment. It also poses a direct safety hazard to plant operators and produces sulfur dioxide (SO2) emissions when combusted â€” a regulated air pollutant. For biogas upgrading to biomethane or renewable natural gas (RNG), pipeline injection specifications typically require H2S below 4 ppm, demanding effective and reliable removal technology.`,
       },
       {
         heading: "MEA Triazine for Biogas H2S Removal",
-        body: `MEA Triazine 78% is an effective liquid H2S scavenger for biogas applications. It is injected into the biogas stream — typically in a packed scrubbing column or inline injection system — where it reacts irreversibly with H2S to form dithiazine, a water-soluble and non-toxic by-product.
+        body: `MEA Triazine 78% is an effective liquid H2S scavenger for biogas applications. It is injected into the biogas stream â€” typically in a packed scrubbing column or inline injection system â€” where it reacts irreversibly with H2S to form dithiazine, a water-soluble and non-toxic by-product.
 
 For smaller biogas plants (agricultural digesters, small landfills), MEA Triazine offers a simple, low-capital solution: a chemical dosing pump and a contact vessel are the only equipment required. For larger operations, MEA Triazine can be used as a polishing step after biological desulfurisation or iron-based removal to achieve the stringent H2S limits required for biomethane upgrading and grid injection.
 
-The 78% active concentration minimises chemical consumption and reduces the frequency of chemical deliveries — an important consideration for biogas plants in rural or remote locations. The spent solution is non-hazardous and can typically be disposed of through the existing wastewater management system at the biogas facility.`,
+The 78% active concentration minimises chemical consumption and reduces the frequency of chemical deliveries â€” an important consideration for biogas plants in rural or remote locations. The spent solution is non-hazardous and can typically be disposed of through the existing wastewater management system at the biogas facility.`,
       },
     ],
     specs: [
@@ -558,15 +558,15 @@ The 78% active concentration minimises chemical consumption and reduces the freq
       { label: "Biogas applications", value: "Digesters, landfill gas, biomethane upgrading" },
       { label: "Packaging", value: "220 L drums, IBC 1000 L" },
       { label: "MOQ (Export)", value: "1 MT" },
-      { label: "Lead time (Export)", value: "10–15 days" },
+      { label: "Lead time (Export)", value: "10â€“15 days" },
     ],
     benefits: [
-      "Simple deployment — dosing pump + contact vessel only",
-      "78% concentration — fewer deliveries to remote biogas sites",
-      "Non-hazardous spent solution — easy disposal",
+      "Simple deployment â€” dosing pump + contact vessel only",
+      "78% concentration â€” fewer deliveries to remote biogas sites",
+      "Non-hazardous spent solution â€” easy disposal",
       "Effective from 100 ppm to 10,000+ ppm H2S",
       "Suitable for biomethane upgrading to pipeline spec (< 4 ppm H2S)",
-      "ISO 9001:2015 certified manufacturer — COA, TDS, MSDS included",
+      "ISO 9001:2015 certified manufacturer â€” COA, TDS, MSDS included",
     ],
     servedIndustries: [
       "Agricultural biogas plants",
@@ -593,7 +593,7 @@ The 78% active concentration minimises chemical consumption and reduces the freq
       {
         question: "Is MEA Triazine suitable for landfill gas applications?",
         answer:
-          "Yes. MEA Triazine 78% is effective for landfill gas H2S removal. Landfill gas typically contains 50–500 ppm H2S, which is well within the effective range for MEA Triazine treatment. It protects landfill gas engines, turbines, and upgrading equipment from sulfide corrosion.",
+          "Yes. MEA Triazine 78% is effective for landfill gas H2S removal. Landfill gas typically contains 50â€“500 ppm H2S, which is well within the effective range for MEA Triazine treatment. It protects landfill gas engines, turbines, and upgrading equipment from sulfide corrosion.",
       },
     ],
   },
@@ -646,12 +646,12 @@ MEA Triazine is compatible with common paper mill chemicals including retention 
       { label: "Application", value: "White water systems, stock preparation, wet end" },
       { label: "Packaging", value: "220 L drums, IBC 1000 L, bulk tanker" },
       { label: "MOQ (Export)", value: "1 MT" },
-      { label: "Lead time (Export)", value: "10–15 days" },
+      { label: "Lead time (Export)", value: "10â€“15 days" },
     ],
     benefits: [
       "Effective biofilm and slime control",
       "Compatible with paper mill chemistry",
-      "No foaming — safe for paper machines",
+      "No foaming â€” safe for paper machines",
       "ISO 9001:2015 certified production",
       "Export experience to Vietnam, Thailand, Southeast Asia",
       "COA, TDS, MSDS documentation provided",
@@ -666,7 +666,7 @@ MEA Triazine is compatible with common paper mill chemicals including retention 
       {
         question: "Do you export triazine slimicide to Southeast Asia?",
         answer:
-          "Yes. We regularly export MEA Triazine to paper mills in Vietnam, Thailand, Indonesia, and other Southeast Asian countries. Our manufacturing facility near Gujarat ports enables competitive freight rates and reliable lead times of 10–15 days.",
+          "Yes. We regularly export MEA Triazine to paper mills in Vietnam, Thailand, Indonesia, and other Southeast Asian countries. Our manufacturing facility near Gujarat ports enables competitive freight rates and reliable lead times of 10â€“15 days.",
       },
       {
         question: "Will MEA Triazine cause foaming in our paper machine?",
@@ -676,7 +676,7 @@ MEA Triazine is compatible with common paper mill chemicals including retention 
       {
         question: "What is the recommended dosage for white water systems?",
         answer:
-          "Dosage depends on your system volume, temperature, and contamination level. Typical continuous dosing rates range from 50–200 ppm in the white water circuit. Our technical team can help you determine the optimal dosage for your specific mill conditions.",
+          "Dosage depends on your system volume, temperature, and contamination level. Typical continuous dosing rates range from 50â€“200 ppm in the white water circuit. Our technical team can help you determine the optimal dosage for your specific mill conditions.",
       },
     ],
   },
@@ -684,13 +684,16 @@ MEA Triazine is compatible with common paper mill chemicals including retention 
 
 const SITE_URL = "https://www.vasudevchemopharma.com";
 
-/* ── Static params ────────────────────────────────────────────── */
+/* â”€â”€ Static params â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+
+export const revalidate = 86400;
 
 export function generateStaticParams() {
+  // Pre-render core industry overview pages
   return Object.keys(industryData).map((slug) => ({ slug }));
 }
 
-/* ── Metadata ─────────────────────────────────────────────────── */
+/* â”€â”€ Metadata â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
 export async function generateMetadata({
   params,
@@ -729,7 +732,7 @@ export async function generateMetadata({
   };
 }
 
-/* ── Page component ───────────────────────────────────────────── */
+/* â”€â”€ Page component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
 export default async function IndustryPage({
   params,
@@ -1068,3 +1071,4 @@ export default async function IndustryPage({
     </>
   );
 }
+

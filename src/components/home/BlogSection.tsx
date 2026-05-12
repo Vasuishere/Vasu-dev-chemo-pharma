@@ -2,23 +2,37 @@ import Image from "next/image";
 import Link from "next/link";
 import SectionLabel from "@/components/SectionLabel";
 import Button from "@/components/Button";
+import { getAllBlogImageOverrides } from "@/lib/blogs-payload";
 
-const blogs = [
+const initialBlogs = [
   {
     title: "How Automation Is Shaping the Future of Chemical Manufacturing",
     href: "/blog/automation-shaping-future-chemical-manufacturing",
+    slug: "automation-shaping-future-chemical-manufacturing",
     image: "https://framerusercontent.com/images/X3MBElAP8OnuJAyHhtV3aubNNY.webp",
     imageAlt: "Automation systems in chemical manufacturing facility",
   },
   {
     title: "Top 5 Specialty Chemicals Revolutionizing Industrial Applications",
     href: "/blog/top-5-specialty-chemicals-revolutionizing-industrial-applications",
+    slug: "top-5-specialty-chemicals-revolutionizing-industrial-applications",
     image: "https://atjtpw4vvodv5rtp.public.blob.vercel-storage.com/Blogs/top%205%20specialty%20chemicals%20revolutionizing%20industrial.svg",
     imageAlt: "Specialty chemicals for industrial applications including triazines and pharmaceutical intermediates",
   },
 ];
 
-export default function BlogSection() {
+export default async function BlogSection() {
+  let imageOverrides: Record<string, string> = {};
+  try {
+    imageOverrides = await getAllBlogImageOverrides();
+  } catch (err) {
+    console.error("Failed to fetch blog image overrides in BlogSection:", err);
+  }
+
+  const blogs = initialBlogs.map(blog => ({
+    ...blog,
+    image: imageOverrides[blog.slug] || blog.image
+  }));
   return (
     <section className="py-20 lg:py-32 bg-light">
       <div className="max-w-container mx-auto px-6 lg:px-10">

@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { applyPageMetaOverride } from "@/lib/seo/page-meta-overrides";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import {
@@ -39,6 +40,7 @@ import {
   FEATURED_RESOURCE_SLUGS,
 } from "@/lib/seo/seo-route-helpers";
 import { hydrotropeProductArticleLinks } from "@/app/(frontend)/blog/[slug]/hydrotrope-articles-data";
+import { getProductKeywordContentSections } from "@/lib/seo/keyword-content-sections";
 
 /* ─── ISR: revalidate product pages every hour ──────────────── */
 export const revalidate = 3600;
@@ -107,7 +109,7 @@ export async function generateMetadata({
         "x-default": canonicalUrl,
       };
 
-    return {
+    return applyPageMetaOverride(canonicalUrl, {
       title,
       description: resolvedDescription,
       keywords: [
@@ -158,7 +160,7 @@ export async function generateMetadata({
         description: twitterDescription,
         images: [ogImageUrl],
       },
-    };
+    });
   } catch {
     return {};
   }
@@ -240,6 +242,7 @@ export default async function ProductDetailPage({
   };
   const productPageFaqs = PRODUCT_PAGE_FAQS[slug] ?? PRODUCT_FALLBACK_FAQS[slug] ?? [];
   const directAnswer = PRODUCT_DIRECT_ANSWERS[slug];
+  const keywordContentSections = getProductKeywordContentSections(slug);
   const faqItems =
     product.faqs.length > 0
       ? product.faqs.slice(0, 6)
@@ -1440,6 +1443,128 @@ export default async function ProductDetailPage({
               </div>
             </section>
           )}
+
+          {/* ─── KEYWORD CONTENT SECTIONS (SEO) ────────────────────── */}
+          {keywordContentSections && (
+            <section id="category-applications" className="mb-16">
+              <div className="mb-8">
+                <p className="text-xs font-semibold uppercase tracking-wider text-accent mb-2">
+                  {keywordContentSections.categoryLabel}
+                </p>
+                <h2 className="font-heading text-h3 text-primary">
+                  Applications, Supply & Global Distribution
+                </h2>
+                <p className="mt-4 max-w-3xl text-sm leading-relaxed text-gray-600">
+                  {keywordContentSections.categorySummary}
+                </p>
+              </div>
+
+              {/* Application groups */}
+              {keywordContentSections.applicationGroups.length > 0 && (
+                <div className="mb-10">
+                  <h3 className="font-heading text-h4 text-primary mb-6">
+                    Industry Applications
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {keywordContentSections.applicationGroups.map((group) => (
+                      <div
+                        key={group.heading}
+                        className="border border-gray-200 rounded-2xl p-6"
+                      >
+                        <h4 className="font-heading text-h5 text-primary mb-2">
+                          {group.heading}
+                        </h4>
+                        <p className="text-sm text-gray-500 mb-4">
+                          {group.description}
+                        </p>
+                        <ul className="space-y-2">
+                          {group.items.map((item) => (
+                            <li
+                              key={item}
+                              className="flex items-start gap-2 text-sm text-gray-700"
+                            >
+                              <span className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0 mt-1.5" />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Supply groups */}
+              {keywordContentSections.supplyGroups.length > 0 && (
+                <div className="mb-10">
+                  <h3 className="font-heading text-h4 text-primary mb-6">
+                    {keywordContentSections.supplySectionHeading}
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {keywordContentSections.supplyGroups.map((group) => (
+                      <div
+                        key={group.heading}
+                        className="border border-gray-200 rounded-2xl p-6"
+                      >
+                        <h4 className="font-heading text-h5 text-primary mb-2">
+                          {group.heading}
+                        </h4>
+                        <p className="text-sm text-gray-500 mb-4">
+                          {group.description}
+                        </p>
+                        <ul className="space-y-2">
+                          {group.items.map((item) => (
+                            <li
+                              key={item}
+                              className="flex items-start gap-2 text-sm text-gray-700"
+                            >
+                              <span className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0 mt-1.5" />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Geography groups */}
+              {keywordContentSections.geographyGroups.length > 0 && (
+                <div>
+                  <h3 className="font-heading text-h4 text-primary mb-6">
+                    Global Distribution Network
+                  </h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {keywordContentSections.geographyGroups.map((group) => (
+                      <div
+                        key={group.heading}
+                        className="bg-light rounded-2xl p-6"
+                      >
+                        <h4 className="font-heading text-h5 text-primary mb-2">
+                          {group.heading}
+                        </h4>
+                        <p className="text-xs text-gray-500 mb-3">
+                          {group.description}
+                        </p>
+                        <ul className="space-y-1.5">
+                          {group.items.map((item) => (
+                            <li
+                              key={item}
+                              className="text-sm text-gray-700"
+                            >
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </section>
+          )}
+
 
           <section id="quote" className="mb-16">
             <div className="bg-primary rounded-3xl p-10 lg:p-14 text-center">

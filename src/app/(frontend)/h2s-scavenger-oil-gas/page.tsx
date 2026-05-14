@@ -1,4 +1,5 @@
 ﻿import type { Metadata } from "next";
+import { applyPageMetaOverride } from "@/lib/seo/page-meta-overrides";
 import Image from "next/image";
 import Link from "next/link";
 import SectionLabel from "@/components/SectionLabel";
@@ -16,7 +17,7 @@ import {
 
 const SITE_URL = "https://www.vasudevchemopharma.com";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = applyPageMetaOverride("/h2s-scavenger-oil-gas", {
   title: "H2S Scavenger for Oil & Gas | MEA & MMA Triazine | Vasudev Chemo Pharma",
   description:
     "Expert H2S scavenger solutions for oil & gas. Featuring MEA Triazine 78% for high-capacity H2S removal and BTEX-free MMA Triazine 40%. ISO 9001:2015 certified manufacturer from India.",
@@ -67,7 +68,7 @@ export const metadata: Metadata = {
       "High-performance MEA Triazine 78% and MMA Triazine 40% for H2S removal in oil & gas operations.",
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
-};
+});
 
 const faqs = [
   {

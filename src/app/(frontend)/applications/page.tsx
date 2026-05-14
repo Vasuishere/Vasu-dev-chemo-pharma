@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { applyPageMetaOverride } from "@/lib/seo/page-meta-overrides";
 import Link from "next/link";
 import SectionLabel from "@/components/SectionLabel";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
@@ -106,7 +107,7 @@ const buyingIntentKeywords = [
   "factory direct H2S scavenger supplier",
 ];
 
-export const metadata: Metadata = {
+export const metadata: Metadata = applyPageMetaOverride("/applications", {
   title: "MEA Triazine 78% Applications",
   description:
     "Application and use-case pages for MEA Triazine 78%, including gas treating, crude sweetening, biogas H2S removal, and industrial biocide use.",
@@ -133,7 +134,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
   },
-};
+});
 
 const applications = Object.values(APPLICATION_PAGES_DATA);
 

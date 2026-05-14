@@ -41,6 +41,7 @@ export const MEA_TRIAZINE_SYNONYMS: ProductSynonyms = {
     {
       heading: "Application-Based Names",
       items: [
+        "H2S Scavenger Chemicals",
         "H2S Scavenger",
         "Hydrogen Sulfide Scavenger",
         "Mercaptan Scavenger",
@@ -382,6 +383,7 @@ export const MMA_TRIAZINE_SYNONYMS: ProductSynonyms = {
     {
       heading: "Synonyms and Application Names",
       items: [
+        "H2S Scavenger Chemicals",
         "MMA Triazine",
         "MMA based Triazine",
         "1,3,5-Triazine (MMA variant)",

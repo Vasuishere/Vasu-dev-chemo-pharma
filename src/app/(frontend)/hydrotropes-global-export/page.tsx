@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { applyPageMetaOverride } from "@/lib/seo/page-meta-overrides";
 import Link from "next/link";
 import SectionLabel from "@/components/SectionLabel";
 import Button from "@/components/Button";
@@ -6,7 +7,7 @@ import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
 const SITE_URL = "https://www.vasudevchemopharma.com";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = applyPageMetaOverride("/hydrotropes-global-export", {
   title: "Global Export: Sodium Cumene Sulphonate & Sodium Xylene Sulphonate | Vasudev Chemo Pharma",
   description:
     "Leading global exporter of Sodium Cumene Sulphonate (SCS) and Sodium Xylene Sulphonate (SXS) in 40% liquid and 90% powder forms. We supply to USA, Europe, Asia, and worldwide.",
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: `${SITE_URL}/hydrotropes-global-export`,
   },
-};
+});
 
 const products = [
   {

@@ -1,4 +1,5 @@
 ﻿import type { Metadata } from "next";
+import { applyPageMetaOverride } from "@/lib/seo/page-meta-overrides";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -704,7 +705,7 @@ export async function generateMetadata({
   const page = industryData[slug];
   if (!page) return {};
 
-  return {
+  return applyPageMetaOverride(`/industries/${slug}`, {
     title: `${page.title} | Vasudev Chemo Pharma`,
     description: page.description,
     keywords: mergeKeywordClusters(
@@ -729,7 +730,7 @@ export async function generateMetadata({
       images: [page.image],
     },
     robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
-  };
+  });
 }
 
 /* â”€â”€ Page component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */

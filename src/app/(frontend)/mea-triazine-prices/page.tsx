@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { applyPageMetaOverride } from "@/lib/seo/page-meta-overrides";
 import Link from "next/link";
 import SectionLabel from "@/components/SectionLabel";
 import Button from "@/components/Button";
@@ -13,7 +14,7 @@ import {
 const SITE_URL = "https://www.vasudevchemopharma.com";
 const CANONICAL = `${SITE_URL}/mea-triazine-prices`;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = applyPageMetaOverride("/mea-triazine-prices", {
   title: "MEA Triazine Prices – 78% H2S Scavenger Cost Guide",
   description:
     "MEA Triazine 78% price guide — cost per MT, drum/IBC/bulk rates, and factors that affect pricing. Get a same-day quote from an ISO 9001 India manufacturer.",
@@ -44,7 +45,7 @@ export const metadata: Metadata = {
       "MEA Triazine 78% pricing guide: drum, IBC & bulk rates and the factors that drive cost. Same-day quotes from an ISO 9001 India manufacturer.",
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
-};
+});
 
 const PRICING_FACTORS = [
   {

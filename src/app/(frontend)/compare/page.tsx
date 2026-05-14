@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { applyPageMetaOverride } from "@/lib/seo/page-meta-overrides";
 import Link from "next/link";
 import SectionLabel from "@/components/SectionLabel";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
@@ -17,7 +18,7 @@ import {
 
 export const revalidate = 3600;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = applyPageMetaOverride("/compare", {
   title: "MEA Triazine 78% Comparison Pages",
   description:
     "Compare Vasudev MEA Triazine 78% against major market alternatives, including Pro3, RXSOL, SULFA-CLEAR, Triasorb, and Chinese supplier offers.",
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
   },
-};
+});
 
 const comparisonPages = Object.values(COMPETITOR_PAGES_DATA);
 

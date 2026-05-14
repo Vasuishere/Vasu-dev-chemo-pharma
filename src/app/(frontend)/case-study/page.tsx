@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { applyPageMetaOverride } from "@/lib/seo/page-meta-overrides";
 import Image from "next/image";
 import Link from "next/link";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
@@ -7,7 +8,7 @@ import { CASE_STUDIES } from "@/lib/case-studies-data";
 export const revalidate = 3600;
 const CASE_STUDY_URL = "https://www.vasudevchemopharma.com/case-study";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = applyPageMetaOverride("/case-study", {
   title: "Case Studies - Chemical Manufacturing and Process Improvement Projects",
   description:
     "Explore chemical-industry case studies across H2S treatment, specialty chemicals, pharma intermediates, and process optimization.",
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
       "Chemical-industry case studies covering H2S treatment, specialty chemicals scale-up, pharma intermediates, and process debottlenecking.",
     url: CASE_STUDY_URL,
   },
-};
+});
 
 export default function CaseStudyPage() {
   return (

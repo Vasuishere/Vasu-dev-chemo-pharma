@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
+import { applyPageMetaOverride } from "@/lib/seo/page-meta-overrides";
 import { hydrotropeBlogListItems } from "./[slug]/hydrotrope-articles-data";
 import BlogPageClient from "./BlogPageClient";
 import { getAllBlogImageOverrides } from "@/lib/blogs-payload";
 
 export const revalidate = 3600;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = applyPageMetaOverride("/blog", {
   title: "Chemical Industry Blog | Vasudev Chemo Pharma",
   description: "Expert insights on H2S scavengers, MEA Triazine applications, and chemical manufacturing.",
-};
+});
 
 type BlogListItem = {
   slug: string;

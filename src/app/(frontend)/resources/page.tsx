@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { applyPageMetaOverride } from "@/lib/seo/page-meta-overrides";
 import Link from "next/link";
 import SectionLabel from "@/components/SectionLabel";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
@@ -119,7 +120,7 @@ const buyingIntentKeywords = [
   "MEA Triazine import documentation supplier",
 ];
 
-export const metadata: Metadata = {
+export const metadata: Metadata = applyPageMetaOverride("/resources", {
   title: "MEA Triazine Technical Resources & Downloads",
   description:
     "Technical resources for MEA Triazine 78% including datasheets, safety data sheets, dosing guides, import compliance documentation, storage and handling guides, and reaction chemistry references.",
@@ -152,7 +153,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
   },
-};
+});
 
 const articles = Object.values(RESOURCE_ARTICLES_DATA);
 

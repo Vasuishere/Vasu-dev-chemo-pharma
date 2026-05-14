@@ -3,8 +3,38 @@ import {
   MEA_TRIAZINE_KEYWORDS,
   SULFIDE_SCAVENGER_KEYWORDS,
   OILFIELD_H2S_KEYWORDS,
+  TRIAZINE_BIOCIDE_KEYWORDS,
+  TRIAZINE_MANUFACTURER_KEYWORDS,
+  WATER_SOLUBLE_SCAVENGER_KEYWORDS,
+  SCAVENGER_CORROSION_KEYWORDS,
+  MEA_TRIAZINE_PRICING_KEYWORDS,
+  SUPPLY_HUB_KEYWORDS,
+  MEA_VS_MMA_KEYWORDS,
   mergeKeywordClusters,
 } from "@/lib/seo/keyword-clusters";
+import { EXPANDED_KEYWORDS } from "@/lib/seo/expanded-keywords";
+import {
+  MEA_TRIAZINE_SYNONYMS,
+  MMA_TRIAZINE_SYNONYMS,
+  type ProductSynonyms,
+} from "@/lib/seo/product-synonyms";
+import {
+  MEA_TRIAZINE_SEARCH_KEYWORDS,
+  MEA_TRIAZINE_COMPETITOR_APPLICATIONS,
+  MEA_TRIAZINE_SCHEMA_ENRICHMENT,
+} from "@/lib/seo/mea-triazine-schema-data";
+
+/**
+ * Slug → synonyms mapping for all products that have synonym data.
+ * Each product's synonym items (trade names, brand names, chemical names)
+ * are merged into the meta keywords pipeline.
+ */
+const PRODUCT_SYNONYMS_MAP: Record<string, ProductSynonyms> = {
+  "mea-triazine-78-h2s-scavenger": MEA_TRIAZINE_SYNONYMS,
+  "mma-triazine-40": MMA_TRIAZINE_SYNONYMS,
+  "mma-triazine-40-btx-free": MMA_TRIAZINE_SYNONYMS,
+};
+
 
 type ProductKeywordConfig = {
   primaryKeyword: string;
@@ -2718,10 +2748,114 @@ function buildDefaultKeywords(name: string, casNumber: string): ProductKeywordCo
   };
 }
 
-export function getProductSeoKeywords(slug: string, name: string, casNumber: string): ProductKeywordConfig {
-  if (slug === "mea-triazine-78-h2s-scavenger") {
-    return MEA_TRIAZINE_PRODUCT_PAGE_KEYWORDS;
+/**
+ * Merges ALL keyword sources into the base product keyword config:
+ * 1. expanded-keywords.ts — buying-intent + research keywords
+ * 2. product-synonyms.ts — trade names, chemical names, brand equivalents
+ * 3. mea-triazine-schema-data.ts — geo-targeted search keywords
+ * 4. keyword-clusters.ts — thematic keyword groups (already in base config)
+ *
+ * The merged keywords supplement (not replace) the hand-curated keywords.
+ */
+function mergeAllKeywordSources(base: ProductKeywordConfig, slug: string): ProductKeywordConfig {
+  const additionalKeywords: string[][] = [];
+
+  // 1. Expanded buying-intent + research keywords
+  const expanded = EXPANDED_KEYWORDS[slug as keyof typeof EXPANDED_KEYWORDS];
+  if (expanded) {
+    additionalKeywords.push(expanded.buyingIntent, expanded.researchBased);
   }
 
-  return PRODUCT_SEO_KEYWORDS[slug] || buildDefaultKeywords(name, casNumber);
+  // 2. Product synonyms — extract all synonym items as keywords
+  const synonymsConfig = PRODUCT_SYNONYMS_MAP[slug];
+  if (synonymsConfig) {
+    const synonymKeywords = synonymsConfig.groups.flatMap((g) => g.items);
+    additionalKeywords.push(synonymKeywords);
+  }
+
+  // 3. MEA Triazine geo-targeted search keywords (only for MEA Triazine slug)
+  if (slug === "mea-triazine-78-h2s-scavenger") {
+    const geoKeywords = MEA_TRIAZINE_SEARCH_KEYWORDS.map((k) => k.keyword);
+    additionalKeywords.push(geoKeywords);
+
+    // Also merge competitor brand names + application descriptions
+    const competitorKeywords = MEA_TRIAZINE_COMPETITOR_APPLICATIONS.flatMap((c) => [
+      c.brand,
+      c.application,
+      c.meaTriazineRole,
+    ]);
+    additionalKeywords.push(competitorKeywords);
+
+    // Merge alternate names from schema enrichment
+    const schemaAlternateNames = [...MEA_TRIAZINE_SCHEMA_ENRICHMENT.alternateName];
+    additionalKeywords.push(schemaAlternateNames);
+  }
+
+  // 4. Additional keyword clusters that aren't already in the base
+  // These clusters are mapped by relevance to specific product categories
+  const clusterMap: Record<string, readonly (readonly string[])[]> = {
+    "mea-triazine-78-h2s-scavenger": [
+      TRIAZINE_BIOCIDE_KEYWORDS,
+      TRIAZINE_MANUFACTURER_KEYWORDS,
+      WATER_SOLUBLE_SCAVENGER_KEYWORDS,
+      SCAVENGER_CORROSION_KEYWORDS,
+      MEA_TRIAZINE_PRICING_KEYWORDS,
+      SUPPLY_HUB_KEYWORDS,
+      MEA_VS_MMA_KEYWORDS,
+    ],
+    "mma-triazine-40": [
+      TRIAZINE_BIOCIDE_KEYWORDS,
+      TRIAZINE_MANUFACTURER_KEYWORDS,
+      MEA_VS_MMA_KEYWORDS,
+    ],
+    "mma-triazine-40-btx-free": [
+      TRIAZINE_MANUFACTURER_KEYWORDS,
+      MEA_VS_MMA_KEYWORDS,
+    ],
+    "mea-triazine-78-high-concentration": [
+      TRIAZINE_MANUFACTURER_KEYWORDS,
+      MEA_TRIAZINE_PRICING_KEYWORDS,
+      SUPPLY_HUB_KEYWORDS,
+    ],
+    "triazine-h2s-scavenger-general": [
+      TRIAZINE_BIOCIDE_KEYWORDS,
+      TRIAZINE_MANUFACTURER_KEYWORDS,
+      WATER_SOLUBLE_SCAVENGER_KEYWORDS,
+      SCAVENGER_CORROSION_KEYWORDS,
+    ],
+    "biocide-oil-gas": [
+      TRIAZINE_BIOCIDE_KEYWORDS,
+      OILFIELD_H2S_KEYWORDS,
+    ],
+    "metal-working-fluids": [
+      TRIAZINE_BIOCIDE_KEYWORDS,
+    ],
+  };
+
+  const slugClusters = clusterMap[slug];
+  if (slugClusters) {
+    for (const cluster of slugClusters) {
+      additionalKeywords.push([...cluster]);
+    }
+  }
+
+  if (additionalKeywords.length === 0) return base;
+
+  return {
+    primaryKeyword: base.primaryKeyword,
+    longTailKeywords: mergeKeywordClusters(
+      base.longTailKeywords,
+      ...additionalKeywords,
+    ),
+  };
 }
+
+export function getProductSeoKeywords(slug: string, name: string, casNumber: string): ProductKeywordConfig {
+  if (slug === "mea-triazine-78-h2s-scavenger") {
+    return mergeAllKeywordSources(MEA_TRIAZINE_PRODUCT_PAGE_KEYWORDS, slug);
+  }
+
+  const baseConfig = PRODUCT_SEO_KEYWORDS[slug] || buildDefaultKeywords(name, casNumber);
+  return mergeAllKeywordSources(baseConfig, slug);
+}
+

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { applyPageMetaOverride } from "@/lib/seo/page-meta-overrides";
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -15,7 +16,7 @@ const ContactForm = dynamic(() => import("@/components/contact/ContactForm"), {
 
 export const revalidate = 3600;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = applyPageMetaOverride("/service", {
   title: "Chemical Manufacturing Services — Gujarat, India",
   description:
     "Explore chemical manufacturing, import-export, custom formulation, quality testing, and bulk supply services from Vasudev Chemo Pharma. Request a quote today.",
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
       "ISO 9001:2015 certified chemical manufacturing, custom formulation, and global export services from Gujarat, India.",
     url: "https://www.vasudevchemopharma.com/service",
   },
-};
+});
 
 const services = [
   {

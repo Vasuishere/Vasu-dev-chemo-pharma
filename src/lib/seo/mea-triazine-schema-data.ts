@@ -101,6 +101,7 @@ export const MEA_TRIAZINE_SCHEMA_ENRICHMENT = {
     "s-Triazine-1,3,5-triethanol",
     "J2.219E",
     /* â”€â”€ Generic / Search Names â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    "H2S Scavengers Chemicals",
     "Triazine H2S Scavenger",
     "MEA Based Triazine",
     "MEA Triazine",

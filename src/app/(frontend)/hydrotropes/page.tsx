@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { applyPageMetaOverride } from "@/lib/seo/page-meta-overrides";
 import Link from "next/link";
 import SectionLabel from "@/components/SectionLabel";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
@@ -124,7 +125,7 @@ const CLUSTER_ARTICLES = [
   },
 ];
 
-export const metadata: Metadata = {
+export const metadata: Metadata = applyPageMetaOverride("/hydrotropes", {
   title:
     "Hydrotropes Explained — SCS & SXS Manufacturer | Vasudev Chemo Pharma",
   description:
@@ -168,7 +169,7 @@ export const metadata: Metadata = {
     description:
       "Sodium Cumene Sulfonate and Sodium Xylene Sulfonate in 40% liquid and 90% powder grades. ISO 9001 India manufacturer with global export.",
   },
-};
+});
 
 export default function HydrotropesPillarPage() {
   return (

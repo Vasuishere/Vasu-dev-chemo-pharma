@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { applyPageMetaOverride } from "@/lib/seo/page-meta-overrides";
 import SectionLabel from "@/components/SectionLabel";
 import ArticleSchema from "@/components/seo/ArticleSchema";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
@@ -68,7 +69,7 @@ export async function generateMetadata({
   }
   const imageUrl = imageOverride || blog.image;
 
-  return {
+  return applyPageMetaOverride(`/blog/${slug}`, {
     title: blog.title,
     description: blog.excerpt,
     alternates: {
@@ -84,7 +85,7 @@ export async function generateMetadata({
       authors: [blog.author],
       images: [{ url: imageUrl, alt: blog.imageAlt }],
     },
-  };
+  });
 }
 
 /* ------------------------------------------------------------------ */

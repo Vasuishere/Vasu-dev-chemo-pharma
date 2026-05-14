@@ -5,6 +5,7 @@ import {
   MEA_TRIAZINE_SCHEMA_ENRICHMENT,
 } from "@/lib/seo/mea-triazine-schema-data";
 
+
 type ProductSchemaProps = {
   product: Product;
 };
@@ -97,6 +98,61 @@ export default function ProductSchema({ product }: ProductSchemaProps) {
     productSchema.countryOfOrigin = enrichment.countryOfOrigin;
     productSchema.audience = enrichment.audience;
     productSchema.areaServed = enrichment.areaServed;
+  }
+
+  /* --- H2S Scavenger / Biocide category enrichment (slug-driven) --- */
+  const H2S_CATEGORY_SLUGS = [
+    "mma-triazine-40",
+    "triazine-h2s-scavenger-general",
+    "mea-triazine-78-high-concentration",
+    "mma-triazine-40-btx-free",
+  ];
+  const BIOCIDE_SLUGS = ["biocide-oil-gas", "metal-working-fluids"];
+
+  if (!isEnrichedSlug && H2S_CATEGORY_SLUGS.includes(product.slug)) {
+    productSchema.category = "H2S Scavenger";
+    productSchema.additionalProperty = [
+      ...(Array.isArray(productSchema.additionalProperty)
+        ? productSchema.additionalProperty
+        : []),
+      {
+        "@type": "PropertyValue",
+        name: "Chemical Category",
+        value: "H2S Scavenger (Hydrogen Sulphide Scavenger)",
+      },
+      {
+        "@type": "PropertyValue",
+        name: "Base Chemistry",
+        value: "Triazine-based",
+      },
+      {
+        "@type": "PropertyValue",
+        name: "Primary Application",
+        value:
+          "Oil and gas, natural gas processing, biogas, refinery, pipeline",
+      },
+    ];
+  } else if (!isEnrichedSlug && BIOCIDE_SLUGS.includes(product.slug)) {
+    productSchema.category = product.slug === "metal-working-fluids"
+      ? "Metal Working Fluid Biocide"
+      : "Oilfield Biocide";
+    productSchema.additionalProperty = [
+      ...(Array.isArray(productSchema.additionalProperty)
+        ? productSchema.additionalProperty
+        : []),
+      {
+        "@type": "PropertyValue",
+        name: "Chemical Category",
+        value: product.slug === "metal-working-fluids"
+          ? "Metal Working Fluid Biocide (Triazine-based)"
+          : "Oilfield Biocide (Triazine-based)",
+      },
+      {
+        "@type": "PropertyValue",
+        name: "Base Chemistry",
+        value: "Triazine-based",
+      },
+    ];
   }
 
   const chemicalSchema = {

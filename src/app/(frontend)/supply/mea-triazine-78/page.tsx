@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { applyPageMetaOverride } from "@/lib/seo/page-meta-overrides";
 import Link from "next/link";
 import SectionLabel from "@/components/SectionLabel";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
@@ -205,7 +206,7 @@ const buyingIntentKeywords = [
 
 /* ── SEO Metadata ────────────────────────────────────────────────────── */
 
-export const metadata: Metadata = {
+export const metadata: Metadata = applyPageMetaOverride("/supply/mea-triazine-78", {
   title:
     "MEA Triazine 78% Manufacturer — Direct Factory Supply | Vasudev Chemo Pharma",
   description:
@@ -251,7 +252,7 @@ export const metadata: Metadata = {
     description:
       "Direct manufacturer of MEA Triazine 78% H2S scavenger. Supply to 10+ countries with factory pricing.",
   },
-};
+});
 
 /* ── Static data ─────────────────────────────────────────────────────── */
 

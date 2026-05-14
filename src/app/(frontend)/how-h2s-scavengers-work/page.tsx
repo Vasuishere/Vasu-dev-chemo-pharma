@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { applyPageMetaOverride } from "@/lib/seo/page-meta-overrides";
 import Image from "next/image";
 import Link from "next/link";
 import SectionLabel from "@/components/SectionLabel";
@@ -14,7 +15,7 @@ import {
 
 const SITE_URL = "https://www.vasudevchemopharma.com";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = applyPageMetaOverride("/how-h2s-scavengers-work", {
   title: "How H2S Scavengers Work — A Complete Technical Guide | Vasudev Chemo Pharma",
   description:
     "Learn how H2S scavengers work, including triazine reaction chemistry, dosage guidelines, MEA vs MMA comparison, and application methods. Technical guide by Vasudev Chemo Pharma.",
@@ -112,7 +113,7 @@ export const metadata: Metadata = {
       "Comprehensive technical guide to hydrogen sulfide scavenging chemistry, treatment methods, and triazine applications.",
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
-};
+});
 
 const faqs = [
   {

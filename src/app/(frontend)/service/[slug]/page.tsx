@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { applyPageMetaOverride } from "@/lib/seo/page-meta-overrides";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -70,7 +71,7 @@ export async function generateMetadata({
   const service = serviceData[slug];
   if (!service) return {};
 
-  return {
+  return applyPageMetaOverride(`/service/${slug}`, {
     title: `${service.title} — Chemical Manufacturing Services`,
     description: service.details.slice(0, 160),
     alternates: {
@@ -82,7 +83,7 @@ export async function generateMetadata({
       url: `https://www.vasudevchemopharma.com/service/${slug}`,
       images: [{ url: service.image }],
     },
-  };
+  });
 }
 
 export default async function ServiceDetailPage({

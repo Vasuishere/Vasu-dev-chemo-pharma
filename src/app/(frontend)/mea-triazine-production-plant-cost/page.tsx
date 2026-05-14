@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { applyPageMetaOverride } from "@/lib/seo/page-meta-overrides";
 import Link from "next/link";
 import SectionLabel from "@/components/SectionLabel";
 import Button from "@/components/Button";
@@ -14,7 +15,7 @@ import {
 const SITE_URL = "https://www.vasudevchemopharma.com";
 const CANONICAL = `${SITE_URL}/mea-triazine-production-plant-cost`;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = applyPageMetaOverride("/mea-triazine-production-plant-cost", {
   title: "MEA Triazine Production Plant Cost – CAPEX Guide",
   description:
     "MEA Triazine 78% production plant cost guide — CAPEX ranges, equipment, feedstock, utilities & feasibility factors. Or skip CAPEX: supply from an ISO 9001 India manufacturer.",
@@ -53,7 +54,7 @@ export const metadata: Metadata = {
       "CAPEX guide for MEA Triazine 78% production: equipment, utilities, and feasibility. Alternative: contract supply from an ISO 9001 India manufacturer.",
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
-};
+});
 
 const CAPEX_COMPONENTS = [
   {

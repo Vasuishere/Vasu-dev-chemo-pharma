@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { applyPageMetaOverride } from "@/lib/seo/page-meta-overrides";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import SectionLabel from "@/components/SectionLabel";
@@ -62,7 +63,7 @@ export async function generateMetadata({
 
   const canonicalPath = buildResourceArticlePath(article.slug);
 
-  return {
+  return applyPageMetaOverride(canonicalPath, {
     title: article.title,
     description: article.description,
     keywords: mergeKeywordClusters(
@@ -86,7 +87,7 @@ export async function generateMetadata({
       title: article.title,
       description: article.description,
     },
-  };
+  });
 }
 
 export default async function ResourceArticlePage({

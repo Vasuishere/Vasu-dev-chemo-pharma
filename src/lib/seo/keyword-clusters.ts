@@ -13,6 +13,7 @@ const dedupe = (items: string[]): string[] =>
 /* ── Core H2S scavenger umbrella (homepage + /product hub) ─────────── */
 export const H2S_SCAVENGER_CORE = dedupe([
   "h2s scavenger",
+  "h2s scavengers chemicals",
   "h2s scavenger manufacturer",
   "h2s scavenger manufacturer india",
   "h2s scavenger supplier",
@@ -45,6 +46,7 @@ export const H2S_SCAVENGER_CORE = dedupe([
 /* ── MEA Triazine product cluster (for /product/mea-triazine-78-h2s-scavenger) ── */
 export const MEA_TRIAZINE_KEYWORDS = dedupe([
   "mea triazine",
+  "h2s scavengers chemicals",
   "mea triazine 78",
   "mea triazine 78 percent",
   "mea triazine 78% h2s scavenger",

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { applyPageMetaOverride } from "@/lib/seo/page-meta-overrides";
 import Button from "@/components/Button";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 import { CASE_STUDIES, CASE_STUDY_DATA } from "@/lib/case-studies-data";
@@ -21,7 +22,7 @@ export async function generateMetadata({
   const cs = CASE_STUDY_DATA[slug];
   if (!cs) return {};
 
-  return {
+  return applyPageMetaOverride(`/case-study/${slug}`, {
     title: `${cs.title} - Case Study`,
     description: cs.overview.slice(0, 160),
     alternates: {
@@ -33,7 +34,7 @@ export async function generateMetadata({
       url: `https://www.vasudevchemopharma.com/case-study/${slug}`,
       images: [{ url: cs.heroImage }],
     },
-  };
+  });
 }
 
 export default async function CaseStudyDetailPage({

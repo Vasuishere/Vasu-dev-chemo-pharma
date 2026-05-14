@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { applyPageMetaOverride } from "@/lib/seo/page-meta-overrides";
 import Image from "next/image";
 import Link from "next/link";
 import SectionLabel from "@/components/SectionLabel";
@@ -8,7 +9,7 @@ import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
 export const revalidate = 3600;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = applyPageMetaOverride("/about", {
   title: "About Vasudev Chemo Pharma — Chemical Manufacturer India",
   description:
     "Learn about Vasudev Chemo Pharma — ISO 9001:2015 certified industrial and specialty chemical manufacturer from Gujarat, India. 15+ chemical products exported worldwide.",
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
       "ISO 9001:2015 certified industrial and specialty chemical manufacturer from Gujarat, India. 15+ chemical products exported worldwide.",
     url: "https://www.vasudevchemopharma.com/about",
   },
-};
+});
 
 const capabilities = [
   { title: "Chemical Manufacturing", href: "/service/chemical-manufacturing" },

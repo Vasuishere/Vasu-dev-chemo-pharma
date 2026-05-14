@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { applyPageMetaOverride } from "@/lib/seo/page-meta-overrides";
 // import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -12,7 +13,7 @@ const ContactForm = dynamic(() => import("@/components/contact/ContactForm"), {
 
 export const revalidate = 1800;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = applyPageMetaOverride("/contact", {
   title: "Contact Us — Request a Quote",
   description:
     "Contact Vasudev Chemo Pharma for product inquiries, bulk orders, and export requirements. ISO 9001:2015 certified chemical manufacturer from Gujarat, India. Get a reply within 24 hours.",
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
       "Contact us for product inquiries, bulk orders, and chemical export requirements. Get a reply within 24 hours.",
     url: "https://www.vasudevchemopharma.com/contact",
   },
-};
+});
 
 // const clientLogos = [
 //   "https://framerusercontent.com/images/XWAlPb58nstaS4Qe2V64MPJ3oEg.svg",

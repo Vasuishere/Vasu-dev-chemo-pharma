@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { applyPageMetaOverride } from "@/lib/seo/page-meta-overrides";
 import Link from "next/link";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
@@ -6,7 +7,7 @@ export const revalidate = 86400;
 
 const POLICY_LAST_UPDATED = new Date(2026, 0, 15);
 
-export const metadata: Metadata = {
+export const metadata: Metadata = applyPageMetaOverride("/legal/privacy-policy", {
   title: "Privacy Policy",
   description:
     "Privacy policy for Vasudev Chemo Pharma — how we collect, use, and protect your personal information on our website and services.",
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-};
+});
 
 export default function PrivacyPolicyPage() {
   return (

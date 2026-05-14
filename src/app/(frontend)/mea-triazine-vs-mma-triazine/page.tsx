@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { applyPageMetaOverride } from "@/lib/seo/page-meta-overrides";
 import Image from "next/image";
 import Link from "next/link";
 import SectionLabel from "@/components/SectionLabel";
@@ -120,7 +121,7 @@ const buyingIntentKeywords = [
   "buy triazine H2S scavenger direct from manufacturer",
 ];
 
-export const metadata: Metadata = {
+export const metadata: Metadata = applyPageMetaOverride("/mea-triazine-vs-mma-triazine", {
   title:
     "MEA Triazine vs MMA Triazine — Which H2S Scavenger Should You Choose? | Vasudev Chemo Pharma",
   description:
@@ -162,7 +163,7 @@ export const metadata: Metadata = {
       "Side-by-side comparison of MEA Triazine 78% and MMA Triazine 40% for H2S scavenging applications.",
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
-};
+});
 
 const faqs = [
   {

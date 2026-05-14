@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { applyPageMetaOverride } from "@/lib/seo/page-meta-overrides";
 import HeroSection from "@/components/home/HeroSection";
 import AboutSection from "@/components/home/AboutSection";
 import ServicesSection from "@/components/home/ServicesSection";
@@ -16,7 +17,7 @@ import {
   mergeKeywordClusters,
 } from "@/lib/seo/keyword-clusters";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = applyPageMetaOverride("/", {
   title:
     "Vasudev Chemo Pharma — India's Leading MEA Triazine 78% Manufacturer",
   description:
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
       "ISO 9001:2015 manufacturer & exporter of MEA Triazine 78% H2S scavenger. Direct factory pricing, bulk drum/IBC supply to 10+ countries from Gujarat, India.",
     url: "https://www.vasudevchemopharma.com",
   },
-};
+});
 
 export default function HomePage() {
   return (

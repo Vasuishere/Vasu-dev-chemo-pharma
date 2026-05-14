@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { applyPageMetaOverride } from "@/lib/seo/page-meta-overrides";
 import Image from "next/image";
 import Link from "next/link";
 import SectionLabel from "@/components/SectionLabel";
@@ -65,7 +66,7 @@ const industries = [
   },
 ];
 
-export const metadata: Metadata = {
+export const metadata: Metadata = applyPageMetaOverride("/industries", {
   title: "Industry Solutions — MEA Triazine & H2S Scavenger Applications | Vasudev Chemo Pharma",
   description:
     "Explore MEA Triazine 78% industry applications: oil & gas, refining, petrochemical, biogas, water treatment, metalworking fluids, and pulp & paper. Direct manufacturer supply from India.",
@@ -143,7 +144,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
   },
-};
+});
 
 export default function IndustriesIndexPage() {
   return (

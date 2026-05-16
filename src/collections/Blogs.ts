@@ -31,7 +31,7 @@ export const Blogs: CollectionConfig = {
       required: true,
       unique: true,
       admin: {
-        readOnly: true,
+        readOnly: false,
       },
       hooks: {
         beforeValidate: [
@@ -74,7 +74,7 @@ export const Blogs: CollectionConfig = {
             if (!value) return value;
             const match = value.match(/(?:\/d\/|id=)([\w-]+)/);
             if (match && match[1]) {
-              return `https://drive.google.com/uc?export=view&id=${match[1]}`;
+              return `https://lh3.googleusercontent.com/d/${match[1]}=w1280`;
             }
             return value; // let validation handle it if wanted, or just return as is
           },

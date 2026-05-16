@@ -103,7 +103,7 @@ export default async function AboutSection() {
           {/* Stat 2 - Image */}
           <div className="rounded-3xl overflow-hidden relative min-h-[300px]">
             <Image
-              src={siteImages.statStepImageUrl || "https://drive.google.com/uc?export=view&id=1Z5199bCRGk6XIgdA6p_RdadeP-38aBFl"}
+              src={siteImages.statStepImageUrl || "https://lh3.googleusercontent.com/d/1Z5199bCRGk6XIgdA6p_RdadeP-38aBFl=w1280"}
               alt="About Step Image"
               fill
               className="object-cover"
@@ -121,7 +121,7 @@ export default async function AboutSection() {
             </p>
             <div className="mt-6 rounded-2xl overflow-hidden relative w-24 h-32">
               <Image
-                src={siteImages.experienceImageUrl || "https://drive.google.com/uc?export=view&id=1Z5199bCRGk6XIgdA6p_RdadeP-38aBFl"}
+                src={siteImages.experienceImageUrl || "https://lh3.googleusercontent.com/d/1Z5199bCRGk6XIgdA6p_RdadeP-38aBFl=w1280"}
                 alt="About Image"
                 fill
                 className="object-cover"

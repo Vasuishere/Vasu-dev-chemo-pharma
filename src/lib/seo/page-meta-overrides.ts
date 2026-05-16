@@ -126,9 +126,9 @@ export const PAGE_META_OVERRIDES: Record<string, PageMetaOverride> = {
   },
   "/resources": {
     h1: "MEA Triazine Technical Resources & Downloads",
-    title: "MEA Triazine Technical Resources & Downloads",
+    title: "MEA Triazine Technical Resources",
     description:
-      "Technical resources for MEA Triazine 78% including datasheets, safety data sheets, dosing guides, import compliance documentation, storage and handling guides, and reaction chemistry references.",
+      "MEA Triazine technical resources: TDS, SDS, dosing guides, import compliance, storage, handling and reaction chemistry references for H2S scavenger buyers.",
   },
   "/legal/privacy-policy": {
     h1: "Privacy Policy",
@@ -138,15 +138,15 @@ export const PAGE_META_OVERRIDES: Record<string, PageMetaOverride> = {
   },
   "/product/mea-triazine-78-h2s-scavenger": {
     h1: "MEA Triazine 78% H2S Scavenger",
-    title: "MEA Triazine 78% H2S Scavenger | Monoethanolamine Triazine Manufacturer",
+    title: "MEA Triazine 78% H2S Scavenger | Manufacturer India",
     description:
-      "MEA Triazine (Monoethanolamine Triazine) is a highly effective H2S scavenger for oil & gas, wastewater, and biogas. Protect infrastructure and ensure safety with our premium quality MEA Triazine 78%.",
+      "MEA Triazine 78% (CAS 4719-04-4) H2S scavenger for oil, gas, wastewater and biogas. Direct India manufacturer with COA, SDS, drum, IBC and bulk export supply.",
   },
   "/product/mma-triazine-40": {
     h1: "MMA Triazine 40%",
-    title: "MMA Triazine 40% &ndash; H2S Scavenger (Mono Methylamine Triazine 40%) Manufacturer India",
+    title: "MMA Triazine 40% Manufacturer | BTX-Free H2S Scavenger",
     description:
-      "MMA Triazine 40% &ndash; H2S Scavenger for oil, gas, water treatment & paper mill. ISO 9001 Gujarat manufacturer. MOQ 1 MT. Request a quote.",
+      "MMA Triazine 40% (mono methylamine triazine) BTX-free H2S scavenger for oil, gas, water treatment and paper mills. Request quote, COA and sample.",
   },
   "/product/p-toluenesulfonic-acid": {
     h1: "P-Toluenesulfonic Acid",
@@ -156,9 +156,9 @@ export const PAGE_META_OVERRIDES: Record<string, PageMetaOverride> = {
   },
   "/product/sodium-cumene-sulfonate-40": {
     h1: "Sodium Cumene Sulfonate 40%",
-    title: "Sodium Cumene Sulfonate 40% Manufacturer | SCS 40% Liquid",
+    title: "Sodium Cumene Sulfonate 40% | SCS 40 Liquid",
     description:
-      "Sodium Cumene Sulfonate 40% liquid (SCS 40%, CAS 28348-53-0) direct manufacturer in India for detergents, cleaners & agrochemicals. Request COA, sample & bulk quote.",
+      "Sodium Cumene Sulfonate 40% liquid (SCS 40, CAS 28348-53-0) hydrotrope for detergents, cleaners and agrochemicals. Request COA, sample and bulk quote.",
   },
   "/product/sodium-cumene-sulfonate-90": {
     h1: "Sodium Cumene Sulfonate 90%",
@@ -174,9 +174,9 @@ export const PAGE_META_OVERRIDES: Record<string, PageMetaOverride> = {
   },
   "/product/sodium-xylene-sulfonate-40": {
     h1: "Sodium Xylene Sulfonate 40%",
-    title: "Sodium Xylene Sulfonate 40% Manufacturer | SXS 40 Liquid",
+    title: "Sodium Xylene Sulfonate 40% Uses | SXS 40 Manufacturer",
     description:
-      "Sodium Xylene Sulfonate 40% liquid (SXS 40%, CAS 1300-72-7) hydrotrope for detergents, cleaners and agrochemicals from ISO 9001 India manufacturer.",
+      "Sodium Xylene Sulfonate 40% liquid (SXS 40, CAS 1300-72-7) uses include detergents, cleaners, agrochemicals and surfactant blends. Request COA and quote.",
   },
   "/product/bis-2-chloroethyl-amine-hydrochloride": {
     h1: "Bis(2-chloroethyl)amine Hydrochloride",
@@ -540,9 +540,9 @@ export const PAGE_META_OVERRIDES: Record<string, PageMetaOverride> = {
   },
   "/blog/sodium-cumene-sulfonate-40-applications-detergent-agrochemical-personal-care": {
     h1: "Sodium Cumene Sulfonate 40% Applications in Detergent, Agrochemical and Personal Care Formulas",
-    title: "Sodium Cumene Sulfonate 40% Applications in Detergent, Agrochemical and Personal Care Formulas",
+    title: "Sodium Cumene Sulfonate 40% Uses in Detergents & Agrochemicals",
     description:
-      "Application research guide for Sodium Cumene Sulfonate 40% across detergent, cleaner, agrochemical, personal care, and industrial formulation systems.",
+      "Practical SCS 40 uses guide: detergent clarity, cleaner stability, agrochemical solubilization, personal care formulas, dosage checks and supplier qualification.",
   },
   "/blog/sodium-cumene-sulfonate-90-manufacturer-india-bulk-supply": {
     h1: "Sodium Cumene Sulfonate 90% Manufacturer in India: Bulk Supply Buying Guide",
@@ -642,9 +642,9 @@ export const PAGE_META_OVERRIDES: Record<string, PageMetaOverride> = {
   },
   "/blog/sodium-xylene-sulfonate-40-cloud-point-viscosity-stability": {
     h1: "Sodium Xylene Sulfonate 40% for Cloud Point, Viscosity and Phase Stability",
-    title: "Sodium Xylene Sulfonate 40% for Cloud Point, Viscosity and Phase Stability",
+    title: "Sodium Xylene Sulfonate 40% for Cloud Point & Viscosity",
     description:
-      "Technical guide to using Sodium Xylene Sulfonate 40% for cloud-point depression, viscosity control, gel prevention, and phase-stable detergent systems.",
+      "How SXS 40 improves cloud point, viscosity, gel prevention and phase stability in liquid detergents, alkaline cleaners and surfactant concentrates.",
   },
   "/blog/sodium-xylene-sulfonate-40-vs-other-hydrotropes": {
     h1: "Sodium Xylene Sulfonate 40% vs Other Hydrotropes: SCS, SXS, STS and Urea Compared",
@@ -696,9 +696,9 @@ export const PAGE_META_OVERRIDES: Record<string, PageMetaOverride> = {
   },
   "/blog/sodium-xylene-sulfonate-90-hydrotrope-function-formulation-science": {
     h1: "What Does Sodium Xylene Sulfonate 90% Do in Formulations? Hydrotrope Science Explained",
-    title: "What Does Sodium Xylene Sulfonate 90% Do in Formulations? Hydrotrope Science Explained",
+    title: "Sodium Xylene Sulfonate 90% Uses | Hydrotrope Function Guide",
     description:
-      "Research guide to how Sodium Xylene Sulfonate 90% functions as a hydrotrope, coupling agent, solubilizer, viscosity modifier, and cloud-point controller.",
+      "SXS 90 hydrotrope function guide for detergent powders, alkaline cleaners and agrochemical systems: coupling, solubilizing, viscosity and cloud-point control.",
   },
   "/blog/sodium-xylene-sulfonate-90-cloud-point-viscosity-stability": {
     h1: "Sodium Xylene Sulfonate 90% for Cloud Point, Viscosity and Phase Stability",
@@ -926,7 +926,7 @@ export const PAGE_META_OVERRIDES: Record<string, PageMetaOverride> = {
     h1: "MEA Triazine 78% Supplier to the USA — CIF Houston",
     title: "MEA Triazine 78% Supplier to the USA — CIF Houston",
     description:
-      "Vasudev Chemo Pharma exports MEA Triazine 78% to the United States. CIF Houston delivery. TSCA-listed, GHS-compliant SDS. Direct manufacturer pricing for E&P operators and distributors.",
+      "MEA Triazine USA supply with CIF Houston delivery, TSCA listing, GHS SDS, drums, IBC and direct manufacturer pricing for E&P operators and distributors.",
   },
   "/supply/mea-triazine-78/uae": {
     h1: "MEA Triazine 78% Supplier to UAE — CIF Jebel Ali Port",

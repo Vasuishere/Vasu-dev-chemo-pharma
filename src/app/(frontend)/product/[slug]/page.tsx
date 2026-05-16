@@ -217,6 +217,104 @@ const SXS_90_INTENT_GUIDE = {
   ],
 };
 
+const SEARCH_CONSOLE_INTENT_GUIDES: Record<
+  string,
+  {
+    heading: string;
+    summary: string;
+    items: { query: string; answer: string }[];
+  }
+> = {
+  "mea-triazine-78-h2s-scavenger": {
+    heading: "Buyer searches this page answers",
+    summary:
+      "Buyers commonly compare MEA triazine, triazine H2S scavenger chemistry, and MEA Triazine 78% supply before requesting samples or pricing.",
+    items: [
+      {
+        query: "MEA triazine",
+        answer:
+          "Monoethanolamine triazine, CAS 4719-04-4, supplied as a high-active H2S scavenger for sour gas, crude oil, biogas, and wastewater treatment.",
+      },
+      {
+        query: "MEA triazine 78",
+        answer:
+          "78% active grade for buyers who want lower freight per kg active, drum or IBC packaging, batch COA, SDS, and export documentation.",
+      },
+      {
+        query: "triazine H2S scavenger",
+        answer:
+          "Triazine chemistry reacts with hydrogen sulfide to reduce corrosion risk, odor, and safety exposure in oilfield and gas-treatment systems.",
+      },
+    ],
+  },
+  "mma-triazine-40": {
+    heading: "Buyer searches this page answers",
+    summary:
+      "Procurement and technical teams commonly research MMA triazine, market availability, and BTX-free triazine alternatives before qualifying supply.",
+    items: [
+      {
+        query: "MMA triazine",
+        answer:
+          "Mono methylamine triazine 40% is a liquid H2S scavenger used in oil, gas, water-treatment, refinery, and paper-mill systems.",
+      },
+      {
+        query: "MMA triazine market",
+        answer:
+          "The page supports buyers comparing direct manufacturer supply, ISO documentation, sample approval, MOQ, packaging, and export readiness.",
+      },
+      {
+        query: "BTX-free H2S scavenger",
+        answer:
+          "MMA Triazine 40% is positioned for applications that need lower aromatic content than conventional triazine-based H2S scavenger blends.",
+      },
+    ],
+  },
+  "sodium-cumene-sulfonate-40": {
+    heading: "Buyer searches this page answers",
+    summary:
+      "Buyers commonly compare sodium cumene sulfonate 40, sodium cumene sulfonate grades, and hydrotrope supplier information before a bulk order.",
+    items: [
+      {
+        query: "sodium cumene sulfonate 40",
+        answer:
+          "SCS 40 is a 40% active liquid hydrotrope used to improve clarity, solubility, viscosity control, and cloud-point performance.",
+      },
+      {
+        query: "sodium cumene sulfonate",
+        answer:
+          "CAS 28348-53-0 hydrotrope supplied for liquid detergents, cleaners, agrochemical formulations, textile auxiliaries, and industrial surfactant systems.",
+      },
+      {
+        query: "hydrotrope market",
+        answer:
+          "Vasudev supplies 40% liquid and 90% powder hydrotropes for buyers comparing active content, freight cost, handling, and formulation fit.",
+      },
+    ],
+  },
+  "sodium-xylene-sulfonate-40": {
+    heading: "Buyer searches this page answers",
+    summary:
+      "Formulators and buyers often need quick answers on sodium xylene sulfonate uses, SXS 40 specifications, and supplier qualification.",
+    items: [
+      {
+        query: "sodium xylene sulfonate uses",
+        answer:
+          "SXS 40 is used as a hydrotrope and coupling agent in liquid detergents, dish wash, alkaline cleaners, agrochemicals, and surfactant concentrates.",
+      },
+      {
+        query: "sodium xylene sulfonate 40",
+        answer:
+          "SXS 40 is a 40% active liquid grade, CAS 1300-72-7, supplied with COA, SDS, sample support, and bulk packaging options.",
+      },
+      {
+        query: "sodium xylene sulfonate",
+        answer:
+          "The product helps reduce gel formation, improve electrolyte tolerance, and stabilize high-active water-based formulations.",
+      },
+    ],
+  },
+};
+
 /* ═══════════════════════════════════════════════════════════════════
    PRODUCT DETAIL PAGE
    ═══════════════════════════════════════════════════════════════════ */
@@ -242,6 +340,7 @@ export default async function ProductDetailPage({
   };
   const productPageFaqs = PRODUCT_PAGE_FAQS[slug] ?? PRODUCT_FALLBACK_FAQS[slug] ?? [];
   const directAnswer = PRODUCT_DIRECT_ANSWERS[slug];
+  const searchConsoleIntentGuide = SEARCH_CONSOLE_INTENT_GUIDES[slug];
   const keywordContentSections = getProductKeywordContentSections(slug);
   const faqItems =
     product.faqs.length > 0
@@ -646,6 +745,41 @@ export default async function ProductDetailPage({
           )}
 
           {/* ─── 3. PRODUCT DESCRIPTION / OVERVIEW ──────────────────── */}
+          {searchConsoleIntentGuide && (
+            <section
+              id="search-intent"
+              aria-label={`Common buyer searches for ${product.name}`}
+              className="mb-12"
+            >
+              <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+                <p className="text-xs font-semibold uppercase tracking-wider text-accent mb-2">
+                  Common buyer searches
+                </p>
+                <h2 className="font-heading text-h4 text-primary">
+                  {searchConsoleIntentGuide.heading}
+                </h2>
+                <p className="mt-3 max-w-3xl text-sm leading-relaxed text-gray-600">
+                  {searchConsoleIntentGuide.summary}
+                </p>
+                <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-3">
+                  {searchConsoleIntentGuide.items.map((item) => (
+                    <div
+                      key={item.query}
+                      className="rounded-xl border border-gray-100 bg-light p-4"
+                    >
+                      <h3 className="font-heading text-base font-semibold text-primary">
+                        {item.query}
+                      </h3>
+                      <p className="mt-2 text-sm leading-relaxed text-gray-600">
+                        {item.answer}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
+
           <section id="description" className="mb-16">
             <h2 className="font-heading text-h3 text-primary mb-6">
               About {product.name}

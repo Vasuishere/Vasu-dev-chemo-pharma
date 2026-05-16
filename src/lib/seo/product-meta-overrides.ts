@@ -10,9 +10,9 @@
  */
 export const PRODUCT_META_OVERRIDES: Record<string, ProductMetaOverride> = {
   "mma-triazine-40": {
-    title: "MMA Triazine 40% &ndash; H2S Scavenger (Mono Methylamine Triazine 40%) Manufacturer India",
+    title: "MMA Triazine 40% Manufacturer | BTX-Free H2S Scavenger",
     description:
-      "MMA Triazine 40% &ndash; H2S Scavenger for oil, gas, water treatment & paper mill. ISO 9001 Gujarat manufacturer. MOQ 1 MT. Request a quote.",
+      "MMA Triazine 40% (mono methylamine triazine) BTX-free H2S scavenger for oil, gas, water treatment and paper mills. ISO 9001 India manufacturer. Request quote, COA and sample.",
   },
   "p-toluenesulfonic-acid": {
     title: "P-Toluenesulfonic Acid - Industrial Grade Supplier India",
@@ -40,9 +40,9 @@ export const PRODUCT_META_OVERRIDES: Record<string, ProductMetaOverride> = {
       "Di Ethyl Amino Ethyl Chloride HCl - pharma & industrial grade from ISO 9001 Gujarat manufacturer. Bulk export supply. Request COA & pricing today.",
   },
   "sodium-cumene-sulfonate-40": {
-    title: "Sodium Cumene Sulfonate 40% Manufacturer | SCS 40% Liquid",
+    title: "Sodium Cumene Sulfonate 40% | SCS 40 Liquid",
     description:
-      "Sodium Cumene Sulfonate 40% liquid (SCS 40%, CAS 28348-53-0) direct manufacturer in India for detergents, cleaners & agrochemicals. Request COA, sample & bulk quote.",
+      "Sodium Cumene Sulfonate 40% liquid (SCS 40, CAS 28348-53-0) hydrotrope for detergents, cleaners and agrochemicals. Request COA, sample and bulk quote.",
   },
   "sodium-cumene-sulfonate-90": {
     title: "Sodium Cumene Sulfonate 90% Manufacturer | SCS 90% Powder",
@@ -55,9 +55,9 @@ export const PRODUCT_META_OVERRIDES: Record<string, ProductMetaOverride> = {
       "Sodium Xylene Sulfonate 90% powder (SXS 90%, CAS 1300-72-7) hydrotrope manufacturer in India for detergent powders, alkaline cleaners & exports. Request quote.",
   },
   "sodium-xylene-sulfonate-40": {
-    title: "Sodium Xylene Sulfonate 40% (SXS 40 Liquid) Manufacturer India",
+    title: "Sodium Xylene Sulfonate 40% Uses | SXS 40 Manufacturer",
     description:
-      "Sodium Xylene Sulfonate 40% liquid (SXS 40%, CAS 1300-72-7) hydrotrope for detergents, cleaners & agrochemicals from ISO 9001 India manufacturer. Request COA.",
+      "Sodium Xylene Sulfonate 40% liquid (SXS 40, CAS 1300-72-7) uses include detergents, cleaners, agrochemicals and surfactant blends. India manufacturer. Request COA and quote.",
   },
 };
 

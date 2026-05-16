@@ -27,7 +27,7 @@ const monaSans = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.vasudevchemopharma.com"),
   title: {
-    template: "%s | Vasudev Chemo Pharma",
+    template: "%s | Vasudev",
     default:
       "Vasudev Chemo Pharma — Industrial, Specialty & Surfactant Chemicals",
   },

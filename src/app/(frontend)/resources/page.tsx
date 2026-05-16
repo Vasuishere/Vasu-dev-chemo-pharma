@@ -121,9 +121,9 @@ const buyingIntentKeywords = [
 ];
 
 export const metadata: Metadata = applyPageMetaOverride("/resources", {
-  title: "MEA Triazine Technical Resources & Downloads",
+  title: "MEA Triazine Technical Resources",
   description:
-    "Technical resources for MEA Triazine 78% including datasheets, safety data sheets, dosing guides, import compliance documentation, storage and handling guides, and reaction chemistry references.",
+    "MEA Triazine technical resources: TDS, SDS, dosing guides, import compliance, storage, handling and reaction chemistry references for H2S scavenger buyers.",
   keywords: [
     "MEA Triazine resources",
     "H2S scavenger technical documents",
@@ -173,7 +173,7 @@ export default function ResourcesIndexPage() {
             <div className="max-w-3xl">
               <SectionLabel>Knowledge base</SectionLabel>
               <h1 className="font-heading text-h2 lg:text-display text-primary mt-4">
-                Technical resources for MEA Triazine 78%
+                MEA Triazine technical resources and downloads
               </h1>
               <p className="mt-6 text-lg leading-relaxed text-secondary">
                 Reference articles, datasheets, and guides for{" "}

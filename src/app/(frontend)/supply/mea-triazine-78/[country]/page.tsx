@@ -169,6 +169,16 @@ export default async function CountrySupplyPage({
                     how H2S scavengers work
                   </Link>.
                 </p>
+                <div className="mt-6 flex flex-wrap gap-2" aria-label={`${page.countryName} MEA Triazine search terms`}>
+                  {page.keywords.slice(0, 6).map((keyword) => (
+                    <span
+                      key={keyword}
+                      className="rounded-full border border-gray-200 bg-white px-3 py-2 text-sm text-secondary"
+                    >
+                      {keyword}
+                    </span>
+                  ))}
+                </div>
               </div>
 
               <div className="rounded-3xl border border-gray-200 bg-light p-6">

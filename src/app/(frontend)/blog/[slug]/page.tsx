@@ -167,13 +167,14 @@ export default async function BlogDetailPage({
             </div>
 
             {/* Hero image with keyword-rich alt text */}
-            <div className="relative mt-12 rounded-3xl overflow-hidden aspect-[16/9] max-w-4xl mx-auto">
+            <div className="relative mt-12 rounded-3xl overflow-hidden bg-gray-50 flex items-center justify-center max-w-4xl mx-auto aspect-[16/9]">
               <Image
                 src={imageUrl}
                 alt={blog.imageAlt}
                 fill
                 priority
-                className="object-cover"
+                unoptimized
+                className="object-contain"
               />
             </div>
           </div>
@@ -301,12 +302,13 @@ export default async function BlogDetailPage({
                   href={`/blog/${related.slug}`}
                   className="group bg-light rounded-2xl overflow-hidden"
                 >
-                  <div className="relative aspect-square">
+                  <div className="relative aspect-square bg-gray-50 flex items-center justify-center">
                     <Image
                       src={related.image}
                       alt={related.imageAlt}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      unoptimized
+                      className="object-contain group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
                   <div className="p-5">

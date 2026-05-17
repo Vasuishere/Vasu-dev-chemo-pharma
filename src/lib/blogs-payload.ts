@@ -16,14 +16,22 @@ export function isDriveLink(url: string): boolean {
 }
 
 function getDirectDriveLink(url: string): string {
-  if (!url.includes("drive.google.com")) return url;
+  if (!isDriveLink(url)) return url;
   
-  const match = url.match(/\/d\/([a-zA-Z0-9_-]+)/) || url.match(/id=([a-zA-Z0-9_-]+)/);
+  // Extract file ID from various formats
+  const match = url.match(/(?:\/d\/|id=)([\w\.-]+)/);
   if (match && match[1]) {
-    // Using lh3.googleusercontent.com directly avoids a redirect from drive.google.com,
-    // which can sometimes trigger Opaque Response Blocking (ORB) in modern browsers.
-    return `https://lh3.googleusercontent.com/d/${match[1]}=w1280`;
+    const fileId = match[1];
+    // Using lh3.googleusercontent.com avoids redirects and ORB issues.
+    // Use /u/0/d/ format which is more standard.
+    return `https://lh3.googleusercontent.com/u/0/d/${fileId}=s0`;
   }
+  
+  // If it's already a lh3 link but has a different suffix, fix it
+  if (url.includes("googleusercontent.com") && url.includes("=")) {
+    return url.split("=")[0] + "=s0";
+  }
+
   return url;
 }
 

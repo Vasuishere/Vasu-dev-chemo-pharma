@@ -30,8 +30,8 @@ const IMG4 = "https://framerusercontent.com/images/nwElwJzRsjpV0KeBSkL7mR2bQ.png
 const IMG5 = "https://framerusercontent.com/images/u48JppC0L67MN952GwxQr0v8uY8.webp";
 const IMG6 = "https://framerusercontent.com/images/NaB1BTPudXw9U4z7E7pwUp79iic.webp";
 
-const AUTHOR_A = { name: "Dr. Rajesh Patel", creds: "Ph.D. Chemical Engineering, 15+ years in industrial chemistry & oilfield chemicals" };
-const AUTHOR_B = { name: "Amit Sharma", creds: "M.Tech Industrial Automation, 12+ years in chemical plant operations & oilfield applications" };
+const AUTHOR_A = { name: "Vasudev Chemo Pharma", creds: "ISO 9001:2015 Certified Manufacturer of Industrial & Specialty Chemicals" };
+const AUTHOR_B = { name: "Vasudev Chemo Pharma", creds: "ISO 9001:2015 Certified Manufacturer of Industrial & Specialty Chemicals" };
 
 const INTERNAL_LINKS = {
   meaTriazine: { text: "MEA Triazine 78% H2S Scavenger", href: "/product/mea-triazine-78-h2s-scavenger" },

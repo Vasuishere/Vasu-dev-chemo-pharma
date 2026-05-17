@@ -210,16 +210,17 @@ export default function BlogPageClient({ initialBlogs, imageOverrides }: BlogPag
                 className="group block rounded-2xl overflow-hidden bg-white shadow-xl shadow-primary/8 border border-gray-100 hover:shadow-2xl hover:shadow-primary/12 transition-all duration-500"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-2">
-                  <div className="relative aspect-[16/10] lg:aspect-auto">
+                  <div className="relative aspect-[16/10] lg:aspect-auto bg-gray-50 flex items-center justify-center">
                     <Image
                       src={featured.image}
                       alt={featured.imageAlt}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      className="object-contain group-hover:scale-105 transition-transform duration-700"
                       priority
+                      unoptimized
                     />
                   {/* Gradient overlay on image */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-black/10 to-transparent lg:bg-gradient-to-l" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/5 to-transparent lg:bg-gradient-to-l pointer-events-none" />
                 </div>
                 <div className="p-8 lg:p-12 flex flex-col justify-center">
                   <span className="inline-flex items-center gap-2 w-fit text-xs font-semibold tracking-wider uppercase text-white bg-accent px-3 py-1.5 rounded-full mb-5">
@@ -381,12 +382,13 @@ export default function BlogPageClient({ initialBlogs, imageOverrides }: BlogPag
                     className="group flex flex-col rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-primary/6 hover:border-primary/15 transition-all duration-300 hover:-translate-y-1"
                   >
                     {/* Image */}
-                    <div className="relative aspect-[16/10] overflow-hidden">
+                    <div className="relative aspect-[16/10] overflow-hidden bg-gray-50 flex items-center justify-center">
                       <Image
                         src={blog.image}
                         alt={blog.imageAlt}
                         fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-700"
+                        unoptimized
+                        className="object-contain group-hover:scale-110 transition-transform duration-700"
                       />
                       {/* Category badge on image */}
                       <div className="absolute bottom-3 left-3">

@@ -63,12 +63,13 @@ export default async function BlogSection() {
                   Read full blog
                 </p>
               </div>
-              <div className="relative aspect-[4/3]">
+              <div className="relative aspect-[4/3] bg-gray-50 flex items-center justify-center">
                 <Image
                   src={blog.image}
                   alt={blog.imageAlt}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  unoptimized
+                  className="object-contain group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
             </Link>

@@ -38,8 +38,8 @@ export type HydrotropeBlogListItem = {
 const IMG_BUYING = "https://framerusercontent.com/images/NKrt6BfazML4t6STW4J7jw1qHoQ.png";
 const IMG_RESEARCH = "https://framerusercontent.com/images/Hxgnn8KfIJnGioOtBbfYA5iYdQ8.webp";
 const AUTHOR = {
-  name: "Dr. Rajesh Patel",
-  creds: "Ph.D. Chemical Engineering, 15+ years in industrial chemistry & specialty chemicals",
+  name: "Vasudev Chemo Pharma",
+  creds: "ISO 9001:2015 Certified Manufacturer of Industrial & Specialty Chemicals",
 };
 
 const products: HydrotropeProduct[] = [

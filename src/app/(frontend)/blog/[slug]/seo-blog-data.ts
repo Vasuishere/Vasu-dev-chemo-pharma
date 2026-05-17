@@ -49,9 +49,9 @@ export const blogData: Record<string, BlogEntry> = {
       "MEA Triazine 78 percent H2S scavenger being used in oil and gas pipeline operations",
     excerpt:
       "MEA Triazine 78% is the most widely used liquid H2S scavenger in the oil and gas industry. Learn what it is, how it works, why it outperforms alternatives, and how to source it directly from an ISO-certified Indian manufacturer.",
-    author: "Dr. Rajesh Patel",
+    author: "Vasudev Chemo Pharma",
     authorCredentials:
-      "Ph.D. Chemical Engineering, 15+ years in industrial chemistry & oilfield chemicals",
+      "ISO 9001:2015 Certified Manufacturer of Industrial & Specialty Chemicals",
     sections: [
       {
         heading: "What is MEA Triazine?",
@@ -134,9 +134,9 @@ export const blogData: Record<string, BlogEntry> = {
       "Natural gas pipeline with H2S monitoring equipment and chemical injection system for hydrogen sulfide removal",
     excerpt:
       "Hydrogen sulfide in natural gas pipelines causes corrosion, safety hazards, and regulatory non-compliance. This guide covers H2S risks, OSHA/NACE regulations, and the most effective removal methods including triazine chemical scavenging.",
-    author: "Dr. Rajesh Patel",
+    author: "Vasudev Chemo Pharma",
     authorCredentials:
-      "Ph.D. Chemical Engineering, 15+ years in industrial chemistry & oilfield chemicals",
+      "ISO 9001:2015 Certified Manufacturer of Industrial & Specialty Chemicals",
     sections: [
       {
         heading: "Understanding H2S in Natural Gas Systems",
@@ -223,9 +223,9 @@ export const blogData: Record<string, BlogEntry> = {
       "Sustainable chemical manufacturing plant with green energy systems and eco-friendly production lines in Gujarat India",
     excerpt:
       "How Indian chemical manufacturers are adopting sustainable practices — from green chemistry to renewable energy — to reduce environmental impact while maintaining world-class production quality.",
-    author: "Dr. Rajesh Patel",
+    author: "Vasudev Chemo Pharma",
     authorCredentials:
-      "Ph.D. Chemical Engineering, 15+ years in industrial chemistry & sustainability",
+      "ISO 9001:2015 Certified Manufacturer of Industrial & Specialty Chemicals",
     sections: [
       {
         heading: "The Rise of Green Chemistry in Indian Manufacturing",
@@ -297,7 +297,7 @@ export const blogData: Record<string, BlogEntry> = {
       "Automated robotic chemical production line with safety systems in a modern pharmaceutical intermediates manufacturing facility",
     excerpt:
       "From robotic process automation to collaborative robots, automation is revolutionising chemical production lines — improving safety, consistency, and throughput across industrial and pharmaceutical chemical manufacturing.",
-    author: "Amit Sharma",
+    author: "Vasudev Chemo Pharma",
     authorCredentials:
       "M.Tech Industrial Automation, 12+ years in chemical plant operations",
     sections: [
@@ -371,9 +371,9 @@ export const blogData: Record<string, BlogEntry> = {
       "Specialty chemical compounds including triazine scavengers and pharmaceutical intermediates in laboratory setting",
     excerpt:
       "From H2S scavengers powering the oil and gas industry to pharmaceutical API intermediates saving lives — discover the five specialty chemicals transforming modern industrial applications worldwide.",
-    author: "Dr. Rajesh Patel",
+    author: "Vasudev Chemo Pharma",
     authorCredentials:
-      "Ph.D. Chemical Engineering, 15+ years in industrial chemistry & sustainability",
+      "ISO 9001:2015 Certified Manufacturer of Industrial & Specialty Chemicals",
     sections: [
       {
         heading:
@@ -450,7 +450,7 @@ export const blogData: Record<string, BlogEntry> = {
       "Smart factory digital twin monitoring dashboard for chemical manufacturing plant with real-time IoT sensor data",
     excerpt:
       "Explore how smart factory technologies — digital twins, predictive analytics, and connected manufacturing systems — are setting new standards for chemical plant efficiency, safety, and product quality.",
-    author: "Amit Sharma",
+    author: "Vasudev Chemo Pharma",
     authorCredentials:
       "M.Tech Industrial Automation, 12+ years in chemical plant operations",
     sections: [
@@ -524,9 +524,9 @@ export const blogData: Record<string, BlogEntry> = {
       "3D printing additive manufacturing equipment used for chemical plant component prototyping and custom reactor parts",
     excerpt:
       "How additive manufacturing is creating new possibilities in chemical plant design — from rapid prototyping of reactor components to custom catalytic structures and advanced microreactor technology.",
-    author: "Dr. Rajesh Patel",
+    author: "Vasudev Chemo Pharma",
     authorCredentials:
-      "Ph.D. Chemical Engineering, 15+ years in industrial chemistry & sustainability",
+      "ISO 9001:2015 Certified Manufacturer of Industrial & Specialty Chemicals",
     sections: [
       {
         heading: "Additive Manufacturing Meets Chemical Engineering",
@@ -602,9 +602,9 @@ export const blogData: Record<string, BlogEntry> = {
       "Triazine scavenger supplier in USA providing MEA Triazine 78 percent H2S scavenger for oil and gas operations",
     excerpt:
       "Looking for a reliable triazine scavenger supplier in USA? Vasudev Chemo Pharma supplies MEA Triazine 78% directly from our ISO-certified manufacturing facility — offering US oil and gas operators transparent pricing, batch-level quality documentation, and flexible logistics via Houston.",
-    author: "Dr. Rajesh Patel",
+    author: "Vasudev Chemo Pharma",
     authorCredentials:
-      "Ph.D. Chemical Engineering, 15+ years in industrial chemistry & oilfield chemicals",
+      "ISO 9001:2015 Certified Manufacturer of Industrial & Specialty Chemicals",
     sections: [
       {
         heading: "Why US Oil & Gas Operators Need a Reliable Triazine Scavenger Supplier",
@@ -686,9 +686,9 @@ export const blogData: Record<string, BlogEntry> = {
       "H2S scavenger triazine chemical supply for Permian Basin oil and gas operations in West Texas",
     excerpt:
       "Permian Basin operators face some of the highest H2S concentrations in the continental US. Discover why MEA Triazine 78% from a direct-manufacturer triazine supplier delivers superior H2S scavenging performance and cost savings for Wolfcamp, Bone Spring, and Delaware Basin operations.",
-    author: "Dr. Rajesh Patel",
+    author: "Vasudev Chemo Pharma",
     authorCredentials:
-      "Ph.D. Chemical Engineering, 15+ years in industrial chemistry & oilfield chemicals",
+      "ISO 9001:2015 Certified Manufacturer of Industrial & Specialty Chemicals",
     sections: [
       {
         heading: "The Permian Basin H2S Challenge",
@@ -765,9 +765,9 @@ export const blogData: Record<string, BlogEntry> = {
       "Comparison of MEA Triazine versus alternative H2S scavengers for United States oil and gas market applications",
     excerpt:
       "Choosing the right H2S scavenger for US oil and gas operations requires understanding the strengths and limitations of each option. This guide compares MEA Triazine 78% against MMA Triazine, glyoxal-based scavengers, iron sponge, and solid scavengers on performance, cost, and operational factors.",
-    author: "Dr. Rajesh Patel",
+    author: "Vasudev Chemo Pharma",
     authorCredentials:
-      "Ph.D. Chemical Engineering, 15+ years in industrial chemistry & oilfield chemicals",
+      "ISO 9001:2015 Certified Manufacturer of Industrial & Specialty Chemicals",
     sections: [
       {
         heading: "Why H2S Scavenger Selection Matters for US Operators",
@@ -849,9 +849,9 @@ export const blogData: Record<string, BlogEntry> = {
       "Triazine H2S scavenger dosing calculation guide for oil and gas field injection systems",
     excerpt:
       "A practical, engineer-friendly guide to calculating MEA Triazine 78% dosing rates for H2S scavenging in oil and gas operations. Covers stoichiometric fundamentals, field-adjusted calculations, injection methods, monitoring, and common dosing mistakes.",
-    author: "Amit Sharma",
+    author: "Vasudev Chemo Pharma",
     authorCredentials:
-      "M.Tech Industrial Automation, 12+ years in chemical plant operations & oilfield applications",
+      "ISO 9001:2015 Certified Manufacturer of Industrial & Specialty Chemicals",
     sections: [
       {
         heading: "Dosing Fundamentals — The Chemistry Behind the Calculation",
@@ -933,9 +933,9 @@ export const blogData: Record<string, BlogEntry> = {
       "Bulk triazine scavenger chemical supply and logistics for US shale gas operations across major basins",
     excerpt:
       "US shale gas operators running high-volume H2S treatment programs need bulk triazine supply they can count on. Learn how direct-manufacturer sourcing, flexible packaging, and Houston-hub logistics deliver cost-effective MEA Triazine 78% to operations across the Permian, Eagle Ford, Marcellus, Bakken, and Haynesville basins.",
-    author: "Amit Sharma",
+    author: "Vasudev Chemo Pharma",
     authorCredentials:
-      "M.Tech Industrial Automation, 12+ years in chemical plant operations & oilfield applications",
+      "ISO 9001:2015 Certified Manufacturer of Industrial & Specialty Chemicals",
     sections: [
       {
         heading: "The US Shale Gas Landscape and H2S Treatment Demand",
@@ -1016,9 +1016,9 @@ export const blogData: Record<string, BlogEntry> = {
       "Natural gas sweetening field equipment with H2S treatment and gas processing controls",
     excerpt:
       "A field-oriented guide to natural gas sweetening. Learn when to use amine units, when chemical scavengers make more sense, how to manage upset conditions, and how operators keep gas on spec from wellhead to pipeline custody transfer.",
-    author: "Dr. Rajesh Patel",
+    author: "Vasudev Chemo Pharma",
     authorCredentials:
-      "Ph.D. Chemical Engineering, 15+ years in industrial chemistry & oilfield chemicals",
+      "ISO 9001:2015 Certified Manufacturer of Industrial & Specialty Chemicals",
     sections: [
       {
         heading: "What Natural Gas Sweetening Means in Day-to-Day Operations",
@@ -1098,9 +1098,9 @@ export const blogData: Record<string, BlogEntry> = {
       "Selection guide comparing liquid and solid H2S scavengers for gas and liquid treatment",
     excerpt:
       "A practical decision guide for selecting the right H2S scavenger by stream type, H2S concentration, contact method, solids risk, safety constraints, and total cost. Covers MEA Triazine, glyoxal, iron sponge, and backup-treatment use cases.",
-    author: "Dr. Rajesh Patel",
+    author: "Vasudev Chemo Pharma",
     authorCredentials:
-      "Ph.D. Chemical Engineering, 15+ years in industrial chemistry & oilfield chemicals",
+      "ISO 9001:2015 Certified Manufacturer of Industrial & Specialty Chemicals",
     sections: [
       {
         heading: "Start With the Stream, Not the Product Family",
@@ -1180,9 +1180,9 @@ export const blogData: Record<string, BlogEntry> = {
       "Chemical operators handling MEA Triazine with PPE, transfer lines, and storage containers",
     excerpt:
       "Safe storage, transfer, PPE, spill control, and job-site handling practices for MEA Triazine 78%. Built for field supervisors, chemical coordinators, and operators managing H2S scavenger inventory in oil and gas facilities.",
-    author: "Amit Sharma",
+    author: "Vasudev Chemo Pharma",
     authorCredentials:
-      "M.Tech Industrial Automation, 12+ years in chemical plant operations & oilfield applications",
+      "ISO 9001:2015 Certified Manufacturer of Industrial & Specialty Chemicals",
     sections: [
       {
         heading: "What Makes Safe Handling Different From Simple Storage",
@@ -1262,9 +1262,9 @@ export const blogData: Record<string, BlogEntry> = {
       "Biogas upgrading facility using H2S removal systems before engine or pipeline injection",
     excerpt:
       "How to remove H2S from biogas and landfill gas for CHP engines, boilers, and pipeline injection. Covers triazine, iron sponge, biological systems, moisture effects, and how to choose the right removal strategy.",
-    author: "Dr. Rajesh Patel",
+    author: "Vasudev Chemo Pharma",
     authorCredentials:
-      "Ph.D. Chemical Engineering, 15+ years in industrial chemistry & oilfield chemicals",
+      "ISO 9001:2015 Certified Manufacturer of Industrial & Specialty Chemicals",
     sections: [
       {
         heading: "Why Biogas H2S Removal Is a Different Challenge",
@@ -1344,9 +1344,9 @@ export const blogData: Record<string, BlogEntry> = {
       "Offshore production platform using H2S scavenger injection skids and sour gas monitoring",
     excerpt:
       "Operational guide to using H2S scavengers offshore. Covers platform footprint limits, chemical inventory planning, injection point design, weather and logistics constraints, and how offshore teams manage sulfide treatment with minimal intervention.",
-    author: "Amit Sharma",
+    author: "Vasudev Chemo Pharma",
     authorCredentials:
-      "M.Tech Industrial Automation, 12+ years in chemical plant operations & oilfield applications",
+      "ISO 9001:2015 Certified Manufacturer of Industrial & Specialty Chemicals",
     sections: [
       {
         heading: "Why Offshore Treatment Decisions Are More Constrained",
@@ -1426,9 +1426,9 @@ export const blogData: Record<string, BlogEntry> = {
       "Spent triazine handling and dithiazine solids management in oilfield treatment systems",
     excerpt:
       "Guide to managing spent triazine, dissolved dithiazine, and solids risk in H2S scavenger programs. Covers why dithiazine forms, where it causes trouble, and how operators reduce fouling, disposal issues, and unnecessary chemical waste.",
-    author: "Dr. Rajesh Patel",
+    author: "Vasudev Chemo Pharma",
     authorCredentials:
-      "Ph.D. Chemical Engineering, 15+ years in industrial chemistry & oilfield chemicals",
+      "ISO 9001:2015 Certified Manufacturer of Industrial & Specialty Chemicals",
     sections: [
       {
         heading: "What Operators Mean by Spent Triazine",
@@ -1508,9 +1508,9 @@ export const blogData: Record<string, BlogEntry> = {
       "H2S compliance program with safety monitoring, corrosion standards, and operating procedures",
     excerpt:
       "A practical compliance guide tying together OSHA worker safety, NACE or AMPP sour-service integrity requirements, and API operating practices for H2S management in oil and gas facilities.",
-    author: "Dr. Rajesh Patel",
+    author: "Vasudev Chemo Pharma",
     authorCredentials:
-      "Ph.D. Chemical Engineering, 15+ years in industrial chemistry & oilfield chemicals",
+      "ISO 9001:2015 Certified Manufacturer of Industrial & Specialty Chemicals",
     sections: [
       {
         heading: "Why H2S Compliance Spans More Than One Rulebook",
@@ -1594,9 +1594,9 @@ export const blogData: Record<string, BlogEntry> = {
       "Amine sweetening unit supported by MEA Triazine backup injection during upset conditions",
     excerpt:
       "How operators use MEA Triazine as backup or trim treatment when amine systems foam, lose circulation, or face temporary capacity shortfalls. Includes planning, limitations, and field implementation guidance.",
-    author: "Amit Sharma",
+    author: "Vasudev Chemo Pharma",
     authorCredentials:
-      "M.Tech Industrial Automation, 12+ years in chemical plant operations & oilfield applications",
+      "ISO 9001:2015 Certified Manufacturer of Industrial & Specialty Chemicals",
     sections: [
       {
         heading: "Why Backup Scavenging Matters Even at Amine Sites",
@@ -1676,9 +1676,9 @@ export const blogData: Record<string, BlogEntry> = {
       "Crude oil storage tanks with vapor control and H2S scavenger treatment system",
     excerpt:
       "Guide to controlling H2S in crude oil storage tanks, tank batteries, and vapor spaces. Covers vapor hazards, liquid-phase treatment, mixing needs, and how to avoid overdosing while protecting workers and tank-side equipment.",
-    author: "Dr. Rajesh Patel",
+    author: "Vasudev Chemo Pharma",
     authorCredentials:
-      "Ph.D. Chemical Engineering, 15+ years in industrial chemistry & oilfield chemicals",
+      "ISO 9001:2015 Certified Manufacturer of Industrial & Specialty Chemicals",
     sections: [
       {
         heading: "Why Tank-Side H2S Is Harder Than It Looks",
@@ -1758,9 +1758,9 @@ export const blogData: Record<string, BlogEntry> = {
       "Technical comparison of triazine, glyoxal, and iron sponge H2S removal technologies",
     excerpt:
       "Head-to-head comparison of MEA Triazine, glyoxal, and iron sponge for H2S removal. Understand where each technology fits, how they differ on footprint and waste, and which one usually wins on operational simplicity.",
-    author: "Dr. Rajesh Patel",
+    author: "Vasudev Chemo Pharma",
     authorCredentials:
-      "Ph.D. Chemical Engineering, 15+ years in industrial chemistry & oilfield chemicals",
+      "ISO 9001:2015 Certified Manufacturer of Industrial & Specialty Chemicals",
     sections: [
       {
         heading: "How the Three Technologies Differ at the Most Basic Level",
